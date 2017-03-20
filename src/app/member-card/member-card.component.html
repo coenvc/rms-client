@@ -1,0 +1,26 @@
+<li class="member-wrapper">
+  <div class="member-card">
+    <div class="col-md-6">
+      <div class="img-container pull-left">
+        <img [src]="prospect.imageLink" alt="" class="profile-picture">
+      </div>
+      <div class="member-short">
+        <h1 class="member-name">{{prospect.name}}</h1>
+        <h3 class="member-function">{{prospect.jobTitle}}</h3>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="verticalLine">
+        <div class="member-details">
+          <h4 class="member-address">{{prospect.streetname}} {{prospect.housenumber}}</h4>
+          <h4 class="member-address-details">{{prospect.zipCode}} {{prospect.city}}</h4>
+          <h4 class="member-address">{{prospect.emailAddress}}</h4>
+          <h4 class="member-address-details">{{prospect.phoneNumber}}</h4>
+        </div>
+      </div> 
+      
+      <div [ngClass]="prospect.status" class="member-status" >
+      </div>
+    </div>
+  </div>
+</li>

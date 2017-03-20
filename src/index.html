@@ -7,8 +7,55 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-  <app-root>Loading...</app-root>
+   <nav id="mast-head">
+        <img src="img/RotaryMBS_REV.png" alt="" class="header-logo">
+    </nav>
+    <div class="container">
+        <!--Search bar-->
+        <div class="group">
+            <input type="text" class="material-search" placeholder="Zoek..." required>
+            <span class="highlight"></span>
+            <span class="bar"></span>
+            <label><i></i></label>
+        </div>
+        <!--End search bar-->
+        <!--Member filter-->
+        <div class="row">
+            <div class="col-md-10">
+                <div class="member-filter">
+                    <ul class="member-filters">
+                        <li class="member-filter-item">
+                            <a href="#" class="member-filter-status status-accepted">Actief</a>
+                        </li>
+                        <li class="member-filter-item">
+                            <a href="#" class="member-filter-status status-non-active">Non-actief</a>
+                        </li>
+                        <li class="member-filter-item">
+                            <a href="#" class="member-filter-status status-ended">Beëindigd</a>
+                        </li>
+                        <li class="member-filter-item">
+                            <a href="#" class="member-filter-status status-denied">Geweigerd</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="material-button">
+                    +
+                </div>
+            </div>
+        </div>
+        <!--End member filter-->
+        <!--Member overview-->
+        <ul id="member-list">
+            <app-root></app-root>
+        </ul>
+    </div>
 </body>
 </html>

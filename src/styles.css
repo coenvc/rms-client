@@ -1,1 +1,337 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i');
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    height: 100%;
+    background-color: #e7e7e8;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#container-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+#container-login p {
+    max-width: 50%;
+    padding: 15px;
+    background-color: #f1f1f1;
+}
+
+#rotary-logo-login {
+    height: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.login-container {
+    background-color: #fff;
+    padding: 35px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+#input-container {
+    margin-top: 45px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 400px;
+}
+
+.btn-primary {
+    background-color: #0c3c7c;
+}
+
+.btn-primary:hover {
+    background-color: #0c3c7c;
+}
+
+#btn-login {
+    max-width: 400px;
+    width: 100%;
+}
+
+.form-control {
+    border: 1px solid #0c3c7c;
+}
+
+.form-control:focus {
+    border-color: #0c3c7c;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(23, 69, 143, .6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(23, 69, 143, .6);
+}
+
+#searchbar {
+    margin-top: 35px;
+}
+
+.member-card {
+    margin-top: 20px;
+    width: 100%;
+    height: 250px;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+}
+
+.member-card:hover {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+#member-list {
+    list-style: none;
+}
+
+.my-icon {
+    vertical-align: middle;
+    font-size: 40px;
+}
+
+.my-text {
+    font-family: "Courier-new";
+}
+
+#mast-head {
+    text-align: center;
+    width: 100%;
+    height: 100px;
+    background-color: #0c3c7c;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.header-logo{
+    text-align: center;
+    height: 75px;
+    width: auto;
+    margin-top: 12.5px;
+}
+
+
+.img-container {
+    margin: 25px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 0px !important;
+}
+
+.profile-picture {
+    width: auto;
+    /* or any custom size */
+    height: 200px;
+}
+
+.member-short {
+    margin-top: 75px;
+}
+
+.verticalLine {
+    border-left: 2px solid #0c3c7c;
+    height: 200px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 25px;
+}
+
+.member-details {
+    margin-top: 50px;
+}
+
+.member-details>h4 {
+    margin-left: 20px;
+}
+
+.member-status {
+    margin-top: 15px;
+    width: 100px;
+    display: inline-block;
+    float: right;
+    margin-right: 0px !important;
+    height: 220px;
+}
+
+.accepted {
+    background-color: #1bd442;
+}
+
+.denied {
+    background-color: #cc2f2e;
+}
+
+.non-active {
+    background-color: #f7941d;
+}
+
+.header-logo {
+    text-align: center;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+
+/* form starting stylings ------------------------------- */
+
+.group {
+    position: relative;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.material-search {
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #e7e7e8;
+    background-color: #e7e7e8;
+    -webkit-transition: border 500ms ease-out;
+    -moz-transition: border 500ms ease-out;
+    -o-transition: border 500ms ease-out;
+    transition: border 500ms ease-out;
+}
+
+.material-search:active,
+.material-search:focus {
+    border-bottom: 1px solid #0c3c7c;
+}
+
+input:focus {
+    outline: none;
+}
+
+
+/* LABEL ======================================= */
+
+label {
+    color: #999;
+    font-size: 18px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+.bar {
+    position: relative;
+    display: block;
+    width: 300px;
+}
+
+.bar:before,
+.bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 1px;
+    position: absolute;
+    background: #5264AE;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+.bar:before {
+    left: 50%;
+}
+
+.bar:after {
+    right: 50%;
+}
+
+input[type="text"]::-webkit-input-placeholder {
+    font-style: italic;
+    font-size: 20px;
+}
+
+input[type="text"]:-moz-placeholder {
+    font-style: italic;
+    font-size: 20px;
+}
+
+input[type="text"]:-ms-input-placeholder {
+    font-style: italic;
+    font-size: 20px;
+}
+
+.member-filter {
+    margin-bottom: 20px;
+    height: 50px;
+    line-height: 49px;
+    font-size: 15px;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+}
+
+.member-filter-status {
+    margin-left: 10%;
+    text-decoration: underline;
+    color: #687d90;
+}
+
+.member-filter-status::before {
+    content: "";
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+}
+
+.status-accepted::before {
+    background-color: #1bd442;
+}
+
+.status-ended::before {
+    background-color: #cc2f2e;
+}
+
+.status-denied::before {
+    background-color: #f1f1f1;
+}
+
+.status-denied:hover {
+    text-decoration: none;
+    color: #687d90;
+}
+
+.status-denied {
+    text-decoration: none;
+    font-style: italic;
+}
+
+.status-non-active::before {
+    background-color: #f7941d;
+}
+
+.member-filter-item {
+    display: inline;
+}
+
+.material-button {
+    height: 50px;
+    background-color: #0c3c7c;
+    text-align: center;
+    line-height: 50px;
+    color: #f7a81b;
+    font-size: 30px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+}
+
+.material-button:hover {
+    cursor: pointer;
+}
