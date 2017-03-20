@@ -1,19 +1,20 @@
+import { Address } from 'classes/Address'
+import { Profession } from "classes/Profession";
+import { SocialLinks } from "classes/SocialLinks";
+import { Status } from "classes/Status";
 export class Prospect{ 
-    id:number;
+    id:number; 
     name:string; 
-    jobTitle:string; 
-    phoneNumber:string; 
-    emailAddress:string; 
-    facebookLink:string; 
-    linkedinLink:string; 
-    status:string; 
-    streetname:string; 
-    housenumber:number; 
-    zipCode:string; 
-    city:string; 
-    imageLink:string;
-
+    phoneNumber:string;
+    address:Address;
+    profession:Profession; 
+    socialLinks:SocialLinks; 
+    status:Status; 
+    //TODO: Email address 
+    //TODO: ImageLink
     constructor(values: Object = {}) {
-    Object.assign(this, values);
+    Object.assign(this, values); 
+
   }
 }
+
