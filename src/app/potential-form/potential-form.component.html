@@ -1,0 +1,44 @@
+<div class="container" style="margin-top:40px">
+<form >
+    {{diagnostic}}
+    <br>    
+ <input type="text" [(ngModel)] = "prospect.name" name="voornaam" placeholder="naam"> 
+  <br>
+  <input type="text" name="beroep" [(ngModel)] = "prospect.profession.name" placeholder="beroep"> 
+  <br>
+  <textarea name="beschrijving" id="" cols="30" rows="10"></textarea> 
+  <br>
+  <input type="text" name="straatnaam" [(ngModel)] = "prospect.address.street" placeholder="straatnaam">  
+  <br>
+  <input type="text" name="huisnummer"  [(ngModel)] = "prospect.address.houseNumber" placeholder="huisnummer">
+  <br>
+  <input type="text" name="plaatsnaam" [(ngModel)] = "prospect.address.city" placeholder="plaatsnaam"> 
+  <br>
+  <input type="text" name="postcode" [(ngModel)] = "prospect.address.zipcode" placeholder="postcode"> 
+  <br>  
+  <input type="text" name="telefoonnummer" [(ngModel)] = "prospect.phoneNumber" placeholder="telefoonnummer"> 
+  <br>
+  <input type="text" name="emailadres" [(ngModel)] = "prospect.emailAddress" placeholder="emailadres"> 
+  <br>
+  <input type="text" name="facebook" [(ngModel)] = "prospect.socialLinks.facebook" placeholder="facebook"> 
+  <br>
+  <input type="text" name="twitter"[(ngModel)] = "prospect.socialLinks.twitter"  placeholder="twitter"> 
+  <br>
+  <input type="text" name="linkedin" [(ngModel)] = "prospect.socialLinks.linkdIn" placeholder="linkedin"> 
+<br>    
+  <button type="submit" (click)="showModel()" >Submit</button>
+  </form>
+</div>
+
+    <!--id:number; 
+    name:string; 
+    phoneNumber:string;
+    address:Address;
+    profession:Profession; 
+    socialLinks:SocialLinks; 
+    status:Status;   
+    emailAddress:String; 
+    imageLink:String  
+    //TODO: ImageLink
+    constructor(values: Object = {}) {
+    Object.assign(this, values); -->

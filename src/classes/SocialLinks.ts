@@ -1,10 +1,15 @@
-export class SocialLinks{ 
-    id:number; 
-    facebook:string; 
-    linkedIn: string; 
-    twitter:string; 
+export class SocialLinks {
+  id: number;
+  facebook: string;
+  linkdIn: string;
+  twitter: string;
 
-    constructor(values: Object = {}) {
-    Object.assign(this, values);
+  constructor(facebook: string, linkedIn: string, twitter: string, id?: number) {
+    this.facebook = facebook;
+    this.linkdIn = linkedIn;
+    this.twitter = twitter;
+    if (!id) {
+      this.id = id;
+    }
   }
 }

@@ -1,11 +1,12 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Prospect } from 'classes/prospect'
+import {ProspectDataService} from '../../src/app/prospect-data.service'
 @Pipe({
-  name: 'search'
+  name: 'search' 
 })
 export class SearchPipePipe implements PipeTransform {
-
-  transform(prospects: Prospect[], args: string): any { 
+  
+  transform(prospects: Prospect[], args: string): any {  
     console.log(args)
     if(!args){
       return prospects

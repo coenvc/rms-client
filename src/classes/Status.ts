@@ -1,9 +1,12 @@
-export class Status{ 
-    id:number; 
-    content:string;
+export class Status {
+  id: number;
+  content: string;
 
-    constructor(values: Object = {}) {
-    Object.assign(this, values);
+  constructor(content: string, id?: number) {
+    this.content = content;
+    if (!id) {
+      this.id = id;
+    }
   }
 }
 

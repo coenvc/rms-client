@@ -5,13 +5,17 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { MemberCardComponent } from './member-card/member-card.component';
-import { SearchPipePipe } from './search-pipe.pipe';
+import { SearchPipePipe } from '../pipes/search-pipe.pipe';
+import { FilterPipe } from '../pipes/filter.pipe';
+import { PotentialFormComponent } from './potential-form/potential-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MemberCardComponent,
-    SearchPipePipe
+    SearchPipePipe,
+    FilterPipe,
+    PotentialFormComponent
   ],
   imports: [
     BrowserModule,

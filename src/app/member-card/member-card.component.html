@@ -1,6 +1,6 @@
 <!--Search bar-->
 <div class="group">
-  <input type="text" class="material-search" placeholder="Zoek..." [(ngModel)]="name">
+  <input type="text" id="memver-search-bar"class="material-search" (click)="reloadMembers()" [(ngModel)]="name" placeholder="Zoek..." >
   <span class="highlight"></span>
   <span class="bar"></span>
   <label><i></i></label>
@@ -12,16 +12,17 @@
     <div class="member-filter">
       <ul class="member-filters">
         <li class="member-filter-item">
-          <a href="#" class="member-filter-status status-accepted">Actief</a>
+          <a (click)="filterMember($event)" attr="Active" class="member-filter-status status-accepted">Actief</a>
+          
         </li>
         <li class="member-filter-item">
-          <a href="#" class="member-filter-status status-non-active">Non-actief</a>
+          <a (click)="filterMember($event)" attr="Non-Active" class="member-filter-status status-non-active">Non-actief</a>
         </li>
         <li class="member-filter-item">
-          <a href="#" class="member-filter-status status-ended">Beëindigd</a>
+          <a (click)="filterMember($event)" attr="Ended" class="member-filter-status status-ended">Beëindigd</a>
         </li>
         <li class="member-filter-item">
-          <a href="#" class="member-filter-status status-denied">Geweigerd</a>
+          <a (click)="filterMember($event)" attr="Denied" class="member-filter-status status-denied">Geweigerd</a>
         </li>
       </ul>
     </div>
@@ -35,7 +36,7 @@
 <!--End member filter-->
 <!--Member overview-->
 <ul id="member-list">
-  <li *ngFor="let prospect of prospects |search:name " class="member-wrapper">
+  <li *ngFor="let prospect of prospects|search:name" class="member-wrapper">
     <div class="member-card">
       <div class="col-md-6">
         <div class="img-container pull-left">
@@ -51,7 +52,7 @@
           <div class="member-details">
             <h4 class="member-address">{{prospect.address.street}}  {{prospect.address.houseNumber}}</h4>
             <h4 class="member-address-details">{{prospect.address.city}} {{prospect.address.zipcode}} </h4>
-            <h4 class="member-address">test@testmail.com</h4>
+            <h4 class="member-address">{{prospect.emailAddress}}</h4>
             <h4 class="member-address-details">{{prospect.phoneNumber}}</h4>
           </div>
         </div>
