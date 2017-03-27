@@ -9,8 +9,8 @@ import { SearchPipePipe } from '../pipes/search-pipe.pipe';
 import { FilterPipe } from '../pipes/filter.pipe';
 import { PotentialFormComponent } from './potential-form/potential-form.component';
 import { LoginFormComponent } from './login-form/login-form.component'
-
 import { LoginService } from './login.service'
+import { routing } from "app/app.routes";
 
 @NgModule({
   declarations: [
@@ -25,7 +25,8 @@ import { LoginService } from './login.service'
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpModule
+    HttpModule,
+    routing
   ],
   providers: [
     LoginService
