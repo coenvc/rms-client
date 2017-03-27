@@ -13,7 +13,7 @@ import 'rxjs/add/operator/catch';
 export class ProspectDataService {
 
   //localhost prospect url 
-  private prospectUrl = 'http://84.24.62.136:8080/RMTSTEST/prospect/'; 
+  private prospectUrl = 'http://84.24.62.136:8080/api/prospect/'; 
   constructor (private http: Http) {} 
 
   getProspectById(id:number): Observable<Test>{  
@@ -27,5 +27,9 @@ export class ProspectDataService {
       test.groupBy(Prospect=> Prospect.Profession.name) 
       return test
       
+  } 
+
+  register(prospect:Prospect){ 
+    return this.http.post(this.prospectUrl+'register',prospect)
   }
 }

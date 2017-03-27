@@ -1,19 +1,31 @@
 <div class="container" style="margin-top:40px">
 <form >
-    {{diagnostic}}
-    <br>    
- <input type="text" [(ngModel)] = "prospect.name" name="voornaam" placeholder="naam"> 
-  <br>
+{{diagnostic}}
+  <br>     
+  <div class="row"> 
+    <input class="col-md-12" type="text" [(ngModel)] = "prospect.firstName" name="voornaam" placeholder="voornaam"> 
+    </div>
+  <br>  
+  <div class="row"> 
+   <input class="col-md-3 " type="text" [(ngModel)] = "prospect.infix" name="voornaam" placeholder="tussenvoegsel"> 
+   <input class="col-md-8  col-md-offset-1" type="text" [(ngModel)] = "prospect.surName" name="voornaam" placeholder="achternam"> 
+   </div>
+  <br> 
+  <div class="row"> 
   <input type="text" name="beroep" [(ngModel)] = "prospect.profession.name" placeholder="beroep"> 
+  </div>
   <br>
-  <textarea name="beschrijving" id="" cols="30" rows="10"></textarea> 
-  <br>
-  <input type="text" name="straatnaam" [(ngModel)] = "prospect.address.street" placeholder="straatnaam">  
+  <textarea class="col-md-12" name="beschrijving" placeholder="beschrijving" [(ngModel)]="prospect.description" id="" cols="30" rows="10"></textarea> 
+  <br>  
+  <select [(ngModel)] = "prospect.status.content" name="status" id="">
+  <option *ngFor="let status of status" [value]="status">{{status}}</option>
+  </select>
+  <!--<input type="text" name="straatnaam" [(ngModel)] = "prospect.address.street" placeholder="straatnaam">  
   <br>
   <input type="text" name="huisnummer"  [(ngModel)] = "prospect.address.houseNumber" placeholder="huisnummer">
   <br>
   <input type="text" name="plaatsnaam" [(ngModel)] = "prospect.address.city" placeholder="plaatsnaam"> 
-  <br>
+  <br> 
   <input type="text" name="postcode" [(ngModel)] = "prospect.address.zipcode" placeholder="postcode"> 
   <br>  
   <input type="text" name="telefoonnummer" [(ngModel)] = "prospect.phoneNumber" placeholder="telefoonnummer"> 
@@ -25,8 +37,8 @@
   <input type="text" name="twitter"[(ngModel)] = "prospect.socialLinks.twitter"  placeholder="twitter"> 
   <br>
   <input type="text" name="linkedin" [(ngModel)] = "prospect.socialLinks.linkdIn" placeholder="linkedin"> 
-<br>    
-  <button type="submit" (click)="showModel()" >Submit</button>
+<br>-->
+  <button type="submit" (click)="submit()" >Submit</button>
   </form>
 </div>
 

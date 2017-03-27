@@ -8,6 +8,7 @@ import { MemberCardComponent } from './member-card/member-card.component';
 import { SearchPipePipe } from '../pipes/search-pipe.pipe';
 import { FilterPipe } from '../pipes/filter.pipe';
 import { PotentialFormComponent } from './potential-form/potential-form.component';
+import { routing } from "app/app.routes";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,9 @@ import { PotentialFormComponent } from './potential-form/potential-form.componen
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    routing
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

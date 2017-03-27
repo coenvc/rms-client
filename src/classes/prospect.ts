@@ -12,9 +12,15 @@ export class Prospect{
      status:Status;   
      emailAddress:String; 
      imageLink:String  
-    //TODO: ImageLink
-    constructor(name:string,phonenNumber:string,address:Address,profession:Profession,socilaLinks:SocialLinks,status:Status,emailAddress:string,imageLink?:string,id?:number){ 
-        this.name = name; 
+     description:String; 
+     firstName:string; 
+     surName:string; 
+     infix:string;   
+    //TODO: ImageLink 
+    constructor(firstName:string,surName:string,infix:string,phonenNumber:string,address:Address,profession:Profession,socilaLinks:SocialLinks,status:Status,emailAddress:string,description:string,imageLink?:string,id?:number){ 
+        this.firstName = firstName;  
+        this.surName = surName; 
+        this.infix = infix;
         this.phoneNumber = phonenNumber; 
         this.address = address; 
         this.profession = profession; 
@@ -22,10 +28,11 @@ export class Prospect{
         this.status = status; 
         this.emailAddress = emailAddress; 
         this.imageLink = imageLink;   
-        if(!id){ 
+        this.description = description; 
+        this.firstName = firstName; 
+       if(!id){ 
             this.id = id;
         }
     }
-
 }
 
