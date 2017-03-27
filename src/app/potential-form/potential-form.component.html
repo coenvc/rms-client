@@ -12,32 +12,14 @@
    </div>
   <br> 
   <div class="row"> 
-  <input type="text" name="beroep" [(ngModel)] = "prospect.profession.name" placeholder="beroep"> 
-  </div>
-  <br>
-  <textarea class="col-md-12" name="beschrijving" placeholder="beschrijving" [(ngModel)]="prospect.description" id="" cols="30" rows="10"></textarea> 
-  <br>  
-  <select [(ngModel)] = "prospect.status.content" name="status" id="">
+  <input class="col-md-8" type="text" name="beroep" [(ngModel)] = "prospect.profession.name" placeholder="beroep"> 
+    <select class="col-md-3 col-md-offset-1" [(ngModel)] = "prospect.status.content" name="status" id="">
   <option *ngFor="let status of status" [value]="status">{{status}}</option>
   </select>
-  <!--<input type="text" name="straatnaam" [(ngModel)] = "prospect.address.street" placeholder="straatnaam">  
+  </div>
   <br>
-  <input type="text" name="huisnummer"  [(ngModel)] = "prospect.address.houseNumber" placeholder="huisnummer">
-  <br>
-  <input type="text" name="plaatsnaam" [(ngModel)] = "prospect.address.city" placeholder="plaatsnaam"> 
-  <br> 
-  <input type="text" name="postcode" [(ngModel)] = "prospect.address.zipcode" placeholder="postcode"> 
-  <br>  
-  <input type="text" name="telefoonnummer" [(ngModel)] = "prospect.phoneNumber" placeholder="telefoonnummer"> 
-  <br>
-  <input type="text" name="emailadres" [(ngModel)] = "prospect.emailAddress" placeholder="emailadres"> 
-  <br>
-  <input type="text" name="facebook" [(ngModel)] = "prospect.socialLinks.facebook" placeholder="facebook"> 
-  <br>
-  <input type="text" name="twitter"[(ngModel)] = "prospect.socialLinks.twitter"  placeholder="twitter"> 
-  <br>
-  <input type="text" name="linkedin" [(ngModel)] = "prospect.socialLinks.linkdIn" placeholder="linkedin"> 
-<br>-->
+  <textarea class="col-md-12" name="beschrijving" placeholder="beschrijving" [(ngModel)]="prospect.description" id="" cols="30" rows="10"></textarea>   
+  
   <button type="submit" (click)="submit()" >Submit</button>
   </form>
 </div>

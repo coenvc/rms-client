@@ -7,7 +7,7 @@ import {ProspectDataService} from '../../src/app/prospect-data.service'
 export class SearchPipePipe implements PipeTransform {
   
   transform(prospects: Prospect[], args: string): any {  
-    console.log(args)
+    console.log(prospects)
     if(!args){
       return prospects
     }  
@@ -16,7 +16,7 @@ export class SearchPipePipe implements PipeTransform {
     }
     else{ 
       return prospects.filter(prospect => 
-      prospect.name.toLowerCase()
+      prospect.fullName.toLowerCase()
       .indexOf(args.toLowerCase())!== -1)
     }
   } 

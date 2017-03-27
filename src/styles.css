@@ -294,6 +294,10 @@ input[type="text"]:-ms-input-placeholder {
 
 .status-accepted::before {
     background-color: #1bd442;
+} 
+
+.active{ 
+    background-color: #1bd442;
 }
 
 .status-ended::before {

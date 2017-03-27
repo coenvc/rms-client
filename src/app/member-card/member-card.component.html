@@ -12,17 +12,17 @@
     <div class="member-filter">
       <ul class="member-filters">
         <li class="member-filter-item">
-          <a (click)="filterMember($event)" attr="Active" class="member-filter-status status-accepted">Actief</a>
+          <a (click)="filterMember($event)" attr="active" class="member-filter-status status-accepted">Actief</a>
           
         </li>
         <li class="member-filter-item">
-          <a (click)="filterMember($event)" attr="Non-Active" class="member-filter-status status-non-active">Non-actief</a>
+          <a (click)="filterMember($event)" attr="non-active" class="member-filter-status status-non-active">Non-actief</a>
         </li>
         <li class="member-filter-item">
-          <a (click)="filterMember($event)" attr="Ended" class="member-filter-status status-ended">Beëindigd</a>
+          <a (click)="filterMember($event)" attr="ended" class="member-filter-status status-ended">Beëindigd</a>
         </li>
         <li class="member-filter-item">
-          <a (click)="filterMember($event)" attr="Denied" class="member-filter-status status-denied">Geweigerd</a>
+          <a (click)="filterMember($event)" attr="denied" class="member-filter-status status-denied">Geweigerd</a>
         </li>
       </ul>
     </div>
@@ -43,7 +43,7 @@
           <img src="http://www.pentascope.nl/wp-content/uploads/2013/03/Pasfoto-Michel.jpg" alt="" class="profile-picture">
         </div>
         <div class="member-short">
-          <h1 class="member-name">{{prospect.name}}</h1>
+          <h1 class="member-name">{{prospect.fullName}}</h1>
           <h3 class="member-function">{{prospect.profession.name}}</h3>
         </div>
       </div>

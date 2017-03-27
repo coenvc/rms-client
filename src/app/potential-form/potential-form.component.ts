@@ -22,8 +22,7 @@ export class PotentialFormComponent implements OnInit {
     let profession = new Profession("");  
     let social = new SocialLinks("","","");
     let status = new Status("");  
-    this.prospect = new Prospect("","","","",address,profession,social,status,"",""); 
-
+    this.prospect = new Prospect("","","","",address,profession,social,status,"","");   
   }  
 
   onsubmit(){ 
@@ -40,7 +39,7 @@ export class PotentialFormComponent implements OnInit {
           (response)=> console.log(response), 
           (error)=> console.log(error)
           );
-  }
+  } 
 
   //TODO: used for form debugging, remove when app goes into production 
   get diagnostic(){ 
