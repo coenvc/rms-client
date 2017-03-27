@@ -22,7 +22,6 @@ export class PotentialFormComponent implements OnInit {
     let social = new SocialLinks("http://www.myfacebook.com","http://www.mylinkedin.com","http://www.mytwitter.com");
     let status = new Status("Active");  
     this.prospect = new Prospect("Coen van Campenhout","0683992086",address,profession,social,status,"coenvc@gmail.com");
-    
   }  
  
   onsubmit(){ 
