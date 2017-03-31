@@ -14,13 +14,12 @@ export class Prospect {
     imageLink: String
     description: String;
     firstName: string;
-    surName: string;
+    surname: string;
     infix: string;
     fullName: string;
     //TODO: ImageLink 
-    constructor(firstName?: string, surName?: string, infix?: string, phonenNumber?: string, address?: Address, profession?: Profession, socilaLinks?: SocialLinks, status?: Status, emailAddress?: string, description?: string, imageLink?: string, id?: number, fullName?: string) {
+    constructor(firstName?: string, surname?: string, infix?: string, phonenNumber?: string, address?: Address, profession?: Profession, socilaLinks?: SocialLinks, status?: Status, emailAddress?: string, description?: string, imageLink?: string, id?: number, fullName?: string) {
         this.firstName = firstName;
-        this.surName = surName;
         this.infix = infix;
         this.phoneNumber = phonenNumber;
         this.address = address;
@@ -32,6 +31,7 @@ export class Prospect {
         this.description = description;
         this.firstName = firstName;
         this.fullName = fullName;
+        this.surname = surname;
         this.id = id;
 
     }

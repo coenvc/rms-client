@@ -13,17 +13,22 @@ import {ProspectDataService} from '../prospect-data.service';
 export class PotentialFormComponent implements OnInit {
   //Model used to bind form to 
   prospect:Prospect 
-  status:string[] = ["active","non-active","ended","denied"] 
+  status:string[]
   submittend = false; 
-  constructor(private prospectDataService:ProspectDataService) { }
+  constructor(private prospectDataService:ProspectDataService) {  
+    this.status = ["active","non-active","ended","denied"]  
+  }
 
   ngOnInit() {
     let address = new Address("","","",""); 
     let profession = new Profession("");  
     let social = new SocialLinks("","","");
     let status = new Status("");  
-    this.prospect = new Prospect("","","","",address,profession,social,status,"","");   
+    this.prospect = new Prospect("","","","",address,profession,social,status,"","");    
+    console.log(this.status[0]);
   }  
+
+
 
   onsubmit(){ 
     this.submittend = true;
@@ -38,7 +43,8 @@ export class PotentialFormComponent implements OnInit {
         .subscribe( 
           (response)=> console.log(response), 
           (error)=> console.log(error)
-          );
+          ); 
+    window.location.assign("/");
   } 
 
   //TODO: used for form debugging, remove when app goes into production 

@@ -30,6 +30,8 @@ export class ProspectDataService {
   } 
 
   register(prospect:Prospect){ 
-    return this.http.post(this.prospectUrl+'register',prospect)
+    alert("Nieuw lid succesvol toegevoegd!"); 
+    return this.http.post(this.prospectUrl+'register',prospect);
+    
   }
 }
