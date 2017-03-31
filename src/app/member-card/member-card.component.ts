@@ -23,7 +23,6 @@ export class MemberCardComponent implements OnInit {
     prospectDataService.getAll().subscribe(request=> this.initialProspects = request)
     prospectDataService.getAll().subscribe(request=>this.prospects = request);
    }
-
    reloadMembers(){ 
      console.log('entered a reload')
       if(this.prospects != this.initialProspects){ 
@@ -33,7 +32,6 @@ export class MemberCardComponent implements OnInit {
    }
 
    filterMember(e){    
-
       this.reloadMembers()   
       let memberStatus = e.srcElement.attributes[1].nodeValue;   
       let filterPipe = new FilterPipe() 
@@ -43,9 +41,10 @@ export class MemberCardComponent implements OnInit {
    searchmember(){ 
      console.log(this.name)
    }
+   
 
-  ngOnInit() {  
-  
+
+  ngOnInit() {   
 }
 
 }
