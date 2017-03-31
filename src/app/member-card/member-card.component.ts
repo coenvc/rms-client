@@ -5,6 +5,9 @@ import {ProspectDataService} from '../../../src/app/prospect-data.service'
 import {Test} from '../../../src/classes/TestProspect' 
 import {SearchPipePipe} from '../../pipes/search-pipe.pipe' 
 import {FilterPipe} from '../../pipes/filter.pipe'
+import { HeaderComponent } from '../header/header.component'
+
+
 @Component({
   selector: 'app-member-card',
   templateUrl: './member-card.component.html',
@@ -24,9 +27,7 @@ export class MemberCardComponent implements OnInit {
     prospectDataService.getAll().subscribe(request=>this.prospects = request);
    }
    reloadMembers(){ 
-     console.log('entered a reload')
       if(this.prospects != this.initialProspects){ 
-        console.log('reloaded')
         this.prospects = this.initialProspects  
       }
    }

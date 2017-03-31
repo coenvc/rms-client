@@ -28,7 +28,7 @@ export class LoginFormComponent implements OnInit {
   private login(res) {
     this.user = res;
     if (this.user.active) {
-      window.location.assign('/overview')
+      window.location.assign('/prospect')
     } else {
       alert("Gebruiker staat op non-actief.")
     }
