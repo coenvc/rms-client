@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../login.service';
 import { User } from '../../classes/user'
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,6 +14,7 @@ export class LoginFormComponent implements OnInit {
   constructor(private loginService: LoginService) { }
 
   private user: User;
+  private router = Router
 
   ngOnInit() {
 
@@ -25,6 +27,10 @@ export class LoginFormComponent implements OnInit {
 
   private login(res) {
     this.user = res;
-    console.log(this.user);
+    if (this.user.active) {
+      window.location.assign('/overview')
+    } else {
+      alert("Gebruiker staat op non-actief.")
+    }
   }
 }
