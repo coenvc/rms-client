@@ -1,0 +1,82 @@
+<div class="container" id="container-editMember">
+  <div class="editMember-container col-md-7">
+    <div id="input-container">
+      <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+        <div class="details-container" id="details-container personal">
+          <h1>Persoonlijke details</h1>
+          <div class="form-group">
+            <input type="text" class="form-control" id="FirstName" placeholder="Voornaam" name="firstname"
+                   autocomplete="off" required ngModel>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="Infix" placeholder="tussenvoegsel" name="infix"
+                   autocomplete="off" ngModel>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="Surname" placeholder="Achternaam" name="surname"
+                   autocomplete="off" required ngModel>
+          </div>
+          <div class="form-group">
+            <input type="url" class="form-control" id="picture" placeholder="URL naar profielfoto" name="image"
+                   autocomplete="off" ngModel>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="status" placeholder="Status" name="status"
+                   autocomplete="off" required ngModel>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="profession" placeholder="Beroep" name="profession"
+                   autocomplete="off" required ngModel>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="motivation" placeholder="Motivatie" name="motivation"
+                   autocomplete="off" ngModel>
+          </div>
+        </div>
+        <div class="details-container" id="details-container address">
+          <h1>Adresgegevens</h1>
+          <div class="form-group">
+            <input type="text" class="form-control" id="streetname" placeholder="Straat" name="streetname"
+                   autocomplete="off" required ngModel>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="homenumber" placeholder="Huisnummer" name="homenumber"
+                   autocomplete="off" required ngModel>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="zipcode" placeholder="Postcode" name="zipcode"
+                   autocomplete="off" required ngModel>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="city" placeholder="Plaats" name="city"
+                   autocomplete="off" required ngModel>
+          </div>
+        </div>
+        <div class="details-container" id="details-container contact">
+          <h1>Contactgegevens</h1>
+          <div class="form-group">
+            <input type="email" class="form-control" id="email" placeholder="E-mail adres" name="email"
+                   autocomplete="off" required ngModel>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="telephonenumber" placeholder="Telefoonnummer" name="telephonenumber"
+                   autocomplete="off" required ngModel>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="facebook" placeholder="facebook" name="facebook"
+                   autocomplete="off" ngModel>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="twitter" placeholder="twitter" name="twitter"
+                   autocomplete="off" ngModel>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" id="linkedin" placeholder="linkedin" name="linkedin"
+                   autocomplete="off" ngModel>
+          </div>
+        </div>
+        <button class="btn btn-primary" id="btn-savechanges" type="submit">Opslaan</button>
+      </form>
+    </div>
+  </div>
+</div>

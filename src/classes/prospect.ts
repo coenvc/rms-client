@@ -9,14 +9,14 @@ export class Prospect {
     public address: Address;
     public profession: Profession;
     public socialLinks: SocialLinks;
-    status: Status;
-    emailAddress: String;
-    imageLink: String
-    description: String;
+    public status: Status;
+    public emailAddress: String;
+    public imageLink: String
+    public description: String;
     public firstName: string;
     public surname: string;
-    infix: string;
-    fullName: string;
+    public infix: string;
+    public fullName: string;
     //TODO: ImageLink 
     constructor(firstName?: string, surname?: string, infix?: string, phonenNumber?: string, address?: Address, profession?: Profession, socilaLinks?: SocialLinks, status?: Status, emailAddress?: string, description?: string, imageLink?: string, id?: number, fullName?: string) {
         this.firstName = firstName;

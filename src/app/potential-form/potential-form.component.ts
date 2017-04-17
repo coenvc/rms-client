@@ -15,10 +15,11 @@ import { FormGroup, FormControl } from "@angular/forms";
 })
 export class PotentialFormComponent implements OnInit {
   //Model used to bind form to 
+  submittend = false; 
   prospect:Prospect; 
   status = ["active","non-active","ended","denied"]  
   potentialForm:FormGroup;
-  submittend = false; 
+
   constructor(private prospectDataService:ProspectDataService) {  
   }
 
@@ -48,13 +49,9 @@ export class PotentialFormComponent implements OnInit {
               .subscribe( 
                 (response) => console.log(response), 
                 (error) => alert(error)
-    );
+    ); 
   }
-
-  showModel(){ 
-    console.log(this.prospect);
-  } 
-
+  
   //TODO: used for form debugging, remove when app goes into production 
   get diagnostic(){ 
     return JSON.stringify(this.prospect)
