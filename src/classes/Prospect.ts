@@ -33,7 +33,6 @@ export class Prospect {
     this.fullName = fullName;
     this.surname = surname;
     this.id = id;
-
   }
 }
 
