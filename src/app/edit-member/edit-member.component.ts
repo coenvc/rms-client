@@ -1,7 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {ActivatedRoute} from "@angular/router";
 import {ProspectDataService} from "../../../src/app/prospect-data.service";
-import {Prospect} from "../../classes/prospect";
+import {Prospect} from "../../classes/Prospect";
 import {SocialLinks} from "../../classes/SocialLinks";
 import {Address} from "../../classes/Address";
 import {Status} from "../../classes/Status";
