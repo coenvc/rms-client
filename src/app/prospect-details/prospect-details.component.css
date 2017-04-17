@@ -1,0 +1,82 @@
+.prospect-details-wrapper {
+  margin-top: 40px;
+}
+
+.prospect-data {
+  background-color: #fff;
+  padding: 10px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  position: absolute;
+  min-height: 411px;
+}
+
+#street,
+#email {
+  margin-top: 20px;
+}
+
+#profile-picture {
+  float: right;
+  width: 150px;
+  margin-top: 20px;
+}
+
+.button-edit {
+  color: #0c3c7c;
+  font-weight: bold;
+  margin-top: 40px;
+}
+
+#prospect-description {
+  border-top: 1px solid black;
+  padding-top: 10px;
+}
+
+.btn-form-submit {
+  margin-top: 0px;
+}
+
+.appointment {
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  margin-top: 20px;
+  list-style: none;
+  height: 160px;
+  overflow: hidden;
+}
+
+.appointment-check {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #0c3c7c;
+  border-radius: 100%;
+  display: inline-block;
+}
+
+.appointment-status-content {
+  display: inline-block;
+  margin-left: 20px;
+  width: 100%;
+  margin-top: 0px;
+}
+
+.checked {
+  background-color: #1bd442;
+  border: none;
+}
+
+.appointment-title {
+  display: flex;
+}
+
+.activity-title {
+  margin-top: 0px;
+}
+
+.activity-status { 
+  padding-bottom: 5px;
+  border-bottom: 1px solid black;
+  height: 30px; 
+  overflow: hidden;
+}

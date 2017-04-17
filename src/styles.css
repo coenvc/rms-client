@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,100,200,800,700');
 * {
   margin: 0;
   padding: 0;
@@ -141,7 +141,8 @@ body {
 }
 
 .member-details {
-  margin-top: 50px;
+  margin-top: 50px; 
+  margin-left: 50px;
 }
 
 .member-details>h4 {
@@ -154,7 +155,7 @@ body {
   display: inline-block;
   float: right;
   margin-right: 0px !important;
-  height: 220px;
+  height: 220px; 
 }
 
 .Active {
@@ -460,4 +461,8 @@ button {
 a,
 a:hover {
   text-decoration: none;
+}
+
+.container{ 
+  width: 1400px;
 }

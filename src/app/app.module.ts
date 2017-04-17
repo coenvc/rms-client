@@ -13,6 +13,9 @@ import { LoginService } from './login.service'
 import { HeaderComponent } from './header/header.component'
 
 import { routing } from "app/app.routes";
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ProspectDetailsComponent } from './prospect-details/prospect-details.component';
+import { SettingsComponent } from './settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,10 @@ import { routing } from "app/app.routes";
     FilterPipe,
     PotentialFormComponent,
     LoginFormComponent,
-    HeaderComponent
+    HeaderComponent,
+    DashboardComponent,
+    ProspectDetailsComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,

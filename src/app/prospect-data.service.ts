@@ -18,15 +18,12 @@ export class ProspectDataService {
 
   getProspectById(id:number): Observable<Test>{  
       return this.http.get(this.prospectUrl+id) 
-      .map((res:Response)=>res.json())  
-  
+      .map((res:Response)=>res.json())
   } 
 
   getAll():Observable<Prospect[]>{ 
-      const test = Observable.from(this.http.get(this.prospectUrl+'all').map((res:Response)=>res.json())) 
-      console.log(test) 
-      return test
-      
+      const prospects = Observable.from(this.http.get(this.prospectUrl+'all').map((res:Response)=>res.json())) 
+      return prospects
   } 
 
   register(prospect:Prospect){ 

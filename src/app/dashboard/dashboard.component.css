@@ -1,0 +1,115 @@
+#tab-group {
+  margin-top: 50px !important;
+  margin: 0 auto;
+  width: 500px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.tabs:hover,
+.btn-login:hover {
+  cursor: pointer;
+}
+
+#tab-group .tabs {
+  line-height: 50px;
+  height: 50px;
+  display: inline-block;
+  background-color: #0c3c7c;
+  width: 50%;
+  box-sizing: border-box;
+  padding: 0;
+  float: left;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.selected {
+  background-color: #fff !important;
+  color: #0c3c7c !important;
+}
+
+.items-today {
+  margin-top: 160px;
+}
+
+.check {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background-color: transparent;
+  border: 2px solid white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  float: left;
+  line-height: 100px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.checked {
+  background-color: #1bd442 !important;
+}
+
+.item {
+  list-style: none;
+  height: 100px;
+}
+
+table {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.item-wrapper {
+  height: 100%;
+  margin-left: 70px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  width: 90%;
+  margin-top:20px;
+}
+
+.appointment-date,
+.appointment-by {
+  width: 15%;
+}
+
+.appointment-with,
+.appointment-type {
+  width: 35%;
+}
+
+th,
+td {
+  clear: both;
+  padding: 0px 20px 0px 20px;
+} 
+
+th:not(:first-child),
+td:not(:first-child){ 
+      border-left: 1px solid #0c3c7c;
+}
+
+td {
+  padding-top: 0px;
+}
+
+
+td>h4 {
+  font-weight: 400;
+}
+
+th {
+  margin-top: 10px !important;
+}
+
+.table-container {
+  height: 100%; 
+  padding-top: 10px; 
+  background-color: #fff;
+}
+
+.items-this-week, .items-this-month{ 
+  margin-top:50px;
+}
