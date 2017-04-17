@@ -24,12 +24,14 @@ export class ProspectDataService {
 
   getAll():Observable<Prospect[]>{ 
       const test = Observable.from(this.http.get(this.prospectUrl+'all').map((res:Response)=>res.json())) 
-      test.groupBy(Prospect=> Prospect.Profession.name) 
+      console.log(test) 
       return test
       
   } 
 
   register(prospect:Prospect){ 
-    return this.http.post(this.prospectUrl+'register',prospect)
+    alert("Nieuw lid succesvol toegevoegd!"); 
+    return this.http.post(this.prospectUrl+'register',prospect);
+    
   }
 }

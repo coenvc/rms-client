@@ -10,6 +10,8 @@ import { FilterPipe } from '../pipes/filter.pipe';
 import { PotentialFormComponent } from './potential-form/potential-form.component';
 import { LoginFormComponent } from './login-form/login-form.component'
 import { LoginService } from './login.service'
+import { HeaderComponent } from './header/header.component'
+
 import { routing } from "app/app.routes";
 
 @NgModule({
@@ -19,7 +21,8 @@ import { routing } from "app/app.routes";
     SearchPipePipe,
     FilterPipe,
     PotentialFormComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

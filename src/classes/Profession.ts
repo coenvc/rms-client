@@ -1,17 +1,11 @@
 export class Profession{ 
-    id:number; 
-    name:string; 
+    public id:number; 
+    public name:string; 
 
-  //   constructor(values: Object = {}) {
-  //   Object.assign(this, values);
-  // } 
-
-  constructor(name:string,id?:number){  
-    if(!id){
+  constructor(name?:string,id?:number){  
     this.id = id;   
-    }
     this.name = name; 
-  }
+}
 }
 
 

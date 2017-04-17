@@ -4,7 +4,10 @@ import { Address } from 'classes/Address'
 import { Profession } from "classes/Profession";
 import { SocialLinks } from "classes/SocialLinks";
 import { Status } from "classes/Status"; 
-import {ProspectDataService} from '../prospect-data.service'; 
+import {ProspectDataService} from '../prospect-data.service';
+import { HeaderComponent } from '../header/header.component'
+import { FormGroup, FormControl } from "@angular/forms";
+
 @Component({
   selector: 'app-potential-form',
   templateUrl: './potential-form.component.html',
@@ -12,35 +15,45 @@ import {ProspectDataService} from '../prospect-data.service';
 })
 export class PotentialFormComponent implements OnInit {
   //Model used to bind form to 
-  prospect:Prospect 
-  status:string[] = ["active","non-active","ended","denied"] 
+  prospect:Prospect; 
+  status = ["active","non-active","ended","denied"]  
+  potentialForm:FormGroup;
   submittend = false; 
-  constructor(private prospectDataService:ProspectDataService) { }
+  constructor(private prospectDataService:ProspectDataService) {  
+  }
 
   ngOnInit() {
-    let address = new Address("","","",""); 
-    let profession = new Profession("");  
-    let social = new SocialLinks("","","");
-    let status = new Status("");  
-    this.prospect = new Prospect("","","","",address,profession,social,status,"",""); 
-
+    this.potentialForm = new FormGroup({ 
+       'voornaam': new FormControl(null), 
+       'tussenvoegsel':new FormControl(""), 
+       'achternaam':new FormControl(null), 
+       'beroep':new FormControl(null),
+       'status':new FormControl("non-active"), 
+       'beschrijving':new FormControl(null)   
+    });
   }  
 
-  onsubmit(){ 
-    this.submittend = true;
+  onSubmit(){  
+    let formValues = this.potentialForm.value;  
+    this.prospect = new Prospect();   
+    this.prospect.firstName = formValues.voornaam; 
+    this.prospect.surname = formValues.achternaam;  
+    this.prospect.infix = formValues.tussenvoegsel;
+    this.prospect.profession = new Profession();
+    this.prospect.profession.name = formValues.beroep; 
+    this.prospect.status = new Status();
+    this.prospect.status.content = formValues.status; 
+    this.prospect.description = formValues.description;   
+    this.prospectDataService.register(this.prospect) 
+              .subscribe( 
+                (response) => console.log(response), 
+                (error) => alert(error)
+    );
   }
 
   showModel(){ 
     console.log(this.prospect);
   } 
-
-  submit(){ 
-    this.prospectDataService.register(this.prospect)
-        .subscribe( 
-          (response)=> console.log(response), 
-          (error)=> console.log(error)
-          );
-  }
 
   //TODO: used for form debugging, remove when app goes into production 
   get diagnostic(){ 
