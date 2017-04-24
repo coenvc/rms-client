@@ -5,7 +5,8 @@ import {Prospect} from "../../classes/Prospect";
 import {SocialLinks} from "../../classes/SocialLinks";
 import {Address} from "../../classes/Address";
 import {Status} from "../../classes/Status";
-import {Profession} from "../../classes/Profession";
+import {Profession} from "../../classes/Profession"; 
+
 
 @Component({
   selector: 'edit-member',

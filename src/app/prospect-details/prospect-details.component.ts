@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-prospect-details',
@@ -7,7 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProspectDetailsComponent implements OnInit {
 
-  addAppointmentModalVisible:boolean = false; 
+  addAppointmentModalVisible:boolean = false;  
+
+
 
   completeAppointmentModalVisible:boolean = false;
 

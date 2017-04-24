@@ -1,7 +1,10 @@
+<div *ngIf="addAppointmentModalVisible == true"> 
+<appointment-modal (onButtonClicked)="hideAppointmentModal()"></appointment-modal>
+</div>
 <rmts-header></rmts-header>
 <div class="prospect-details-wrapper">
   <div class="container">
-    <div class="col-md-4">
+    <div class="col-md-4"> 
       <h2>Gegegevens</h2>
       <div class="prospect-data">
         <div class="col-md-12" style="padding:0px !important">
@@ -30,7 +33,7 @@
     </div>
     <div class="col-md-8">
       <h2>Traject</h2>
-      <button style="width: 100%" type="submit" class="btn-form-submit">NIEUWE AFSPRAAK</button>
+      <button style="width: 100%" type="submit" (click)="showAppointmentModal()" class="btn-form-submit">NIEUWE AFSPRAAK</button>
       <ul id="appointments-overview">
         <li class="appointment">
           <div class="appointment-title">

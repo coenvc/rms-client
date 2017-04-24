@@ -15,6 +15,8 @@ import { routing } from "app/app.routes";
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProspectDetailsComponent } from './prospect-details/prospect-details.component';
 import { SettingsComponent } from './settings/settings.component';
+import { ModalComponent } from './modal/modal.component';
+import { AddAppointmentModalComponent } from './add-appointment-modal/add-appointment-modal.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { SettingsComponent } from './settings/settings.component';
     DashboardComponent,
     ProspectDetailsComponent,
     SettingsComponent,
-    EditMemberComponent
+    EditMemberComponent,
+    ModalComponent,
+    AddAppointmentModalComponent
   ],
   imports: [
     BrowserModule,
