@@ -18,6 +18,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { ModalComponent } from './modal/modal.component';
 import { AddAppointmentModalComponent } from './add-appointment-modal/add-appointment-modal.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,

@@ -1,6 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {ActivatedRoute} from "@angular/router";
 import {ProspectDataService} from "../../../src/app/prospect-data.service";
+import {StatusDataService} from "../../../src/app/status-data.service";
 import {Prospect} from "../../classes/Prospect";
 import {SocialLinks} from "../../classes/SocialLinks";
 import {Address} from "../../classes/Address";
@@ -15,18 +16,23 @@ import {Profession} from "../../classes/Profession";
 export class EditMemberComponent implements OnInit {
   id: number;
 
+  // Temp status array until it is fixed
+  statuses: Status[];
+
   prospect: Prospect;
   socialLinks: SocialLinks;
   address: Address;
   status: Status;
   profession: Profession;
 
-  constructor(private prospectDataService: ProspectDataService, private route: ActivatedRoute) {
+  constructor(private prospectDataService: ProspectDataService,
+              private statusDataService: StatusDataService,
+              private route: ActivatedRoute) {
   }
 
   ngOnInit() {
-    //this.getObject(2);
     this.route.params.subscribe(params => this.getObject(+params['id']));
+    this.statusDataService.getAll().subscribe(request => this.statuses = request);
   }
 
   private getObject(id: number) {
@@ -54,6 +60,6 @@ export class EditMemberComponent implements OnInit {
     this.prospect.status = this.status;
     this.prospect.profession = this.profession;
 
-    console.log(this.prospect)
+    this.prospectDataService.update(this.prospect);
   }
 }
