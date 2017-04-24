@@ -5,19 +5,18 @@ import {Prospect} from "../classes/Prospect";
 // Import RxJs required methods
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/catch";
+
 @Injectable()
-
-
 export class ProspectDataService {
 
   //localhost prospect url
   private prospectUrl = 'http://84.24.62.136:8080/api/prospect/';
 
 
-  getAll():Observable<Prospect[]>{ 
-      const prospects = Observable.from(this.http.get(this.prospectUrl+'all').map((res:Response)=>res.json())) 
+  getAll():Observable<Prospect[]>{
+      const prospects = Observable.from(this.http.get(this.prospectUrl+'all').map((res:Response)=>res.json()))
       return prospects
-  } 
+  }
 
   constructor(private http: Http) {
   }
@@ -30,5 +29,9 @@ export class ProspectDataService {
   register(prospect: Prospect) {
     alert("Nieuw lid succesvol toegevoegd!");
     return this.http.post(this.prospectUrl + 'register', prospect);
+  }
+
+  update(prospect: Prospect){
+    return this.http.put(this.prospectUrl + 'update', prospect);
   }
 }
