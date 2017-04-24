@@ -7,7 +7,36 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProspectDetailsComponent implements OnInit {
 
+  addAppointmentModalVisible:boolean = false; 
+
+  completeAppointmentModalVisible:boolean = false;
+
   constructor() { }
+ 
+  showAppointmentModal(){ 
+    this.addAppointmentModalVisible = true; 
+    console.log(this.addAppointmentModalVisible)
+  } 
+
+  hideAppointmentModal(){ 
+    this.addAppointmentModalVisible = false;
+  }  
+
+  postAppointment(){ 
+
+  } 
+
+  completeAppointment(){ 
+
+  }
+
+  showCompleteActionModal(){ 
+    this.completeAppointmentModalVisible = true;
+  } 
+
+  hideCompleteActionModal(){ 
+    this.completeAppointmentModalVisible = false;
+  }
 
   ngOnInit() {
   }
