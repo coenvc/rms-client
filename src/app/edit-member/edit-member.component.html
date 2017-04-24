@@ -21,8 +21,9 @@
                    placeholder="URL naar profielfoto" name="image" autocomplete="off" ngModel>
           </div>
           <div class="form-group">
-            <input [(ngModel)]="status.content" type="text" class="form-control" id="status"
-                   placeholder="Status" name="status" autocomplete="off" required ngModel>
+            <select [(ngModel)]="status" name="status">
+              <option *ngFor="let s of statuses" [ngValue]="s" name="iets">{{s.content}}</option>
+            </select>
           </div>
           <div class="form-group">
             <input [(ngModel)]="profession.name" type="text" class="form-control" id="profession"
