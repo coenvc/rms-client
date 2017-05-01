@@ -4,9 +4,9 @@ import { Observable } from "rxjs/Rx";
 import { Action } from "classes/Action";
 import { host, folder } from "classes/global";
 import { Prospect } from "classes/Prospect";
-
+import {ActionType} from "classes/ActionType";
 @Injectable()
-export class ActionServiceService {
+export class ActionService {
   apiUrl = host + folder;
   constructor(private http:Http) { 
 
@@ -34,6 +34,12 @@ export class ActionServiceService {
       const Action = Observable.from(this.http.get("http://84.24.62.136:8080/api/action/"+id).map((res:Response)=>res.json())) 
       console.log(Action); 
       return Action;
-  } 
+  }  
+
+getActionTypes():Observable<ActionType[]>{ 
+    const Action = Observable.from(this.http.get("http://84.24.62.136:8080/api/actionType/all").map((res:Response)=>res.json())) 
+      console.log(Action); 
+      return Action;
+}
 
 }

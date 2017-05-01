@@ -1,6 +1,8 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 import { Prospect } from "classes/Prospect";
 import { ProspectDataService } from "app/prospect-data.service";
+import { ActionService } from "app/action-service.service";
+import { Action } from "classes/Action";
 
 @Component({
   selector: 'app-prospect-details',
@@ -9,22 +11,29 @@ import { ProspectDataService } from "app/prospect-data.service";
 })
 export class ProspectDetailsComponent implements OnInit {
 
+  Actions: Action[];
   Prospect: Prospect;
   addAppointmentModalVisible: boolean = false;
   completeAppointmentModalVisible: boolean = false;
-  providers: [ProspectDataService]
+  providers: [ProspectDataService,ActionService]
 
-  constructor(ProspectDataService: ProspectDataService) { 
+  constructor(ProspectDataService: ProspectDataService, ActionsDataService: ActionService) { 
     
     this.Prospect = new Prospect();
-    ProspectDataService.getProspectById(3).subscribe(
+    ProspectDataService.getProspectById(42).subscribe(
       request => this.Prospect = request,
       error => console.log(this.Prospect)
     )
-    ProspectDataService.getProspectById(3).subscribe(
+    ProspectDataService.getProspectById(42).subscribe(
       request => console.log(request),
       error => console.log(this.Prospect)
-    )  
+    )    
+
+    ActionsDataService.getByProspectId(42).subscribe( 
+      request => console.log(request), 
+      error => console.log(error)
+    );
+
   }
 
   showAppointmentModal() {

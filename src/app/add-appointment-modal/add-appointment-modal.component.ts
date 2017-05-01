@@ -13,7 +13,7 @@ export class AddAppointmentModalComponent implements OnInit {
 
 @Output() onButtonClicked: EventEmitter<any> = new EventEmitter<any>();
 currentUser:User; 
-currentProspect:Prospect; 
+currentProspect:Prospect;  
 
   submitForm(){     
     console.log(this.currentProspect);
