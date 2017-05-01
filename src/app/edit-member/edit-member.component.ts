@@ -6,7 +6,7 @@ import {Prospect} from "../../classes/Prospect";
 import {SocialLinks} from "../../classes/SocialLinks";
 import {Address} from "../../classes/Address";
 import {Status} from "../../classes/Status";
-import {Profession} from "../../classes/Profession"; 
+import {Profession} from "../../classes/Profession";
 
 
 @Component({
@@ -60,6 +60,9 @@ export class EditMemberComponent implements OnInit {
     this.prospect.status = this.status;
     this.prospect.profession = this.profession;
 
-    this.prospectDataService.update(this.prospect);
+    //console.log(this.prospect);
+    //console.log(JSON.stringify(this.prospect));
+
+    this.prospectDataService.update(this.prospect).subscribe(request => console.log(request));
   }
 }

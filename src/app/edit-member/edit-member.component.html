@@ -22,7 +22,9 @@
           </div>
           <div class="form-group">
             <select [(ngModel)]="status" name="status">
-              <option *ngFor="let s of statuses" [ngValue]="s" name="iets">{{s.content}}</option>
+              <option *ngFor="let s of statuses" [ngValue]="s" name="s">
+                {{s.content}}
+              </option>
             </select>
           </div>
           <div class="form-group">

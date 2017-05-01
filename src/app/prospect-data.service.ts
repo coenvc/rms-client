@@ -11,7 +11,7 @@ export class ProspectDataService {
 
   //localhost prospect url
   private prospectUrl = 'http://84.24.62.136:8080/api/prospect/';
-
+  private headers = new Headers({'Content-Type': 'application/json'});
 
   getAll():Observable<Prospect[]>{
       const prospects = Observable.from(this.http.get(this.prospectUrl+'all').map((res:Response)=>res.json()))
@@ -32,6 +32,6 @@ export class ProspectDataService {
   }
 
   update(prospect: Prospect){
-    return this.http.put(this.prospectUrl + 'update', prospect);
+    return this.http.put(this.prospectUrl + 'update', prospect, this.headers);
   }
 }
