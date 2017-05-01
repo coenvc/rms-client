@@ -8,6 +8,7 @@ import "rxjs/add/operator/catch";
 
 @Injectable()
 export class ProspectDataService {
+    res: any;
 
   //localhost prospect url
   private prospectUrl = 'http://84.24.62.136:8080/api/prospect/';
@@ -21,10 +22,19 @@ export class ProspectDataService {
   constructor(private http: Http) {
   }
 
-  getProspectById(id: number): Observable<Prospect> {
-    return this.http.get(this.prospectUrl + id).map((res: Response) => res.json())
+  getProspectById(id: number): Observable<Prospect> {      
+    return this.http 
+           .get(this.prospectUrl+id) 
+           .map(request =>{
+                this.res =  request.json();   
+                return request.json()   
+           });  
   }
 
+  private extractData(res: Response) {
+    let body = res.json();
+    return body.data || { };
+  }
 
   register(prospect: Prospect) {
     alert("Nieuw lid succesvol toegevoegd!");

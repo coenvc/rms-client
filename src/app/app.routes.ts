@@ -5,6 +5,7 @@ import {LoginFormComponent} from 'app/login-form/login-form.component';
 import { EditMemberComponent } from 'app/edit-member/edit-member.component';
 import { ProspectDetailsComponent } from "app/prospect-details/prospect-details.component";
 import { SettingsComponent } from "app/settings/settings.component";
+import { DashboardComponent } from "app/dashboard/dashboard.component";
 
 const APP_ROUTES: Routes = [
   {path: '', component: ProspectDetailsComponent},

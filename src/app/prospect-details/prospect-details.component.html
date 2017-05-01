@@ -9,23 +9,28 @@
       <div class="prospect-data">
         <div class="col-md-12" style="padding:0px !important">
           <div class="col-md-8" style="padding:0px !important">
-            <h3 id="name">Henk de Vries</h3>
-            <h4 id="profession">Dokter</h4>
-            <h4 id="street">Kerkstraat 34</h4>
-            <h4 id="zip-code">5123PO</h4>
-            <h4 id="city">Tilburg</h4>
-            <h4 id="email">henk@hotmail.com</h4>
+            <h3 id="name">{{Prospect.fullName}}</h3> 
+            <div *ngIf="Prospect.profession != undefined">
+            <h4 id="profession">{{Prospect.profession.name}}</h4>
+            </div> 
+            <div *ngIf="Prospect.address != undefined"> 
+            <h4 id="street">{{Prospect.address.street}} {{Prospect.address.houseNumber}}</h4>
+            <h4 id="zip-code">{{Prospect.address.zipcode}}</h4>
+            <h4 id="city">{{Prospect.address.city}}</h4>
+            <h4 id="email">{{Prospect.emailAddress}}</h4>
             <h4 id="phone">06 456 890 34</h4>
+            </div>
           </div>
-          <div class="col-md-4" style="padding:0px !important">
-            <img id="profile-picture" src="http://www.pentascope.nl/wp-content/uploads/2013/03/Pasfoto-Michel.jpg" alt="">
+          <div class="col-md-4" style="padding:0px !important"> 
+            <div *ngIf="Prospect.imageUrl != undefined">
+              <img id="profile-picture" [src]="Prospect.imageUrl" alt="">
+            </div>
           </div>
           <hr>
         </div>
         <div class="col-md-12" style="padding:0px !important">
           <p id="prospect-description">
-            Hier komt de motivatie.... Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent blandit vulputate dapibus. Donec
-            eleifend purus eget nisi pulvinar vehicula. Nunc sollicitudin eu est nec facilisis. Sed enim diam, viverra
+            {{Prospect.description}}
           </p>
           <a href="#" class="button-edit">BEWERKEN</a>
         </div>

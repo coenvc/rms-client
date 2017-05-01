@@ -1,4 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Action } from "classes/Action";
+import { User } from "classes/user";
+import { Prospect } from "classes/Prospect";
 
 
 @Component({
@@ -9,19 +12,22 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 export class AddAppointmentModalComponent implements OnInit { 
 
 @Output() onButtonClicked: EventEmitter<any> = new EventEmitter<any>();
+currentUser:User; 
+currentProspect:Prospect; 
 
+  submitForm(){     
+    console.log(this.currentProspect);
+    console.log(this.currentUser); 
 
-  submitForm(){  
-    
     this.onButtonClicked.emit()
-
   }
  
   constructor() { 
-
   }
 
-  ngOnInit() {
+  ngOnInit() {  
+    this.currentProspect = JSON.parse(localStorage.getItem('currentProspect'));
+    this.currentUser =  JSON.parse(localStorage.getItem('currentUser')); 
   }
 
 }
