@@ -21,9 +21,10 @@
                    placeholder="URL naar profielfoto" name="image" autocomplete="off" ngModel>
           </div>
           <div class="form-group">
+            <!--TODO: Make the default value of this the status this person already has-->
             <select [(ngModel)]="status" name="status">
-              <option *ngFor="let s of statuses" [ngValue]="s" name="s">
-                {{s.content}}
+              <option *ngFor="let s of statuses" [ngValue]="s">
+              {{s.content}}
               </option>
             </select>
           </div>

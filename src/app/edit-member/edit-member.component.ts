@@ -51,6 +51,8 @@ export class EditMemberComponent implements OnInit {
     this.address = prospect.address;
     this.status = prospect.status;
     this.profession = prospect.profession;
+
+    console.log(this.status.id + " " + this.status.content)
   }
 
   onSubmit() {
@@ -61,7 +63,7 @@ export class EditMemberComponent implements OnInit {
     this.prospect.profession = this.profession;
 
     //console.log(this.prospect);
-    //console.log(JSON.stringify(this.prospect));
+    console.log(JSON.stringify(this.prospect));
 
     this.prospectDataService.update(this.prospect).subscribe(request => console.log(request));
   }
