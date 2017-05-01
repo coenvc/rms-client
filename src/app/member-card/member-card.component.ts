@@ -4,7 +4,8 @@ import {NgClass} from "@angular/common";
 import {ProspectDataService} from "../../../src/app/prospect-data.service";
 import {Test} from "../../../src/classes/TestProspect";
 import {SearchPipePipe} from "../../pipes/search-pipe.pipe";
-import {FilterPipe} from "../../pipes/filter.pipe";
+import { FilterPipe } from "../../pipes/filter.pipe";
+import { User } from "classes/user";
 
 
 @Component({
@@ -20,7 +21,8 @@ export class MemberCardComponent implements OnInit {
   name: string = ''
   initialProspects: Prospect[]
   directives: [NgClass]
-  providers: [ProspectDataService]
+  providers: [ProspectDataService] 
+  currentUser:User;
 
   constructor(prospectDataService: ProspectDataService) {
     prospectDataService.getAll().subscribe(request => this.initialProspects = request)
@@ -45,7 +47,9 @@ export class MemberCardComponent implements OnInit {
   }
 
 
-  ngOnInit() {
+  ngOnInit() { 
+     this.currentUser = JSON.parse(localStorage.getItem('currentUser')); 
+     console.log(this.currentUser);
   }
 
 }
