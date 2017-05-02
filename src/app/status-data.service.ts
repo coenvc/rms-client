@@ -21,5 +21,7 @@ export class StatusDataService {
 
   getStatusById(id: number): Observable<Status> {
     return this.http.get(this.statusUrl + id).map((res: Response) => res.json())
-  }
+  } 
+
+
 }

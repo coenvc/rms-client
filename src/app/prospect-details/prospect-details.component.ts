@@ -27,12 +27,23 @@ export class ProspectDetailsComponent implements OnInit {
     ProspectDataService.getProspectById(42).subscribe(
       request => console.log(request),
       error => console.log(this.Prospect)
-    )    
+    ) 
 
-    ActionsDataService.getByProspectId(42).subscribe( 
-      request => console.log(request), 
-      error => console.log(error)
-    );
+    ActionsDataService.getProspectActionsUnsorted(42).subscribe(
+      request=> this.Actions = request, 
+      error=> console.log(error)
+    )
+
+     ActionsDataService.getProspectActionsUnsorted(42).subscribe(
+      request=> console.log(request), 
+      error=> console.log(error)
+    )
+
+
+    // ActionsDataService.getByProspectId(42).subscribe( 
+    //   request => this.Actions = request, 
+    //   error => console.log(error)
+    // );
 
   }
 

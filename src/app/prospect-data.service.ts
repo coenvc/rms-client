@@ -18,7 +18,6 @@ export class ProspectDataService {
       const prospects = Observable.from(this.http.get(this.prospectUrl+'all').map((res:Response)=>res.json()))
       return prospects
   }
-
   constructor(private http: Http) {
   }
 

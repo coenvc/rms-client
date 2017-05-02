@@ -30,11 +30,9 @@
     <div class="row">
       <div class="col-md-12" style="padding-right: 0% !important;">
         <input style="width:83%" class="form-field" type="text" formControlName="beroep"  placeholder="beroep">
-        <select class="form-field" style="width:14.4%; margin-left:1%;"  formControlName="status" id="">
+        <select class="form-field" style="width:14.4%; margin-left:1%;" [(ngModel)]="Prospect.actionType"  formControlName="status" id="">
       <option *ngFor="let status of status" 
-      [selected]="status[0]" 
-      
-      [value]="status">{{status}}</option>
+      [ngValue]="status">{{status}}</option>
   </select>
       </div>
     </div>

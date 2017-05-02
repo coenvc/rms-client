@@ -37,54 +37,21 @@
       </div>
     </div>
     <div class="col-md-8">
-      <h2>Traject</h2>
+      <h2>Traject</h2> 
       <button style="width: 100%" type="submit" (click)="showAppointmentModal()" class="btn-form-submit">NIEUWE AFSPRAAK</button>
       <ul id="appointments-overview">
-        <li class="appointment">
+        <li  *ngFor = "let Action of Actions" class="appointment">
           <div class="appointment-title">
-            <div class="appointment-check"></div>
+            <div class="appointment-check"[ngClass]=" Action.completed==true ? ' checked' : ' '"></div>
             <div class="appointment-status-content">
-              <h3 class="activity-title">Bellen</h3>
-              <h4 class="activity-status">Nog niet afgerond</h4>
-              <p class="activity-description"></p>
-            </div>
-          </div>
-        </li>
-        <li class="appointment">
-          <div class="appointment-title">
-            <div class="appointment-check checked"></div>
-            <div class="appointment-status-content">
-              <h3 class="activity-title">Meeting</h3>
-              <h4 class="activity-status">12-12-2017, Casper Pijnenburg</h4>
+              <h3 class="activity-title">{{Action.actionType.content}}</h3>
+              <h4 class="activity-status">{{Action.date}}, {{Action.user.name}}</h4>
               <p class="activity-description">
-                Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American
-                crime. Do you believe that shit? It actually says that in the little book that comes with it: the most popular
-                gun in American crime. Like they're actually proud of that shit. Look, just because I don't be givin' no
-                man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin'
-                up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill
-                the motherfucker, know what I'm sayin'?
+                {{Action.description}}
               </p>
             </div>
           </div>
         </li>
-                <li class="appointment">
-          <div class="appointment-title">
-            <div class="appointment-check checked"></div>
-            <div class="appointment-status-content">
-              <h3 class="activity-title">Meeting</h3>
-              <h4 class="activity-status">12-12-2017, Casper Pijnenburg</h4>
-              <p class="activity-description">
-                Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American
-                crime. Do you believe that shit? It actually says that in the little book that comes with it: the most popular
-                gun in American crime. Like they're actually proud of that shit. Look, just because I don't be givin' no
-                man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin'
-                up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill
-                the motherfucker, know what I'm sayin'?
-              </p>
-            </div>
-          </div>
-        </li>
-        
       </ul>
     </div>
   </div>
