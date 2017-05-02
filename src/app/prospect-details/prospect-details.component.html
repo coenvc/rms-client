@@ -1,27 +1,27 @@
-<div *ngIf="addAppointmentModalVisible == true"> 
+<div *ngIf="addAppointmentModalVisible == true">
 <appointment-modal (onButtonClicked)="hideAppointmentModal()"></appointment-modal>
 </div>
 <rmts-header></rmts-header>
 <div class="prospect-details-wrapper">
   <div class="container">
-    <div class="col-md-4"> 
+    <div class="col-md-4">
       <h2>Gegegevens</h2>
       <div class="prospect-data">
         <div class="col-md-12" style="padding:0px !important">
           <div class="col-md-8" style="padding:0px !important">
-            <h3 id="name">{{Prospect.fullName}}</h3> 
-            <div *ngIf="Prospect.profession != undefined">
-            <h4 id="profession">{{Prospect.profession.name}}</h4>
-            </div> 
-            <div *ngIf="Prospect.address != undefined"> 
-            <h4 id="street">{{Prospect.address.street}} {{Prospect.address.houseNumber}}</h4>
-            <h4 id="zip-code">{{Prospect.address.zipcode}}</h4>
-            <h4 id="city">{{Prospect.address.city}}</h4>
-            <h4 id="email">{{Prospect.emailAddress}}</h4>
+            <h3 id="name">{{Prospect.fullName}}</h3>
+            <div *ngIf="profession != undefined">
+            <h4 id="profession">{{profession.name}}</h4>
+            </div>
+            <div *ngIf="address != undefined">
+            <h4 id="street">{{address.street}} {{address.houseNumber}}</h4>
+            <h4 id="zip-code">{{address.zipcode}}</h4>
+            <h4 id="city">{{address.city}}</h4>
+            <h4 id="email">{{emailAddress}}</h4>
             <h4 id="phone">06 456 890 34</h4>
             </div>
           </div>
-          <div class="col-md-4" style="padding:0px !important"> 
+          <div class="col-md-4" style="padding:0px !important">
             <div *ngIf="Prospect.imageUrl != undefined">
               <img id="profile-picture" [src]="Prospect.imageUrl" alt="">
             </div>
@@ -84,7 +84,7 @@
             </div>
           </div>
         </li>
-        
+
       </ul>
     </div>
   </div>
