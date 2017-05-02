@@ -46,7 +46,7 @@ export class ProspectDetailsComponent implements OnInit {
     this.profession = new Profession();
 
     this.ProspectDataService.getProspectById(id)
-      .subscribe(request => console.log(this.Prospect = request),
+      .subscribe(request => console.log(this.splitObject(request)),
         error => console.log(error));
 
     this.ActionsDataService.getByProspectId(id)
