@@ -19,6 +19,7 @@ import { ModalComponent } from './modal/modal.component';
 import { AddAppointmentModalComponent } from './add-appointment-modal/add-appointment-modal.component';
 import { ActionService } from "app/action-service.service";
 import { ProspectDataService } from "app/prospect-data.service";
+import { CompleteActionModalComponent } from './complete-action-modal/complete-action-modal.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { ProspectDataService } from "app/prospect-data.service";
     SettingsComponent,
     EditMemberComponent,
     ModalComponent,
-    AddAppointmentModalComponent
+    AddAppointmentModalComponent,
+    CompleteActionModalComponent
   ],
   imports: [
     BrowserModule,

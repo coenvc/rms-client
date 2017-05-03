@@ -1,6 +1,10 @@
 <div *ngIf="addAppointmentModalVisible == true"> 
-<appointment-modal (onButtonClicked)="hideAppointmentModal()"></appointment-modal>
-</div>
+<appointment-modal (onButtonClicked)="hideAppointmentModal()"></appointment-modal> 
+</div> 
+<div *ngIf="completeAppointmentModalVisible == true"> 
+<complete-action-modal (onButtonClicked)="hideCompleteActionModal()" ></complete-action-modal> 
+</div> 
+
 <rmts-header></rmts-header>
 <div class="prospect-details-wrapper">
   <div class="container">
@@ -42,7 +46,7 @@
       <ul id="appointments-overview">
         <li  *ngFor = "let Action of Actions" class="appointment">
           <div class="appointment-title">
-            <div class="appointment-check"[ngClass]=" Action.completed==true ? ' checked' : ' '"></div>
+            <div (click)=showCompleteActionModal($event) class="appointment-check"[ngClass]=" Action.completed==true ? ' checked' : ' '"  [attr.id]="Action.id"></div>
             <div class="appointment-status-content">
               <h3 class="activity-title">{{Action.actionType.content}}</h3>
               <h4 class="activity-status">{{Action.date}}, {{Action.user.name}}</h4>

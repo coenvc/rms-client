@@ -20,13 +20,13 @@ export class AddAppointmentModalComponent implements OnInit {
   currentUser:User; 
   currentProspect:Prospect;  
   Appointment:Action = new Action;
-  ActionTypes:ActionType[];
+  ActionTypes:ActionType[]; 
+
   constructor(public ActionService:ActionService) {    
     this.Appointment.actionType = new ActionType();
     ActionService.getActionTypes().subscribe(request=>this.ActionTypes = request);  
   }
  
-
   submitForm(){   
     this.getActionTypeById(this.test);
     this.Appointment.description = " ";
@@ -41,10 +41,6 @@ export class AddAppointmentModalComponent implements OnInit {
     this.onButtonClicked.emit() 
   }
  
-
-  onchange(action) {
-    console.log(action)
-  }
   ngOnInit() {   
     this.currentProspect = JSON.parse(localStorage.getItem('currentProspect'));
     this.currentUser =  JSON.parse(localStorage.getItem('currentUser'));   

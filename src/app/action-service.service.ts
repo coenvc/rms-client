@@ -52,6 +52,12 @@ getActionTypes():Observable<ActionType[]>{
 
   getProspectActionsUnsorted(id:number){ 
     return Observable.from(this.http.get("http://84.24.62.136:8080/api/action/all/unsorted/prospect/"+id).map((res: Response)=> res.json()));
+  } 
+
+  updateAction(action:Action){ 
+    return this.http.put("http://84.24.62.136:8080/api/action/update",action) 
+                  .map((res:Response) => res.json()) 
+                  .catch((error:any)=>Observable.throw(error.json().error || 'Server Error'))
   }
 
 }
