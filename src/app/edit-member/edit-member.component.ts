@@ -32,7 +32,8 @@ export class EditMemberComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => this.getObject(+params['id']));
-    this.statusDataService.getAll().subscribe(request => this.statuses = request);
+    this.statusDataService.getAll().subscribe(request => this.statuses = request,
+      error => console.log(error));
   }
 
   private getObject(id: number) {
@@ -42,7 +43,9 @@ export class EditMemberComponent implements OnInit {
     this.status = new Status();
     this.profession = new Profession();
 
-    this.prospectDataService.getProspectById(id).subscribe(request => this.splitObject(request));
+    this.prospectDataService.getProspectById(id)
+      .subscribe(request => this.splitObject(request),
+      error => console.log(error));
   }
 
   private splitObject(prospect: Prospect) {
@@ -65,6 +68,8 @@ export class EditMemberComponent implements OnInit {
     //console.log(this.prospect);
     console.log(JSON.stringify(this.prospect));
 
-    this.prospectDataService.update(this.prospect).subscribe(request => console.log(request));
+    this.prospectDataService.update(this.prospect)
+      .subscribe(request => console.log(request),
+        error => console.log(error));
   }
 }

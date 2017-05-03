@@ -1,44 +1,77 @@
 <rmts-header></rmts-header>
 <div class="settings-wrapper">
-  <div class="container"> 
-    <div class="col-md-4"> 
-      <h1>Statussen</h1> 
+  <div class="container">
+    <div class="col-md-4">
+
+
+      <h1>Statussen</h1>
       <!--Search + Add-->
-      <input type="text" id="memver-search-bar" class="material-search settings-search" placeholder="Zoek..."> 
-      <div class="material-button add-setting">+</div> 
-      <!--Items--> 
-      <ul class="settings-items"> 
-        <li class="item">   
-            <h4 class="item-description">Actief    <a href="#" class="fa fa-trash item-icons" aria-hidden="true"></a> <a href="#" class="fa fa-pencil item-icons" aria-hidden="true"></a></h4>
+      <input type="text" class="memver-search-bar material-search settings-search" placeholder="Zoek..."
+             [(ngModel)]="statusesSearch">
+      <div class="material-button add-setting">+</div>
+      <!--Items-->
+      <ul class="settings-items">
+
+        <li class=item *ngFor="let xeller of statuses">
+          <h4 class="item-description">{{xeller.content}}
+            <a href="#" class="fa fa-trash item-icons" aria-hidden="true"></a>
+            <a href="#" class="fa fa-pencil item-icons" aria-hidden="true"></a>
+          </h4>
         </li>
+
       </ul>
-      <div class="material-button settings-overview"><a class="fa fa-angle-left" aria-hidden="true"></a> 1 van 12 <a class="fa fa-angle-right" aria-hidden="true"></a></div>
+      <div class="material-button settings-overview">
+        <a class="fa fa-angle-left" aria-hidden="true"></a> 1 van {{statusesCount}}
+        <a class="fa fa-angle-right" aria-hidden="true"></a>
+      </div>
     </div>
-        <div class="col-md-4"> 
-      <h1>Beroepen</h1> 
+    <div class="col-md-4">
+
+
+      <h1>Beroepen</h1>
       <!--Search + Add-->
-      <input type="text" id="memver-search-bar" class="material-search settings-search" placeholder="Zoek..."> 
-      <div class="material-button add-setting">+</div> 
-      <!--Items--> 
-      <ul class="settings-items"> 
-        <li class="item">   
-            <h4 class="item-description">Actief    <a href="#" class="fa fa-trash item-icons" aria-hidden="true"></a> <a href="#" class="fa fa-pencil item-icons" aria-hidden="true"></a></h4>
+      <input type="text" class="memver-search-bar material-search settings-search" placeholder="Zoek..."
+             [(ngModel)]="professionsSearch">
+      <div class="material-button add-setting">+</div>
+      <!--Items-->
+      <ul class="settings-items">
+
+        <li class=item *ngFor="let xeller of professions">
+          <h4 class="item-description">{{xeller.name}}
+            <a href="#" class="fa fa-trash item-icons" aria-hidden="true"></a>
+            <a href="#" class="fa fa-pencil item-icons" aria-hidden="true"></a>
+          </h4>
         </li>
+
       </ul>
-      <div class="material-button settings-overview"><a class="fa fa-angle-left" aria-hidden="true"></a> 1 van 12 <a class="fa fa-angle-right" aria-hidden="true"></a></div>
+      <div class="material-button settings-overview">
+        <a class="fa fa-angle-left" aria-hidden="true"></a> 1 van {{professionsCount}}
+        <a class="fa fa-angle-right" aria-hidden="true"></a>
+      </div>
     </div>
-        <div class="col-md-4"> 
-      <h1>Acties</h1> 
+    <div class="col-md-4">
+
+
+      <h1>Acties</h1>
       <!--Search + Add-->
-      <input type="text" id="memver-search-bar" class="material-search settings-search" placeholder="Zoek..."> 
-      <div class="material-button add-setting">+</div> 
-      <!--Items--> 
-      <ul class="settings-items"> 
-        <li class="item">   
-            <h4 class="item-description">Actief    <a href="#" class="fa fa-trash item-icons" aria-hidden="true"></a> <a href="#" class="fa fa-pencil item-icons" aria-hidden="true"></a></h4>
+      <input type="text" class="memver-search-bar material-search settings-search" placeholder="Zoek..."
+             [(ngModel)]="actiontypesSearch">
+      <div class="material-button add-setting">+</div>
+      <!--Items-->
+      <ul class="settings-items">
+
+        <li class=item *ngFor="let xeller of actiontypes">
+          <h4 class="item-description">{{xeller.content}}
+            <a href="#" class="fa fa-trash item-icons" aria-hidden="true"></a>
+            <a href="#" class="fa fa-pencil item-icons" aria-hidden="true"></a>
+          </h4>
         </li>
+
       </ul>
-      <div class="material-button settings-overview"><a class="fa fa-angle-left" aria-hidden="true"></a> 1 van 12 <a class="fa fa-angle-right" aria-hidden="true"></a></div>
+      <div class="material-button settings-overview">
+        <a class="fa fa-angle-left" aria-hidden="true"></a> 1 van {{actiontypesCount}}
+        <a class="fa fa-angle-right" aria-hidden="true"></a>
+      </div>
     </div>
   </div>
 </div>

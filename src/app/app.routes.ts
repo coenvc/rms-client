@@ -8,9 +8,12 @@ import { SettingsComponent } from "app/settings/settings.component";
 import { DashboardComponent } from "app/dashboard/dashboard.component";
 
 const APP_ROUTES: Routes = [
-  {path: '', component: ProspectDetailsComponent},
+  {path: '', component: LoginFormComponent},
   {path: 'prospect', component: MemberCardComponent},
   {path: 'prospect/add', component: PotentialFormComponent},
-  {path: 'prospect/edit/:id', component: EditMemberComponent}
+  {path: 'prospect/:id', component: ProspectDetailsComponent},
+  {path: 'prospect/edit/:id', component: EditMemberComponent},
+  {path: 'settings', component: SettingsComponent},
+  {path: 'dashboard', component: DashboardComponent}
 ];
 export const routing = RouterModule.forRoot(APP_ROUTES);

@@ -19,8 +19,13 @@ import { ModalComponent } from './modal/modal.component';
 import { AddAppointmentModalComponent } from './add-appointment-modal/add-appointment-modal.component';
 import { ActionService } from "app/action-service.service";
 import { ProspectDataService } from "app/prospect-data.service";
+<<<<<<< HEAD
 import { CompleteActionModalComponent } from './complete-action-modal/complete-action-modal.component';
 
+=======
+import { ActiontypeDataService } from "app/actiontype-data.service";
+import {ProfessionDataService} from "app/profession-data.service";
+>>>>>>> f23ab88151e11a6d496e2416615e36aff9626421
 
 @NgModule({
   declarations: [
@@ -47,9 +52,11 @@ import { CompleteActionModalComponent } from './complete-action-modal/complete-a
     routing
   ],
   providers: [
-    LoginService, 
-    ActionService, 
-    ProspectDataService
+    LoginService,
+    ActionService,
+    ProspectDataService,
+    ProfessionDataService,
+    ActiontypeDataService
   ],
   bootstrap: [AppComponent]
 })
