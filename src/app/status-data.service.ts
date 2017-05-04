@@ -22,6 +22,8 @@ export class StatusDataService {
   getStatusById(id: number): Observable<Status> {
     return this.http.get(this.statusUrl + id).map((res: Response) => res.json())
   } 
-
+  postStatus(Status:Status){ 
+      return this.http.post("http://84.24.62.136:8080/api/status/insert",Status); 
+  }
 
 }

@@ -26,6 +26,11 @@ export class SettingsComponent implements OnInit {
   professionsSearch: string = "";
   actiontypesSearch: string = "";
 
+  Status:Status = new Status(); 
+  Profession:Profession = new Profession(); 
+  ActionType:ActionType = new ActionType();
+  
+
   constructor(private statusDataService: StatusDataService,
               private professionDataService: ProfessionDataService,
               private actiontypedataService: ActiontypeDataService) {
@@ -50,11 +55,23 @@ export class SettingsComponent implements OnInit {
   mapAndCountActiontype(request: ActionType[]) {
     this.actiontypes = request;
     this.actiontypesCount = this.actiontypes.length.toString();
+  }  
+
+  postStatus(){ 
+    this.statusDataService.postStatus(this.Status) 
+                          .subscribe(request => console.log(request))
+  } 
+
+  postActionType(){ 
+    this.actiontypedataService.register(this.ActionType) 
+                              .subscribe(request => console.log(request))
   }
 
-  LogLists() {
-    console.log(this.statuses);
-    console.log(this.professions);
-    console.log(this.actiontypes);
+  postProfession(){   
+    console.log(this.Profession)
+    this.professionDataService.register(this.Profession) 
+         .subscribe(request => console.log(request)); 
+    // this.statusDataService.post()
   }
+
 }

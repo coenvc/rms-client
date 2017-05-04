@@ -1,5 +1,5 @@
 export class User {
-    id: Number
+    id: number
     username: String
     name: String
     active: Boolean

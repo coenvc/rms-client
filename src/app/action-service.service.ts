@@ -6,7 +6,8 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { folder, host } from "classes/global";
 import { Action } from "classes/Action";
-import { ActionType } from "classes/ActionType";
+import { ActionType } from "classes/ActionType"; 
+import {ActionOverview} from "classes/ActionOverview"
 @Injectable()
 export class ActionService {
   apiUrl = host + folder;
@@ -58,6 +59,17 @@ getActionTypes():Observable<ActionType[]>{
     return this.http.put("http://84.24.62.136:8080/api/action/update",action) 
                   .map((res:Response) => res.json()) 
                   .catch((error:any)=>Observable.throw(error.json().error || 'Server Error'))
+  } 
+
+  getUserActionOverview(id:number):Observable<ActionOverview>{ 
+    return this.http.get("http://84.24.62.136:8080/api/action/all/user/"+id) 
+                    .map((res:Response)=>res.json()) 
+
+  } 
+
+  getAllActionsOverview():Observable<ActionOverview>{ 
+    return this.http.get("http://84.24.62.136:8080/api/action/all/") 
+                    .map((res:Response)=>res.json()) 
   }
 
 }

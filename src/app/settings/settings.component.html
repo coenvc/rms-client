@@ -7,7 +7,7 @@
       <h1>Statussen</h1>
       <!--Search + Add-->
       <input type="text" class="memver-search-bar material-search settings-search" placeholder="Zoek..."
-             [(ngModel)]="statusesSearch">
+          [(ngModel)]="Status.content">
       <div class="material-button add-setting">+</div>
       <!--Items-->
       <ul class="settings-items">
@@ -31,8 +31,8 @@
       <h1>Beroepen</h1>
       <!--Search + Add-->
       <input type="text" class="memver-search-bar material-search settings-search" placeholder="Zoek..."
-             [(ngModel)]="professionsSearch">
-      <div class="material-button add-setting">+</div>
+             [(ngModel)]="Profession.name">
+      <div class="material-button add-setting" (click)="postProfession()">+</div>
       <!--Items-->
       <ul class="settings-items">
 
@@ -55,8 +55,8 @@
       <h1>Acties</h1>
       <!--Search + Add-->
       <input type="text" class="memver-search-bar material-search settings-search" placeholder="Zoek..."
-             [(ngModel)]="actiontypesSearch">
-      <div class="material-button add-setting">+</div>
+             [(ngModel)]="ActionType.content">
+      <div (click)="postActionType()" class="material-button add-setting">+</div>
       <!--Items-->
       <ul class="settings-items">
 

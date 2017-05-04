@@ -4,82 +4,81 @@
       <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
         <div class="details-container" id="details-container personal">
           <h1>Persoonlijke details</h1>
-          <div class="form-group">
-            <input [(ngModel)]="prospect.firstName" type="text" class="form-control" id="FirstName"
-                   placeholder="Voornaam" name="firstname" autocomplete="off" required ngModel>
-          </div>
-          <div class="form-group">
-            <input [(ngModel)]="prospect.infix" type="text" class="form-control" id="Infix"
-                   placeholder="tussenvoegsel" name="infix" autocomplete="off" ngModel>
-          </div>
-          <div class="form-group">
-            <input [(ngModel)]="prospect.surname" type="text" class="form-control" id="Surname"
-                   placeholder="Achternaam" name="surname" autocomplete="off" required ngModel>
-          </div>
-          <div class="form-group">
-            <input [(ngModel)]="prospect.imageUrl" type="url" class="form-control" id="picture"
-                   placeholder="URL naar profielfoto" name="image" autocomplete="off" ngModel>
-          </div>
-          <div class="form-group">
+
+            <input [(ngModel)]="prospect.firstName" type="text" class="form-field" id="FirstName"
+                   placeholder="Voornaam" style="width:100%" name="firstname" autocomplete="off" required ngModel> 
+
+            <input [(ngModel)]="prospect.infix" type="text" class="form-field" id="Infix"
+                   placeholder="tussenvoegsel" style="width:100%" name="infix" autocomplete="off" ngModel>
+
+
+            <input [(ngModel)]="prospect.surname" type="text" class="form-field" id="Surname"
+                   placeholder="Achternaam" style="width:100%" name="surname" autocomplete="off" required ngModel>
+
+       
+            <input [(ngModel)]="prospect.imageUrl" type="url" class="form-field" id="picture"
+                   placeholder="URL naar profielfoto" style="width:100%" name="image" autocomplete="off" ngModel> 
+
+
             <!--TODO: Make the default value of this the status this person already has-->
-            <select [(ngModel)]="status" name="status">
+            <select class="form-field" style="width:100%" [(ngModel)]="status" name="status">
               <option *ngFor="let s of statuses" [ngValue]="s">
               {{s.content}}
               </option>
             </select>
-          </div>
-          <div class="form-group">
-            <input [(ngModel)]="profession.name" type="text" class="form-control" id="profession"
+
+
+            <input class="form-field" style="width:100%" [(ngModel)]="profession.name" type="text" class="form-field" id="profession"
                    placeholder="Beroep" name="profession" autocomplete="off" required ngModel>
-          </div>
-          <div class="form-group">
-            <input [(ngModel)]="prospect.description" type="text" class="form-control" id="motivation"
+
+
+            <input [(ngModel)]="prospect.description" type="text" class="form-field" style="width:100%" id="motivation"
                    placeholder="Motivatie" name="motivation" autocomplete="off" ngModel>
-          </div>
+
         </div>
         <div class="details-container" id="details-container address">
           <h1>Adresgegevens</h1>
           <div class="form-group">
-            <input [(ngModel)]="address.street" type="text" class="form-control" id="streetname"
+            <input [(ngModel)]="address.street" type="text"  class="form-field" style="width:100%"  id="streetname"
                    placeholder="Straat" name="streetname" autocomplete="off" required ngModel>
           </div>
           <div class="form-group">
-            <input [(ngModel)]="address.houseNumber" type="text" class="form-control" id="homenumber"
+            <input [(ngModel)]="address.houseNumber" type="text"  class="form-field" style="width:100%"  id="homenumber"
                    placeholder="Huisnummer" name="homenumber" autocomplete="off" required ngModel>
           </div>
           <div class="form-group">
-            <input [(ngModel)]="address.zipcode" type="text" class="form-control" id="zipcode"
+            <input [(ngModel)]="address.zipcode" type="text"  class="form-field" style="width:100%"  id="zipcode"
                    placeholder="Postcode" name="zipcode" autocomplete="off" required ngModel>
           </div>
           <div class="form-group">
-            <input [(ngModel)]="address.city" type="text" class="form-control" id="city"
+            <input [(ngModel)]="address.city" type="text" class="form-field" style="width:100%" id="city"
                    placeholder="Plaats" name="city" autocomplete="off" required ngModel>
           </div>
         </div>
         <div class="details-container" id="details-container contact">
           <h1>Contactgegevens</h1>
           <div class="form-group">
-            <input [(ngModel)]="prospect.emailAddress" type="email" class="form-control" id="email"
+            <input [(ngModel)]="prospect.emailAddress" type="email" class="form-field" style="width:100%" id="email"
                    placeholder="E-mail adres" name="email" autocomplete="off" required ngModel>
           </div>
           <div class="form-group">
-            <input [(ngModel)]="prospect.phoneNumber" type="text" class="form-control" id="telephonenumber"
+            <input [(ngModel)]="prospect.phoneNumber" type="text" class="form-field" style="width:100%" id="telephonenumber"
                    placeholder="Telefoonnummer" name="telephonenumber" autocomplete="off" required ngModel>
           </div>
           <div class="form-group">
-            <input [(ngModel)]="socialLinks.facebook" type="text" class="form-control" id="facebook"
+            <input [(ngModel)]="socialLinks.facebook" type="text" class="form-field" style="width:100%" id="facebook"
                    placeholder="facebook" name="facebook" autocomplete="off" ngModel>
           </div>
           <div class="form-group">
-            <input [(ngModel)]="socialLinks.twitter" type="text" class="form-control" id="twitter"
+            <input [(ngModel)]="socialLinks.twitter" type="text" class="form-field" style="width:100%" id="twitter"
                    placeholder="twitter" name="twitter" autocomplete="off" ngModel>
           </div>
           <div class="form-group">
-            <input [(ngModel)]="socialLinks.linkedIn" type="text" class="form-control" id="linkedin"
+            <input [(ngModel)]="socialLinks.linkedIn" type="text" class="form-field" style="width:100%" id="linkedin"
                    placeholder="linkedin" name="linkedin" autocomplete="off" ngModel>
           </div>
         </div>
-        <button class="btn btn-primary" id="btn-savechanges" type="submit">Opslaan</button>
+        <button id="btn-savechanges" style="width: 100%" type="submit" class="btn-form-submit">Toevoegen</button>
       </form>
     </div>
   </div>
