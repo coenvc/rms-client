@@ -380,7 +380,7 @@ input,
 textarea,
 select,
 button {
-  /*Used important bc overriding bootstrap*/
+ 
   padding-left: 0px !important;
   border: none;
 }
