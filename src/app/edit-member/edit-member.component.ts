@@ -16,14 +16,12 @@ import {Profession} from "../../classes/Profession";
 export class EditMemberComponent implements OnInit {
   id: number;
 
-  // Temp status array until it is fixed
   statuses: Status[];
 
   prospect: Prospect;
   socialLinks: SocialLinks;
   address: Address;
   status: Status;
-  selectedStatus: Status;
   profession: Profession;
 
   constructor(private prospectDataService: ProspectDataService,
@@ -46,7 +44,7 @@ export class EditMemberComponent implements OnInit {
 
     this.prospectDataService.getProspectById(id)
       .subscribe(request => this.splitObject(request),
-      error => console.log(error));
+        error => console.log(error));
   }
 
   private splitObject(prospect: Prospect) {
@@ -55,26 +53,21 @@ export class EditMemberComponent implements OnInit {
     this.address = prospect.address;
     this.status = prospect.status;
     this.profession = prospect.profession;
-
-    console.log(this.status.id + " " + this.status.content)
   }
 
   onSubmit() {
-    console.log("Status: " + this.status.content);
-    console.log("selectedStatus: " + this.selectedStatus.content);
-
     // Merge the objects back to Prospect
     this.prospect.socialLinks = this.socialLinks;
     this.prospect.address = this.address;
     this.prospect.status = this.status;
     this.prospect.profession = this.profession;
 
-    console.log(this.prospect);
+    //console.log(this.prospect);
     //console.log(JSON.stringify(this.prospect));
 
-     this.prospectDataService.update(this.prospect)
-       .subscribe(request => console.log(request),
-         error => console.log(error)
-       );
+    this.prospectDataService.update(this.prospect)
+      .subscribe(request => console.log(request),
+        error => console.log(error)
+      );
   }
 }
