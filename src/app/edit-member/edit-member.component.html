@@ -25,11 +25,9 @@
             ngModel>
 
           <h4>Status <span class="required-field">*</span></h4>
-          <select class="form-field minimal" style="width:15%" name="status">
-              <option *ngFor="let s of statuses" [(ngValue)]="selectedStatus" [selected]="s.id == status.id">
-              {{s.content}}
-              </option>
-            </select>
+          <select class="form-field minimal" style="width:15%" [(ngModel)]="status" name="status">
+            <option *ngFor="let status of statuses" [ngValue]="status">{{ status.content }}</option>
+          </select>
 
           <h4>Beroep <span class="required-field">*</span></h4>
           <input class="form-field" style="width:100%" [(ngModel)]="profession.name" type="text" class="form-field" id="profession"
