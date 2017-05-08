@@ -23,6 +23,7 @@ export class EditMemberComponent implements OnInit {
   socialLinks: SocialLinks;
   address: Address;
   status: Status;
+  selectedStatus: Status;
   profession: Profession;
 
   constructor(private prospectDataService: ProspectDataService,
@@ -59,17 +60,21 @@ export class EditMemberComponent implements OnInit {
   }
 
   onSubmit() {
+    console.log("Status: " + this.status.content);
+    console.log("selectedStatus: " + this.selectedStatus.content);
+
     // Merge the objects back to Prospect
     this.prospect.socialLinks = this.socialLinks;
     this.prospect.address = this.address;
     this.prospect.status = this.status;
     this.prospect.profession = this.profession;
 
-    //console.log(this.prospect);
-    console.log(JSON.stringify(this.prospect));
+    console.log(this.prospect);
+    //console.log(JSON.stringify(this.prospect));
 
-    this.prospectDataService.update(this.prospect)
-      .subscribe(request => console.log(request),
-        error => console.log(error));
+     this.prospectDataService.update(this.prospect)
+       .subscribe(request => console.log(request),
+         error => console.log(error)
+       );
   }
 }
