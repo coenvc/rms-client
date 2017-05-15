@@ -1,27 +1,31 @@
+
 <div *ngIf="addAppointmentModalVisible == true"> 
-<appointment-modal (onButtonClicked)="hideAppointmentModal()"></appointment-modal>
-</div>
+<appointment-modal (onButtonClicked)="hideAppointmentModal()"></appointment-modal> 
+</div> 
+<div *ngIf="completeAppointmentModalVisible == true"> 
+<complete-action-modal (onButtonClicked)="hideCompleteActionModal()" ></complete-action-modal> 
+</div> 
 <rmts-header></rmts-header>
 <div class="prospect-details-wrapper">
   <div class="container">
-    <div class="col-md-4"> 
+    <div class="col-md-4">
       <h2>Gegegevens</h2>
       <div class="prospect-data">
         <div class="col-md-12" style="padding:0px !important">
           <div class="col-md-8" style="padding:0px !important">
-            <h3 id="name">{{Prospect.fullName}}</h3> 
-            <div *ngIf="Prospect.profession != undefined">
-            <h4 id="profession">{{Prospect.profession.name}}</h4>
-            </div> 
-            <div *ngIf="Prospect.address != undefined"> 
-            <h4 id="street">{{Prospect.address.street}} {{Prospect.address.houseNumber}}</h4>
-            <h4 id="zip-code">{{Prospect.address.zipcode}}</h4>
-            <h4 id="city">{{Prospect.address.city}}</h4>
-            <h4 id="email">{{Prospect.emailAddress}}</h4>
-            <h4 id="phone">06 456 890 34</h4>
+            <h3 id="name">{{Prospect.fullName}}</h3>
+            <div *ngIf="profession != undefined">
+            <h4 id="profession">{{profession.name}}</h4>
+            </div>
+            <div *ngIf="address != undefined">
+            <h4 id="street">{{address.street}} {{address.houseNumber}}</h4>
+            <h4 id="zip-code">{{address.zipcode}}</h4>
+            <h4 id="city">{{address.city}}</h4>
+            <h4 id="email">{{emailAddress}}</h4>
+            <h4 id="phone">{{Prospect.phoneNumber}}</h4>
             </div>
           </div>
-          <div class="col-md-4" style="padding:0px !important"> 
+          <div class="col-md-4" style="padding:0px !important">
             <div *ngIf="Prospect.imageUrl != undefined">
               <img id="profile-picture" [src]="Prospect.imageUrl" alt="">
             </div>
@@ -32,59 +36,26 @@
           <p id="prospect-description">
             {{Prospect.description}}
           </p>
-          <a href="#" class="button-edit">BEWERKEN</a>
         </div>
+         <a href="#" class="btn-link pull-down">BEWERKEN</a>
       </div>
     </div>
     <div class="col-md-8">
-      <h2>Traject</h2>
-      <button style="width: 100%" type="submit" (click)="showAppointmentModal()" class="btn-form-submit">NIEUWE AFSPRAAK</button>
+      <h2>Traject</h2> 
+      <button style="width: 100%" type="submit" (click)="showAppointmentModal()" class="btn-primary btn-block">NIEUWE AFSPRAAK</button>
       <ul id="appointments-overview">
-        <li class="appointment">
+        <li  *ngFor = "let Action of Actions" class="appointment">
           <div class="appointment-title">
-            <div class="appointment-check"></div>
+            <div (click)=showCompleteActionModal($event) class="appointment-check"[ngClass]=" Action.completed==true ? ' checked' : ' '"  [attr.id]="Action.id"></div>
             <div class="appointment-status-content">
-              <h3 class="activity-title">Bellen</h3>
-              <h4 class="activity-status">Nog niet afgerond</h4>
-              <p class="activity-description"></p>
-            </div>
-          </div>
-        </li>
-        <li class="appointment">
-          <div class="appointment-title">
-            <div class="appointment-check checked"></div>
-            <div class="appointment-status-content">
-              <h3 class="activity-title">Meeting</h3>
-              <h4 class="activity-status">12-12-2017, Casper Pijnenburg</h4>
+              <h3 class="activity-title">{{Action.actionType.content}}</h3>
+              <h4 class="activity-status">{{Action.date}}, {{Action.user.name}}</h4>
               <p class="activity-description">
-                Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American
-                crime. Do you believe that shit? It actually says that in the little book that comes with it: the most popular
-                gun in American crime. Like they're actually proud of that shit. Look, just because I don't be givin' no
-                man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin'
-                up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill
-                the motherfucker, know what I'm sayin'?
+                {{Action.description}}
               </p>
             </div>
           </div>
         </li>
-                <li class="appointment">
-          <div class="appointment-title">
-            <div class="appointment-check checked"></div>
-            <div class="appointment-status-content">
-              <h3 class="activity-title">Meeting</h3>
-              <h4 class="activity-status">12-12-2017, Casper Pijnenburg</h4>
-              <p class="activity-description">
-                Now that there is the Tec-9, a crappy spray gun from South Miami. This gun is advertised as the most popular gun in American
-                crime. Do you believe that shit? It actually says that in the little book that comes with it: the most popular
-                gun in American crime. Like they're actually proud of that shit. Look, just because I don't be givin' no
-                man a foot massage don't make it right for Marsellus to throw Antwone into a glass motherfuckin' house, fuckin'
-                up the way the nigger talks. Motherfucker do that shit to me, he better paralyze my ass, 'cause I'll kill
-                the motherfucker, know what I'm sayin'?
-              </p>
-            </div>
-          </div>
-        </li>
-        
       </ul>
     </div>
   </div>

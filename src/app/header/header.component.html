@@ -1,4 +1,13 @@
-
-  <nav id="mast-head">
-    <img src="../../img/RotaryMBS_REV.png" alt="" class="header-logo">
-  </nav>
+<nav class="navbar rmts-header">
+  <div class="container">
+    <div class="navbar-header">
+      <img src="../../img/RotaryMBS_REV.png" class="logo">
+    </div>
+    <div class="center">
+      <a class="link" [routerLink]="['/dashboard']">Dashboard</a>
+      <a class="link" [routerLink]="['/prospect']">Leden overzicht</a>
+      <a class="pull-right link" [routerLink]="['/']">Uitloggen</a>
+      <a class="pull-right link" [routerLink]="['/settings']">Instellingen</a>
+    </div>
+  </div>
+</nav>

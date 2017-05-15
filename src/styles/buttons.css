@@ -1,0 +1,40 @@
+.btn-primary {
+    background-color: #0c3c7c;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.2em;
+    padding: 1.5% 5% 1.5% 5% !important;
+    /*height: 7vh;*/
+    text-align: center;
+}
+
+.btn-primary:hover {
+  background-color: #0c3c7c;
+}
+
+.btn-block {
+    width: 100%;
+}
+
+.btn-link {
+  color: #0c3c7c;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+#btn-savechanges {
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 1.2em;
+    height: 7vh;
+}
+
+.pull-down {
+    position: absolute;
+    bottom: 2%;
+    left: 2%;
+}
+
+.test {
+    background-color: purple;
+}

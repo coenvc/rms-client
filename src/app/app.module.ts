@@ -17,7 +17,11 @@ import { ProspectDetailsComponent } from './prospect-details/prospect-details.co
 import { SettingsComponent } from './settings/settings.component';
 import { ModalComponent } from './modal/modal.component';
 import { AddAppointmentModalComponent } from './add-appointment-modal/add-appointment-modal.component';
-
+import { ActionService } from "app/action-service.service";
+import { ProspectDataService } from "app/prospect-data.service";
+import { CompleteActionModalComponent } from './complete-action-modal/complete-action-modal.component';
+import { ProfessionDataService } from "app/profession-data.service";
+import { ActiontypeDataService } from "app/actiontype-data.service";
 
 @NgModule({
   declarations: [
@@ -33,7 +37,8 @@ import { AddAppointmentModalComponent } from './add-appointment-modal/add-appoin
     SettingsComponent,
     EditMemberComponent,
     ModalComponent,
-    AddAppointmentModalComponent
+    AddAppointmentModalComponent,
+    CompleteActionModalComponent
   ],
   imports: [
     BrowserModule,
@@ -43,7 +48,11 @@ import { AddAppointmentModalComponent } from './add-appointment-modal/add-appoin
     routing
   ],
   providers: [
-    LoginService
+    LoginService,
+    ActionService,
+    ProspectDataService,
+    ProfessionDataService,
+    ActiontypeDataService
   ],
   bootstrap: [AppComponent]
 })

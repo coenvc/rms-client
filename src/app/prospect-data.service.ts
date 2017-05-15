@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {Http, Response} from "@angular/http";
+import {Http, Response,Headers} from "@angular/http";
 import {Observable} from "rxjs/Rx";
 import {Prospect} from "../classes/Prospect";
 // Import RxJs required methods
@@ -11,24 +11,22 @@ export class ProspectDataService {
     res: any;
 
   //localhost prospect url
-  private prospectUrl = 'http://84.24.62.136:8080/api/prospect/';
+  private Url = 'http://84.24.62.136:8080/api/prospect/';
   private headers = new Headers({'Content-Type': 'application/json'});
 
   getAll():Observable<Prospect[]>{
-      const prospects = Observable.from(this.http.get(this.prospectUrl+'all').map((res:Response)=>res.json()))
+      const prospects = Observable.from(this.http.get(this.Url+'all').map((res:Response)=>res.json()))
       return prospects
   }
-
   constructor(private http: Http) {
   }
 
-  getProspectById(id: number): Observable<Prospect> {      
-    return this.http 
-           .get(this.prospectUrl+id) 
+  getProspectById(id: number): Observable<Prospect> {
+    return this.http
+           .get(this.Url+id)
            .map(request =>{
-                this.res =  request.json();   
-                return request.json()   
-           });  
+                return request.json()
+           });
   }
 
   private extractData(res: Response) {
@@ -38,10 +36,10 @@ export class ProspectDataService {
 
   register(prospect: Prospect) {
     alert("Nieuw lid succesvol toegevoegd!");
-    return this.http.post(this.prospectUrl + 'register', prospect);
+    return this.http.post(this.Url, prospect);
   }
 
   update(prospect: Prospect){
-    return this.http.put(this.prospectUrl + 'update', prospect, this.headers);
+    return this.http.put(this.Url, prospect, this.headers);
   }
 }

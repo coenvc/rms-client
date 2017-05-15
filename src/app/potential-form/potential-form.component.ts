@@ -11,7 +11,7 @@ import { FormGroup, FormControl } from "@angular/forms";
 @Component({
   selector: 'app-potential-form',
   templateUrl: './potential-form.component.html',
-  styleUrls: ['./potential-form.component.css']
+  styleUrls: ['./potential-form.component.css', '../../styles/buttons.css', '../../styles/forms.css']
 })
 export class PotentialFormComponent implements OnInit {
   //Model used to bind form to 

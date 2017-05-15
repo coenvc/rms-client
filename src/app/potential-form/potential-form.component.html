@@ -1,45 +1,65 @@
-<rmts-header></rmts-header> 
+<rmts-header></rmts-header>
 <div class="container">
-<div class="row" style="margin-top:40px">
-  <div class="col-md-12">
-    <div class="col-md-2">
-      <a routerLink="">
-        <div class="material-button">
-          <a class="add-link" routerLink="../prospect"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
-        </div>
-      </a>
+  <div class="row" style="margin-top:40px">
+    <div class="col-md-12">
+      <div class="col-md-2">
+        <a routerLink="">
+          <div class="material-button">
+            <a class="add-link" routerLink="../prospect"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+          </div>
+        </a>
+      </div>
     </div>
   </div>
-</div>
-<div class="container-fluid" style="margin-top:20px">
-  <form [formGroup]="potentialForm" (ngSubmit)="onSubmit()">
-    <br>
-    <div class="row">
-      <div class="col-md-12">
-        <input class="form-field" style="width: 100%" type="text"  placeholder="voornaam" formControlName="voornaam">
+  <div class="container-fluid" style="margin-top:20px">
+    <form [formGroup]="potentialForm" (ngSubmit)="onSubmit()">
+
+      <div class="row">
+        <div class="col-md-12">
+
+          <h4>Voornaam</h4>
+          <input class="form-field" style="width: 100%" type="text" formControlName="voornaam">
+        </div>
       </div>
-    </div>
-    <br>
-    <div class="row">
-      <div class="col-md-12">
-        <input class="form-field" type="text" style="width: 13%"  formControlName="tussenvoegsel" placeholder="tussenvoegsel">
-        <input class="form-field" style="margin-left:1%; width: 85.6%" type="text"  formControlName="achternaam" placeholder="achternaam">
+
+      <div class="row">
+        <div class="col-md-2">
+          <h4>Tussenvoegsel</h4>
+        </div>
+        <div class="col-md-10">
+          <h4>Achternaam</h4>
+        </div>
       </div>
-    </div>
-    <br>
-    <div class="row">
-      <div class="col-md-12" style="padding-right: 0% !important;">
-        <input style="width:83%" class="form-field" type="text" formControlName="beroep"  placeholder="beroep">
-        <select class="form-field" style="width:14.4%; margin-left:1%;"  formControlName="status" id="">
+
+      <div class="row">
+        <div class="col-md-12">
+          <input class="form-field col-md-2" type="text" formControlName="tussenvoegsel">
+          <input class="form-field col-md-10" type="text" formControlName="achternaam">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-10">
+          <h4>Beroep</h4>
+        </div>
+        <div class="col-md-2">
+          <h4>Status</h4>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12" style="padding-right: 0% !important;">
+          <input style="width:83%" class="form-field" type="text" formControlName="beroep">
+          <select class="form-field minimal" style="width:14.4%; margin-left:1%;" [(ngModel)]="Prospect.actionType" formControlName="status"
+            id="">
       <option *ngFor="let status of status" 
-      [selected]="status[0]" 
-      
-      [value]="status">{{status}}</option>
+      [ngValue]="status">{{status}}</option>
   </select>
+        </div>
       </div>
-    </div>
-    <br>
-    <textarea class="col-md-12 form-field form-textarea" formControlName="beschrijving" placeholder="beschrijving" id="" cols="30" rows="10"></textarea>
-    <button style="width: 100%" type="submit" class="btn-form-submit">Toevoegen</button>
-  </form>
-</div>
+
+      <h4>Motivatie</h4>
+      <textarea class="col-md-12 form-field form-textarea" formControlName="beschrijving" id="" cols="30" rows="10"></textarea>
+      <button type="submit" class="btn-primary btn-block">Toevoegen</button>
+    </form>
+  </div>

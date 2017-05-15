@@ -4,16 +4,19 @@
 <div class="modal-container"> 
   <div class="custom-modal-content">
       <h3 class="custom-modal-title">Nieuwe Afspraak</h3> 
-      <br>
-        <input type="text" class="form-field" name="type" placeholder="Type">  
+ <!--<select class="form-field" style="width:100%;" (change)="onchange(action.content)" [(ngModel)]="Appointment.actionType">
+      <option *ngFor="let action of ActionTypes"  
+      [value]="action" >{{action.content}}</option>
+  </select>-->
+  <select class="form-field" style="width:100%;" [(ngModel)]="test">
+      <option *ngFor="let action of ActionTypes"  [value]="action.id">{{action.content}}</option>
+</select>
+        <input type="date"  [(ngModel)]="Appointment.date" class="form-field" name="date" placeholder="Datum">  
         <br>
-        <input type="date" class="form-field" name="date" placeholder="Datum">  
-        <br>
-        <input type="text" class="form-field" name="location" placeholder="Locatie">
     </div>   
     <div class="modal-buttons"> 
           <h4><a (click)="submitForm()" href="#">TOEVOEGEN</a></h4>
-          <h4><a href="#">ANNULEREN</a></h4>
+          <h4><a (click)="close()"href="#">ANNULEREN</a></h4>
     </div>
 
 </div>

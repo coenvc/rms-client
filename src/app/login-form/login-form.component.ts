@@ -30,7 +30,8 @@ export class LoginFormComponent implements OnInit {
     if (this.user.active) {
       localStorage.setItem('currentUser',JSON.stringify(this.user)) 
       window.location.assign('/prospect') 
-    } else {
+    }
+     else {
       alert("Gebruiker staat op non-actief.")
     }
   }
