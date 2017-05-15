@@ -23,7 +23,7 @@ export class LoginFormComponent implements OnInit {
     this.loginService.login(input.username, input.password)
       .subscribe(result => {
         if (this.login(result)) {
-          this.router.navigate(['dashboard'])
+          this.router.navigate(['dashboard']);
         } else {
           alert("Gebruiker staat op non-actief.")
         }
