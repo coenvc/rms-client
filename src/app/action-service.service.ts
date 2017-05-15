@@ -48,7 +48,7 @@ getActionTypes():Observable<ActionType[]>{
   register(action: Action) {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post("http://84.24.62.136:8080/api/action/insert",action,headers);
+    return this.http.post("http://84.24.62.136:8080/api/action/",action,headers);
   }
 
   getProspectActionsUnsorted(id:number){ 
@@ -56,7 +56,7 @@ getActionTypes():Observable<ActionType[]>{
   } 
 
   updateAction(action:Action){ 
-    return this.http.put("http://84.24.62.136:8080/api/action/update",action) 
+    return this.http.put("http://84.24.62.136:8080/api/action/",action) 
                   .map((res:Response) => res.json()) 
                   .catch((error:any)=>Observable.throw(error.json().error || 'Server Error'))
   } 

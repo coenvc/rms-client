@@ -14,7 +14,6 @@ export class FilterPipe implements PipeTransform {
     }
     else{ 
       let returnvalue =  prospects.filter(prospect => prospect.status.content == status) 
-      console.log(returnvalue) 
       return returnvalue
     } 
   }  

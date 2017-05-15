@@ -31,24 +31,7 @@ export class ProspectDetailsComponent implements OnInit {
   providers: [ProspectDataService,ActionService,StatusDataService]
 
   constructor(public ProspectDataService: ProspectDataService, public ActionsDataService: ActionService,StatusDataService: StatusDataService,private route: ActivatedRoute) { 
-    
     this.FetchIDFromUrl();
-    
-    this.Prospect = new Prospect();
-    ProspectDataService.getProspectById(1).subscribe(
-      request => this.Prospect = request,
-      error => console.log(this.Prospect)
-    )
-
-    ActionsDataService.getProspectActionsUnsorted(1).subscribe(
-      request=> this.Actions = request, 
-      error=> console.log(error)
-    )
-
-     ActionsDataService.getProspectActionsUnsorted(1).subscribe(
-      request=> console.log(request), 
-      error=> console.log(error)
-    )   
   } 
 
 
@@ -69,12 +52,13 @@ export class ProspectDetailsComponent implements OnInit {
     this.profession = new Profession();
 
     this.ProspectDataService.getProspectById(id)
-      .subscribe(request => console.log(this.splitObject(request)),
+      .subscribe(request =>this.splitObject(request),
         error => console.log(error));
 
-    this.ActionsDataService.getByProspectId(id)
-      .subscribe(request => console.log(this.Actions = request),
-        error => console.log(error));
+    this.ActionsDataService.getProspectActionsUnsorted(id)
+      .subscribe(request => this.Actions = request,
+        error => console.log(error));   
+
   }
 
   private splitObject(prospect: Prospect){
@@ -98,10 +82,8 @@ export class ProspectDetailsComponent implements OnInit {
   showCompleteActionModal(event) {
     let id = event.target.attributes.id.value; 
     for(let action of this.Actions){ 
-        if(action.id == id){  
-          if(action.completed == false){
+        if(action.id == id && action.completed == false){  
           localStorage.setItem('currentAction',JSON.stringify(action));
-          }
         }
     }
     this.completeAppointmentModalVisible = true;
@@ -121,12 +103,15 @@ export class ProspectDetailsComponent implements OnInit {
           action.description = "completed";  
           event.srcElement.className += " checked" 
           }
-        }
+        } 
+        console.log("test")
     }
   }
 
 
   ngOnInit() {
+
+
 
     this.FetchIDFromUrl()
 
