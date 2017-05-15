@@ -1,9 +1,6 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Status } from "classes/Status";
-import { ActionService } from "app/action-service.service";
-import { Action } from "classes/Action";
-import { ActiontypeDataService } from "app/actiontype-data.service";
-import { ActionType } from "classes/ActionType";
+import {Component, EventEmitter, OnInit, Output} from "@angular/core";
+import {ActiontypeDataService} from "app/actiontype-data.service";
+import {ActionType} from "classes/ActionType";
 
 @Component({
   selector: 'add-action-modal',
@@ -12,21 +9,21 @@ import { ActionType } from "classes/ActionType";
 })
 export class AddActionModalComponent implements OnInit {
 
-  @Output() onButtonClicked: EventEmitter<any> = new EventEmitter<any>(); 
+  @Output() onButtonClicked: EventEmitter<any> = new EventEmitter<any>();
   Action: ActionType = new ActionType();
 
-  constructor(private ActionService:ActiontypeDataService) {  
-    
-  } 
+  constructor(private ActionService: ActiontypeDataService) {
 
-  addStatus(){ 
-    this.ActionService.register(this.Action) 
-                          .subscribe(response=>console.log(response)) 
-    this.onButtonClicked.emit()  
+  }
+
+  addStatus() {
+    this.ActionService.register(this.Action)
+      .subscribe(response => console.log(response))
+    this.onButtonClicked.emit()
     location.reload()
-  } 
+  }
 
-  close(){ 
+  close() {
     this.onButtonClicked.emit()
   }
 

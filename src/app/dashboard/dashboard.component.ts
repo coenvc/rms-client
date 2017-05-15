@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActionService } from "app/action-service.service";
+import { ActionDataService } from "../action-data.service";
 import { ActionOverview } from "classes/ActionOverview";
 import { User } from "classes/user";
 
@@ -7,13 +7,13 @@ import { User } from "classes/user";
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css', '../../styles/buttons.css'],
-  providers: [ActionService]
+  providers: [ActionDataService]
 })
 export class DashboardComponent implements OnInit {
   ActionOverview: ActionOverview;
   CurrentUser: User;
 
-  constructor(public ActionService: ActionService) {
+  constructor(public ActionService: ActionDataService) {
     this.CurrentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.getUser();
   }
@@ -45,7 +45,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getAll() {
-        this.ActionService.getAllActionsOverview()
+    this.ActionService.getAllActionsOverview()
       .subscribe(request => {
         this.ActionOverview = new ActionOverview(request.today, request.thisWeek, request.thisMonth, request.remainder)
       })
