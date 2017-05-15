@@ -36,13 +36,13 @@
           <p id="prospect-description">
             {{Prospect.description}}
           </p>
-          <a href="#" class="button-edit">BEWERKEN</a>
         </div>
+         <a href="#" class="btn-link pull-down">BEWERKEN</a>
       </div>
     </div>
     <div class="col-md-8">
       <h2>Traject</h2> 
-      <button style="width: 100%" type="submit" (click)="showAppointmentModal()" class="btn-form-submit">NIEUWE AFSPRAAK</button>
+      <button style="width: 100%" type="submit" (click)="showAppointmentModal()" class="btn-primary btn-block">NIEUWE AFSPRAAK</button>
       <ul id="appointments-overview">
         <li  *ngFor = "let Action of Actions" class="appointment">
           <div class="appointment-title">

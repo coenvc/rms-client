@@ -1,85 +1,97 @@
-<div class="container" id="container-editMember">
-  <div class="editMember-container col-md-7">
-    <div id="input-container">
-      <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
-        <div class="details-container" id="details-container personal">
-          <h1>Persoonlijke details</h1>
+<rmts-header></rmts-header>
+<br>
+<div class="container">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+    <div class="details-container" id="details-container personal">
+      
+      <h1>Persoonlijke details</h1>
+      <div class="form-background">
+        <div class="form-group">
 
-            <input [(ngModel)]="prospect.firstName" type="text" class="form-field" id="FirstName"
-                   placeholder="Voornaam" style="width:100%" name="firstname" autocomplete="off" required ngModel> 
+          <h4>Voornaam <span class="required-field">*</span></h4>
+          <input [(ngModel)]="prospect.firstName" type="text" class="form-field" id="FirstName" style="width:100%" name="firstname"
+            autocomplete="off" required ngModel>
 
-            <input [(ngModel)]="prospect.infix" type="text" class="form-field" id="Infix"
-                   placeholder="tussenvoegsel" style="width:100%" name="infix" autocomplete="off" ngModel>
+          <h4>Tussenvoegsel</h4>
+          <input [(ngModel)]="prospect.infix" type="text" class="form-field" id="Infix" style="width:15%" name="infix" autocomplete="off"
+            ngModel>
 
+          <h4>Achternaam <span class="required-field">*</span></h4>
+          <input [(ngModel)]="prospect.surname" type="text" class="form-field" id="Surname" style="width:100%" name="surname" autocomplete="off"
+            required ngModel>
 
-            <input [(ngModel)]="prospect.surname" type="text" class="form-field" id="Surname"
-                   placeholder="Achternaam" style="width:100%" name="surname" autocomplete="off" required ngModel>
+          <h4>Afbeelding URL</h4>
+          <input [(ngModel)]="prospect.imageUrl" type="url" class="form-field" id="picture" style="width:100%" name="image" autocomplete="off"
+            ngModel>
 
-       
-            <input [(ngModel)]="prospect.imageUrl" type="url" class="form-field" id="picture"
-                   placeholder="URL naar profielfoto" style="width:100%" name="image" autocomplete="off" ngModel> 
+          <h4>Status <span class="required-field">*</span></h4>
+          <select class="form-field minimal" style="width:15%" [(ngModel)]="status" name="status">
+            <option *ngFor="let status of statuses" [ngValue]="status">{{ status.content }}</option>
+          </select>
 
+          <h4>Beroep <span class="required-field">*</span></h4>
+          <input class="form-field" style="width:100%" [(ngModel)]="profession.name" type="text" class="form-field" id="profession"
+            name="profession" autocomplete="off" required ngModel>
 
-            <!--TODO: Make the default value of this the status this person already has-->
-            <select class="form-field" style="width:100%" [(ngModel)]="status" name="status">
-              <option *ngFor="let s of statuses" [ngValue]="s">
-              {{s.content}}
-              </option>
-            </select>
-
-
-            <input class="form-field" style="width:100%" [(ngModel)]="profession.name" type="text" class="form-field" id="profession"
-                   placeholder="Beroep" name="profession" autocomplete="off" required ngModel>
-
-
-            <input [(ngModel)]="prospect.description" type="text" class="form-field" style="width:100%" id="motivation"
-                   placeholder="Motivatie" name="motivation" autocomplete="off" ngModel>
-
+          <h4>Motivatie</h4>
+          <input form-textarea [(ngModel)]="prospect.description" type="text" class="form-field" style="width:100%" id="motivation"
+            autocomplete="off" name="motivation" ngModel>
         </div>
-        <div class="details-container" id="details-container address">
-          <h1>Adresgegevens</h1>
-          <div class="form-group">
-            <input [(ngModel)]="address.street" type="text"  class="form-field" style="width:100%"  id="streetname"
-                   placeholder="Straat" name="streetname" autocomplete="off" required ngModel>
-          </div>
-          <div class="form-group">
-            <input [(ngModel)]="address.houseNumber" type="text"  class="form-field" style="width:100%"  id="homenumber"
-                   placeholder="Huisnummer" name="homenumber" autocomplete="off" required ngModel>
-          </div>
-          <div class="form-group">
-            <input [(ngModel)]="address.zipcode" type="text"  class="form-field" style="width:100%"  id="zipcode"
-                   placeholder="Postcode" name="zipcode" autocomplete="off" required ngModel>
-          </div>
-          <div class="form-group">
-            <input [(ngModel)]="address.city" type="text" class="form-field" style="width:100%" id="city"
-                   placeholder="Plaats" name="city" autocomplete="off" required ngModel>
-          </div>
-        </div>
-        <div class="details-container" id="details-container contact">
-          <h1>Contactgegevens</h1>
-          <div class="form-group">
-            <input [(ngModel)]="prospect.emailAddress" type="email" class="form-field" style="width:100%" id="email"
-                   placeholder="E-mail adres" name="email" autocomplete="off" required ngModel>
-          </div>
-          <div class="form-group">
-            <input [(ngModel)]="prospect.phoneNumber" type="text" class="form-field" style="width:100%" id="telephonenumber"
-                   placeholder="Telefoonnummer" name="telephonenumber" autocomplete="off" required ngModel>
-          </div>
-          <div class="form-group">
-            <input [(ngModel)]="socialLinks.facebook" type="text" class="form-field" style="width:100%" id="facebook"
-                   placeholder="facebook" name="facebook" autocomplete="off" ngModel>
-          </div>
-          <div class="form-group">
-            <input [(ngModel)]="socialLinks.twitter" type="text" class="form-field" style="width:100%" id="twitter"
-                   placeholder="twitter" name="twitter" autocomplete="off" ngModel>
-          </div>
-          <div class="form-group">
-            <input [(ngModel)]="socialLinks.linkedIn" type="text" class="form-field" style="width:100%" id="linkedin"
-                   placeholder="linkedin" name="linkedin" autocomplete="off" ngModel>
-          </div>
-        </div>
-        <button id="btn-savechanges" style="width: 100%" type="submit" class="btn-form-submit">Toevoegen</button>
-      </form>
+      </div>
     </div>
-  </div>
+
+    <div class="details-container" id="details-container address">
+      <h1>Adresgegevens</h1>
+      <div class="form-background">
+
+        <h4>Straatnaam</h4>
+        <input [(ngModel)]="address.street" type="text" class="form-field" style="width:100%" id="streetname" name="streetname" autocomplete="off"
+          required ngModel>
+
+        <h4>Huisnummer</h4>
+        <input [(ngModel)]="address.houseNumber" type="text" class="form-field" style="width:15%" id="homenumber" name="homenumber"
+          autocomplete="off" required ngModel>
+
+        <h4>Postcode</h4>
+        <input [(ngModel)]="address.zipcode" type="text" class="form-field" style="width:15%" id="zipcode" name="zipcode" autocomplete="off"
+          required ngModel>
+
+        <h4>Plaats</h4>
+        <input [(ngModel)]="address.city" type="text" class="form-field" style="width:100%" id="city" autocomplete="off" required
+          name="city" ngModel>
+      </div>
+    </div>
+
+    <div class="details-container" id="details-container contact">
+      <h1>Contactgegevens</h1>
+      <div class="form-background">
+
+        <h4>Emailadres <span class="required-field">*</span></h4>
+        <input [(ngModel)]="prospect.emailAddress" type="email" class="form-field" style="width:100%" id="email" name="email" autocomplete="off"
+          required ngModel>
+
+        <h4>Telefoonnummer</h4>
+        <input [(ngModel)]="prospect.phoneNumber" type="text" class="form-field" style="width:100%" id="telephonenumber" name="telephonenumber"
+          autocomplete="off" required ngModel>
+
+        <h4>Facebook</h4>
+        <input [(ngModel)]="socialLinks.facebook" type="text" class="form-field" style="width:100%" id="facebook" name="facebook"
+          autocomplete="off" ngModel>
+
+        <h4>Twitter</h4>
+        <input [(ngModel)]="socialLinks.twitter" type="text" class="form-field" style="width:100%" id="twitter" name="twitter" autocomplete="off"
+          ngModel>
+
+        <h4>LinkedIn</h4>
+        <input [(ngModel)]="socialLinks.linkedIn" type="text" class="form-field" style="width:100%" id="linkedin" name="linkedin"
+          autocomplete="off" ngModel>
+
+      </div>
+    </div>
+    <button class="btn-primary btn-block" type="submit" >Opslaan</button>
+  </form>
 </div>
+<br>
+<br>
+
+

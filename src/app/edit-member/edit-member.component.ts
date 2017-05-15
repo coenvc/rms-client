@@ -1,22 +1,22 @@
-import {Component, OnInit} from "@angular/core";
-import {ActivatedRoute} from "@angular/router";
-import {ProspectDataService} from "../../../src/app/prospect-data.service";
-import {StatusDataService} from "../../../src/app/status-data.service";
-import {Prospect} from "../../classes/Prospect";
-import {SocialLinks} from "../../classes/SocialLinks";
-import {Address} from "../../classes/Address";
-import {Status} from "../../classes/Status";
-import {Profession} from "../../classes/Profession";
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { ProspectDataService } from "../../../src/app/prospect-data.service";
+import { StatusDataService } from "../../../src/app/status-data.service";
+import { Prospect } from "../../classes/Prospect";
+import { SocialLinks } from "../../classes/SocialLinks";
+import { Address } from "../../classes/Address";
+import { Status } from "../../classes/Status";
+import { Profession } from "../../classes/Profession";
 
 
 @Component({
   selector: 'edit-member',
-  templateUrl: './edit-member.component.html'
+  templateUrl: './edit-member.component.html',
+  styleUrls: ['./edit-member.component.css', '../../styles/buttons.css']
 })
 export class EditMemberComponent implements OnInit {
   id: number;
 
-  // Temp status array until it is fixed
   statuses: Status[];
 
   prospect: Prospect;
@@ -26,8 +26,8 @@ export class EditMemberComponent implements OnInit {
   profession: Profession;
 
   constructor(private prospectDataService: ProspectDataService,
-              private statusDataService: StatusDataService,
-              private route: ActivatedRoute) {
+    private statusDataService: StatusDataService,
+    private route: ActivatedRoute) {
   }
 
   ngOnInit() {
@@ -54,8 +54,6 @@ export class EditMemberComponent implements OnInit {
     this.address = prospect.address;
     this.status = prospect.status;
     this.profession = prospect.profession;
-
-    console.log(this.status.id + " " + this.status.content)
   }
 
   onSubmit() {
@@ -66,10 +64,11 @@ export class EditMemberComponent implements OnInit {
     this.prospect.profession = this.profession;
 
     //console.log(this.prospect);
-    console.log(JSON.stringify(this.prospect));
+    //console.log(JSON.stringify(this.prospect));
 
     this.prospectDataService.update(this.prospect)
       .subscribe(request => console.log(request),
-        error => console.log(error));
+      error => console.log(error)
+      );
   }
 }

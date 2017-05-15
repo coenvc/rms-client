@@ -101,7 +101,6 @@ body {
 }
 
 #mast-head {
-  text-align: center;
   width: 100%;
   height: 100px;
   background-color: #0c3c7c;
@@ -109,8 +108,8 @@ body {
 }
 
 .header-logo {
-  text-align: center;
-  height: 75px;
+
+  height: 70%;
   width: auto;
   margin-top: 12.5px;
 }
@@ -380,7 +379,7 @@ input,
 textarea,
 select,
 button {
-  /*Used important bc overriding bootstrap*/
+ 
   padding-left: 0px !important;
   border: none;
 }

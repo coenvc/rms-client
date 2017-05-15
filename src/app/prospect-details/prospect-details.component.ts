@@ -13,7 +13,7 @@ import { StatusDataService } from "app/status-data.service";
 @Component({
   selector: 'app-prospect-details',
   templateUrl: './prospect-details.component.html',
-  styleUrls: ['./prospect-details.component.css']
+  styleUrls: ['./prospect-details.component.css', '../../styles/buttons.css']
 })
 export class ProspectDetailsComponent implements OnInit {
   Status:Status[];

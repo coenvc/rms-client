@@ -36,10 +36,10 @@ export class ProspectDataService {
 
   register(prospect: Prospect) {
     alert("Nieuw lid succesvol toegevoegd!");
-    return this.http.post(this.Url + 'register', prospect);
+    return this.http.post(this.Url, prospect);
   }
 
   update(prospect: Prospect){
-    return this.http.put(this.Url + 'update', prospect, this.headers);
+    return this.http.put(this.Url, prospect, this.headers);
   }
 }
