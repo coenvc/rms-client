@@ -2,7 +2,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { Action } from "classes/Action";
 import { User } from "classes/user";
 import { Prospect } from "classes/Prospect";
-import { ActionService } from "app/action-service.service";
+import { ActionDataService } from "../action-data.service";
 import { ActionType } from "classes/ActionType";
 import { FormsModule } from "@angular/forms";
 
@@ -10,40 +10,40 @@ import { FormsModule } from "@angular/forms";
 @Component({
   selector: 'complete-action-modal',
   templateUrl: './complete-action-modal.component.html',
-  styleUrls: ['./complete-action-modal.component.css'], 
-  providers: [ActionService]
+  styleUrls: ['./complete-action-modal.component.css'],
+  providers: [ActionDataService]
 })
-export class CompleteActionModalComponent implements OnInit { 
-currentAction:Action; 
+export class CompleteActionModalComponent implements OnInit {
+currentAction:Action;
 
-@Output() onButtonClicked: EventEmitter<any> = new EventEmitter<any>();   
+@Output() onButtonClicked: EventEmitter<any> = new EventEmitter<any>();
 
-  constructor(public ActionService:ActionService) {      
+  constructor(public ActionService:ActionDataService) {
     this.currentAction  = JSON.parse(localStorage.getItem('currentAction'));
   }
- 
-  complete(){   
-    this.onButtonClicked.emit() 
+
+  complete(){
+    this.onButtonClicked.emit()
   }
- 
-  clicked(event){ 
+
+  clicked(event){
     console.log(event)
   }
-  ngOnInit() {   
+  ngOnInit() {
 
-  }  
+  }
 
-  submitForm(){ 
-    this.currentAction.completed = true; 
-    this.ActionService.updateAction(this.currentAction) 
-      .subscribe( 
+  submitForm(){
+    this.currentAction.completed = true;
+    this.ActionService.updateAction(this.currentAction)
+      .subscribe(
         data => console.log(data)
       );
-    this.onButtonClicked.emit() 
+    this.onButtonClicked.emit()
     location.reload()
   }
 
-  close(){ 
+  close(){
     this.onButtonClicked.emit()
   }
 
