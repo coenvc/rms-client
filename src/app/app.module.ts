@@ -17,8 +17,8 @@ import { ProspectDetailsComponent } from './prospect-details/prospect-details.co
 import { SettingsComponent } from './settings/settings.component';
 import { ModalComponent } from './modal/modal.component';
 import { AddAppointmentModalComponent } from './add-appointment-modal/add-appointment-modal.component';
-import { ActionService } from "app/action-service.service";
-import { ProspectDataService } from "app/prospect-data.service";
+import { ActionDataService } from "./action-data.service";
+import { ProspectDataService } from "./prospect-data.service";
 import { CompleteActionModalComponent } from './complete-action-modal/complete-action-modal.component';
 import { ProfessionDataService } from "app/profession-data.service";
 import { ActiontypeDataService } from "app/actiontype-data.service";
@@ -59,7 +59,7 @@ import { EditStatusModalComponent } from './edit-status-modal/edit-status-modal.
   ],
   providers: [
     LoginService,
-    ActionService,
+    ActionDataService,
     ProspectDataService,
     ProfessionDataService,
     ActiontypeDataService
