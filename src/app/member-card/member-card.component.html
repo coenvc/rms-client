@@ -40,7 +40,7 @@
   <!--Member overview-->
   <ul id="member-list">
     <li *ngFor="let prospect of prospects|search:name" class="member-wrapper">
-      <a [routerLink]="['/prospect/:id']" [queryParams]="{id: prospect.id}">
+      <a [routerLink]="['/prospect/', prospect.id]">
         <div class="member-card">
           <div class="col-md-6">
             <div class="img-container pull-left">

@@ -37,7 +37,7 @@
             {{Prospect.description}}
           </p>
         </div>
-         <a href="#" class="btn-link pull-down">BEWERKEN</a>
+         <a [routerLink]="['/prospect/edit/', Prospect.id]" class="btn-link pull-down">BEWERKEN</a>
       </div>
     </div>
     <div class="col-md-8">
