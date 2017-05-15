@@ -40,34 +40,36 @@
   <!--Member overview-->
   <ul id="member-list">
     <li *ngFor="let prospect of prospects|search:name" class="member-wrapper">
-      <div class="member-card">
-        <div class="col-md-6">
-          <div class="img-container pull-left">
-            <img src="http://www.pentascope.nl/wp-content/uploads/2013/03/Pasfoto-Michel.jpg" alt="" class="profile-picture">
-          </div>
-          <div class="member-short">
-            <h1 class="member-name">{{prospect.fullName}}</h1>
-            <h3 class="member-function">{{prospect.profession.name}}</h3>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="verticalLine">
-            <div class="member-details">
-              <div *ngIf="prospect.address != null">
-                <h4 class="member-address">{{prospect.address.street}} {{prospect.address.houseNumber}}</h4>
-                <h4 class="member-address-details">{{prospect.address.city}} {{prospect.address.zipcode}} </h4>
-                <h4 class="member-address">{{prospect.emailAddress}}</h4>
-                <h4 class="member-address-details">{{prospect.phoneNumber}}</h4>
-              </div> 
-              <div *ngIf="prospect.address == null">
-                <h4 lass="member-address"><a href="">Gegegevens aanvullen</a></h4>
-              </div> 
+      <a [routerLink]="['/prospect/:id']" [queryParams]="{id: prospect.id}">
+        <div class="member-card">
+          <div class="col-md-6">
+            <div class="img-container pull-left">
+              <img src="http://www.pentascope.nl/wp-content/uploads/2013/03/Pasfoto-Michel.jpg" alt="" class="profile-picture">
+            </div>
+            <div class="member-short">
+              <h1 class="member-name">{{prospect.fullName}}</h1>
+              <h3 class="member-function">{{prospect.profession.name}}</h3>
             </div>
           </div>
-          <div [ngClass]="prospect.status.content" class="member-status">
+          <div class="col-md-6">
+            <div class="verticalLine">
+              <div class="member-details">
+                <div *ngIf="prospect.address != null">
+                  <h4 class="member-address">{{prospect.address.street}} {{prospect.address.houseNumber}}</h4>
+                  <h4 class="member-address-details">{{prospect.address.city}} {{prospect.address.zipcode}} </h4>
+                  <h4 class="member-address">{{prospect.emailAddress}}</h4>
+                  <h4 class="member-address-details">{{prospect.phoneNumber}}</h4>
+                </div>
+                <div *ngIf="prospect.address == null">
+                  <h4 lass="member-address"><a href="">Gegegevens aanvullen</a></h4>
+                </div>
+              </div>
+            </div>
+            <div [ngClass]="prospect.status.content" class="member-status">
+            </div>
           </div>
         </div>
-      </div>
+      </a>
     </li>
   </ul>
 </div>
