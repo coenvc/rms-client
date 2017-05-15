@@ -36,24 +36,6 @@
   margin-top: 160px;
 }
 
-.check {
-  width: 50px;
-  height: 50px;
-  border-radius: 100%;
-  background-color: transparent;
-  border: 2px solid white;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-  float: left;
-  line-height: 100px;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.checked {
-  background-color: #1bd442 !important;
-}
-
 .item {
   list-style: none;
   height: 100px;
@@ -114,4 +96,72 @@ th {
 
 .items-this-week, .items-this-month{ 
   margin-top:50px;
+}
+
+
+/*NEW*/
+
+h4 {
+  font-size: 1.4em;
+}
+
+h3 {
+  margin-top: 6.5vh;
+  margin-left: 4vw;
+  font-size: 2em;
+}
+
+.action-background {
+    height: 100%;
+    background-color: white;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    margin-left: 3vw;
+    position: relative;
+}
+
+.vertical-line {
+  border-right: 1px solid #bab6b3;
+  position: absolute;
+  left: 95%;
+  top:10%;
+  bottom: 10%;
+}
+
+.nogwat {
+    height: 100%;
+}
+
+.action {
+  height: 10vh;
+  margin-bottom: 2vh;
+  position: relative;
+  width: 100%;
+}
+
+.header {
+  font-weight: 600;
+}
+
+.check {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  background-color: transparent;
+  border: 2px solid white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  line-height: 100% ;
+
+  position: absolute;
+  top: 0; bottom: 0; left: 0;
+  margin: auto;
+}
+
+.checked {
+  background-color: #1bd442 !important;
+}
+
+.text {
+     position: absolute;              
+   top: 50%;                        
+   transform: translate(0, -50%)    
 }

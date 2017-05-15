@@ -14,7 +14,7 @@ const APP_ROUTES: Routes = [
   {path: 'prospect/:id', component: ProspectDetailsComponent},
   {path: 'prospect/edit/:id', component: EditMemberComponent},
   {path: 'settings', component: SettingsComponent},
-  {path: 'dashboard', component: DashboardComponent}
+  {path: 'dashboard', component: DashboardComponent} 
 ];
 
 export const routing = RouterModule.forRoot(APP_ROUTES, {useHash: true});

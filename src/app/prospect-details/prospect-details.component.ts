@@ -2,13 +2,13 @@ import {Component, OnInit} from "@angular/core";
 import {ActivatedRoute} from "@angular/router";
 import {Prospect} from "classes/Prospect";
 import {ProspectDataService} from "app/prospect-data.service";
-import {ActionService} from "app/action-service.service";
+import {ActionDataService} from "../action-data.service";
 import {Action} from "classes/Action";
 import {Status} from "classes/Status";
 import {Profession} from "classes/Profession";
 import {Address} from "../../classes/Address";
-import { SocialLinks } from "classes/SocialLinks";
-import { StatusDataService } from "app/status-data.service";
+import {SocialLinks} from "classes/SocialLinks";
+import {StatusDataService} from "app/status-data.service";
 
 @Component({
   selector: 'app-prospect-details',
@@ -16,7 +16,7 @@ import { StatusDataService } from "app/status-data.service";
   styleUrls: ['./prospect-details.component.css', '../../styles/buttons.css']
 })
 export class ProspectDetailsComponent implements OnInit {
-  Status:Status[];
+  Status: Status[];
   id: number;
   Actions: Action[];
   Prospect: Prospect;
@@ -26,44 +26,39 @@ export class ProspectDetailsComponent implements OnInit {
   profession: Profession;
 
   addAppointmentModalVisible: boolean = false;
-  completeAppointmentModalVisible: boolean = false; 
-  parentTitle:string;
-  providers: [ProspectDataService,ActionService,StatusDataService]
+  completeAppointmentModalVisible: boolean = false;
+  parentTitle: string;
+  providers: [ProspectDataService, ActionDataService, StatusDataService]
 
-  constructor(public ProspectDataService: ProspectDataService, public ActionsDataService: ActionService,StatusDataService: StatusDataService,private route: ActivatedRoute) { 
-    
+  constructor(public ProspectDataService: ProspectDataService, public ActionsDataService: ActionDataService, StatusDataService: StatusDataService, private route: ActivatedRoute) {
+
+    this.FetchIDFromUrl();
+
     this.Prospect = new Prospect();
-    ProspectDataService.getProspectById(42).subscribe(
+    ProspectDataService.getProspectById(1).subscribe(
       request => this.Prospect = request,
       error => console.log(this.Prospect)
     )
-    ProspectDataService.getProspectById(42).subscribe(
-      request => console.log(request),
-      error => console.log(this.Prospect)
-    ) 
 
-    ActionsDataService.getProspectActionsUnsorted(42).subscribe(
-      request=> this.Actions = request, 
-      error=> console.log(error)
+    ActionsDataService.getProspectActionsUnsorted(1).subscribe(
+      request => this.Actions = request,
+      error => console.log(error)
     )
 
-     ActionsDataService.getProspectActionsUnsorted(42).subscribe(
-      request=> console.log(request), 
-      error=> console.log(error)
-    )  
-  } 
-
-
-
+    ActionsDataService.getProspectActionsUnsorted(1).subscribe(
+      request => console.log(request),
+      error => console.log(error)
+    )
+  }
 
 
   // method called by OnInit that gets our ID and once it has it activates GetObject
-  FetchIDFromUrl(){
+  FetchIDFromUrl() {
     this.route.params.subscribe(params => this.getObject(+params['id']));
   }
 
   // method called by FetchData that gets data by the ID from the url
-  private getObject(id: number){
+  private getObject(id: number) {
     this.Prospect = new Prospect();
     this.socialLinks = new SocialLinks("", "", "");
     this.address = new Address();
@@ -79,7 +74,7 @@ export class ProspectDetailsComponent implements OnInit {
         error => console.log(error));
   }
 
-  private splitObject(prospect: Prospect){
+  private splitObject(prospect: Prospect) {
     this.Prospect = prospect;
     this.socialLinks = prospect.socialLinks;
     this.address = prospect.address;
@@ -98,32 +93,32 @@ export class ProspectDetailsComponent implements OnInit {
 
 
   showCompleteActionModal(event) {
-    let id = event.target.attributes.id.value; 
-    for(let action of this.Actions){ 
-        if(action.id == id){  
-          if(action.completed == false){
-          localStorage.setItem('currentAction',JSON.stringify(action));
-          }
+    let id = event.target.attributes.id.value;
+    for (let action of this.Actions) {
+      if (action.id == id) {
+        if (action.completed == false) {
+          localStorage.setItem('currentAction', JSON.stringify(action));
         }
+      }
     }
     this.completeAppointmentModalVisible = true;
   }
 
-  hideCompleteActionModal() { 
+  hideCompleteActionModal() {
     this.completeAppointmentModalVisible = false;
-  } 
+  }
 
-  completeAction(event){   
+  completeAction(event) {
     let Ation = new Action()
     let id = event.target.attributes.id.value;
-    for(let action of this.Actions){ 
-        if(action.id == id){  
-          if(action.completed == false){
-          action.completed = true; 
-          action.description = "completed";  
-          event.srcElement.className += " checked" 
-          }
+    for (let action of this.Actions) {
+      if (action.id == id) {
+        if (action.completed == false) {
+          action.completed = true;
+          action.description = "completed";
+          event.srcElement.className += " checked"
         }
+      }
     }
   }
 

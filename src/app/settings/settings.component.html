@@ -1,69 +1,44 @@
 <rmts-header></rmts-header>
+<add-status-modal (onButtonClicked)="addStatusModalVisible = false" *ngIf="addStatusModalVisible == true" ></add-status-modal>
+<add-action-modal (onButtonClicked)="addActionModalVisible = false" *ngIf="addActionModalVisible == true"  ></add-action-modal>
+<edit-action-modal [currentId]="currentActionId" (onButtonClicked)="editActionModalVisible = false" *ngIf="editActionModalVisible == true" ></edit-action-modal> 
+<edit-status-modal [currentId]="currentStatusId" (onButtonClicked)="editStatusModalVisible = false" *ngIf="editStatusModalVisible == true"></edit-status-modal>
 <div class="settings-wrapper">
   <div class="container">
-    <div class="col-md-4">
+    <div class="col-md-5 ">
 
 
       <h1>Statussen</h1>
       <!--Search + Add-->
-      <input type="text" class="memver-search-bar material-search settings-search" placeholder="Zoek..."
-          [(ngModel)]="Status.content">
-      <div class="material-button add-setting">+</div>
+      <input type="text" class="memver-search-bar material-search settings-search" [(ngModel)]="statusSearchText" placeholder="Zoek...">
+      <div class="material-button add-setting" (click)="addStatusModalVisible = true">+</div>
       <!--Items-->
       <ul class="settings-items">
-
-        <li class=item *ngFor="let xeller of statuses">
-          <h4 class="item-description">{{xeller.content}}
-            <a href="#" class="fa fa-trash item-icons" aria-hidden="true"></a>
-            <a href="#" class="fa fa-pencil item-icons" aria-hidden="true"></a>
+        <li class=item *ngFor="let status of statuses | settingsFilterPipe : statusSearchText">
+          <h4 class="item-description">{{status.content}}
+            <a href="#" (click)="deleteStatus(status.id)" class="fa fa-trash item-icons" aria-hidden="true"></a>
+            <a href="#" (click)="showEditStatus($event)" [id]="status.id" class="fa fa-pencil item-icons" aria-hidden="true"></a>
           </h4>
         </li>
-
       </ul>
       <div class="material-button settings-overview">
-        <a class="fa fa-angle-left" aria-hidden="true"></a> 1 van {{statusesCount}}
+        <a href="#"  class="fa fa-angle-left" aria-hidden="true"></a> 1 van {{statusesCount}}
         <a class="fa fa-angle-right" aria-hidden="true"></a>
       </div>
     </div>
-    <div class="col-md-4">
-
-
-      <h1>Beroepen</h1>
-      <!--Search + Add-->
-      <input type="text" class="memver-search-bar material-search settings-search" placeholder="Zoek..."
-             [(ngModel)]="Profession.name">
-      <div class="material-button add-setting" (click)="postProfession()">+</div>
-      <!--Items-->
-      <ul class="settings-items">
-
-        <li class=item *ngFor="let xeller of professions">
-          <h4 class="item-description">{{xeller.name}}
-            <a href="#" class="fa fa-trash item-icons" aria-hidden="true"></a>
-            <a href="#" class="fa fa-pencil item-icons" aria-hidden="true"></a>
-          </h4>
-        </li>
-
-      </ul>
-      <div class="material-button settings-overview">
-        <a class="fa fa-angle-left" aria-hidden="true"></a> 1 van {{professionsCount}}
-        <a class="fa fa-angle-right" aria-hidden="true"></a>
-      </div>
-    </div>
-    <div class="col-md-4">
-
+    <div class="col-md-offset-1 col-md-5 ">
 
       <h1>Acties</h1>
       <!--Search + Add-->
-      <input type="text" class="memver-search-bar material-search settings-search" placeholder="Zoek..."
-             [(ngModel)]="ActionType.content">
-      <div (click)="postActionType()" class="material-button add-setting">+</div>
+      <input type="text" class="memver-search-bar material-search settings-search" [(ngModel)]="actionSearchText" placeholder="Zoek...">
+      <div class="material-button add-setting" (click)="addActionModalVisible = true">+</div>
       <!--Items-->
       <ul class="settings-items">
 
-        <li class=item *ngFor="let xeller of actiontypes">
-          <h4 class="item-description">{{xeller.content}}
-            <a href="#" class="fa fa-trash item-icons" aria-hidden="true"></a>
-            <a href="#" class="fa fa-pencil item-icons" aria-hidden="true"></a>
+        <li class=item *ngFor="let action of actiontypes | settingsFilterPipe : actionSearchText" >
+          <h4 class="item-description">{{action.content}}
+            <a href="#" (click)="deleteAction(action.id)"class="fa fa-trash item-icons" aria-hidden="true" [id]="action.id"></a>
+            <a href="#" (click)="showEditAction($event)" [id]="action.id" class="fa fa-pencil item-icons" aria-hidden="true"></a>
           </h4>
         </li>
 
