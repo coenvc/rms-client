@@ -16,4 +16,4 @@ const APP_ROUTES: Routes = [
   {path: 'settings', component: SettingsComponent},
   {path: 'dashboard', component: DashboardComponent}
 ];
-export const routing = RouterModule.forRoot(APP_ROUTES);
+export const routing = RouterModule.forRoot(APP_ROUTES, { useHash: true });
