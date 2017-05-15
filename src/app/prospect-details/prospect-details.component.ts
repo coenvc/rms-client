@@ -32,25 +32,23 @@ export class ProspectDetailsComponent implements OnInit {
 
   constructor(public ProspectDataService: ProspectDataService, public ActionsDataService: ActionService,StatusDataService: StatusDataService,private route: ActivatedRoute) { 
     
+    this.FetchIDFromUrl();
+    
     this.Prospect = new Prospect();
-    ProspectDataService.getProspectById(42).subscribe(
+    ProspectDataService.getProspectById(1).subscribe(
       request => this.Prospect = request,
       error => console.log(this.Prospect)
     )
-    ProspectDataService.getProspectById(42).subscribe(
-      request => console.log(request),
-      error => console.log(this.Prospect)
-    ) 
 
-    ActionsDataService.getProspectActionsUnsorted(42).subscribe(
+    ActionsDataService.getProspectActionsUnsorted(1).subscribe(
       request=> this.Actions = request, 
       error=> console.log(error)
     )
 
-     ActionsDataService.getProspectActionsUnsorted(42).subscribe(
+     ActionsDataService.getProspectActionsUnsorted(1).subscribe(
       request=> console.log(request), 
       error=> console.log(error)
-    )  
+    )   
   } 
 
 

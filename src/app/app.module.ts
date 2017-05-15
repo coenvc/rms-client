@@ -22,6 +22,11 @@ import { ProspectDataService } from "app/prospect-data.service";
 import { CompleteActionModalComponent } from './complete-action-modal/complete-action-modal.component';
 import { ProfessionDataService } from "app/profession-data.service";
 import { ActiontypeDataService } from "app/actiontype-data.service";
+import { SettingsFilterPipePipe } from './settings-filter-pipe.pipe';
+import { AddStatusModalComponent } from './add-status-modal/add-status-modal.component';
+import { AddActionModalComponent } from './add-action-modal/add-action-modal.component';
+import { EditActionModalComponent } from './edit-action-modal/edit-action-modal.component';
+import { EditStatusModalComponent } from './edit-status-modal/edit-status-modal.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +43,12 @@ import { ActiontypeDataService } from "app/actiontype-data.service";
     EditMemberComponent,
     ModalComponent,
     AddAppointmentModalComponent,
-    CompleteActionModalComponent
+    CompleteActionModalComponent,
+    SettingsFilterPipePipe,
+    AddStatusModalComponent,
+    AddActionModalComponent,
+    EditActionModalComponent,
+    EditStatusModalComponent
   ],
   imports: [
     BrowserModule,

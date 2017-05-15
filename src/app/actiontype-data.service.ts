@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import {Http, Response} from "@angular/http";
+import {Http, Response, Headers} from "@angular/http";
 import {Observable} from "rxjs/Rx";
 import {ActionType} from "../classes/ActionType";
 // Import RxJs required methods
@@ -19,15 +19,21 @@ export class ActiontypeDataService {
     return Observable.from(this.http.get(this.Url + 'all').map((res: Response) => res.json()));
   }
 
-  getById(id: number): Observable<ActionType> {
+  getById(id: number): Observable<any> {
     return Observable.from(this.http.get(this.Url + id).map((res: Response) => res.json()));
   }
 
-  register(actionType: ActionType) {
-    return this.http.post(this.Url + 'register', actionType);
-  }
 
-  update(actionType: ActionType) {
-    return this.http.put(this.Url + 'update', actionType, this.headers);
+  register(actionType: ActionType) {
+    return this.http.post(this.Url + '', actionType);
+  } 
+
+ delete(id:number){ 
+    return this.http.delete(this.Url+id,this.headers);
+ }
+
+  update(actionType: ActionType):Observable<any> { 
+    console.log(actionType.id)
+    return this.http.put(this.Url, actionType, this.headers);
   }
 }

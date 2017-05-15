@@ -17,14 +17,26 @@ export class SettingsComponent implements OnInit {
   statuses: Status[];
   professions: Profession[];
   actiontypes: ActionType[];
-
+  //
   statusesCount: string = "0";
   professionsCount: string = "0";
   actiontypesCount: string = "0";
-
+  //
   statusesSearch: string = "";
   professionsSearch: string = "";
   actiontypesSearch: string = "";
+  //
+  statusSearchText: string ="";
+  actionSearchText: string =""; 
+  //booleans to show and hide the modals to add a new action 
+  addStatusModalVisible: boolean = false;
+  addActionModalVisible: boolean = false;   
+
+  editActionModalVisible: boolean = false; 
+  editStatusModalVisible: boolean = false;
+
+  currentActionId: number = 0;  
+  currentStatusId: number = 0;
 
   Status:Status = new Status(); 
   Profession:Profession = new Profession(); 
@@ -40,7 +52,7 @@ export class SettingsComponent implements OnInit {
     this.statusDataService.getAll().subscribe(request => this.mapAndCountStatus(request));
     this.professionDataService.getAll().subscribe(request => this.mapAndCountProfession(request));
     this.actiontypedataService.getAll().subscribe(request => this.mapAndCountActiontype(request));
-  }
+  } 
 
   mapAndCountStatus(request: Status[]) {
     this.statuses = request;
@@ -59,19 +71,70 @@ export class SettingsComponent implements OnInit {
 
   postStatus(){ 
     this.statusDataService.postStatus(this.Status) 
-                          .subscribe(request => console.log(request))
+                          .subscribe(request => console.log(request)) 
   } 
 
   postActionType(){ 
     this.actiontypedataService.register(this.ActionType) 
-                              .subscribe(request => console.log(request))
-  }
+                              .subscribe(request => console.log(request)) 
+  } 
 
-  postProfession(){   
+  deleteAction(id){   
+    console.log(id)
+      this.actiontypedataService.delete(id) 
+                                .subscribe( 
+                                  request=> {location.reload()},
+                                  error => {
+                                    window.alert(error)}
+                                  ); 
+      location.reload()
+
+  }   
+
+deleteStatus(id){ 
+      console.log(id)
+      this.statusDataService.delete(id) 
+                                .subscribe( 
+                                  request=> {location.reload()},
+                                  error => window.alert("Actie kan niet verwijderd worden omdat deze in gebruik is")
+                                  ); 
+}
+postProfession(){   
     console.log(this.Profession)
     this.professionDataService.register(this.Profession) 
-         .subscribe(request => console.log(request)); 
-    // this.statusDataService.post()
-  }
+         .subscribe(request => console.log(request));  
+  } 
 
+
+//Methods to show the modals
+showAddStatusModal(){  
+  this.addStatusModalVisible = true; 
+}  
+closeAddStatusModal(){   
+  this.addActionModalVisible = false;
+  this.addStatusModalVisible = false;
+} 
+closeEditStatusModal(){ 
+  this.addActionModalVisible = false;
+  this.addStatusModalVisible = false; 
 }
+
+showAddActionModal(){ 
+  this.addActionModalVisible = true; 
+} 
+
+showEditAction(event){  
+  let id = event.srcElement.id; 
+  this.currentActionId = id;
+  this.editActionModalVisible = true  
+}
+
+showEditStatus(event){  
+  let id = event.srcElement.id;  
+  console.log(id);
+  this.currentStatusId = id;
+  this.editStatusModalVisible = true  
+}
+
+
+} 
