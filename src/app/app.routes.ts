@@ -8,7 +8,7 @@ import { SettingsComponent } from "app/settings/settings.component";
 import { DashboardComponent } from "app/dashboard/dashboard.component";
 
 const APP_ROUTES: Routes = [
-  {path: '', component: SettingsComponent},
+  {path: '', component: LoginFormComponent},
   {path: 'prospect', component: MemberCardComponent},
   {path: 'prospect/add', component: PotentialFormComponent},
   {path: 'prospect/:id', component: ProspectDetailsComponent},
@@ -16,4 +16,4 @@ const APP_ROUTES: Routes = [
   {path: 'settings', component: SettingsComponent},
   {path: 'dashboard', component: DashboardComponent} 
 ];
-export const routing = RouterModule.forRoot(APP_ROUTES);
+export const routing = RouterModule.forRoot(APP_ROUTES, { useHash: true });
