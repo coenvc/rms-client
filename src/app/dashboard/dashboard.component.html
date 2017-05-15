@@ -1,10 +1,36 @@
 <rmts-header></rmts-header>
 <div class="container">
   <ul id="tab-group">
-    <li (click)="showMyActions($event)" id="myAppointmentsTab"class="tabs">Mijn Afspraken</li>
+    <li (click)="showMyActions($event)" id="myAppointmentsTab" class="tabs">Mijn Afspraken</li>
     <li (click)="showAllActions($event)" id="allAppointmentsTab" class="tabs selected">Alle Afspraken</li>
-  </ul> 
-  <div *ngIf="MyActionsVisible == true" id="myAppointments">
+  </ul>
+  <br>
+  <br>
+  <br>
+  <div *ngFor="let list of ActionOverview?.all">
+    <h2>{{list.name}}</h2>
+    <div *ngFor="let action of list?.list" class="action-background">
+      <div class="col-md-2 vertical-line">
+        <h4>{{action?.date | date:"dd-MM-yyyy"}}</h4>
+        <h4>{{action?.date | date:"HH:mm"}}</h4>
+      </div>
+      <div class="col-md-4 vertical-line">
+        <h4>{{action.actionType.content}}</h4>
+        <h4>{{action.location}}</h4>
+      </div>
+      <div class="col-md-4 vertical-line">
+        <h4>Afspraak met:</h4>
+        <h4>{{action?.prospect.fullName}}</h4>
+      </div>
+      <div class="col-md-2">
+        <h4>Afspraak met:</h4>
+        <h4>{{action?.user.name}}</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--<div *ngIf="MyActionsVisible == true" id="myAppointments">
   <div class="items-today">
     <h3>Vandaag</h3>
     <ul class="overview-today">
@@ -169,4 +195,4 @@
     </ul> 
     </div>
   </div>
-</div>
+</div>-->
