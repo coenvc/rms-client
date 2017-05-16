@@ -1,8 +1,8 @@
 <rmts-header></rmts-header>
 <add-status-modal (onButtonClicked)="addStatusModalVisible = false" *ngIf="addStatusModalVisible == true" ></add-status-modal>
-<add-action-modal (onButtonClicked)="addActionModalVisible = false" *ngIf="addActionModalVisible == true"  ></add-action-modal>
+<add-action-modal (onButtonClicked)="completeAddActionModal()" *ngIf="addActionModalVisible == true"  ></add-action-modal>
 <edit-action-modal [currentId]="currentActionId" (onButtonClicked)="editActionModalVisible = false" *ngIf="editActionModalVisible == true" ></edit-action-modal> 
-<edit-status-modal [currentId]="currentStatusId" (onButtonClicked)="editStatusModalVisible = false" *ngIf="editStatusModalVisible == true"></edit-status-modal>
+<edit-status-modal [currentId]="currentStatusId" (onButtonClicked)="showModal()" *ngIf="editStatusModalVisible == true"></edit-status-modal>
 <div class="settings-wrapper">
   <div class="container">
     <div class="col-md-5 ">
@@ -11,13 +11,13 @@
       <h1>Statussen</h1>
       <!--Search + Add-->
       <input type="text" class="memver-search-bar material-search settings-search" [(ngModel)]="statusSearchText" placeholder="Zoek...">
-      <div class="material-button add-setting" (click)="addStatusModalVisible = true">+</div>
+      <div class="material-button add-setting clickable" (click)="addStatusModalVisible = true">+</div>
       <!--Items-->
       <ul class="settings-items">
         <li class=item *ngFor="let status of statuses | settingsFilterPipe : statusSearchText">
           <h4 class="item-description">{{status.content}}
             <a href="#" (click)="deleteStatus(status.id)" class="fa fa-trash item-icons" aria-hidden="true"></a>
-            <a href="#" (click)="showEditStatus($event)" [id]="status.id" class="fa fa-pencil item-icons" aria-hidden="true"></a>
+            <a (click)="showEditStatus($event)" [id]="status.id" class="fa fa-pencil item-icons clickable" aria-hidden="true"></a>
           </h4>
         </li>
       </ul>

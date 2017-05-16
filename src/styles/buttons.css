@@ -38,3 +38,7 @@
 .test {
     background-color: purple;
 }
+
+.clickable {
+    cursor: pointer;
+}

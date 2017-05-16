@@ -5,7 +5,7 @@ import {ActionType} from "classes/ActionType";
 @Component({
   selector: 'add-action-modal',
   templateUrl: './add-action-modal.component.html',
-  styleUrls: ['./add-action-modal.component.css']
+  styleUrls: ['./add-action-modal.component.css', '../../styles/buttons.css']
 })
 export class AddActionModalComponent implements OnInit {
 
@@ -18,9 +18,7 @@ export class AddActionModalComponent implements OnInit {
 
   addStatus() {
     this.ActionService.register(this.Action)
-      .subscribe(response => console.log(response))
-    this.onButtonClicked.emit()
-    location.reload()
+      .subscribe(response => this.onButtonClicked.emit()) 
   }
 
   close() {
