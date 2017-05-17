@@ -42,10 +42,12 @@ export class SettingsComponent implements OnInit {
   Profession: Profession = new Profession();
   ActionType: ActionType = new ActionType();
 
+  Math: any;
 
   constructor(private statusDataService: StatusDataService,
     private professionDataService: ProfessionDataService,
     private actiontypedataService: ActiontypeDataService) {
+      this.Math = Math
   }
 
   ngOnInit() {
