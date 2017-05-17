@@ -93,12 +93,13 @@ export class SettingsComponent implements OnInit {
   }
 
   deleteStatus(id) {
-    console.log(id)
-    this.statusDataService.delete(id)
-      .subscribe(
-      request => { location.reload() },
-      error => window.alert("Actie kan niet verwijderd worden omdat deze in gebruik is")
-      );
+    if (window.confirm("Weet je zeker dat je deze status wilt verwijderen?")) {
+      this.statusDataService.delete(id)
+        .subscribe(
+        request => { this.statusDataService.getAll().subscribe(request => this.statuses = request); },
+        error => { window.alert("Actie kan niet verwijderd worden omdat deze in gebruik is") }
+        );
+    }
   }
   postProfession() {
     console.log(this.Profession)

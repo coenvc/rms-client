@@ -16,7 +16,7 @@
       <ul class="settings-items">
         <li class=item *ngFor="let status of statuses | settingsFilterPipe : statusSearchText">
           <h4 class="item-description">{{status.content}}
-            <a href="#" (click)="deleteStatus(status.id)" class="fa fa-trash item-icons" aria-hidden="true"></a>
+            <a (click)="deleteStatus(status.id)" class="fa fa-trash item-icons clickable" aria-hidden="true"></a>
             <a (click)="showEditStatus($event)" [id]="status.id" class="fa fa-pencil item-icons clickable" aria-hidden="true"></a>
           </h4>
         </li>
