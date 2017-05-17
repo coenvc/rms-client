@@ -5,7 +5,7 @@ import { ActiontypeDataService } from "app/actiontype-data.service";
 @Component({
   selector: 'edit-action-modal',
   templateUrl: './edit-action-modal.component.html',
-  styleUrls: ['./edit-action-modal.component.css', '../../styles/buttons.css']
+  styleUrls: ['./edit-action-modal.component.css', '../../styles/buttons.css', '../../styles/forms.css', '../../styles/modal.css']
 })
 export class EditActionModalComponent implements OnInit {
 

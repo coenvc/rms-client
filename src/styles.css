@@ -121,9 +121,19 @@ body {
   margin-left: 0px !important;
 }
 
+.crop {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+} 
+
+.crop img {
+  height: 200px;
+  width: auto;
+}
+
 .profile-picture {
   width: auto;
-  /* or any custom size */
   height: 200px;
 }
 

@@ -16,15 +16,14 @@ import { Profession } from "../../classes/Profession";
 })
 export class EditMemberComponent implements OnInit {
   id: number;
-
   statuses: Status[];
-
   prospect: Prospect;
   socialLinks: SocialLinks;
   address: Address;
   status: Status;
   profession: Profession;
-
+  description: String;
+  
   constructor(private prospectDataService: ProspectDataService,
     private statusDataService: StatusDataService,
     private route: ActivatedRoute) {
@@ -50,10 +49,11 @@ export class EditMemberComponent implements OnInit {
 
   private splitObject(prospect: Prospect) {
     this.prospect = prospect;
-    this.socialLinks = prospect.socialLinks;
-    this.address = prospect.address;
+    if (prospect.socialLinks != null) this.socialLinks = prospect.socialLinks;
+    if (prospect.address != null) this.address = prospect.address;
     this.status = prospect.status;
     this.profession = prospect.profession;
+    this.description = prospect.description
   }
 
   onSubmit() {

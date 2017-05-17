@@ -5,7 +5,7 @@ import {ActionType} from "classes/ActionType";
 @Component({
   selector: 'add-action-modal',
   templateUrl: './add-action-modal.component.html',
-  styleUrls: ['./add-action-modal.component.css', '../../styles/buttons.css']
+  styleUrls: ['./add-action-modal.component.css', '../../styles/buttons.css', '../../styles/forms.css', '../../styles/modal.css']
 })
 export class AddActionModalComponent implements OnInit {
 
@@ -16,7 +16,7 @@ export class AddActionModalComponent implements OnInit {
 
   }
 
-  addStatus() {
+  addAction() {
     this.ActionService.register(this.Action)
       .subscribe(response => this.onButtonClicked.emit()) 
   }

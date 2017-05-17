@@ -2,11 +2,12 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { ActionType } from "classes/ActionType";
 import { StatusDataService } from "app/status-data.service";
 import { Status } from "classes/Status";
+import { StringifyPipe } from "pipes/stringify.pipe";
 
 @Component({
   selector: 'edit-status-modal',
   templateUrl: './edit-status-modal.component.html',
-  styleUrls: ['./edit-status-modal.component.css', '../../styles/buttons.css', '../../styles/modal.css']
+  styleUrls: ['./edit-status-modal.component.css', '../../styles/buttons.css', '../../styles/forms.css', '../../styles/modal.css']
 })
 export class EditStatusModalComponent implements OnInit {
 
@@ -14,8 +15,10 @@ export class EditStatusModalComponent implements OnInit {
   Status: Status = new ActionType();
   @Input('currentId') currentId: number;
 
-  constructor(private StatusService: StatusDataService) {
+  String: any
 
+  constructor(private StatusService: StatusDataService) {
+    this.String = String;
   }
   ngOnInit() {
     this.StatusService.getStatusById(this.currentId)

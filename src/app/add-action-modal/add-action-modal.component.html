@@ -1,17 +1,20 @@
-<div>
-    <div class="blur">
-        <div class="overlay">
-            <div class="modal-container">
-                <div class="custom-modal-content">
-                    <h3 class="custom-modal-title">Status Toevoegen</h3>
-                    <input type="text" class="form-field" style="width:100%" [(ngModel)]="Action.content" placeholder="Omschrijving">
-                    <br>
+<div class="blur">
+    <div class="overlay">
+        <div class="modal-container">
+            <div class="custom-modal-content">
+                <h3>Actietype toevoegen</h3>
+                <p>Hier komt een uitleg over hoe je een actietype toe kan voegen. Lorum Ipsuem</p>
+                <br>
+                <H4>Omschrijving<span class="required-field"> *</span></H4>
+                <input type="text" class="form-field" [(ngModel)]="Action.content">
+                <br>
+                <div class="button-container">
+                    <a (click)="addAction()" class="btn-link clickable btn-modal">TOEVOEGEN</a>
+                    <a (click)="close()" class="btn-link clickable btn-modal">ANNULEREN</a>
                 </div>
-                <div class="modal-buttons">
-                    <h4><a (click)="addStatus()" class="clickable btn-link">TOEVOEGEN</a></h4>
-                    <h4><a (click)="close()" class="clickable btn-link">ANNULEREN</a></h4>
-                </div>
-
+                <br>
+                <br>
             </div>
         </div>
     </div>
+</div>

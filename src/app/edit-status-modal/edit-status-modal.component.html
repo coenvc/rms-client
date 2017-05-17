@@ -1,17 +1,19 @@
-<div>
-    <div class="blur">
-        <div class="overlay">
-            <div class="modal-container">
-                <div class="custom-modal-content">
-                    <h3 class="custom-modal-title">Status Bewerken</h3>
-                    
-                    <input type="text" class="form-field" style="width:100%" [(ngModel)]="Status.content" [attr.placeholder]="Status?.content">
-                    <br>
+<div class="blur">
+    <div class="overlay">
+        <div class="modal-container">
+            <div class="custom-modal-content">
+                <h3>Status aanpassen</h3>
+                <p>Pas de omschrijving van status '{{Status.content}}' aan.</p>
+                <br>
+                <H4>Omschrijving<span class="required-field"> *</span></H4>
+                <input type="text" class="form-field" [(ngModel)]="Status.content">
+                <br>
+                <div class="button-container">
+                    <a (click)="editStatus()" class="btn-link clickable btn-modal">TOEVOEGEN</a>
+                    <a (click)="close()" class="btn-link clickable btn-modal">ANNULEREN</a>
                 </div>
-                <div class="modal-buttons">
-                    <h4><a (click)="editStatus()" class="clickable btn-link">Aanpassen</a></h4>
-                    <h4><a (click)="close()" class="clickable btn-link">annuleren</a></h4>
-                </div>
+                <br>
+                <br>
             </div>
         </div>
     </div>

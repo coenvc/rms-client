@@ -42,3 +42,7 @@
 .clickable {
     cursor: pointer;
 }
+
+.btn-center {
+    vertical-align: middle;
+}

@@ -9,52 +9,63 @@
       </div>
     </div>
   </div>
-  <div class="container-fluid" style="margin-top:20px">
+  <div class="container" style="margin-top:20px">
     <form [formGroup]="potentialForm" (ngSubmit)="onSubmit()">
 
-      <div class="row">
-        <div class="col-md-12">
 
-          <h4>Voornaam</h4>
-          <input class="form-field" style="width: 100%" type="text" formControlName="voornaam">
-        </div>
+      <div class="col-md-12">
+
+        <h4>Voornaam</h4>
+        <input class="form-field col-md-12" style="width: 100%" type="text" formControlName="voornaam">
       </div>
 
-      <div class="row">
-        <div class="col-md-2">
-          <h4>Tussenvoegsel</h4>
-        </div>
-        <div class="col-md-10">
-          <h4>Achternaam</h4>
-        </div>
+
+
+      <div class="col-md-2">
+        <h4>Tussenvoegsel</h4>
+      </div>
+      <div class="col-md-10">
+        <h4>Achternaam</h4>
       </div>
 
-      <div class="row">
-        <div class="col-md-12">
-          <input class="form-field col-md-2" type="text" formControlName="tussenvoegsel">
-          <input class="form-field col-md-10" type="text" formControlName="achternaam">
-        </div>
+
+
+      <div class="col-md-12">
+        <input class="form-field col-md-2" type="text" formControlName="tussenvoegsel">
+        <input class="form-field col-md-10" type="text" formControlName="achternaam">
       </div>
 
-      <div class="row">
-        <div class="col-md-10">
-          <h4>Beroep</h4>
-        </div>
-        <div class="col-md-2">
-          <h4>Status</h4>
-        </div>
+
+
+      <div class="col-md-12">
+        <h4>Emailadres</h4>
+        <input class="form-field col-md-12" type="text" formControlName="emailaddress">
       </div>
 
-      <div class="row">
-        <div class="col-md-12" style="padding-right: 0% !important;">
-          <input style="width:83%" class="form-field" type="text" formControlName="beroep">
-          <select class="form-field minimal" style="width:14.4%; margin-left:1%;" [(ngModel)]="status" formControlName="status" id="">
-            <option *ngFor="let status of status" 
-              [ngValue]="status">{{status}}
+      <div class="col-md-12">
+        <h4>Telefoonnummer</h4>
+        <input class="form-field col-md-12" type="text" formControlName="phonenumber">
+      </div>
+
+
+      <div class="col-md-10">
+        <h4>Beroep</h4>
+      </div>
+      <div class="col-md-2">
+        <h4>Status</h4>
+      </div>
+
+
+
+      <div class="col-md-12" style="padding-right: 0% !important;">
+        <input style="width:83%" class="form-field" type="text" formControlName="beroep">
+        <select class="form-field minimal" style="width:14.4%; margin-left:1%;" [(ngModel)]="status" formControlName="status" id="">
+            <option *ngFor="let status of statuses" 
+              [ngValue]="status">{{status.content}}
             </option>
         </select>
-        </div>
       </div>
+
 
       <h4>Motivatie</h4>
       <textarea class="col-md-12 form-field form-textarea" formControlName="beschrijving" id="" cols="30" rows="10"></textarea>

@@ -5,7 +5,7 @@ import { StatusDataService } from "app/status-data.service";
 @Component({
   selector: 'add-status-modal',
   templateUrl: './add-status-modal.component.html',
-  styleUrls: ['./add-status-modal.component.css', '../../styles/buttons.css'],
+  styleUrls: ['./add-status-modal.component.css', '../../styles/buttons.css', '../../styles/forms.css', '../../styles/modal.css'],
   providers: [StatusDataService]
 })
 export class AddStatusModalComponent implements OnInit {
