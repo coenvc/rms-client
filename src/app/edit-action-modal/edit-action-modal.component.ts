@@ -5,37 +5,36 @@ import { ActiontypeDataService } from "app/actiontype-data.service";
 @Component({
   selector: 'edit-action-modal',
   templateUrl: './edit-action-modal.component.html',
-  styleUrls: ['./edit-action-modal.component.css']
+  styleUrls: ['./edit-action-modal.component.css', '../../styles/buttons.css']
 })
-export class EditActionModalComponent implements OnInit  {
+export class EditActionModalComponent implements OnInit {
 
-  @Output() onButtonClicked: EventEmitter<any> = new EventEmitter<any>(); 
+  @Output() onButtonClicked: EventEmitter<any> = new EventEmitter<any>();
   Action: ActionType = new ActionType();
   @Input('currentId') currentId: number;
-  constructor(private ActionService:ActiontypeDataService) {   
+  constructor(private ActionService: ActiontypeDataService) {
 
-  } 
-  ngOnInit(){ 
-  this.ActionService.getById(this.currentId) 
-                        .subscribe(response=>this.Action = response)  
+  }
+  ngOnInit() {
+    this.ActionService.getById(this.currentId)
+      .subscribe(response => this.Action = response)
   }
 
-  editAction(){  
+  editAction() {
     this.Action.id = this.currentId
-    this.ActionService.update(this.Action) 
-                      .subscribe(response=> console.log(response)) 
-    this.onButtonClicked.emit(); 
-    location.reload()
+    this.ActionService.update(this.Action)
+      .subscribe(response => this.onButtonClicked.emit())
+
   }
 
-  addStatus(){ 
-   
+  addStatus() {
+
     this.onButtonClicked.emit();
-  }   
-  
-  close(){ 
+  }
+
+  close() {
     this.onButtonClicked.emit();
-  } 
+  }
 
 
 

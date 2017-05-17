@@ -151,4 +151,9 @@ export class SettingsComponent implements OnInit {
     this.addStatusModalVisible = false
     this.statusDataService.getAll().subscribe(request => this.statuses = request);
   }
+
+  completeEditActionModal() {
+    this.editActionModalVisible = false
+    this.actiontypedataService.getAll().subscribe(request => this.actiontypes = request)
+  }
 } 

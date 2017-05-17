@@ -1,7 +1,7 @@
 <rmts-header></rmts-header>
 <add-status-modal (onButtonClicked)="completeAddStatusModal()" *ngIf="addStatusModalVisible == true"></add-status-modal>
 <add-action-modal (onButtonClicked)="completeAddActionModal()" *ngIf="addActionModalVisible == true"></add-action-modal>
-<edit-action-modal [currentId]="currentActionId" (onButtonClicked)="editActionModalVisible = false" *ngIf="editActionModalVisible == true"></edit-action-modal>
+<edit-action-modal [currentId]="currentActionId" (onButtonClicked)="completeEditActionModal()" *ngIf="editActionModalVisible == true"></edit-action-modal>
 <edit-status-modal [currentId]="currentStatusId" (onButtonClicked)="showModal()" *ngIf="editStatusModalVisible == true"></edit-status-modal>
 <div class="settings-wrapper">
   <div class="container">
@@ -22,8 +22,8 @@
         </li>
       </ul>
       <div class="material-button settings-overview">
-        <a href="#" class="fa fa-angle-left" aria-hidden="true"></a> 1 van {{statusesCount}}
-        <a class="fa fa-angle-right" aria-hidden="true"></a>
+        <a class="fa fa-angle-left clickable" aria-hidden="true"></a> 1 van {{statusesCount}}
+        <a class="fa fa-angle-right clickable" aria-hidden="true"></a>
       </div>
     </div>
     <div class="col-md-offset-1 col-md-5 ">
@@ -34,18 +34,16 @@
       <div class="material-button add-setting" (click)="addActionModalVisible = true">+</div>
       <!--Items-->
       <ul class="settings-items">
-
         <li class=item *ngFor="let action of actiontypes | settingsFilterPipe : actionSearchText">
           <h4 class="item-description">{{action.content}}
-            <a href="#" (click)="deleteAction(action.id)" class="fa fa-trash item-icons" aria-hidden="true" [id]="action.id"></a>
-            <a href="#" (click)="showEditAction($event)" [id]="action.id" class="fa fa-pencil item-icons" aria-hidden="true"></a>
+            <a (click)="deleteAction(action.id)" class="fa fa-trash item-icons clickable" aria-hidden="true" [id]="action.id"></a>
+            <a (click)="showEditAction($event)" [id]="action.id" class="fa fa-pencil item-icons clickable" aria-hidden="true"></a>
           </h4>
         </li>
-
       </ul>
       <div class="material-button settings-overview">
-        <a class="fa fa-angle-left" aria-hidden="true"></a> 1 van {{actiontypesCount}}
-        <a class="fa fa-angle-right" aria-hidden="true"></a>
+        <a class="fa fa-angle-left clickable" aria-hidden="true"></a> 1 van {{actiontypesCount}}
+        <a class="fa fa-angle-right clickable" aria-hidden="true"></a>
       </div>
     </div>
   </div>

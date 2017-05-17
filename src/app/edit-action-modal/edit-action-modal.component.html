@@ -1,17 +1,17 @@
-<div> 
-<div class="blur">
-<div class="overlay">
-<div class="modal-container"> 
-  <div class="custom-modal-content">
-      <h3 class="custom-modal-title">Actie Bewerken</h3> 
-  <input type="text" class="form-field" style="width:100%" [(ngModel)]="Action.content" [attr.placeholder]="Action?.content"> 
-        <br>
-    </div>   
-    <div class="modal-buttons"> 
-          <h4><a (click)="editAction()" href="#">TOEVOEGEN</a></h4>
-          <h4><a (click)="close()"href="#">ANNULEREN</a></h4>
+<div>
+    <div class="blur">
+        <div class="overlay">
+            <div class="modal-container">
+                <div class="custom-modal-content">
+                    <h3 class="custom-modal-title">Actie Bewerken</h3>
+                    <input type="text" class="form-field" style="width:100%" [(ngModel)]="Action.content" [attr.placeholder]="Action?.content">
+                    <br>
+                </div>
+                <div class="modal-buttons">
+                    <h4><a (click)="editAction()" class="btn-link clickable">TOEVOEGEN</a></h4>
+                    <h4><a (click)="close()" class="btn-link clickable">ANNULEREN</a></h4>
+                </div>
+            </div>
+        </div>
     </div>
-
-</div>
-</div>
 </div>
