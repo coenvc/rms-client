@@ -2,7 +2,7 @@ import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
 import { ActionType } from "classes/ActionType";
 import { StatusDataService } from "app/status-data.service";
 import { Status } from "classes/Status";
-import { StringifyPipe } from "pipes/stringify.pipe";
+
 
 @Component({
   selector: 'edit-status-modal',
