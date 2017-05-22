@@ -150,9 +150,12 @@ body {
 }
 
 .member-details {
-  margin-top: 50px; 
+  /*margin-top: 50px; */
+  align-content: center;
   margin-left: 50px;
 }
+
+
 
 .member-details>h4 {
   margin-left: 20px;
