@@ -11,8 +11,8 @@ import { DashboardComponent } from "app/dashboard/dashboard.component";
 const APP_ROUTES: Routes = [
   {path: '', component: LoginFormComponent},
   {path: 'prospect', component: MemberCardComponent},
-  {path: 'prospect/add', component: PotentialFormComponent},
-  {path: 'prospect/:id', component: ProspectDetailsComponent},
+  {path: 'prospect/add',component: PotentialFormComponent},
+  {path: 'prospect/:id',component: ProspectDetailsComponent},
   {path: 'prospect/edit/:id', component: EditMemberComponent},
   {path: 'action/edit/:id', component: EditActionComponent},
   {path: 'settings', component: SettingsComponent},

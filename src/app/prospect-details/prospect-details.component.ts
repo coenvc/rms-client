@@ -31,24 +31,7 @@ export class ProspectDetailsComponent implements OnInit {
   providers: [ProspectDataService, ActionDataService, StatusDataService]
 
   constructor(public ProspectDataService: ProspectDataService, public ActionsDataService: ActionDataService, StatusDataService: StatusDataService, private route: ActivatedRoute) {
-
     this.FetchIDFromUrl();
-
-    this.Prospect = new Prospect();
-    ProspectDataService.getProspectById(1).subscribe(
-      request => this.Prospect = request,
-      error => console.log(this.Prospect)
-    )
-
-    ActionsDataService.getProspectActionsUnsorted(1).subscribe(
-      request => this.Actions = request,
-      error => console.log(error)
-    )
-
-    ActionsDataService.getProspectActionsUnsorted(1).subscribe(
-      request => console.log(request),
-      error => console.log(error)
-    )
   }
 
 
@@ -66,12 +49,13 @@ export class ProspectDetailsComponent implements OnInit {
     this.profession = new Profession();
 
     this.ProspectDataService.getProspectById(id)
-      .subscribe(request => console.log(this.splitObject(request)),
+      .subscribe(request =>this.splitObject(request),
         error => console.log(error));
 
-    this.ActionsDataService.getByProspectId(id)
-      .subscribe(request => console.log(this.Actions = request),
-        error => console.log(error));
+    this.ActionsDataService.getProspectActionsUnsorted(id)
+      .subscribe(request => this.Actions = request,
+        error => console.log(error));   
+
   }
 
   private splitObject(prospect: Prospect) {
@@ -89,23 +73,27 @@ export class ProspectDetailsComponent implements OnInit {
 
   hideAppointmentModal() {
     this.addAppointmentModalVisible = false;
+    this.ActionsDataService.getProspectActionsUnsorted(this.Prospect.id)
+      .subscribe(request => this.Actions = request,
+        error => console.log(error));
   }
 
 
   showCompleteActionModal(event) {
-    let id = event.target.attributes.id.value;
-    for (let action of this.Actions) {
-      if (action.id == id) {
-        if (action.completed == false) {
-          localStorage.setItem('currentAction', JSON.stringify(action));
+    let id = event.target.attributes.id.value; 
+    for(let action of this.Actions){ 
+        if(action.id == id && action.completed == false){  
+          localStorage.setItem('currentAction',JSON.stringify(action));
         }
-      }
-    }
+    } 
     this.completeAppointmentModalVisible = true;
   }
 
   hideCompleteActionModal() {
-    this.completeAppointmentModalVisible = false;
+    this.completeAppointmentModalVisible = false; 
+    this.ActionsDataService.getProspectActionsUnsorted(this.Prospect.id)
+      .subscribe(request => this.Actions = request,
+        error => console.log(error));  
   }
 
   completeAction(event) {
@@ -119,13 +107,13 @@ export class ProspectDetailsComponent implements OnInit {
           event.srcElement.className += " checked"
         }
       }
-    }
+    } 
   }
 
 
   ngOnInit() {
 
-    this.FetchIDFromUrl()
+
 
     localStorage.setItem('currentProspect', JSON.stringify(this.Prospect));
     let elements = document.getElementsByTagName("div");

@@ -23,7 +23,7 @@ currentAction:Action;
   }
 
   complete(){
-    this.onButtonClicked.emit()
+    
   }
 
   clicked(event){
@@ -37,14 +37,14 @@ currentAction:Action;
     this.currentAction.completed = true;
     this.ActionService.updateAction(this.currentAction)
       .subscribe(
-        data => console.log(data)
-      );
-    this.onButtonClicked.emit()
-    location.reload()
+        response => this.onButtonClicked.emit()
+      ); 
+      
+    
   }
 
   close(){
-    this.onButtonClicked.emit()
+    this.onButtonClicked.emit
   }
 
 }

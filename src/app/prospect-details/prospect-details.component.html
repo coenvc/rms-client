@@ -1,6 +1,6 @@
 
 <div *ngIf="addAppointmentModalVisible == true"> 
-<appointment-modal (onButtonClicked)="hideAppointmentModal()"></appointment-modal> 
+<appointment-modal (onButtonClicked)="addAppointmentModalVisible = false"></appointment-modal> 
 </div> 
 <div *ngIf="completeAppointmentModalVisible == true"> 
 <complete-action-modal (onButtonClicked)="hideCompleteActionModal()" ></complete-action-modal> 
@@ -49,7 +49,7 @@
             <div (click)=showCompleteActionModal($event) class="appointment-check"[ngClass]=" Action.completed==true ? ' checked' : ' '"  [attr.id]="Action.id"></div>
             <div class="appointment-status-content">
               <h3 class="activity-title">{{Action.actionType.content}}</h3>
-              <h4 class="activity-status">{{Action.date}}, {{Action.user.name}}</h4>
+              <h4 class="activity-status">{{Action.date | date}}, {{Action.user.name}}</h4>
               <p class="activity-description">
                 {{Action.description}}
               </p>

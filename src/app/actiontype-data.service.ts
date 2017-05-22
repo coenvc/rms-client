@@ -1,16 +1,17 @@
-import {Injectable} from "@angular/core";
-import {Http, Response, Headers} from "@angular/http";
-import {Observable} from "rxjs/Rx";
-import {ActionType} from "../classes/ActionType";
+import { Injectable } from "@angular/core";
+import { Http, Response, Headers } from "@angular/http";
+import { Observable } from "rxjs/Rx";
+import { ActionType } from "../classes/ActionType";
 // Import RxJs required methods
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/catch";
+import { host, folder } from '../classes/global'
 
 @Injectable()
 export class ActiontypeDataService {
   //localhost prospect url
-  private Url = 'http://84.24.62.136:8080/api/actionType/';
-  private headers = new Headers({'Content-Type': 'application/json'});
+  private Url = host + folder + 'actionType/';
+  private headers = new Headers({ 'Content-Type': 'application/json' });
 
   constructor(private http: Http) {
   }
@@ -26,13 +27,13 @@ export class ActiontypeDataService {
 
   register(actionType: ActionType) {
     return this.http.post(this.Url + '', actionType);
-  } 
+  }
 
- delete(id:number){ 
-    return this.http.delete(this.Url+id,this.headers);
- }
+  delete(id: number) {
+    return this.http.delete(this.Url + id, this.headers);
+  }
 
-  update(actionType: ActionType):Observable<any> { 
+  update(actionType: ActionType): Observable<any> {
     console.log(actionType.id)
     return this.http.put(this.Url, actionType, this.headers);
   }
