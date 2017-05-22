@@ -12,20 +12,14 @@
   <div class="row">
     <div class="col-md-10">
       <div class="member-filter">
-        <ul class="member-filters">
-          <li class="member-filter-item">
-            <a (click)="filterMember($event)" attr="active" class="member-filter-status status-accepted">Actief</a>
-          </li>
-          <li class="member-filter-item">
-            <a (click)="filterMember($event)" attr="non-active" class="member-filter-status status-non-active">Non-actief</a>
-          </li>
-          <li class="member-filter-item">
-            <a (click)="filterMember($event)" attr="ended" class="member-filter-status status-ended">Beëindigd</a>
-          </li>
-          <li class="member-filter-item">
-            <a (click)="filterMember($event)" attr="denied" class="member-filter-status status-denied">Geweigerd</a>
-          </li>
-        </ul>
+        <select class="form-field minimal" style="width: 100%" (change)="onChange($event.target.value)">
+            <option *ngFor="let status of statusses" [ngValue]="status" [selected]="status?.id == statusId"[value]="status.id">
+              {{ status.content }}
+              </option>
+              <option>
+                Alle
+              </option>
+          </select>
       </div>
     </div>
     <div class="col-md-2">
