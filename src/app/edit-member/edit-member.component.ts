@@ -60,7 +60,7 @@ export class EditMemberComponent implements OnInit {
 
   onSubmit(form, statusId) {
 
-    this.statusDataService.getStatusById(statusId).subscribe(res => {
+    this.statusDataService.find(statusId).subscribe(res => {
       this.prospect.socialLinks = this.socialLinks;
       this.prospect.address = this.address;
       this.prospect.status = res;

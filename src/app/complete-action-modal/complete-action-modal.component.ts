@@ -33,8 +33,6 @@ export class CompleteActionModalComponent implements OnInit {
     public prospectService: ProspectDataService) {
     this.currentAction = JSON.parse(localStorage.getItem('currentAction'));
     statusService.getAll().subscribe(r => this.statusses = r)
-
-
   }
 
   ngOnInit() {
@@ -49,7 +47,7 @@ export class CompleteActionModalComponent implements OnInit {
   submitForm(status) {
     this.currentAction.completed = true;
 
-    this.statusService.getStatusById(status).subscribe(r => {
+    this.statusService.find(status).subscribe(r => {
       this.status = r;
 
       this.prospectService.getProspectById(this.prospectId).subscribe(r => {
