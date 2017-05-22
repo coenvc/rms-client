@@ -83,7 +83,7 @@ export class SettingsComponent implements OnInit {
     console.log(id)
       this.actiontypedataService.delete(id) 
                                 .subscribe( 
-                                  request=> {location.reload()},
+                                  request=> {console.log(request)},
                                   error => {
                                     window.alert(error)}
                                   ); 
@@ -95,7 +95,7 @@ deleteStatus(id){
       console.log(id)
       this.statusDataService.delete(id) 
                                 .subscribe( 
-                                  request=> {location.reload()},
+                                  request=> {console.log(request)},
                                   error => window.alert("Actie kan niet verwijderd worden omdat deze in gebruik is")
                                   ); 
 }

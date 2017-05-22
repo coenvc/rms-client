@@ -16,13 +16,13 @@
       <ul class="settings-items">
         <li class=item *ngFor="let status of statuses | settingsFilterPipe : statusSearchText">
           <h4 class="item-description">{{status.content}}
-            <a href="#" (click)="deleteStatus(status.id)" class="fa fa-trash item-icons" aria-hidden="true"></a>
-            <a href="#" (click)="showEditStatus($event)" [id]="status.id" class="fa fa-pencil item-icons" aria-hidden="true"></a>
+            <a  (click)="deleteStatus(status.id)" class="fa fa-trash item-icons" aria-hidden="true"></a>
+            <a  (click)="showEditStatus($event)" [id]="status.id" class="fa fa-pencil item-icons" aria-hidden="true"></a>
           </h4>
         </li>
       </ul>
       <div class="material-button settings-overview">
-        <a href="#"  class="fa fa-angle-left" aria-hidden="true"></a> 1 van {{statusesCount}}
+        <a   class="fa fa-angle-left" aria-hidden="true"></a> 1 van {{statusesCount}}
         <a class="fa fa-angle-right" aria-hidden="true"></a>
       </div>
     </div>
@@ -37,8 +37,8 @@
 
         <li class=item *ngFor="let action of actiontypes | settingsFilterPipe : actionSearchText" >
           <h4 class="item-description">{{action.content}}
-            <a href="#" (click)="deleteAction(action.id)"class="fa fa-trash item-icons" aria-hidden="true" [id]="action.id"></a>
-            <a href="#" (click)="showEditAction($event)" [id]="action.id" class="fa fa-pencil item-icons" aria-hidden="true"></a>
+            <button  (click)="deleteAction(action.id)"class="fa fa-trash item-icons" aria-hidden="true" [id]="action.id"></button>
+            <a  (click)="showEditAction($event)" [id]="action.id" class="fa fa-pencil item-icons" aria-hidden="true"></a>
           </h4>
         </li>
 

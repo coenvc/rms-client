@@ -23,7 +23,7 @@ currentAction:Action;
   }
 
   complete(){
-    this.onButtonClicked.emit()
+    
   }
 
   clicked(event){
@@ -39,12 +39,11 @@ currentAction:Action;
       .subscribe(
         data => console.log(data)
       );
-    this.onButtonClicked.emit()
-    location.reload()
+    
   }
 
   close(){
-    this.onButtonClicked.emit()
+    console.log("clicked completed")
   }
 
 }

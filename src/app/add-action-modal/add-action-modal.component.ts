@@ -1,6 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from "@angular/core";
 import {ActiontypeDataService} from "app/actiontype-data.service";
 import {ActionType} from "classes/ActionType";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'add-action-modal',
@@ -12,19 +13,20 @@ export class AddActionModalComponent implements OnInit {
   @Output() onButtonClicked: EventEmitter<any> = new EventEmitter<any>();
   Action: ActionType = new ActionType();
 
-  constructor(private ActionService: ActiontypeDataService) {
-
+  constructor(private ActionService: ActiontypeDataService,private router:Router) {
+ 
   }
 
   addStatus() {
     this.ActionService.register(this.Action)
-      .subscribe(response => console.log(response))
+      .subscribe(response => console.log(response))   
+    this.router.navigate(['settings'])
     this.onButtonClicked.emit()
-    location.reload()
+      
   }
 
   close() {
-    this.onButtonClicked.emit()
+  this.onButtonClicked.emit()
   }
 
   ngOnInit() {

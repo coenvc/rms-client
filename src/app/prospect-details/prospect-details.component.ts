@@ -101,7 +101,7 @@ export class ProspectDetailsComponent implements OnInit {
           event.srcElement.className += " checked"
         }
       }
-    }
+    } 
   }
 
 

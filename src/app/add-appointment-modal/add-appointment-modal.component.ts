@@ -5,6 +5,7 @@ import { Prospect } from "classes/Prospect";
 import { ActionDataService } from "../action-data.service";
 import { ActionType } from "classes/ActionType";
 import { FormsModule } from "@angular/forms";
+import { Router } from "@angular/router";
 
 
 @Component({
@@ -22,7 +23,7 @@ export class AddAppointmentModalComponent implements OnInit {
   Appointment:Action = new Action;
   ActionTypes:ActionType[];
 
-  constructor(public ActionService:ActionDataService) {
+  constructor(public ActionService:ActionDataService, public router:Router) {
     this.Appointment.actionType = new ActionType();
     ActionService.getActionTypes().subscribe(request=>this.ActionTypes = request);
   }
@@ -37,8 +38,11 @@ export class AddAppointmentModalComponent implements OnInit {
      .subscribe(
                 (response) => console.log(response),
                 (error) => alert(error))
-                ;
-    this.onButtonClicked.emit()
+                ;  
+    //  this.router.navigate(['/prospect', {outlets: {'id': [this.currentProspect.id]}}]); 
+    console.log(this.currentProspect.id)
+     this.router.navigateByUrl("/prospect/"+1); 
+     this.onButtonClicked.emit()
   }
 
   ngOnInit() {
