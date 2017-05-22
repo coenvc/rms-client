@@ -11,6 +11,7 @@ import {LoginFormComponent} from './login-form/login-form.component'
 import {LoginService} from './login.service'
 import {HeaderComponent} from './header/header.component'
 import {EditMemberComponent} from './edit-member/edit-member.component'
+import {EditActionComponent} from './edit-action/edit-action.component'
 import { routing } from "app/app.routes";
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProspectDetailsComponent } from './prospect-details/prospect-details.component';
@@ -22,6 +23,7 @@ import { ProspectDataService } from "./prospect-data.service";
 import { CompleteActionModalComponent } from './complete-action-modal/complete-action-modal.component';
 import { ProfessionDataService } from "app/profession-data.service";
 import { ActiontypeDataService } from "app/actiontype-data.service";
+import { UserDataService } from "app/user-data.service";
 import { SettingsFilterPipePipe } from './settings-filter-pipe.pipe';
 import { AddStatusModalComponent } from './add-status-modal/add-status-modal.component';
 import { AddActionModalComponent } from './add-action-modal/add-action-modal.component';
@@ -41,6 +43,7 @@ import { EditStatusModalComponent } from './edit-status-modal/edit-status-modal.
     ProspectDetailsComponent,
     SettingsComponent,
     EditMemberComponent,
+    EditActionComponent,
     ModalComponent,
     AddAppointmentModalComponent,
     CompleteActionModalComponent,
@@ -62,6 +65,7 @@ import { EditStatusModalComponent } from './edit-status-modal/edit-status-modal.
     ActionDataService,
     ProspectDataService,
     ProfessionDataService,
+    UserDataService,
     ActiontypeDataService
   ],
   bootstrap: [AppComponent]

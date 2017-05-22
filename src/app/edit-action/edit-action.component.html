@@ -1,0 +1,40 @@
+<rmts-header></rmts-header>
+<br>
+<div class="container">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+    <div class="details-container" id="details-container personal">
+
+      <h1>Persoonlijke details</h1>
+      <div class="form-background">
+        <div class="form-group">
+          <h4>Door <span class="required-field">*</span></h4>
+          <select class="form-field minimal" style="width:100%" [(ngModel)]="user" name="user" required>
+            <option *ngFor="let user of users" [ngValue]="user">{{ user.name }}</option>
+          </select>
+
+          <h4>Met <span class="required-field">*</span></h4>
+          <select class="form-field minimal" style="width:100%" [(ngModel)]="prospect" name="prospect" required>
+            <option *ngFor="let prospect of prospects" [ngValue]="prospect">{{ prospect.fullName }}</option>
+          </select>
+
+          <h4>Datum en tijd <span class="required-field">*</span></h4>
+          <input [(ngModel)]="action.date" placeholder="{{action.date | date:'medium'}}" type="datetime-local" step="1"
+                 class="form-field" id="date" style="width:100%" name="date" autocomplete="off" required ngModel>
+
+          <h4>Locatie <span class="required-field">*</span></h4>
+          <input [(ngModel)]="action.location" type="text" class="form-field" id="location" style="width:100%"
+                 name="location" autocomplete="off" ngModel>
+
+          <h4>Beschrijving <span class="required-field">*</span></h4>
+          <input [(ngModel)]="action.description" type="text" class="form-field" id="description" style="width:100%"
+                 name="description" autocomplete="off" ngModel>
+
+        </div>
+      </div>
+    </div>
+
+    <button class="btn-primary btn-block" type="submit">Opslaan</button>
+  </form>
+</div>
+<br>
+<br>
