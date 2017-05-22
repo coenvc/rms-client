@@ -4,7 +4,7 @@ export class User {
     name: String
     active: Boolean
 
-    constructor(id, username, name, active) {
+  constructor(id, username, name, active) {
         this.id = id;
         this.username = id;
         this.name =name;
