@@ -14,33 +14,32 @@ export class ActionDataService {
   constructor(private http:Http) {
   }
 
-
     getAll():Observable<Action[]>{
-      const prospects = Observable.from(this.http.get(this.apiUrl+'/action/all').map((res:Response)=>res.json()))
+      const prospects = Observable.from(this.http.get(this.apiUrl+'action/all').map((res:Response)=>res.json()))
       console.log(prospects);
       return prospects
   }
 
   getByProspectId(id:number):Observable<Action[]>{
-      const Actions = Observable.from(this.http.get("http://84.24.62.136:8080/api/action/all/prospect/"+id).map((res:Response)=>res.json()))
+      const Actions = Observable.from(this.http.get(this.apiUrl +"action/all/prospect/" +id).map((res:Response)=>res.json()))
       console.log(Actions);
       return Actions
   }
 
   getByUserId(id:number):Observable<Action[]>{
-      const Actions = Observable.from(this.http.get("http://84.24.62.136:8080/api/action/all/user/"+id).map((res:Response)=>res.json()))
+      const Actions = Observable.from(this.http.get(this.apiUrl + "action/all/user/" +id).map((res:Response)=>res.json()))
       console.log(Actions);
       return Actions
   }
 
   getActionById(id:number):Observable<Action>{
-      const Action = Observable.from(this.http.get("http://84.24.62.136:8080/api/action/"+id).map((res:Response)=>res.json()))
+      const Action = Observable.from(this.http.get(this.apiUrl + "action/" +id).map((res:Response)=>res.json()))
       console.log(Action);
       return Action;
   }
 
 getActionTypes():Observable<ActionType[]>{
-    const Action = Observable.from(this.http.get("http://84.24.62.136:8080/api/actionType/all").map((res:Response)=>res.json()))
+    const Action = Observable.from(this.http.get(this.apiUrl + "actionType/all").map((res:Response)=>res.json()))
       return Action;
 }
 
@@ -48,27 +47,27 @@ getActionTypes():Observable<ActionType[]>{
   register(action: Action) {
     const headers = new Headers();
     headers.append('Content-Type', 'application/json');
-    return this.http.post("http://84.24.62.136:8080/api/action/insert",action,headers);
+    return this.http.post(this.apiUrl + "action/insert",action,headers);
   }
 
   getProspectActionsUnsorted(id:number){
-    return Observable.from(this.http.get("http://84.24.62.136:8080/api/action/all/unsorted/prospect/"+id).map((res: Response)=> res.json()));
+    return Observable.from(this.http.get(this.apiUrl + "action/all/unsorted/prospect/"+id).map((res: Response)=> res.json()));
   }
 
   updateAction(action:Action){
-    return this.http.put("http://84.24.62.136:8080/api/action/update",action)
+    return this.http.put(this.apiUrl + "action/update",action)
                   .map((res:Response) => res.json())
                   .catch((error:any)=>Observable.throw(error.json().error || 'Server Error'))
   }
 
   getUserActionOverview(id:number):Observable<ActionOverview>{
-    return this.http.get("http://84.24.62.136:8080/api/action/all/user/"+id)
+    return this.http.get(this.apiUrl + "action/all/user/"+id)
                     .map((res:Response)=>res.json())
 
   }
 
   getAllActionsOverview():Observable<ActionOverview>{
-    return this.http.get("http://84.24.62.136:8080/api/action/all/")
+    return this.http.get(this.apiUrl + "action/all/")
                     .map((res:Response)=>res.json())
   }
 
