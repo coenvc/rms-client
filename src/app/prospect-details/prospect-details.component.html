@@ -46,7 +46,7 @@
       <ul id="appointments-overview">
         <li  *ngFor = "let Action of Actions" class="appointment">
           <div class="appointment-title">
-            <div (click)=showCompleteActionModal($event) class="appointment-check"[ngClass]=" Action.completed==true ? ' checked' : ' '"  [attr.id]="Action.id"></div>
+            <div (click)=showCompleteActionModal($event) class="appointment-check"[ngClass]=" Action.completed ? ' checked' : ' '"  [attr.id]="Action.id"></div>
             <div class="appointment-status-content">
               <h3 class="activity-title">{{Action.actionType.content}}</h3>
               <h4 class="activity-status">{{Action.date | date}}, {{Action.user.name}}</h4>

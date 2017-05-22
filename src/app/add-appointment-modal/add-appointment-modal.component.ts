@@ -40,7 +40,7 @@ export class AddAppointmentModalComponent implements OnInit {
         console.log("test")
         this.onButtonClicked.emit()
       },
-      (error) => alert(error));
+      (error) => alert(error._body));
   }
 
   ngOnInit() {
@@ -57,6 +57,7 @@ export class AddAppointmentModalComponent implements OnInit {
   }
 
   close() {
+    console.log("jemoeder")
     this.onButtonClicked.emit()
   }
 
