@@ -37,13 +37,14 @@ currentAction:Action;
     this.currentAction.completed = true;
     this.ActionService.updateAction(this.currentAction)
       .subscribe(
-        data => console.log(data)
-      );
+        response => this.onButtonClicked.emit()
+      ); 
+      
     
   }
 
   close(){
-    console.log("clicked completed")
+    this.onButtonClicked.emit
   }
 
 }

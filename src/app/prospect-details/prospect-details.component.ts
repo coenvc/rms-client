@@ -73,6 +73,9 @@ export class ProspectDetailsComponent implements OnInit {
 
   hideAppointmentModal() {
     this.addAppointmentModalVisible = false;
+    this.ActionsDataService.getProspectActionsUnsorted(this.Prospect.id)
+      .subscribe(request => this.Actions = request,
+        error => console.log(error));
   }
 
 
@@ -82,12 +85,15 @@ export class ProspectDetailsComponent implements OnInit {
         if(action.id == id && action.completed == false){  
           localStorage.setItem('currentAction',JSON.stringify(action));
         }
-    }
+    } 
     this.completeAppointmentModalVisible = true;
   }
 
   hideCompleteActionModal() {
-    this.completeAppointmentModalVisible = false;
+    this.completeAppointmentModalVisible = false; 
+    this.ActionsDataService.getProspectActionsUnsorted(this.Prospect.id)
+      .subscribe(request => this.Actions = request,
+        error => console.log(error));  
   }
 
   completeAction(event) {
