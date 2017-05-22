@@ -23,7 +23,8 @@ export class EditMemberComponent implements OnInit {
   status: Status;
   profession: Profession;
   description: String;
-  
+  statusId: number;
+
   constructor(private prospectDataService: ProspectDataService,
     private statusDataService: StatusDataService,
     private route: ActivatedRoute) {
@@ -54,21 +55,20 @@ export class EditMemberComponent implements OnInit {
     this.status = prospect.status;
     this.profession = prospect.profession;
     this.description = prospect.description
+    this.statusId = prospect.status.id
   }
 
-  onSubmit() {
-    // Merge the objects back to Prospect
-    this.prospect.socialLinks = this.socialLinks;
-    this.prospect.address = this.address;
-    this.prospect.status = this.status;
-    this.prospect.profession = this.profession;
+  onSubmit(form, statusId) {
 
-    //console.log(this.prospect);
-    //console.log(JSON.stringify(this.prospect));
+    this.statusDataService.getStatusById(statusId).subscribe(res => {
+      this.prospect.socialLinks = this.socialLinks;
+      this.prospect.address = this.address;
+      this.prospect.status = res;
+      this.prospect.profession = this.profession;
+      this.prospectDataService.update(this.prospect).subscribe(request => {
+        alert("Aanpassing voltooit!")
+      }, error => console.log(error));
+    }, error => console.log(error))
 
-    this.prospectDataService.update(this.prospect)
-      .subscribe(request => console.log(request),
-      error => console.log(error)
-      );
   }
 }

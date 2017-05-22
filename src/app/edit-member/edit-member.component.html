@@ -1,9 +1,9 @@
 <rmts-header></rmts-header>
 <br>
 <div class="container">
-  <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f.value, statusSelect.value)">
     <div class="details-container" id="details-container personal">
-      
+
       <h1>Persoonlijke details</h1>
       <div class="form-background">
         <div class="form-group">
@@ -25,8 +25,9 @@
             ngModel>
 
           <h4>Status <span class="required-field">*</span></h4>
-          <select class="form-field minimal" style="width:15%" [(ngModel)]="status" name="status">
-            <option *ngFor="let status of statuses" [ngValue]="status">{{ status.content }}</option>
+          <select #statusSelect class="form-field minimal" style="width:15%"  name="status">
+            <option *ngFor="let status of statuses" [ngValue]="status" [selected]="status?.id == statusId"[value]="status.id">
+              {{ status.content }}</option>
           </select>
 
           <h4>Beroep <span class="required-field">*</span></h4>
@@ -88,10 +89,8 @@
 
       </div>
     </div>
-    <button class="btn-primary btn-block" type="submit" >Opslaan</button>
+    <button class="btn-primary btn-block" type="submit">Opslaan</button>
   </form>
 </div>
 <br>
 <br>
-
-
