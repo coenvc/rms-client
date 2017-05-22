@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,100,200,800,700');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,100,200,800,700,600');
 * {
   margin: 0;
   padding: 0;
@@ -121,9 +121,19 @@ body {
   margin-left: 0px !important;
 }
 
+.crop {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+} 
+
+.crop img {
+  height: 200px;
+  width: auto;
+}
+
 .profile-picture {
   width: auto;
-  /* or any custom size */
   height: 200px;
 }
 

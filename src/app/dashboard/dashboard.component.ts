@@ -41,6 +41,7 @@ export class DashboardComponent implements OnInit {
     this.ActionService.getUserActionOverview(this.CurrentUser.id)
       .subscribe(request => {
         this.ActionOverview = new ActionOverview(request.today, request.thisWeek, request.thisMonth, request.remainder)
+        console.log(this.ActionOverview)
       })
   }
 

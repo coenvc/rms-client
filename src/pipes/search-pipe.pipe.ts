@@ -6,7 +6,6 @@ import {Prospect} from "classes/Prospect";
 export class SearchPipePipe implements PipeTransform {
 
   transform(prospects: Prospect[], args: string): any {
-    console.log(prospects)
     if (!args) {
       return prospects
     }

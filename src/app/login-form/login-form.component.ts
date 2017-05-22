@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginFormComponent implements OnInit {
 
-  constructor(private loginService: LoginService, private router: Router) { }
+  constructor(private loginService: LoginService, private router : Router) { }
 
   private user: User;
 
@@ -23,7 +23,7 @@ export class LoginFormComponent implements OnInit {
     this.loginService.login(input.username, input.password)
       .subscribe(result => {
         if (this.login(result)) {
-          this.router.navigate(['dashboard'])
+          this.router.navigate(['dashboard']);
         } else {
           alert("Gebruiker staat op non-actief.")
         }
@@ -33,11 +33,11 @@ export class LoginFormComponent implements OnInit {
   private login(res) {
     this.user = res;
     if (this.user.active) {
-      localStorage.setItem('currentUser', JSON.stringify(this.user))
-      return true
+      localStorage.setItem('currentUser',JSON.stringify(this.user)) 
+      return true;
     }
-    else {
-      return false
+     else {
+      return false;
     }
   }
 }

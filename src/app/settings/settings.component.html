@@ -1,52 +1,64 @@
 <rmts-header></rmts-header>
-<add-status-modal (onButtonClicked)="addStatusModalVisible = false" *ngIf="addStatusModalVisible == true" ></add-status-modal>
-<add-action-modal (onButtonClicked)="addActionModalVisible = false" *ngIf="addActionModalVisible == true"  ></add-action-modal>
-<edit-action-modal [currentId]="currentActionId" (onButtonClicked)="editActionModalVisible = false" *ngIf="editActionModalVisible == true" ></edit-action-modal> 
-<edit-status-modal [currentId]="currentStatusId" (onButtonClicked)="editStatusModalVisible = false" *ngIf="editStatusModalVisible == true"></edit-status-modal>
+<add-status-modal (onButtonClicked)="completeAddStatusModal()" *ngIf="addStatusModalVisible == true"></add-status-modal>
+<add-action-modal (onButtonClicked)="completeAddActionModal()" *ngIf="addActionModalVisible == true"></add-action-modal>
+<edit-action-modal [currentId]="currentActionId" (onButtonClicked)="completeEditActionModal()" *ngIf="editActionModalVisible == true"></edit-action-modal>
+<edit-status-modal [currentId]="currentStatusId" (onButtonClicked)="showModal()" *ngIf="editStatusModalVisible == true"></edit-status-modal>
 <div class="settings-wrapper">
   <div class="container">
-    <div class="col-md-5 ">
-
-
+    <div class="col-md-6 ">
       <h1>Statussen</h1>
       <!--Search + Add-->
       <input type="text" class="memver-search-bar material-search settings-search" [(ngModel)]="statusSearchText" placeholder="Zoek...">
-      <div class="material-button add-setting" (click)="addStatusModalVisible = true">+</div>
+      <div class="material-button add-setting clickable" (click)="addStatusModalVisible = true">+</div>
       <!--Items-->
       <ul class="settings-items">
         <li class=item *ngFor="let status of statuses | settingsFilterPipe : statusSearchText">
           <h4 class="item-description">{{status.content}}
+<<<<<<< HEAD
             <a  (click)="deleteStatus(status.id)" class="fa fa-trash item-icons" aria-hidden="true"></a>
             <a  (click)="showEditStatus($event)" [id]="status.id" class="fa fa-pencil item-icons" aria-hidden="true"></a>
+=======
+            <a (click)="deleteStatus(status.id)" class="fa fa-trash item-icons clickable" aria-hidden="true"></a>
+            <a (click)="showEditStatus($event)" [id]="status.id" class="fa fa-pencil item-icons clickable" aria-hidden="true"></a>
+>>>>>>> 93f6d297642fc03888febdbfce1ef55618885a1c
           </h4>
         </li>
       </ul>
       <div class="material-button settings-overview">
+<<<<<<< HEAD
         <a   class="fa fa-angle-left" aria-hidden="true"></a> 1 van {{statusesCount}}
         <a class="fa fa-angle-right" aria-hidden="true"></a>
+=======
+        <a class="fa fa-angle-left clickable" aria-hidden="true"></a> 1 van {{ this.Math.ceil(statuses?.length / 6) }}
+        <a class="fa fa-angle-right clickable" aria-hidden="true"></a>
+>>>>>>> 93f6d297642fc03888febdbfce1ef55618885a1c
       </div>
     </div>
-    <div class="col-md-offset-1 col-md-5 ">
-
-      <h1>Acties</h1>
+    <div class="col-md-6 ">
+      <h1>Actietypen</h1>
       <!--Search + Add-->
       <input type="text" class="memver-search-bar material-search settings-search" [(ngModel)]="actionSearchText" placeholder="Zoek...">
       <div class="material-button add-setting" (click)="addActionModalVisible = true">+</div>
       <!--Items-->
       <ul class="settings-items">
-
-        <li class=item *ngFor="let action of actiontypes | settingsFilterPipe : actionSearchText" >
+        <li class=item *ngFor="let action of actiontypes | settingsFilterPipe : actionSearchText">
           <h4 class="item-description">{{action.content}}
+<<<<<<< HEAD
             <button  (click)="deleteAction(action.id)"class="fa fa-trash item-icons" aria-hidden="true" [id]="action.id"></button>
             <a  (click)="showEditAction($event)" [id]="action.id" class="fa fa-pencil item-icons" aria-hidden="true"></a>
+=======
+            <a (click)="deleteAction(action.id)" class="fa fa-trash item-icons clickable" aria-hidden="true" [id]="action.id"></a>
+            <a (click)="showEditAction($event)" [id]="action.id" class="fa fa-pencil item-icons clickable" aria-hidden="true"></a>
+>>>>>>> 93f6d297642fc03888febdbfce1ef55618885a1c
           </h4>
         </li>
-
       </ul>
       <div class="material-button settings-overview">
-        <a class="fa fa-angle-left" aria-hidden="true"></a> 1 van {{actiontypesCount}}
-        <a class="fa fa-angle-right" aria-hidden="true"></a>
+        <a class="fa fa-angle-left clickable" aria-hidden="true"></a> 1 van {{ this.Math.ceil(actiontypes?.length / 6) }}
+        <a class="fa fa-angle-right clickable" aria-hidden="true"></a>
       </div>
     </div>
   </div>
+  <br>
+  <br>
 </div>

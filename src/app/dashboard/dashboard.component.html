@@ -5,194 +5,41 @@
     <li (click)="showAllActions($event)" id="allAppointmentsTab" class="tabs selected">Alle Afspraken</li>
   </ul>
   <br>
-  <br>
-  <br>
   <div *ngFor="let list of ActionOverview?.all">
-    <h2>{{list.name}}</h2>
-    <div *ngFor="let action of list?.list" class="action-background">
-      <div class="col-md-2 vertical-line">
-        <h4>{{action?.date | date:"dd-MM-yyyy"}}</h4>
-        <h4>{{action?.date | date:"HH:mm"}}</h4>
-      </div>
-      <div class="col-md-4 vertical-line">
-        <h4>{{action.actionType.content}}</h4>
-        <h4>{{action.location}}</h4>
-      </div>
-      <div class="col-md-4 vertical-line">
-        <h4>Afspraak met:</h4>
-        <h4>{{action?.prospect.fullName}}</h4>
-      </div>
-      <div class="col-md-2">
-        <h4>Afspraak met:</h4>
-        <h4>{{action?.user.name}}</h4>
+    <h3 *ngIf="list.list.length > 0">{{list.name}}</h3>
+    <div *ngFor="let action of list?.list">
+      <div class="container action">
+        <div class="check col-md-2" [ngClass]="action.completed == true ? 'checked' : ''"></div>
+        <div class="col-md-10 action-background">
+          <div class="col-md-2 nogwat">
+            <div class="text">
+              <h4 class="header">{{action?.date | date:"dd-MM-yyyy"}}</h4>
+              <h4>{{action?.date | date:"HH:mm"}}</h4>
+            </div>
+            <div class="vertical-line"></div>
+          </div>
+          <div class="col-md-4 nogwat">
+            <div class="text">
+              <h4 class="header">{{action.actionType.content}}</h4>
+              <h4>{{action.location}}</h4>
+            </div>
+            <div class="vertical-line"></div>
+          </div>
+          <div class="col-md-4 nogwat">
+            <div class="text">
+              <h4 class="header">Afspraak met</h4>
+              <h4>{{action?.prospect.fullName}}</h4>
+            </div>
+            <div class="vertical-line"></div>
+          </div>
+          <div class="col-md-2 nogwat">
+            <div class="text">
+              <h4 class="header">Door</h4>
+              <h4>{{action?.user.name}}</h4>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-<!--<div *ngIf="MyActionsVisible == true" id="myAppointments">
-  <div class="items-today">
-    <h3>Vandaag</h3>
-    <ul class="overview-today">
-         <li class="item"  *ngFor="let Action of ActionOverview?.today">
-        <div class="check" [ngClass]=" Action.completed==true ? ' checked' : ' '">
-        </div>
-        <div class="item-wrapper"> 
-          <div class="table-container">
-          <table>
-              <th class="appointment-date"><h4>{{Action?.date}}</h4></th>
-              <th class="appointment-type"><h4>{{Action.actionType?.content}}</h4></th>
-              <th class="appointment-with"><h4>Afspraak met</h4></th>
-              <th class="appointment-by"><h4>Door</h4></th> 
-              <tr> 
-                <td><h4>12:30</h4></td>  
-                <td><h4>Cafetaria de Tramhalte</h4></td> 
-                <td><h4>{{Action.user?.name}}</h4></td>
-                <td><h4>{{Action.prospect?.fullName}}</h4></td>
-              </tr>
-          </table>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
-    <div class="items-this-week">
-    <h3>Deze Week</h3>
-    <ul class="overview-today">  
-      <div *ngIf="ActionOverview?.thisWeek.length == 0">
-        <br> 
-              <h4>Geen Afspraken</h4>
-      </div>
-
-     <li class="item" *ngFor="let Action of ActionOverview?.thisWeek"> 
-        <div class="check">
-        </div>
-        <div class="item-wrapper"> 
-          <div class="table-container">
-          <table>
-              <th class="appointment-date"><h4>{{Action?.date}}</h4></th>
-              <th class="appointment-type"><h4>{{Action.actionType?.content}}</h4></th>
-              <th class="appointment-with"><h4>Afspraak met</h4></th>
-              <th class="appointment-by"><h4>Door</h4></th> 
-              <tr> 
-                <td><h4>12:30</h4></td>  
-                <td><h4>Cafetaria de Tramhalte</h4></td> 
-                <td><h4>{{Action.user?.name}}</h4></td>
-                <td><h4>{{Action.prospect?.fullName}}</h4></td>
-              </tr>
-          </table>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
-    <div class="items-this-month">
-    <h3>Deze Maand</h3>
-    <ul class="overview-today"> 
-      <li class="item" *ngFor="let Action of ActionOverview?.thisMonth">
-        <div class="check">
-        </div>
-        <div class="item-wrapper"> 
-          <div class="table-container">
-          <table>
-              <th class="appointment-date"><h4>{{Action?.date}}</h4></th>
-              <th class="appointment-type"><h4>{{Action.actionType?.content}}</h4></th>
-              <th class="appointment-with"><h4>Afspraak met</h4></th>
-              <th class="appointment-by"><h4>Door</h4></th> 
-              <tr> 
-                <td><h4>12:30</h4></td>  
-                <td><h4>Cafetaria de Tramhalte</h4></td> 
-                <td><h4>{{Action.user?.name}}</h4></td>
-                <td><h4>{{Action.prospect?.fullName}}</h4></td>
-              </tr>
-          </table>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div> 
-  </div>
-
-  <div *ngIf="AllActionsVisible == true" id="allAppointments">
-  <div class="items-today">
-    <h3>Vandaag</h3>
-    <ul class="overview-today">
-         <li class="item"  *ngFor="let Action of AllActionsOverview?.today">
-        <div class="check" [ngClass]=" Action.completed==true ? ' checked' : ' '">
-        </div>
-        <div class="item-wrapper"> 
-          <div class="table-container">
-          <table>
-              <th class="appointment-date"><h4>{{Action?.date}}</h4></th>
-              <th class="appointment-type"><h4>{{Action.actionType?.content}}</h4></th>
-              <th class="appointment-with"><h4>Afspraak met</h4></th>
-              <th class="appointment-by"><h4>Door</h4></th> 
-              <tr> 
-                <td><h4>12:30</h4></td>  
-                <td><h4>Cafetaria de Tramhalte</h4></td> 
-                <td><h4>{{Action.user?.name}}</h4></td>
-                <td><h4>{{Action.prospect?.fullName}}</h4></td>
-              </tr>
-          </table>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
-    <div class="items-this-week">
-    <h3>Deze Week</h3>
-    <ul class="overview-today">  
-      <div *ngIf="ActionOverview?.thisWeek.length == 0">
-        <br> 
-              <h4>Geen Afspraken</h4>
-      </div>
-
-     <li class="item" *ngFor="let Action of ActionOverview?.thisWeek"> 
-        <div class="check">
-        </div>
-        <div class="item-wrapper"> 
-          <div class="table-container">
-          <table>
-              <th class="appointment-date"><h4>{{Action?.date}}</h4></th>
-              <th class="appointment-type"><h4>{{Action.actionType?.content}}</h4></th>
-              <th class="appointment-with"><h4>Afspraak met</h4></th>
-              <th class="appointment-by"><h4>Door</h4></th> 
-              <tr> 
-                <td><h4>12:30</h4></td>  
-                <td><h4>Cafetaria de Tramhalte</h4></td> 
-                <td><h4>{{Action.user?.name}}</h4></td>
-                <td><h4>{{Action.prospect?.fullName}}</h4></td>
-              </tr>
-          </table>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
-    <div class="items-this-month">
-    <h3>Deze Maand</h3>
-    <ul class="overview-today"> 
-      <li class="item" *ngFor="let Action of ActionOverview?.thisMonth">
-        <div class="check">
-        </div>
-        <div class="item-wrapper"> 
-          <div class="table-container">
-          <table>
-              <th class="appointment-date"><h4>{{Action?.date}}</h4></th>
-              <th class="appointment-type"><h4>{{Action.actionType?.content}}</h4></th>
-              <th class="appointment-with"><h4>Afspraak met</h4></th>
-              <th class="appointment-by"><h4>Door</h4></th> 
-              <tr> 
-                <td><h4>12:30</h4></td>  
-                <td><h4>Cafetaria de Tramhalte</h4></td> 
-                <td><h4>{{Action.user?.name}}</h4></td>
-                <td><h4>{{Action.prospect?.fullName}}</h4></td>
-              </tr>
-          </table>
-          </div>
-        </div>
-      </li>
-    </ul> 
-    </div>
-  </div>
-</div>-->

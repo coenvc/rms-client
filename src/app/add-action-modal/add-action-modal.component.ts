@@ -6,7 +6,7 @@ import { Router } from "@angular/router";
 @Component({
   selector: 'add-action-modal',
   templateUrl: './add-action-modal.component.html',
-  styleUrls: ['./add-action-modal.component.css']
+  styleUrls: ['./add-action-modal.component.css', '../../styles/buttons.css', '../../styles/forms.css', '../../styles/modal.css']
 })
 export class AddActionModalComponent implements OnInit {
 
@@ -17,12 +17,9 @@ export class AddActionModalComponent implements OnInit {
  
   }
 
-  addStatus() {
-    this.ActionService.register(this.Action)
-      .subscribe(response => console.log(response))   
-    this.router.navigate(['settings'])
-    this.onButtonClicked.emit()
-      
+  addAction() {
+    this.ActionService.register(this.Action)  
+      .subscribe(response => this.onButtonClicked.emit()) 
   }
 
   close() {
