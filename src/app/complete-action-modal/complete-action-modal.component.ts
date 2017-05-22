@@ -22,7 +22,7 @@ export class CompleteActionModalComponent implements OnInit {
   statusses: Status[];
   prospect: Prospect;
   status: Status;
-  statusText: String;
+  statusId: number;
 
   @Input("prospectId") prospectId: number;
 
@@ -41,7 +41,7 @@ export class CompleteActionModalComponent implements OnInit {
     this.prospectService.getProspectById(this.prospectId).subscribe(r => {
       this.prospect = r
       this.status = this.prospect.status
-      this.statusText = this.prospect.status.content;
+      this.statusId = this.prospect.status.id;
     })
         
   }
