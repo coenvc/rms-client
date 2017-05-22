@@ -12,10 +12,10 @@
             </option>
         </select>
         <h4>Rapportage<span class="required-field"> *</span></h4>
-        <textarea class="col-md-12 form-field form-textarea" [(ngModel)]="currentAction.description" placeholder="beschrijving" id=""
+        <textarea class="col-md-12 form-field form-textarea" [(ngModel)]="currentAction.description" id=""
           cols="30" rows="10"></textarea>
         <div class="button-container">  
-          <a (click)="submitForm(statusSelect.value)" class="btn-link clickable btn-modal">TOEVOEGEN</a>
+          <a (click)="submitForm(statusSelect.value)" class="btn-link clickable btn-modal">Afronden</a>
           <a (click)="close()" class="btn-link clickable btn-modal">annuleren</a>
         </div>
         <br>
