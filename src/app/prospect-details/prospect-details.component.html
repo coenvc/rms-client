@@ -1,6 +1,6 @@
 
 <div *ngIf="addAppointmentModalVisible == true"> 
-<appointment-modal (onButtonClicked)="addAppointmentModalVisible = false"></appointment-modal> 
+<appointment-modal (onButtonClicked)="hideAppointmentModal()"></appointment-modal>   
 </div> 
 <div *ngIf="completeAppointmentModalVisible == true"> 
 <complete-action-modal (onButtonClicked)="hideCompleteActionModal()" ></complete-action-modal> 

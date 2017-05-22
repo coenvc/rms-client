@@ -34,8 +34,12 @@ export class AddAppointmentModalComponent implements OnInit {
     this.Appointment.completed = false;
     this.Appointment.prospect = this.currentProspect;
     this.Appointment.user = this.currentUser;
+    
     this.ActionService.register(this.Appointment)
-      .subscribe((response) => this.onButtonClicked.emit(),
+      .subscribe((response) => {
+        console.log("test")
+        this.onButtonClicked.emit()
+      },
       (error) => alert(error));
   }
 

@@ -90,7 +90,7 @@ export class ProspectDetailsComponent implements OnInit {
   }
 
   hideCompleteActionModal() {
-    this.completeAppointmentModalVisible = false; 
+    // this.completeAppointmentModalVisible = false; 
     this.ActionsDataService.getProspectActionsUnsorted(this.Prospect.id)
       .subscribe(request => this.Actions = request,
         error => console.log(error));  
