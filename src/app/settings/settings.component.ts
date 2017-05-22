@@ -82,11 +82,11 @@ export class SettingsComponent implements OnInit {
   }
 
   deleteAction(id) {
-    if (window.confirm("Weet je zeker dat je deze actie wilt verwijderen?")) {
+    if (window.confirm("Weet je zeker dat je deze activiteit wilt verwijderen?")) {
       this.actiontypedataService.delete(id)
         .subscribe(
         request => { this.actiontypedataService.getAll().subscribe(request => this.actiontypes = request) },
-        error => { window.alert("Actie kan niet verwijderd worden omdat deze in gebruik is") }
+        error => { window.alert("Activiteit kan niet verwijderd worden omdat deze in gebruik is") }
         );
     }
   }
