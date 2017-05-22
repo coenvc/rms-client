@@ -5,18 +5,17 @@ import {Prospect} from "../classes/Prospect";
 // Import RxJs required methods
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/catch";
+import { host, folder } from '../classes/global'
 
 @Injectable()
 export class ProspectDataService {
     res: any;
 
-  //localhost prospect url
-  private Url = 'http://84.24.62.136:8080/api/prospect/';
+  private Url = host + folder + 'prospect/';
   private headers = new Headers({'Content-Type': 'application/json'});
 
   getAll():Observable<Prospect[]>{
-      const prospects = Observable.from(this.http.get(this.Url+'all').map((res:Response)=>res.json()))
-      return prospects
+      return Observable.from(this.http.get(this.Url+'all').map((res:Response)=>res.json()))
   }
   constructor(private http: Http) {
   }
