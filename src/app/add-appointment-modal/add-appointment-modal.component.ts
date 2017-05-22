@@ -11,54 +11,48 @@ import { Router } from "@angular/router";
 @Component({
   selector: 'appointment-modal',
   templateUrl: './add-appointment-modal.component.html',
-  styleUrls: ['./add-appointment-modal.component.css'],
+  styleUrls: ['./add-appointment-modal.component.css', '../../styles/buttons.css', '../../styles/forms.css', '../../styles/modal.css'],
   providers: [ActionDataService]
 })
 export class AddAppointmentModalComponent implements OnInit {
 
-@Output() onButtonClicked: EventEmitter<any> = new EventEmitter<any>();
-  test:number;
-  currentUser:User;
-  currentProspect:Prospect;
-  Appointment:Action = new Action;
-  ActionTypes:ActionType[];
+  @Output() onButtonClicked: EventEmitter<any> = new EventEmitter<any>();
+  test: number;
+  currentUser: User;
+  currentProspect: Prospect;
+  Appointment: Action = new Action;
+  ActionTypes: ActionType[];
 
-  constructor(public ActionService:ActionDataService, public router:Router) {
+  constructor(public ActionService: ActionDataService, public router: Router) {
     this.Appointment.actionType = new ActionType();
-    ActionService.getActionTypes().subscribe(request=>this.ActionTypes = request);
+    ActionService.getActionTypes().subscribe(request => this.ActionTypes = request);
   }
 
-  submitForm(){
+  submitForm() {
     this.getActionTypeById(this.test);
     this.Appointment.description = " ";
-    this.Appointment.completed =  false;
+    this.Appointment.completed = false;
     this.Appointment.prospect = this.currentProspect;
     this.Appointment.user = this.currentUser;
     this.ActionService.register(this.Appointment)
-     .subscribe(
-                (response) => console.log(response),
-                (error) => alert(error))
-                ;  
-    //  this.router.navigate(['/prospect', {outlets: {'id': [this.currentProspect.id]}}]); 
-    console.log(this.currentProspect.id)
-     this.router.navigateByUrl("/prospect/"+1); 
-     this.onButtonClicked.emit()
+      .subscribe((response) => this.onButtonClicked.emit(),
+      (error) => alert(error));
   }
 
   ngOnInit() {
     this.currentProspect = JSON.parse(localStorage.getItem('currentProspect'));
-    this.currentUser =  JSON.parse(localStorage.getItem('currentUser'));
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
-  public getActionTypeById(id:number){
-    for(let action of this.ActionTypes){
-      if(action.id == id){
+  public getActionTypeById(id: number) {
+    for (let action of this.ActionTypes) {
+      if (action.id == id) {
         this.Appointment.actionType = action
       }
     }
   }
 
-  close(){
+  close() {
     this.onButtonClicked.emit()
   }
 
