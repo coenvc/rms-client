@@ -14,24 +14,24 @@
       <ul class="settings-items">
         <li class=item *ngFor="let status of statuses | settingsFilterPipe : statusSearchText">
           <h4 class="item-description">{{status.content}}
-<<<<<<< HEAD
+<!--<<<<<<< HEAD
             <a  (click)="deleteStatus(status.id)" class="fa fa-trash item-icons" aria-hidden="true"></a>
             <a  (click)="showEditStatus($event)" [id]="status.id" class="fa fa-pencil item-icons" aria-hidden="true"></a>
 =======
             <a (click)="deleteStatus(status.id)" class="fa fa-trash item-icons clickable" aria-hidden="true"></a>
             <a (click)="showEditStatus($event)" [id]="status.id" class="fa fa-pencil item-icons clickable" aria-hidden="true"></a>
->>>>>>> 93f6d297642fc03888febdbfce1ef55618885a1c
+>>>>>>> 93f6d297642fc03888febdbfce1ef55618885a1c-->
           </h4>
         </li>
       </ul>
       <div class="material-button settings-overview">
-<<<<<<< HEAD
+<!--<<<<<<< HEAD
         <a   class="fa fa-angle-left" aria-hidden="true"></a> 1 van {{statusesCount}}
         <a class="fa fa-angle-right" aria-hidden="true"></a>
 =======
         <a class="fa fa-angle-left clickable" aria-hidden="true"></a> 1 van {{ this.Math.ceil(statuses?.length / 6) }}
         <a class="fa fa-angle-right clickable" aria-hidden="true"></a>
->>>>>>> 93f6d297642fc03888febdbfce1ef55618885a1c
+>>>>>>> 93f6d297642fc03888febdbfce1ef55618885a1c-->
       </div>
     </div>
     <div class="col-md-6 ">
@@ -43,13 +43,13 @@
       <ul class="settings-items">
         <li class=item *ngFor="let action of actiontypes | settingsFilterPipe : actionSearchText">
           <h4 class="item-description">{{action.content}}
-<<<<<<< HEAD
+<!--<<<<<<< HEAD
             <button  (click)="deleteAction(action.id)"class="fa fa-trash item-icons" aria-hidden="true" [id]="action.id"></button>
             <a  (click)="showEditAction($event)" [id]="action.id" class="fa fa-pencil item-icons" aria-hidden="true"></a>
 =======
             <a (click)="deleteAction(action.id)" class="fa fa-trash item-icons clickable" aria-hidden="true" [id]="action.id"></a>
             <a (click)="showEditAction($event)" [id]="action.id" class="fa fa-pencil item-icons clickable" aria-hidden="true"></a>
->>>>>>> 93f6d297642fc03888febdbfce1ef55618885a1c
+>>>>>>> 93f6d297642fc03888febdbfce1ef55618885a1c-->
           </h4>
         </li>
       </ul>
