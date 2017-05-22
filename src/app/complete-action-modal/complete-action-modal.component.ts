@@ -21,7 +21,8 @@ export class CompleteActionModalComponent implements OnInit {
   currentAction: Action;
   statusses: Status[];
   prospect: Prospect;
-  status: Status
+  status: Status;
+  statusText: String;
 
   @Input("prospectId") prospectId: number;
 
@@ -32,13 +33,17 @@ export class CompleteActionModalComponent implements OnInit {
     public prospectService: ProspectDataService) {
     this.currentAction = JSON.parse(localStorage.getItem('currentAction'));
     statusService.getAll().subscribe(r => this.statusses = r)
+
+
   }
 
   ngOnInit() {
     this.prospectService.getProspectById(this.prospectId).subscribe(r => {
       this.prospect = r
       this.status = this.prospect.status
+      this.statusText = this.prospect.status.content;
     })
+        
   }
 
   submitForm(status) {

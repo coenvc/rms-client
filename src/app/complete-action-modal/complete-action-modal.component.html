@@ -7,7 +7,7 @@
         <br>
         <h4>Status<span class="required-field"> *</span></h4>
         <select #statusSelect class="col-md-12 form-field minimal" id="status" >
-            <option *ngFor="let status of statusses" [value]="status.id"
+            <option *ngFor="let status of statusses" [selected]="status?.content == statusText"[value]="status.id"
               [ngValue]="status">{{status.content}}
             </option>
         </select>
