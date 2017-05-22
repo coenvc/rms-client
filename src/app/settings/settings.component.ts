@@ -69,41 +69,6 @@ export class SettingsComponent implements OnInit {
   mapAndCountActiontype(request: ActionType[]) {
     this.actiontypes = request;
     this.actiontypesCount = this.actiontypes.length.toString();
-<<<<<<< HEAD
-  }  
-
-  postStatus(){ 
-    this.statusDataService.postStatus(this.Status) 
-                          .subscribe(request => console.log(request)) 
-  } 
-
-  postActionType(){ 
-    this.actiontypedataService.register(this.ActionType) 
-                              .subscribe(request => console.log(request)) 
-  } 
-
-  deleteAction(id){   
-    console.log(id)
-      this.actiontypedataService.delete(id) 
-                                .subscribe( 
-                                  request=> {console.log(request)},
-                                  error => {
-                                    window.alert(error)}
-                                  ); 
-      location.reload()
-
-  }   
-
-deleteStatus(id){ 
-      console.log(id)
-      this.statusDataService.delete(id) 
-                                .subscribe( 
-                                  request=> {console.log(request)},
-                                  error => window.alert("Actie kan niet verwijderd worden omdat deze in gebruik is")
-                                  ); 
-}
-postProfession(){   
-=======
   }
 
   postStatus() {
@@ -136,7 +101,6 @@ postProfession(){
     }
   }
   postProfession() {
->>>>>>> 93f6d297642fc03888febdbfce1ef55618885a1c
     console.log(this.Profession)
     this.professionDataService.register(this.Profession)
       .subscribe(request => console.log(request));
