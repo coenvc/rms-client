@@ -5,11 +5,17 @@
         <h3>Afspraak afronden</h3>
         <p>Hier komt een mooie beschrijving! wat leuk!</p>
         <br>
+        <h4>Status<span class="required-field"> *</span></h4>
+        <select #statusSelect class="col-md-12 form-field minimal" id="status" >
+            <option *ngFor="let status of statusses" [selected]="status?.id == statusId"[value]="status.id"
+              [ngValue]="status">{{status.content}}
+            </option>
+        </select>
         <h4>Rapportage<span class="required-field"> *</span></h4>
-        <textarea class="col-md-12 form-field form-textarea" [(ngModel)]="currentAction.description" placeholder="beschrijving" id=""
+        <textarea class="col-md-12 form-field form-textarea" [(ngModel)]="currentAction.description" id=""
           cols="30" rows="10"></textarea>
-        <div class="button-container">
-          <a (click)="submitForm()" class="btn-link clickable btn-modal">TOEVOEGEN</a>
+        <div class="button-container">  
+          <a (click)="submitForm(statusSelect.value)" class="btn-link clickable btn-modal">Afronden</a>
           <a (click)="close()" class="btn-link clickable btn-modal">annuleren</a>
         </div>
         <br>
@@ -17,4 +23,4 @@
       </div>
     </div>
   </div>
-</div>
+</div>  

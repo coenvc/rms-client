@@ -12,14 +12,19 @@ import { User } from "classes/user";
 export class DashboardComponent implements OnInit {
   ActionOverview: ActionOverview;
   CurrentUser: User;
+  completeAppointmentModalVisible: boolean;
+  prospectId: number;
+  reloadMethod: string;
 
   constructor(public ActionService: ActionDataService) {
     this.CurrentUser = JSON.parse(localStorage.getItem('currentUser'));
-    this.getUser();
+    this.reloadMethod = "user"
+    this.reloadActions(this.reloadMethod)
   }
 
   showMyActions(event) {
-    this.getUser();
+    this.reloadMethod = "user"
+    this.reloadActions(this.reloadMethod)
     var myButton = document.getElementById("allAppointmentsTab");
     myButton.className += " selected"
     var otherButton = document.getElementById("myAppointmentsTab");
@@ -27,7 +32,8 @@ export class DashboardComponent implements OnInit {
   }
 
   showAllActions(event) {
-    this.getAll();
+    this.reloadMethod = "all"
+    this.reloadActions(this.reloadMethod)
     var myButton = document.getElementById("myAppointmentsTab");
     myButton.className += " selected"
     var otherButton = document.getElementById("allAppointmentsTab");
@@ -35,21 +41,32 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
-  getUser() {
-    this.ActionService.getUserActionOverview(this.CurrentUser.id)
-      .subscribe(request => {
-        this.ActionOverview = new ActionOverview(request.today, request.thisWeek, request.thisMonth, request.remainder)
-        console.log(this.ActionOverview)
-      })
+  completeAction(event, prospectId) {
+    this.prospectId = prospectId;
+    this.completeAppointmentModalVisible = true;
   }
 
-  getAll() {
-    this.ActionService.getAllActionsOverview()
-      .subscribe(request => {
-        this.ActionOverview = new ActionOverview(request.today, request.thisWeek, request.thisMonth, request.remainder)
-      })
+  hideCompleteActionModal() {
+    this.completeAppointmentModalVisible = false;
+    console.log(this.reloadMethod)
+    this.reloadActions(this.reloadMethod)
   }
 
+  private reloadActions(method: string) {
+    switch (method) {
+      case "user":
+        this.ActionService.getUserActionOverview(this.CurrentUser.id).subscribe(request => {
+          this.ActionOverview = new ActionOverview(request.today, request.thisWeek, request.thisMonth, request.remainder)
+        })
+        break
+      case "all":
+        this.ActionService.getAllActionsOverview().subscribe(request => {
+          this.ActionOverview = new ActionOverview(request.today, request.thisWeek, request.thisMonth, request.remainder)
+        })
+        break
+    }
+  }
 }

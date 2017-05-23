@@ -1,17 +1,19 @@
-import {Component, OnInit} from "@angular/core";
-import {Prospect} from "../../classes/Prospect";
-import {NgClass} from "@angular/common";
-import {ProspectDataService} from "../../../src/app/prospect-data.service";
-import {Test} from "../../../src/classes/TestProspect";
-import {SearchPipePipe} from "../../pipes/search-pipe.pipe";
+import { Component, OnInit } from "@angular/core";
+import { Prospect } from "../../classes/Prospect";
+import { NgClass } from "@angular/common";
+import { ProspectDataService } from "../../../src/app/prospect-data.service";
+import { Test } from "../../../src/classes/TestProspect";
+import { SearchPipePipe } from "../../pipes/search-pipe.pipe";
 import { FilterPipe } from "../../pipes/filter.pipe";
 import { User } from "classes/user";
+import { Status } from "classes/Status";
+import { StatusDataService } from "app/status-data.service";
 
 
 @Component({
   selector: 'app-member-card',
   templateUrl: './member-card.component.html',
-  styleUrls: ['./member-card.component.css', '../../styles/buttons.css']
+  styleUrls: ['./member-card.component.css', '../../styles/buttons.css', '../../styles/forms.css']
 })
 export class MemberCardComponent implements OnInit {
   prospects: Prospect[];
@@ -21,12 +23,14 @@ export class MemberCardComponent implements OnInit {
   name: string = ''
   initialProspects: Prospect[]
   directives: [NgClass]
-  providers: [ProspectDataService] 
-  currentUser:User;
+  providers: [ProspectDataService]
+  currentUser: User;
+  statusses: Status[]
 
-  constructor(prospectDataService: ProspectDataService) {
+  constructor(private prospectDataService: ProspectDataService, statusService: StatusDataService) {
     prospectDataService.getAll().subscribe(request => this.initialProspects = request)
     prospectDataService.getAll().subscribe(request => this.prospects = request);
+    statusService.getAll().subscribe(request => this.statusses = request)
   }
 
   reloadMembers() {
@@ -36,20 +40,22 @@ export class MemberCardComponent implements OnInit {
   }
 
   filterMember(e) {
-    this.reloadMembers()
     let memberStatus = e.srcElement.attributes[1].nodeValue;
-    let filterPipe = new FilterPipe()
-    this.prospects = filterPipe.transform(this.prospects, memberStatus)
   }
 
   searchmember() {
     console.log(this.name)
   }
 
-
-  ngOnInit() { 
-     this.currentUser = JSON.parse(localStorage.getItem('currentUser')); 
-     console.log(this.currentUser);
+  onChange(t) {
+    if (t.toLowerCase() == 'alle') {
+      this.prospects = this.initialProspects
+    } else {
+      this.prospects = this.initialProspects.filter(p => p.status.id == t)
+    }
   }
 
+  ngOnInit() {
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  }
 }

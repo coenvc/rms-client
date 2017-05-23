@@ -1,3 +1,6 @@
+<div *ngIf="completeAppointmentModalVisible == true">
+  <complete-action-modal [prospectId]="prospectId" (onButtonClicked)="hideCompleteActionModal()"></complete-action-modal>
+</div>
 <rmts-header></rmts-header>
 <div class="container">
   <ul id="tab-group">
@@ -9,7 +12,7 @@
     <h3 *ngIf="list.list.length > 0">{{list.name}}</h3>
     <div *ngFor="let action of list?.list">
       <div class="container action">
-        <div class="check col-md-2" [ngClass]="action.completed == true ? 'checked' : ''"></div>
+        <div (click)="completeAction($event, action.prospect.id)" class="check col-md-2" [ngClass]="action?.completed ? 'checked' : ''"></div>
         <div class="col-md-10 action-background">
           <div class="col-md-2 nogwat">
             <div class="text">

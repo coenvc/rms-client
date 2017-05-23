@@ -25,6 +25,8 @@ export class ProspectDetailsComponent implements OnInit {
   status: Status;
   profession: Profession;
 
+  prospectId: number;
+
   addAppointmentModalVisible: boolean = false;
   completeAppointmentModalVisible: boolean = false;
   parentTitle: string;

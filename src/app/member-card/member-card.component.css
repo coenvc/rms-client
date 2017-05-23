@@ -1,3 +1,15 @@
 .add-link{ 
     text-decoration: none;
+}
+
+.member-address{
+    font-size: 1.3em;
 } 
+
+.vertical-center {
+    position: absolute;
+    top: 50%; left: 32%;
+    transform: translate(-50%,-50%);
+    height: 50%;
+    width: 50%;
+}
