@@ -1,11 +1,10 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { Action } from "classes/Action";
-import { User } from "classes/user";
-import { Prospect } from "classes/Prospect";
-import { ActionDataService } from "../action-data.service";
-import { ActionType } from "classes/ActionType";
-import { FormsModule } from "@angular/forms";
-import { Router } from "@angular/router";
+import {Component, EventEmitter, OnInit, Output} from "@angular/core";
+import {Action} from "classes/Action";
+import {User} from "classes/user";
+import {Prospect} from "classes/Prospect";
+import {ActionDataService} from "../action-data.service";
+import {ActionType} from "classes/ActionType";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -34,9 +33,12 @@ export class AddAppointmentModalComponent implements OnInit {
     this.Appointment.completed = false;
     this.Appointment.prospect = this.currentProspect;
     this.Appointment.user = this.currentUser;
+
+    console.log(JSON.stringify(this.Appointment));
+
     this.ActionService.register(this.Appointment)
       .subscribe((response) => this.onButtonClicked.emit(),
-      (error) => alert(error));
+        (error) => alert(error));
   }
 
   ngOnInit() {
@@ -55,5 +57,4 @@ export class AddAppointmentModalComponent implements OnInit {
   close() {
     this.onButtonClicked.emit()
   }
-
 }
