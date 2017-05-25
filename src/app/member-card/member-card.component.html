@@ -12,20 +12,14 @@
   <div class="row">
     <div class="col-md-10">
       <div class="member-filter">
-        <ul class="member-filters">
-          <li class="member-filter-item">
-            <a (click)="filterMember($event)" attr="active" class="member-filter-status status-accepted">Actief</a>
-          </li>
-          <li class="member-filter-item">
-            <a (click)="filterMember($event)" attr="non-active" class="member-filter-status status-non-active">Non-actief</a>
-          </li>
-          <li class="member-filter-item">
-            <a (click)="filterMember($event)" attr="ended" class="member-filter-status status-ended">Beëindigd</a>
-          </li>
-          <li class="member-filter-item">
-            <a (click)="filterMember($event)" attr="denied" class="member-filter-status status-denied">Geweigerd</a>
-          </li>
-        </ul>
+        <select class="form-field minimal" style="width: 100%" (change)="onChange($event.target.value)">
+            <option *ngFor="let status of statusses" [ngValue]="status" [selected]="status?.id == statusId"[value]="status.id">
+              {{ status.content }}
+              </option>
+              <option>
+                Alle
+              </option>
+          </select>
       </div>
     </div>
     <div class="col-md-2">
@@ -45,9 +39,6 @@
           <div class="crop img-container pull-left">
             <img src="{{prospect.imageUrl || 'http://www.spoorenpartners.nl/images/team/NoPersonPicture.jpg'}}" alt="..." />
           </div>
-          <!--<div class="img-container pull-left">
-            <img src="{{prospect.imageUrl}}" alt="" class="profile-picture img">
-          </div>-->
           <div class="member-short">
             <h1 class="member-name">
               <a [routerLink]="['/prospect/', prospect.id]"> {{prospect.fullName}} </a>
@@ -58,19 +49,22 @@
         <div class="col-md-6">
           <div class="verticalLine">
             <div class="member-details">
-              <div *ngIf="prospect.address != null">
-                <h4 class="member-address">{{prospect.address.street}} {{prospect.address.houseNumber}}</h4>
-                <h4 class="member-address-details">{{prospect.address.city}} {{prospect.address.zipcode}} </h4>
-                <h4 class="member-address">{{prospect.emailAddress}}</h4>
-                <h4 class="member-address-details">{{prospect.phoneNumber}}</h4>
-              </div>
-              <div *ngIf="prospect.address == null">
-                <h4 class="member-address btn-link btn-center"><a [routerLink]="['/prospect/edit', prospect.id]">Gegegevens aanvullen</a></h4>
+              <div class="vertical-center">
+                <div *ngIf="prospect.address != null">
+                  <p class="member-address">{{prospect.address.street}} {{prospect.address.houseNumber}}</p>
+                  <p class="member-address details">{{prospect.address.city}} {{prospect.address.zipcode}} </p>
+                  <p class="member-address">{{prospect.emailAddress}}</p>
+                  <p class="member-address details">{{prospect.phoneNumber}}</p>
+                </div>
+                <div *ngIf="prospect.address == null">
+                  <p class="member-address btn-link btn-center"><a [routerLink]="['/prospect/edit', prospect.id]">Gegegevens aanvullen</a></p>
+                </div>
               </div>
             </div>
           </div>
-          <div [ngClass]="prospect.status.content" class="member-status">
-          </div>
+          <!--Niet alle statussen hebben een kleur, vandaar weggecomment-->
+          <!--<div [ngClass]="prospect.status.content" class="member-status">
+          </div>-->
         </div>
       </div>
     </li>

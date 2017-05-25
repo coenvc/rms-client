@@ -21,7 +21,7 @@ export class EditStatusModalComponent implements OnInit {
     this.String = String;
   }
   ngOnInit() {
-    this.StatusService.getStatusById(this.currentId)
+    this.StatusService.find(this.currentId)
       .subscribe(response => this.Status = response)
   }
 

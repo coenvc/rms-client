@@ -1,14 +1,14 @@
-import {Component, OnInit} from "@angular/core";
-import {ActivatedRoute} from "@angular/router";
-import {Prospect} from "classes/Prospect";
-import {ProspectDataService} from "app/prospect-data.service";
-import {ActionDataService} from "../action-data.service";
-import {Action} from "classes/Action";
-import {Status} from "classes/Status";
-import {Profession} from "classes/Profession";
-import {Address} from "../../classes/Address";
-import {SocialLinks} from "classes/SocialLinks";
-import {StatusDataService} from "app/status-data.service";
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { Prospect } from "classes/Prospect";
+import { ProspectDataService } from "app/prospect-data.service";
+import { ActionDataService } from "../action-data.service";
+import { Action } from "classes/Action";
+import { Status } from "classes/Status";
+import { Profession } from "classes/Profession";
+import { Address } from "../../classes/Address";
+import { SocialLinks } from "classes/SocialLinks";
+import { StatusDataService } from "app/status-data.service";
 
 @Component({
   selector: 'app-prospect-details',
@@ -24,6 +24,8 @@ export class ProspectDetailsComponent implements OnInit {
   address: Address;
   status: Status;
   profession: Profession;
+
+  prospectId: number;
 
   addAppointmentModalVisible: boolean = false;
   completeAppointmentModalVisible: boolean = false;
@@ -49,12 +51,12 @@ export class ProspectDetailsComponent implements OnInit {
     this.profession = new Profession();
 
     this.ProspectDataService.getProspectById(id)
-      .subscribe(request =>this.splitObject(request),
-        error => console.log(error));
+      .subscribe(request => this.splitObject(request),
+      error => console.log(error));
 
     this.ActionsDataService.getProspectActionsUnsorted(id)
       .subscribe(request => this.Actions = request,
-        error => console.log(error));   
+      error => console.log(error));
 
   }
 
@@ -75,25 +77,25 @@ export class ProspectDetailsComponent implements OnInit {
     this.addAppointmentModalVisible = false;
     this.ActionsDataService.getProspectActionsUnsorted(this.Prospect.id)
       .subscribe(request => this.Actions = request,
-        error => console.log(error));
+      error => console.log(error));
   }
 
 
   showCompleteActionModal(event) {
-    let id = event.target.attributes.id.value; 
-    for(let action of this.Actions){ 
-        if(action.id == id && action.completed == false){  
-          localStorage.setItem('currentAction',JSON.stringify(action));
-        }
-    } 
-    this.completeAppointmentModalVisible = true;
+    let id = event.target.attributes.id.value
+    
+    let selectedAction = this.Actions.find(a => a.id == id && !a.completed)
+    if (selectedAction != undefined) {
+      localStorage.setItem('currentAction', JSON.stringify(selectedAction))
+      this.completeAppointmentModalVisible = true;
+    }
   }
 
   hideCompleteActionModal() {
-    this.completeAppointmentModalVisible = false; 
+    this.completeAppointmentModalVisible = false;
     this.ActionsDataService.getProspectActionsUnsorted(this.Prospect.id)
       .subscribe(request => this.Actions = request,
-        error => console.log(error));  
+      error => console.log(error));
   }
 
   completeAction(event) {
@@ -107,31 +109,11 @@ export class ProspectDetailsComponent implements OnInit {
           event.srcElement.className += " checked"
         }
       }
-    } 
+    }
   }
 
-
   ngOnInit() {
-
-
-
     localStorage.setItem('currentProspect', JSON.stringify(this.Prospect));
-    let elements = document.getElementsByTagName("div");
-    for (let i = 0; i < elements.length; i++) {
-      let element = elements[i];
-      let showModal = this.showAppointmentModal;
-      element.onclick = function (event) {
-        if (event.srcElement.classList.contains("appointment-check") == true) {
-          if (event.srcElement.classList.contains("checked") == true) {
-            event.srcElement.classList.remove("checked");
-          }
-          else {
-            event.srcElement.className += " checked"
-          }
-        }
-
-      }
-    }
   }
 }
 
