@@ -16,7 +16,7 @@
       <div class="col-md-12">
 
         <h4>Voornaam</h4>
-        <input class="form-field col-md-12" style="width: 100%" type="text" formControlName="voornaam">
+        <input class="form-field col-md-12" style="width: 100%" type="text" formControlName="voornaam" required>
       </div>
 
 
@@ -32,19 +32,19 @@
 
       <div class="col-md-12">
         <input class="form-field col-md-2" type="text" formControlName="tussenvoegsel">
-        <input class="form-field col-md-10" type="text" formControlName="achternaam">
+        <input class="form-field col-md-10" type="text" formControlName="achternaam" required>
       </div>
 
 
 
       <div class="col-md-12">
         <h4>Emailadres</h4>
-        <input class="form-field col-md-12" type="text" formControlName="emailaddress">
+        <input class="form-field col-md-12" type="email" formControlName="emailaddress" required>
       </div>
 
       <div class="col-md-12">
         <h4>Telefoonnummer</h4>
-        <input class="form-field col-md-12" type="text" formControlName="phonenumber">
+        <input class="form-field col-md-12" type="tel" formControlName="phonenumber" required>
       </div>
 
 
@@ -58,8 +58,8 @@
 
 
       <div class="col-md-12" style="padding-right: 0% !important;">
-        <input style="width:83%" class="form-field" type="text" formControlName="beroep">
-        <select class="form-field minimal" style="width:14.4%; margin-left:1%;" [(ngModel)]="status" formControlName="status" id="">
+        <input style="width:83%" class="form-field" type="text" formControlName="beroep" required>
+        <select class="form-field minimal" style="width:14.4%; margin-left:1%;" [(ngModel)]="status" formControlName="status" id="" required>
             <option *ngFor="let status of statuses"
               [ngValue]="status">{{status.content}}
             </option>
@@ -71,4 +71,7 @@
       <textarea class="col-md-12 form-field form-textarea" formControlName="beschrijving" id="" cols="30" rows="10"></textarea>
       <button type="submit" class="btn-primary btn-block">Toevoegen</button>
     </form>
+    <br>
+     <br>
+      <br>
   </div>

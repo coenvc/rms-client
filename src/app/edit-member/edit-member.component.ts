@@ -1,12 +1,12 @@
-import {Component, OnInit} from "@angular/core";
-import {ActivatedRoute, Router} from "@angular/router";
-import {ProspectDataService} from "../../../src/app/prospect-data.service";
-import {StatusDataService} from "../../../src/app/status-data.service";
-import {Prospect} from "../../classes/Prospect";
-import {SocialLinks} from "../../classes/SocialLinks";
-import {Address} from "../../classes/Address";
-import {Status} from "../../classes/Status";
-import {Profession} from "../../classes/Profession";
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute, Router } from "@angular/router";
+import { ProspectDataService } from "../../../src/app/prospect-data.service";
+import { StatusDataService } from "../../../src/app/status-data.service";
+import { Prospect } from "../../classes/Prospect";
+import { SocialLinks } from "../../classes/SocialLinks";
+import { Address } from "../../classes/Address";
+import { Status } from "../../classes/Status";
+import { Profession } from "../../classes/Profession";
 
 
 @Component({
@@ -26,9 +26,9 @@ export class EditMemberComponent implements OnInit {
   statusId: number;
 
   constructor(private prospectDataService: ProspectDataService,
-              private statusDataService: StatusDataService,
-              private route: ActivatedRoute,
-              private router: Router) {
+    private statusDataService: StatusDataService,
+    private route: ActivatedRoute,
+    private router : Router) {
   }
 
   ngOnInit() {
@@ -67,7 +67,8 @@ export class EditMemberComponent implements OnInit {
       this.prospect.status = res;
       this.prospect.profession = this.profession;
       this.prospectDataService.update(this.prospect).subscribe(request => {
-        this.router.navigate(['/prospect/', this.prospect.id])
+        alert("Aanpassing voltooid!")
+        this.router.navigate(['prospect/:id', {id: this.prospect.id}]);
       }, error => console.log(error));
     }, error => console.log(error))
 

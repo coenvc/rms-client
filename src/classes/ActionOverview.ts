@@ -6,17 +6,37 @@ export class ActionOverview {
     thisMonth:Action[];
     remainder:Action[];
     all:any[];
+    isLoaded = false;
 
     constructor(today:Action[],thisWeek:Action[],thisMonth:Action[], remainder:Action[]){ 
         this.today = today; 
         this.thisWeek = thisWeek; 
         this.thisMonth = thisMonth;
+        this.remainder = remainder;
+
         this.all = [
             {"name": "Vandaag", list: today},
             {"name": "Deze week", list: thisWeek},
             {"name": "Deze maand", list: thisMonth},
             {"name": "Overig", list: remainder},
         ] 
+        
+        this.isLoaded = true;
+    }
+
+    public isEmpty() : boolean{
+        console.log('jo')
+
+        if(!this.isLoaded) return false;
+
+        console.log(this.today,this.thisWeek, this.thisMonth, this.remainder);
+        
+        console.log('ja')
+
+        return (this.today.length == 0 
+        && this.thisWeek.length == 0 
+        && this.thisMonth.length == 0 
+        && this.remainder.length == 0);
     }
     
 }
