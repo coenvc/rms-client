@@ -1,5 +1,6 @@
 <div *ngIf="completeAppointmentModalVisible == true">
-  <complete-action-modal [prospectId]="prospectId" (onButtonClicked)="hideCompleteActionModal()"></complete-action-modal>
+  <complete-action-modal [prospectId]="prospectId"
+                         (onButtonClicked)="hideCompleteActionModal()"></complete-action-modal>
 </div>
 <rmts-header></rmts-header>
 <div class="container">
@@ -12,7 +13,8 @@
     <h3 *ngIf="list.list.length > 0">{{list.name}}</h3>
     <div *ngFor="let action of list?.list">
       <div class="container action">
-        <div (click)="completeAction($event, action.prospect.id)" class="check col-md-2" [ngClass]="action?.completed ? 'checked' : ''"></div>
+        <div (click)="completeAction($event, action.prospect.id)" class="check col-md-2"
+             [ngClass]="action?.completed ? 'checked' : ''"></div>
         <div class="col-md-10 action-background">
           <div class="col-md-2 nogwat">
             <div class="text">
@@ -43,9 +45,9 @@
             </div>
           </div>
           <div class="col-md-1 nogwat">
-            <div class="text">
-              <h4 class="btn-link btn-center"><a [routerLink]="['/action/edit', action.id]">🖊</a></h4>
-            </div>
+            <!--<h4 class="btn-link btn-center"><a [routerLink]="['/action/edit', action.id]">🖊</a></h4>-->
+            <h1><a [routerLink]="['/action/edit', action.id]" class="fa fa-pencil item-icons clickable"
+                   aria-hidden="true" [id]="action.id" style="float: right"></a></h1>
           </div>
         </div>
       </div>
