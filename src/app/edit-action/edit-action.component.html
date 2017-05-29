@@ -29,8 +29,8 @@
           </select>
 
           <h4>Datum en tijd <span class="required-field">*</span></h4>
-          <input [(ngModel)]="action.date" #date placeholder="{{action.date | date:'dd-MM-yyyy'}}" type="datetime-local" step="1"
-                 class="form-field" id="date" style="width:100%" name="date" autocomplete="off" required ngModel>
+          <input #date [value]='dateString'  type="datetime-local"
+                 class="form-field" id="date" style="width:100%" name="date" autocomplete="off" required>
 
           <h4>Locatie <span class="required-field">*</span></h4>
           <input [(ngModel)]="action.location" type="text" class="form-field" id="location" style="width:100%"
