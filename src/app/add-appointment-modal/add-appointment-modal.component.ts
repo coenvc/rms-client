@@ -17,6 +17,7 @@ export class AddAppointmentModalComponent implements OnInit {
 
   @Output() onButtonClicked: EventEmitter<any> = new EventEmitter<any>();
   test: number;
+  fistId: number;
   currentUser: User;
   currentProspect: Prospect;
   Appointment: Action = new Action;
@@ -26,7 +27,11 @@ export class AddAppointmentModalComponent implements OnInit {
 
   constructor(public ActionService: ActionDataService, public router: Router) {
     this.Appointment.actionType = new ActionType();
-    ActionService.getActionTypes().subscribe(request => this.ActionTypes = request);
+    ActionService.getActionTypes().subscribe(request => {
+        this.ActionTypes = request;
+        this.fistId = request[0].id;
+        console.log(this.fistId);}
+    );
   }
 
   submitForm(date) {
