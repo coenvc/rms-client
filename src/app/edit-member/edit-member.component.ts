@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { ProspectDataService } from "../../../src/app/prospect-data.service";
@@ -8,17 +7,6 @@ import { SocialLinks } from "../../classes/SocialLinks";
 import { Address } from "../../classes/Address";
 import { Status } from "../../classes/Status";
 import { Profession } from "../../classes/Profession";
-=======
-import {Component, OnInit} from "@angular/core";
-import {ActivatedRoute, Router} from "@angular/router";
-import {ProspectDataService} from "../../../src/app/prospect-data.service";
-import {StatusDataService} from "../../../src/app/status-data.service";
-import {Prospect} from "../../classes/Prospect";
-import {SocialLinks} from "../../classes/SocialLinks";
-import {Address} from "../../classes/Address";
-import {Status} from "../../classes/Status";
-import {Profession} from "../../classes/Profession";
->>>>>>> 4f7f69074df2f7e4154dcc0634c0a99715208d39
 
 
 @Component({
@@ -79,12 +67,8 @@ export class EditMemberComponent implements OnInit {
       this.prospect.status = res;
       this.prospect.profession = this.profession;
       this.prospectDataService.update(this.prospect).subscribe(request => {
-<<<<<<< HEAD
         alert("Aanpassing voltooid!")
         this.router.navigate(['prospect/:id', {id: this.prospect.id}]);
-=======
-        this.router.navigate(['/prospect/', this.prospect.id])
->>>>>>> 4f7f69074df2f7e4154dcc0634c0a99715208d39
       }, error => console.log(error));
     }, error => console.log(error))
 
