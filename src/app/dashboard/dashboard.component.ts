@@ -42,7 +42,7 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    
   }
 
   completeAction(event, prospectId, action: Action) {
