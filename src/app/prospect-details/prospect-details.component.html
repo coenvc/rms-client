@@ -3,8 +3,8 @@
 <appointment-modal (onButtonClicked)="hideAppointmentModal()"></appointment-modal>
 </div>
 <div *ngIf="completeAppointmentModalVisible == true">
-<complete-action-modal (onButtonClicked)="hideCompleteActionModal()" ></complete-action-modal>
-</div>
+<complete-action-modal [prospectId]='Prospect.id' (onButtonClicked)="hideCompleteActionModal()" ></complete-action-modal>
+</div>  
 <rmts-header></rmts-header>
 <div class="prospect-details-wrapper">
   <div class="container">
