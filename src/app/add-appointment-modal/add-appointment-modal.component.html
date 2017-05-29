@@ -8,7 +8,7 @@
                 <H4>Activiteit<span class="required-field"> *</span></H4>
 
                 <select class="form-field minimal" style="width:100%;" [(ngModel)]="test">
-                        <option *ngFor="let action of ActionTypes"  [value]="action.id">{{action.content}}</option>
+                        <option *ngFor="let action of ActionTypes"  [value]="action.id" [selected]="action.id">{{action.content}}</option>
                     </select>
                 <h4>Datum<span class="required-field"> *</span></h4>
                 <input type="date" [(ngModel)]="Appointment.date" class="form-field" name="date" placeholder="Datum">
