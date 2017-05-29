@@ -7,7 +7,7 @@
       <a class="link" [routerLink]="['/dashboard']">Dashboard</a>
       <a class="link" [routerLink]="['/prospect']">Leden overzicht</a>
       <a class="pull-right link" [routerLink]="['/']">Uitloggen</a>
-      <a class="pull-right link" [routerLink]="['/settings']">Instellingen</a>
+      <a class="pull-right link" onclick="this.removeLoggedinUser()" [routerLink]="['/settings']">Instellingen</a>
     </div>
   </div>
 </nav>
