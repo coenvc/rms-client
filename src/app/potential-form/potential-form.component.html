@@ -3,8 +3,8 @@
   <div class="row" style="margin-top:40px">
     <div class="col-md-12">
       <div class="col-md-2">
-        <div class="material-button">
-          <a [routerLink]="['/prospect']"><i class="fa fa-angle-left"></i></a>
+        <div class="material-button" [routerLink]="['/prospect']">
+          <a><i class="fa fa-angle-left"></i></a>
         </div>
       </div>
     </div>
@@ -60,7 +60,7 @@
       <div class="col-md-12" style="padding-right: 0% !important;">
         <input style="width:83%" class="form-field" type="text" formControlName="beroep">
         <select class="form-field minimal" style="width:14.4%; margin-left:1%;" [(ngModel)]="status" formControlName="status" id="">
-            <option *ngFor="let status of statuses" 
+            <option *ngFor="let status of statuses"
               [ngValue]="status">{{status.content}}
             </option>
         </select>
