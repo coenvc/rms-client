@@ -22,11 +22,18 @@ export class AddAppointmentModalComponent implements OnInit {
   Appointment: Action = new Action;
   ActionTypes: ActionType[];
 
+  fistId: number;
+
   dateString: String = "";
 
   constructor(public ActionService: ActionDataService, public router: Router) {
     this.Appointment.actionType = new ActionType();
-    ActionService.getActionTypes().subscribe(request => this.ActionTypes = request);
+    ActionService.getActionTypes().subscribe(request => {
+      this.ActionTypes = request;
+     this.fistId = request[0].id;
+     console.log(this.fistId);
+    }
+    );
   }
 
   submitForm(date) {
