@@ -53,6 +53,8 @@
               <p class="activity-description">
                 {{Action.description}}
               </p>
+              <h4><a [routerLink]="['/action/edit', Action.id]" class="fa fa-pencil item-icons clickable"
+                     aria-hidden="true" [id]="Action.id" style="float: right"></a></h4>
               <!--<a [routerLink]="['/action/edit/', Action.id]">Bewerken</a>-->
             </div>
           </div>
