@@ -21,7 +21,7 @@
             </div>
             <div class="vertical-line"></div>
           </div>
-          <div class="col-md-4 nogwat">
+          <div class="col-md-3 nogwat">
             <div class="text">
               <h4 class="header">{{action.actionType.content}}</h4>
               <h4>{{action.location}}</h4>
@@ -40,6 +40,11 @@
               <h4 class="header">Door</h4>
               <h4>{{action?.user.name}}</h4>
               <!--<a [routerLink]="['/action/edit/', action.id]">Bewerken</a>-->
+            </div>
+          </div>
+          <div class="col-md-1 nogwat">
+            <div class="text">
+              <h4 class="btn-link btn-center"><a [routerLink]="['/action/edit', action.id]">🖊</a></h4>
             </div>
           </div>
         </div>

@@ -1,11 +1,13 @@
-import {Component, OnInit} from "@angular/core";
-import {ActivatedRoute} from "@angular/router";
-import {ActionDataService} from "../../../src/app/action-data.service";
-import {ProspectDataService} from "../../../src/app/prospect-data.service";
-import {UserDataService} from "../../../src/app/user-data.service";
-import {Prospect} from "../../classes/Prospect";
-import {User} from "../../classes/user";
-import {Action} from "../../classes/Action";
+import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
+import { ActionDataService } from "../../../src/app/action-data.service";
+import { ProspectDataService } from "../../../src/app/prospect-data.service";
+import { UserDataService } from "../../../src/app/user-data.service";
+import { ActiontypeDataService } from "../../../src/app/actiontype-data.service";
+import { Prospect } from "../../classes/Prospect";
+import { User } from "../../classes/user";
+import { Action } from "../../classes/Action";
+import { ActionType } from "classes/ActionType";
 
 @Component({
   selector: 'edit-action',
@@ -18,50 +20,52 @@ export class EditActionComponent implements OnInit {
   action: Action = new Action();
   user: User = new User(0, "", "", true);
   prospect: Prospect = new Prospect();
+  actiontype: ActionType = new ActionType();
 
   users: User[] = new Array<User>();
   prospects: Prospect[] = new Array<Prospect>();
+  actiontypes: ActionType[] = new Array<ActionType>();
 
   constructor(private actionDataService: ActionDataService,
-              private prospectDataService: ProspectDataService,
-              private userDataService: UserDataService,
-              private route: ActivatedRoute) {
+    private prospectDataService: ProspectDataService,
+    private userDataService: UserDataService,
+    private actiontypeDataService: ActiontypeDataService,
+    private route: ActivatedRoute) {
   }
 
-  ngOnInit(): void {
-    this.route.params.subscribe(params => this.getObject(+params['id']));
-    this.prospectDataService.getAll().subscribe(request => this.prospects = request,
+  async ngOnInit() {
+    await this.route.params.subscribe(params => this.getObject(+params['id']));
+    await this.prospectDataService.getAll().subscribe(request => this.prospects = request,
       error => console.log(error));
-    this.userDataService.getAll().subscribe(request => this.users = request,
+    await this.userDataService.getAll().subscribe(request => this.users = request,
+      error => console.log(error));
+    await this.actiontypeDataService.getAll().subscribe(request => this.actiontypes = request,
       error => console.log(error));
   }
 
   private getObject(id: number) {
     this.actionDataService.getActionById(id)
       .subscribe(request => this.splitObject(request),
-        error => console.log(error));
+      error => console.log(error));
   }
 
   private splitObject(action: Action) {
     this.action = action;
+    this.action.date = new Date(action.date);
     this.user = action.user;
     this.prospect = action.prospect;
-
-    console.log(this.action)
+    this.actiontype = action.actionType;
   }
 
-  onSubmit() {
+  onSubmit(date) {
     // Merge the objects back to Prospect
     this.action.user = this.user;
     this.action.prospect = this.prospect;
+    this.action.actionType = this.actiontype;
+    this.action.date = new Date(date);
 
-    if(this.action.date.getSeconds() <= 0)
-    {
-      this.action.date.setSeconds(this.action.date.getSeconds() + 1)
-    }
-
-    console.log(this.action);
     console.log(JSON.stringify(this.action));
+    
 
      this.actionDataService.updateAction(this.action)
        .subscribe(request => console.log(request),

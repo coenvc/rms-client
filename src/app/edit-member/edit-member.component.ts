@@ -66,7 +66,7 @@ export class EditMemberComponent implements OnInit {
       this.prospect.status = res;
       this.prospect.profession = this.profession;
       this.prospectDataService.update(this.prospect).subscribe(request => {
-        alert("Aanpassing voltooit!")
+        alert("Aanpassing voltooid!")
       }, error => console.log(error));
     }, error => console.log(error))
 
