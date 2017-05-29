@@ -55,11 +55,16 @@ export class EditActionComponent implements OnInit {
     this.action.user = this.user;
     this.action.prospect = this.prospect;
 
+    if(this.action.date.getSeconds() <= 0)
+    {
+      this.action.date.setSeconds(this.action.date.getSeconds() + 1)
+    }
+
     console.log(this.action);
     console.log(JSON.stringify(this.action));
 
-     // this.actionDataService.updateAction(this.action)
-     //   .subscribe(request => console.log(request),
-     //     error => console.log(error));
+     this.actionDataService.updateAction(this.action)
+       .subscribe(request => console.log(request),
+         error => console.log(error));
   }
 }
