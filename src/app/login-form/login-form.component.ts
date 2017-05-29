@@ -16,7 +16,7 @@ export class LoginFormComponent implements OnInit {
   private user: User;
 
   ngOnInit() {
-
+    localStorage.setItem('currentUser', null);
   }
 
   onSubmit(input) {
@@ -33,7 +33,7 @@ export class LoginFormComponent implements OnInit {
   private login(res) {
     this.user = res;
     if (this.user.active) {
-      localStorage.setItem('currentUser',JSON.stringify(this.user)) 
+      localStorage.setItem('currentUser',JSON.stringify(this.user))
       return true;
     }
      else {
