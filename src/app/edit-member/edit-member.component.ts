@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { ProspectDataService } from "../../../src/app/prospect-data.service";
 import { StatusDataService } from "../../../src/app/status-data.service";
 import { Prospect } from "../../classes/Prospect";
@@ -27,7 +27,8 @@ export class EditMemberComponent implements OnInit {
 
   constructor(private prospectDataService: ProspectDataService,
     private statusDataService: StatusDataService,
-    private route: ActivatedRoute) {
+    private route: ActivatedRoute,
+    private router : Router) {
   }
 
   ngOnInit() {
@@ -67,6 +68,7 @@ export class EditMemberComponent implements OnInit {
       this.prospect.profession = this.profession;
       this.prospectDataService.update(this.prospect).subscribe(request => {
         alert("Aanpassing voltooid!")
+        this.router.navigate(['prospect/:id', {id: this.prospect.id}]);
       }, error => console.log(error));
     }, error => console.log(error))
 

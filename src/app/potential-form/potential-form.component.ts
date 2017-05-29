@@ -8,6 +8,7 @@ import { ProspectDataService } from '../prospect-data.service';
 import { HeaderComponent } from '../header/header.component'
 import { FormGroup, FormControl } from "@angular/forms";
 import { StatusDataService } from '../status-data.service'
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-potential-form',
@@ -21,7 +22,7 @@ export class PotentialFormComponent implements OnInit {
   statuses: Status[]
   potentialForm: FormGroup;
 
-  constructor(private prospectDataService: ProspectDataService, private statusDataService: StatusDataService) {
+  constructor(private prospectDataService: ProspectDataService, private statusDataService: StatusDataService, private router: Router) {
   }
 
   ngOnInit() {
@@ -57,7 +58,10 @@ export class PotentialFormComponent implements OnInit {
     this.prospect.phoneNumber = formValues.phonenumber;
     this.prospectDataService.register(this.prospect)
       .subscribe(
-      (response) => console.log(response),
+      (response) => {
+        console.log(response)
+        this.router.navigate(['prospect']);
+    },
       (error) => {console.log(error); alert(error)}
       );
   }
