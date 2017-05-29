@@ -1,23 +1,31 @@
 <div class="blur">
-    <div class="overlay">
-        <div class="modal-container">
-            <div class="custom-modal-content">
-                <h3>Nieuwe Afspraak</h3>
-                <p>Hier komt een mooie beschrijving! wat leuk!</p>
-                <br>
-                <H4>Activiteit<span class="required-field"> *</span></H4>
+  <div class="overlay">
+    <div class="modal-container">
+      <div class="custom-modal-content">
+        <h3>Nieuwe Afspraak</h3>
+        <p>Selecteer het type afspraak en het moment waarop de afspraak plaats vindt.</p>
+        <br>
+        <H4>Activiteit<span class="required-field"> *</span></H4>
 
-                <select class="form-field minimal" style="width:100%;" [(ngModel)]="test">
-                        <option *ngFor="let action of ActionTypes" [selected]="action.id == firstId">{{action.content}}</option>
-                    </select>
-                <h4>Datum<span class="required-field"> *</span></h4>
-                <input type="date" [(ngModel)]="Appointment.date" class="form-field" name="date" placeholder="Datum">
-                <br>
-                <div class="button-container">
-                    <a type="submit" (click)="submitForm()" class="btn-link clickable btn-modal">Toevoegen</a>
-                    <a (click)="close()" class="btn-link clickable btn-modal">ANNULEREN</a>
-                </div>
-            </div>
+        <select class="form-field minimal" style="width:100%;" [(ngModel)]="test">
+          <option *ngFor="let action of ActionTypes" [value]="action.id">{{action.content}}</option>
+        </select>
+
+        <h4>Locatie <span class="required-field">*</span></h4>
+        <input [(ngModel)]="this.Appointment.description" type="text" class="form-field" id="location" style="width:100%"
+               name="location" autocomplete="off" ngModel>
+        <br>
+
+        <h4>Datum en tijd <span class="required-field">*</span></h4>
+        <input #date [value]='dateString'  type="datetime-local"
+               class="form-field" id="date" style="width:100%" name="date" autocomplete="off" required>
+        <br>
+
+        <div class="button-container">
+          <a type="submit" (click)="submitForm(date.value)" class="btn-link clickable btn-modal">Toevoegen</a>
+          <a (click)="close()" class="btn-link clickable btn-modal">ANNULEREN</a>
         </div>
+      </div>
     </div>
+  </div>
 </div>
