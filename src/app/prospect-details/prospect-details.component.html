@@ -47,12 +47,12 @@
             <div (click)=showCompleteActionModal($event) class="appointment-check" [ngClass]=" Action.completed ? ' checked' : ' '" [attr.id]="Action.id"></div>
             <div class="appointment-status-content">
               <h3 class="activity-title">{{Action.actionType.content}}</h3>
-              <h4 class="activity-status">{{Action.date | date}}, {{Action.user.name}}</h4>
+              <h4><a [routerLink]="['/action/edit', Action.id]" class="fa fa-pencil item-icons clickable" aria-hidden="true"
+                  [id]="Action.id" style="float: right"></a></h4>
+              <h4 class="activity-status">{{Action.date | date:"dd-MM-yyyy 'om' HH:mm"}} door {{Action.user.name}}</h4>
               <p class="activity-description">
                 {{Action.description}}
               </p>
-              <h4><a [routerLink]="['/action/edit', Action.id]" class="fa fa-pencil item-icons clickable" aria-hidden="true"
-                  [id]="Action.id" style="float: right"></a></h4>
               <!--<a [routerLink]="['/action/edit/', Action.id]">Bewerken</a>-->
             </div>
           </div>
