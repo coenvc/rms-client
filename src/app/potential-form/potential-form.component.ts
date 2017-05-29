@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Prospect } from 'classes/Prospect'
 import { Address } from 'classes/Address'
-import { Profession } from "classes/Profession";
-import { SocialLinks } from "classes/SocialLinks";
-import { Status } from "classes/Status";
+import { Profession } from 'classes/Profession';
+import { SocialLinks } from 'classes/SocialLinks';
+import { Status } from 'classes/Status';
 import { ProspectDataService } from '../prospect-data.service';
 import { HeaderComponent } from '../header/header.component'
-import { FormGroup, FormControl } from "@angular/forms";
+import { FormGroup, FormControl } from '@angular/forms';
 import { StatusDataService } from '../status-data.service'
 
 @Component({
@@ -15,7 +15,7 @@ import { StatusDataService } from '../status-data.service'
   styleUrls: ['./potential-form.component.css', '../../styles/buttons.css', '../../styles/forms.css']
 })
 export class PotentialFormComponent implements OnInit {
-  //Model used to bind form to 
+  //Model used to bind form to
   submittend = false;
   prospect: Prospect;
   statuses: Status[]
@@ -52,7 +52,7 @@ export class PotentialFormComponent implements OnInit {
     this.prospect.status = new Status();
     this.prospect.status.id = formValues.status.id;
     this.prospect.status.content = formValues.status.content;
-    this.prospect.description = formValues.description;
+    this.prospect.description = formValues.beschrijving;
     this.prospect.emailAddress = formValues.emailaddress;
     this.prospect.phoneNumber = formValues.phonenumber;
     this.prospectDataService.register(this.prospect)
@@ -62,7 +62,7 @@ export class PotentialFormComponent implements OnInit {
       );
   }
 
-  //TODO: used for form debugging, remove when app goes into production 
+  //TODO: used for form debugging, remove when app goes into production
   get diagnostic() {
     return JSON.stringify(this.prospect)
   }
