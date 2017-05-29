@@ -14,7 +14,7 @@
     <div *ngFor="let action of list?.list">
       <div class="container action">
         <div (click)="completeAction($event, action.prospect.id, action)" class="check col-md-2"
-             [ngClass]="action?.completed ? 'checked' : ''"></div>
+             [ngClass]="action?.completed ? 'checked forbidden' : 'clickable'"></div>
         <div class="col-md-10 action-background">
           <div class="col-md-2 nogwat">
             <div class="text">

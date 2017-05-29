@@ -2,6 +2,7 @@ import {Component, OnInit} from "@angular/core";
 import {ActionDataService} from "../action-data.service";
 import {ActionOverview} from "classes/ActionOverview";
 import {User} from "classes/user";
+import { Action } from "classes/Action";
 
 @Component({
   selector: 'app-dashboard',
@@ -44,7 +45,10 @@ export class DashboardComponent implements OnInit {
 
   }
 
-  completeAction(event, prospectId, action) {
+  completeAction(event, prospectId, action: Action) {
+    if(action.completed)
+      return;
+      
     localStorage.setItem("currentAction", JSON.stringify(action));
     this.prospectId = prospectId;
     this.completeAppointmentModalVisible = true;
