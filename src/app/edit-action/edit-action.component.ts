@@ -26,6 +26,8 @@ export class EditActionComponent implements OnInit {
   prospects: Prospect[] = new Array<Prospect>();
   actiontypes: ActionType[] = new Array<ActionType>();
 
+  dateString: String = "2017-06-01T08:30:00";
+
   constructor(private actionDataService: ActionDataService,
     private prospectDataService: ProspectDataService,
     private userDataService: UserDataService,
@@ -45,8 +47,23 @@ export class EditActionComponent implements OnInit {
 
   private getObject(id: number) {
     this.actionDataService.getActionById(id)
-      .subscribe(request => this.splitObject(request),
+      .subscribe(request => {
+        this.splitObject(request);
+
+        this.dateString = this.toLocaleDateString(request.date);
+        
+
+
+
+      },
       error => console.log(error));
+
+
+  }
+
+  private toLocaleDateString(date: Date): string {
+
+    return (date.getFullYear() + "-" + (date.getMonth() > 9 ? date.getMonth() : "0" + date.getMonth()) + "-" + date.getDate() + "T" + date.toLocaleTimeString()).toString();
   }
 
   private splitObject(action: Action) {
@@ -65,10 +82,10 @@ export class EditActionComponent implements OnInit {
     this.action.date = new Date(date);
 
     console.log(JSON.stringify(this.action));
-    
 
-     this.actionDataService.updateAction(this.action)
-       .subscribe(request => console.log(request),
-         error => console.log(error));
+
+    this.actionDataService.updateAction(this.action)
+      .subscribe(request => console.log(request),
+      error => console.log(error));
   }
 }
