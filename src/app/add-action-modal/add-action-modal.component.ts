@@ -14,16 +14,16 @@ export class AddActionModalComponent implements OnInit {
   Action: ActionType = new ActionType();
 
   constructor(private ActionService: ActiontypeDataService,private router:Router) {
- 
+
   }
 
   addAction() {
-    this.ActionService.register(this.Action)  
-      .subscribe(response => this.onButtonClicked.emit()) 
+    this.ActionService.register(this.Action)
+      .subscribe(response => this.onButtonClicked.emit());
   }
 
   close() {
-  this.onButtonClicked.emit()
+  this.onButtonClicked.emit();
   }
 
   ngOnInit() {

@@ -29,6 +29,10 @@ import { AddStatusModalComponent } from './add-status-modal/add-status-modal.com
 import { AddActionModalComponent } from './add-action-modal/add-action-modal.component';
 import { EditActionModalComponent } from './edit-action-modal/edit-action-modal.component';
 import { EditStatusModalComponent } from './edit-status-modal/edit-status-modal.component';
+import { AddUserModalComponent } from './add-user-modal/add-user-modal.component';
+import { EditUserModalComponent } from './edit-user-modal/edit-user-modal.component';
+import { SettingsMemberFilterPipe } from './settings-member-filter.pipe';
+
 
 @NgModule({
   declarations: [
@@ -51,7 +55,10 @@ import { EditStatusModalComponent } from './edit-status-modal/edit-status-modal.
     AddStatusModalComponent,
     AddActionModalComponent,
     EditActionModalComponent,
-    EditStatusModalComponent
+    EditStatusModalComponent,
+    AddUserModalComponent,
+    EditUserModalComponent,
+    SettingsMemberFilterPipe
   ],
   imports: [
     BrowserModule,
