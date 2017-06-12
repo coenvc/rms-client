@@ -14,13 +14,14 @@
     <div class="col-md-10">
       <div class="member-filter">
         <select class="form-field minimal" style="width: 100%" (change)="onChange($event.target.value)">
-            <option *ngFor="let status of statusses" [ngValue]="status" [selected]="status?.id == statusId"[value]="status.id">
-              {{ status.content }}
-              </option>
-              <option>
-                Alle
-              </option>
-          </select>
+          <option *ngFor="let status of statusses" [ngValue]="status" [selected]="status?.id == statusId"
+                  [value]="status.id">
+            {{ status.content }}
+          </option>
+          <option>
+            Alle
+          </option>
+        </select>
       </div>
     </div>
     <div class="col-md-2">
@@ -35,18 +36,20 @@
   <!--Member overview-->
   <ul id="member-list">
     <li *ngFor="let prospect of prospects|search:name" class="member-wrapper">
-      <div class="member-card">
+      <div class="member-card"><a [routerLink]="['/prospect/', prospect.id]">
         <div class="col-md-6">
           <div class="crop img-container pull-left">
-            <img src="{{prospect.imageUrl || 'http://www.spoorenpartners.nl/images/team/NoPersonPicture.jpg'}}" alt="..." />
+            <img src="{{prospect.imageUrl || 'http://www.spoorenpartners.nl/images/team/NoPersonPicture.jpg'}}"
+                 alt="..."/>
           </div>
           <div class="member-short">
             <h1 class="member-name">
-              <a [routerLink]="['/prospect/', prospect.id]"> {{prospect.fullName}} </a>
+              {{prospect.fullName}}
             </h1>
             <h3 class="member-function">{{prospect.profession.name}}</h3>
           </div>
         </div>
+      </a>
         <div class="col-md-6">
           <div class="verticalLine">
             <div class="member-details">
@@ -55,10 +58,12 @@
                   <p class="member-address">{{prospect.address.street}} {{prospect.address.houseNumber}}</p>
                   <p class="member-address details">{{prospect.address.city}} {{prospect.address.zipcode}} </p>
                   <p class="member-address"><a href="mailto:{{prospect.emailAddress}}">{{prospect.emailAddress}}</a></p>
-                  <p class="member-address details"><a href="tel:{{prospect.phoneNumber}}">{{prospect.phoneNumber}}</a></p>
+                  <p class="member-address details"><a href="tel:{{prospect.phoneNumber}}">{{prospect.phoneNumber}}</a>
+                  </p>
                 </div>
                 <div *ngIf="prospect.address == null">
-                  <p class="member-address btn-link btn-center"><a [routerLink]="['/prospect/edit', prospect.id]">Gegegevens aanvullen</a></p>
+                  <p class="member-address btn-link btn-center"><a [routerLink]="['/prospect/edit', prospect.id]">Gegegevens
+                    aanvullen</a></p>
                 </div>
               </div>
             </div>
