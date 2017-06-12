@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,300i,100,200,800,700,600');
+
 * {
   margin: 0;
   padding: 0;
@@ -131,9 +131,9 @@ body {
 }
 
 .crop {
-    width: 200px;
-    height: 200px;
-    overflow: hidden;
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
 }
 
 .crop img {
@@ -164,9 +164,7 @@ body {
   margin-left: 50px;
 }
 
-
-
-.member-details>h4 {
+.member-details > h4 {
   margin-left: 20px;
 }
 
@@ -274,7 +272,7 @@ label {
 }
 
 input:active,
-input:focus,
+input:focus
 {
   padding-left: 10px !important;
   font-style: italic;
@@ -316,7 +314,6 @@ input[type="password"]:-ms-input-placeholder {
   font-style: italic;
   font-size: 15px;
 }
-
 
 .member-filter {
   margin-bottom: 20px;
@@ -388,7 +385,7 @@ input[type="password"]:-ms-input-placeholder {
   transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
 }
 
-.material-button>a {
+.material-button > a {
   color: #f7a81b;
   text-decoration: none;
 }
@@ -484,6 +481,6 @@ a:hover {
   text-decoration: none;
 }
 
-.container{
+.container {
   width: 1400px;
 }
