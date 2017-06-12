@@ -1,0 +1,72 @@
+<div class="container">
+  <!--Search bar-->
+  <div class="group">
+    <input type="text" id="memver-search-bar" class="material-search" (click)="reloadMembers()"
+           [(ngModel)]="name" placeholder="Zoek..." autofocus>
+    <span class="highlight"></span>
+    <span class="bar"></span>
+    <label><i></i></label>
+  </div>
+  <!--End search bar-->
+  <!--Member filter-->
+  <div class="row">
+    <div class="col-md-10">
+      <div class="member-filter">
+        <select class="form-field minimal" style="width: 100%" (change)="onChange($event.target.value)">
+          <option *ngFor="let status of statusses" [ngValue]="status" [selected]="status?.id == statusId"
+                  [value]="status.id">
+            {{ status.content }}
+          </option>
+          <option>
+            Alle
+          </option>
+        </select>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <a routerLink="add">
+        <div class="material-button">
+          <a class="add-link" routerLink="add">+</a>
+        </div>
+      </a>
+    </div>
+  </div>
+  <!--End member filter-->
+  <!--Member overview-->
+  <ul id="member-list">
+    <li *ngFor="let prospect of prospects|search:name" class="member-wrapper">
+      <div class="member-card-narrow ">
+        <div class="col-md-12">
+          <div class="col-md-4">
+            <h3>{{prospect.fullName}}</h3>
+            <h4>{{prospect.profession.name}}</h4>
+          </div>
+          <div class="col-md-3">
+            <h3>
+              <div *ngIf="prospect.address != null">
+                {{prospect.address.street}} {{prospect.address.houseNumber}}
+                <br>
+                {{prospect.address.city}} {{prospect.address.zipcode}}
+              </div>
+              <div *ngIf="prospect.address == null">
+                <h5>
+                  <a [routerLink]="['/prospect/edit', prospect.id]">Gegegevens aanvullen</a>
+                </h5>
+              </div>
+            </h3>
+          </div>
+          <div class="col-md-3">
+            <h3>
+              <a href="mailto:{{prospect.emailAddress}}">{{prospect.emailAddress}}</a>
+            </h3>
+          </div>
+          <div class="col-md-2">
+            <h3>
+              <p class="member-address details"><a href="tel:{{prospect.phoneNumber}}">{{prospect.phoneNumber}}</a>
+            </h3>
+          </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
