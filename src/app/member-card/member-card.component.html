@@ -53,8 +53,8 @@
                 <div *ngIf="prospect.address != null">
                   <p class="member-address">{{prospect.address.street}} {{prospect.address.houseNumber}}</p>
                   <p class="member-address details">{{prospect.address.city}} {{prospect.address.zipcode}} </p>
-                  <p class="member-address">{{prospect.emailAddress}}</p>
-                  <p class="member-address details">{{prospect.phoneNumber}}</p>
+                  <p class="member-address"><a href="mailto:{{prospect.emailAddress}}">{{prospect.emailAddress}}</a></p>
+                  <p class="member-address details"><a href="tel:{{prospect.phoneNumber}}">{{prospect.phoneNumber}}</a></p>
                 </div>
                 <div *ngIf="prospect.address == null">
                   <p class="member-address btn-link btn-center"><a [routerLink]="['/prospect/edit', prospect.id]">Gegegevens aanvullen</a></p>
