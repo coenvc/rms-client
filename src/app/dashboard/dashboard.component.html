@@ -37,7 +37,9 @@
           <div class="col-md-4 nogwat">
             <div class="text">
               <h4 class="header">Afspraak met</h4>
-              <h4>{{action?.prospect.fullName}}</h4>
+              <h4>
+                <a [routerLink]="['/prospect/', action?.prospect.id]"> {{action?.prospect.fullName}} </a>
+              </h4>
             </div>
             <div class="vertical-line"></div>
           </div>
@@ -45,11 +47,9 @@
             <div class="text">
               <h4 class="header">Door</h4>
               <h4>{{action?.user.name}}</h4>
-              <!--<a [routerLink]="['/action/edit/', action.id]">Bewerken</a>-->
             </div>
           </div>
           <div class="col-md-1 nogwat">
-            <!--<h4 class="btn-link btn-center"><a [routerLink]="['/action/edit', action.id]">🖊</a></h4>-->
             <h4><a [routerLink]="['/action/edit', action.id]" class="fa fa-pencil item-icons clickable" aria-hidden="true" [id]="action.id"
                 style="float: right"></a></h4>
           </div>
