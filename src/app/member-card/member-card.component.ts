@@ -1,13 +1,13 @@
-import { Component, OnInit } from "@angular/core";
-import { Prospect } from "../../classes/Prospect";
-import { NgClass } from "@angular/common";
-import { ProspectDataService } from "../../../src/app/prospect-data.service";
-import { Test } from "../../../src/classes/TestProspect";
-import { SearchPipePipe } from "../../pipes/search-pipe.pipe";
-import { FilterPipe } from "../../pipes/filter.pipe";
-import { User } from "classes/user";
-import { Status } from "classes/Status";
-import { StatusDataService } from "app/status-data.service";
+import {Component, OnInit} from '@angular/core';
+import {Prospect} from '../../classes/Prospect';
+import {NgClass} from '@angular/common';
+import {ProspectDataService} from '../../../src/app/prospect-data.service';
+import {Test} from '../../../src/classes/TestProspect';
+import {SearchPipePipe} from '../../pipes/search-pipe.pipe';
+import {FilterPipe} from '../../pipes/filter.pipe';
+import {User} from 'classes/user';
+import {Status} from 'classes/Status';
+import {StatusDataService} from 'app/status-data.service';
 
 
 @Component({
@@ -17,41 +17,42 @@ import { StatusDataService } from "app/status-data.service";
 })
 export class MemberCardComponent implements OnInit {
   prospects: Prospect[];
-  pipes: [SearchPipePipe, FilterPipe]
-  status: string = ''
+  pipes: [SearchPipePipe, FilterPipe];
+  status = '';
   test: Test;
-  name: string = ''
-  initialProspects: Prospect[]
-  directives: [NgClass]
-  providers: [ProspectDataService]
+  name = '';
+  initialProspects: Prospect[];
+  directives: [NgClass];
+  providers: [ProspectDataService];
   currentUser: User;
-  statusses: Status[]
+  statusses: Status[];
+  narrowOverview: boolean = true;
 
   constructor(private prospectDataService: ProspectDataService, statusService: StatusDataService) {
-    prospectDataService.getAll().subscribe(request => this.initialProspects = request)
+    prospectDataService.getAll().subscribe(request => this.initialProspects = request);
     prospectDataService.getAll().subscribe(request => this.prospects = request);
-    statusService.getAll().subscribe(request => this.statusses = request)
+    statusService.getAll().subscribe(request => this.statusses = request);
   }
 
   reloadMembers() {
-    if (this.prospects != this.initialProspects) {
-      this.prospects = this.initialProspects
+    if (this.prospects !== this.initialProspects) {
+      this.prospects = this.initialProspects;
     }
   }
 
   filterMember(e) {
-    let memberStatus = e.srcElement.attributes[1].nodeValue;
+    const memberStatus = e.srcElement.attributes[1].nodeValue;
   }
 
   searchmember() {
-    console.log(this.name)
+    console.log(this.name);
   }
 
   onChange(t) {
-    if (t.toLowerCase() == 'alle') {
-      this.prospects = this.initialProspects
+    if (t.toLowerCase() === 'alle') {
+      this.prospects = this.initialProspects;
     } else {
-      this.prospects = this.initialProspects.filter(p => p.status.id == t)
+      this.prospects = this.initialProspects.filter(p => p.status.id === t);
     }
   }
 
