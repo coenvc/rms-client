@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 export class LoginFormComponent implements OnInit {
 
+  // tslint:disable-next-line:typedef-whitespace
   constructor(private loginService: LoginService, private router : Router) { }
 
   private user: User;
@@ -20,23 +21,24 @@ export class LoginFormComponent implements OnInit {
   }
 
   onSubmit(input) {
+
+    
     this.loginService.login(input.username, input.password)
-      .subscribe(result => {
+      .subscribe(result => {        
         if (this.login(result)) {
           this.router.navigate(['dashboard']);
         } else {
-          alert("Gebruiker staat op non-actief.")
+          alert('Gebruiker staat op non-actief.');
         }
       });
   }
 
   private login(res) {
-    this.user = res;
-    if (this.user.active) {
+    this.user = res;    
+    if (!this.user.IsActive) {      
       localStorage.setItem('currentUser',JSON.stringify(this.user))
       return true;
-    }
-     else {
+    } else {
       return false;
     }
   }

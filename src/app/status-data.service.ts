@@ -6,6 +6,7 @@ import { Status } from "../classes/Status";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/catch";
 import { host, folder } from '../classes/global'
+import { HttpClientService } from "app/http-client.service";
 
 @Injectable()
 export class StatusDataService {
@@ -14,7 +15,7 @@ export class StatusDataService {
   private statusUrl = host + folder;
   private headers = new Headers({ 'Content-Type': 'application/json' });
 
-  constructor(private http: Http) {
+  constructor(private http: HttpClientService) {
   }
 
   getAll(): Observable<Status[]> {
@@ -32,10 +33,10 @@ export class StatusDataService {
   }
 
   delete(id: number) {
-    return this.http.delete(this.statusUrl + "status/" + id, this.headers)
+    return this.http.delete(this.statusUrl + "status/" + id)
   }
 
   updateStatus(status: Status) {
-    return this.http.put(this.statusUrl + "status/", status, this.headers);
+    return this.http.put(this.statusUrl + "status/", status);
   }
 }

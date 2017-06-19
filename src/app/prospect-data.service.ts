@@ -6,18 +6,18 @@ import {Prospect} from "../classes/Prospect";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/catch";
 import { host, folder } from '../classes/global'
+import { HttpClientService } from "app/http-client.service";
 
 @Injectable()
 export class ProspectDataService {
     res: any;
 
   private Url = host + folder + 'prospect/';
-  private headers = new Headers({'Content-Type': 'application/json'});
 
   getAll():Observable<Prospect[]>{
       return Observable.from(this.http.get(this.Url+'all').map((res:Response)=>res.json()))
   }
-  constructor(private http: Http) {
+  constructor(private http: HttpClientService) {
   }
 
   getProspectById(id: number): Observable<Prospect> {
@@ -39,6 +39,6 @@ export class ProspectDataService {
   }
 
   update(prospect: Prospect){
-    return this.http.put(this.Url, prospect, this.headers);
+    return this.http.put(this.Url, prospect);
   }
 }

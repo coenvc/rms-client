@@ -8,10 +8,11 @@ import { folder, host } from "classes/global";
 import { Action } from "classes/Action";
 import { ActionType } from "classes/ActionType";
 import {ActionOverview} from "classes/ActionOverview"
+import { HttpClientService } from "app/http-client.service";
 @Injectable()
 export class ActionDataService {
   apiUrl = host + folder;
-  constructor(private http:Http) {
+  constructor(private http: HttpClientService) {
   }
 
     getAll():Observable<Action[]>{
@@ -46,8 +47,7 @@ getActionTypes():Observable<ActionType[]>{
 
   register(action: Action) {
     const headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    return this.http.post(this.apiUrl + "action/",action,headers);
+    return this.http.post(this.apiUrl + 'action/',action);
   }
 
   getProspectActionsUnsorted(id:number){

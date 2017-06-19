@@ -1,2 +1,2 @@
-export const host = 'http://84.24.199.0:8080/'
-export const folder = 'api/'
+export const host = 'http://localhost:11501/';
+export const folder = '';

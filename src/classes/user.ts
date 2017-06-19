@@ -2,12 +2,12 @@ export class User {
     id: number
     username: String
     name: String
-    active: Boolean
+    IsActive: Boolean
 
   constructor(id, username, name, active) {
         this.id = id;
         this.username = id;
         this.name =name;
-        this.active = active;
+        this.IsActive = active;
     }
 }
