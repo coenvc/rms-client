@@ -8,11 +8,17 @@
     <li (click)="showAllActions($event)" id="allAppointmentsTab" class="tabs selected">Alle Afspraken</li>
   </ul>
   <br>
+
+  <div *ngIf="ActionOverview?.isEmpty()">
+    <br>
+    <h3>Geen afspraken geplanned.</h3>
+  </div>
+
   <div *ngFor="let list of ActionOverview?.all">
     <h3 *ngIf="list.list.length > 0">{{list.name}}</h3>
     <div *ngFor="let action of list?.list">
       <div class="container action">
-        <div (click)="completeAction($event, action.prospect.id)" class="check col-md-2" [ngClass]="action?.completed ? 'checked' : ''"></div>
+        <div (click)="completeAction($event, action.prospect.id, action)" class="check col-md-2" [ngClass]="action?.completed ? 'checked forbidden' : 'clickable'"></div>
         <div class="col-md-10 action-background">
           <div class="col-md-2 nogwat">
             <div class="text">
@@ -21,7 +27,7 @@
             </div>
             <div class="vertical-line"></div>
           </div>
-          <div class="col-md-4 nogwat">
+          <div class="col-md-3 nogwat">
             <div class="text">
               <h4 class="header">{{action.actionType.content}}</h4>
               <h4>{{action.location}}</h4>
@@ -31,7 +37,9 @@
           <div class="col-md-4 nogwat">
             <div class="text">
               <h4 class="header">Afspraak met</h4>
-              <h4>{{action?.prospect.fullName}}</h4>
+              <h4>
+                <a [routerLink]="['/prospect/', action?.prospect.id]"> {{action?.prospect.fullName}} </a>
+              </h4>
             </div>
             <div class="vertical-line"></div>
           </div>
@@ -40,6 +48,10 @@
               <h4 class="header">Door</h4>
               <h4>{{action?.user.name}}</h4>
             </div>
+          </div>
+          <div class="col-md-1 nogwat">
+            <h4><a [routerLink]="['/action/edit', action.id]" class="fa fa-pencil item-icons clickable" aria-hidden="true" [id]="action.id"
+                style="float: right"></a></h4>
           </div>
         </div>
       </div>
