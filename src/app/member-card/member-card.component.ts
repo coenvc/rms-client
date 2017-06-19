@@ -26,7 +26,7 @@ export class MemberCardComponent implements OnInit {
   providers: [ProspectDataService];
   currentUser: User;
   statusses: Status[];
-  narrowOverview: boolean = true;
+  narrowOverview = true;
 
   constructor(private prospectDataService: ProspectDataService, statusService: StatusDataService) {
     prospectDataService.getAll().subscribe(request => this.initialProspects = request);
