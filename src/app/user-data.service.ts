@@ -32,6 +32,6 @@ export class UserDataService {å
   }
 
   update(user: User) {
-    return this.http.put(this.Url, user, this.headers);
+    return this.http.put(this.Url, user);
   }
 }

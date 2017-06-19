@@ -50,7 +50,10 @@ export class EditActionComponent implements OnInit {
       .subscribe(request => {
         this.splitObject(request);
 
+        console.log(this.dateString);
+        
         this.dateString = this.toLocaleDateString(request.date);
+        console.log(this.dateString);
         
 
 

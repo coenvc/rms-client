@@ -12,18 +12,18 @@ import {LoginService} from './login.service'
 import {HeaderComponent} from './header/header.component'
 import {EditMemberComponent} from './edit-member/edit-member.component'
 import {EditActionComponent} from './edit-action/edit-action.component'
-import { routing } from "app/app.routes";
+import { routing } from 'app/app.routes';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProspectDetailsComponent } from './prospect-details/prospect-details.component';
 import { SettingsComponent } from './settings/settings.component';
 import { ModalComponent } from './modal/modal.component';
 import { AddAppointmentModalComponent } from './add-appointment-modal/add-appointment-modal.component';
-import { ActionDataService } from "./action-data.service";
-import { ProspectDataService } from "./prospect-data.service";
+import { ActionDataService } from './action-data.service';
+import { ProspectDataService } from './prospect-data.service';
 import { CompleteActionModalComponent } from './complete-action-modal/complete-action-modal.component';
-import { ProfessionDataService } from "app/profession-data.service";
-import { ActiontypeDataService } from "app/actiontype-data.service";
-import { UserDataService } from "app/user-data.service";
+import { ProfessionDataService } from 'app/profession-data.service';
+import { ActiontypeDataService } from 'app/actiontype-data.service';
+import { UserDataService } from 'app/user-data.service';
 import { SettingsFilterPipePipe } from './settings-filter-pipe.pipe';
 import { AddStatusModalComponent } from './add-status-modal/add-status-modal.component';
 import { AddActionModalComponent } from './add-action-modal/add-action-modal.component';
@@ -32,6 +32,8 @@ import { EditStatusModalComponent } from './edit-status-modal/edit-status-modal.
 import { AddUserModalComponent } from './add-user-modal/add-user-modal.component';
 import { EditUserModalComponent } from './edit-user-modal/edit-user-modal.component';
 import { SettingsMemberFilterPipe } from './settings-member-filter.pipe';
+import { HttpClientService } from 'app/http-client.service';
+import { DashboardNarrowComponent } from 'app/prospect-narrow/prospect-narrow.component';
 
 
 @NgModule({
@@ -44,6 +46,7 @@ import { SettingsMemberFilterPipe } from './settings-member-filter.pipe';
     LoginFormComponent,
     HeaderComponent,
     DashboardComponent,
+    DashboardNarrowComponent,
     ProspectDetailsComponent,
     SettingsComponent,
     EditMemberComponent,
@@ -73,7 +76,8 @@ import { SettingsMemberFilterPipe } from './settings-member-filter.pipe';
     ProspectDataService,
     ProfessionDataService,
     UserDataService,
-    ActiontypeDataService
+    ActiontypeDataService,
+    HttpClientService
   ],
   bootstrap: [AppComponent]
 })

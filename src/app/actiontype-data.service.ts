@@ -6,14 +6,14 @@ import { ActionType } from "../classes/ActionType";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/catch";
 import { host, folder } from '../classes/global'
+import { HttpClientService } from "app/http-client.service";
 
 @Injectable()
 export class ActiontypeDataService {
   //localhost prospect url
   private Url = host + folder + 'actionType/';
-  private headers = new Headers({ 'Content-Type': 'application/json' });
 
-  constructor(private http: Http) {
+  constructor(private http: HttpClientService) {
   }
 
   getAll(): Observable<ActionType[]> {
@@ -30,11 +30,11 @@ export class ActiontypeDataService {
   }
 
   delete(id: number) {
-    return this.http.delete(this.Url + id, this.headers);
+    return this.http.delete(this.Url + id);
   }
 
   update(actionType: ActionType): Observable<any> {
     console.log(actionType.id)
-    return this.http.put(this.Url, actionType, this.headers);
+    return this.http.put(this.Url, actionType);
   }
 }
