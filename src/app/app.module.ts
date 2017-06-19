@@ -29,6 +29,7 @@ import { AddStatusModalComponent } from './add-status-modal/add-status-modal.com
 import { AddActionModalComponent } from './add-action-modal/add-action-modal.component';
 import { EditActionModalComponent } from './edit-action-modal/edit-action-modal.component';
 import { EditStatusModalComponent } from './edit-status-modal/edit-status-modal.component';
+import { HttpClientService } from "app/http-client.service";
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { EditStatusModalComponent } from './edit-status-modal/edit-status-modal.
     ProspectDataService,
     ProfessionDataService,
     UserDataService,
-    ActiontypeDataService
+    ActiontypeDataService,
+    HttpClientService
   ],
   bootstrap: [AppComponent]
 })
