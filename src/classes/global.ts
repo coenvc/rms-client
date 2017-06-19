@@ -1,2 +1,2 @@
-export const host = 'http://84.24.199.0/'
-export const folder = 'RMTS-API/'
+export const host = 'http://localhost:11501/';
+export const folder = '';
