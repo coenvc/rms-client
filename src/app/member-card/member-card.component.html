@@ -86,43 +86,43 @@
     <!--End wide member overview-->
   </div>
   <div *ngIf="narrowOverview == true">
-  <!--Narrow member overview-->
-  <ul id="member-list-narrow" style="list-style: none">
-    <li *ngFor="let prospect of prospects|search:name" class="member-wrapper">
-      <div class="member-card-narrow ">
-        <div class="col-md-12">
-          <div class="col-md-4">
-            <h3>{{prospect.fullName}}</h3>
-            <h4>{{prospect.profession.name}}</h4>
-          </div>
-          <div class="col-md-3">
-            <h3>
-              <div *ngIf="prospect.address != null">
-                {{prospect.address.street}} {{prospect.address.houseNumber}}
-                <br>
-                {{prospect.address.city}} {{prospect.address.zipcode}}
-              </div>
-              <div *ngIf="prospect.address == null">
-                <h5>
-                  <a [routerLink]="['/prospect/edit', prospect.id]">Gegegevens aanvullen</a>
-                </h5>
-              </div>
-            </h3>
-          </div>
-          <div class="col-md-3">
-            <h3>
-              <a href="mailto:{{prospect.emailAddress}}">{{prospect.emailAddress}}</a>
-            </h3>
-          </div>
-          <div class="col-md-2">
-            <h3>
-              <p class="member-address details"><a href="tel:{{prospect.phoneNumber}}">{{prospect.phoneNumber}}</a>
-            </h3>
+    <!--Narrow member overview-->
+    <ul id="member-list-narrow" style="list-style: none">
+      <li *ngFor="let prospect of prospects|search:name" class="member-wrapper">
+        <div class="member-card-narrow ">
+          <div class="col-md-12">
+            <div class="col-md-4">
+              <h3>{{prospect.fullName}}</h3>
+              <h4>{{prospect.profession.name}}</h4>
+            </div>
+            <div class="col-md-3">
+              <h3>
+                <div *ngIf="prospect.address != null">
+                  {{prospect.address.street}} {{prospect.address.houseNumber}}
+                  <br>
+                  {{prospect.address.city}} {{prospect.address.zipcode}}
+                </div>
+                <div *ngIf="prospect.address == null">
+                  <h5>
+                    <a [routerLink]="['/prospect/edit', prospect.id]">Gegegevens aanvullen</a>
+                  </h5>
+                </div>
+              </h3>
+            </div>
+            <div class="col-md-3">
+              <h3>
+                <a href="mailto:{{prospect.emailAddress}}">{{prospect.emailAddress}}</a>
+              </h3>
+            </div>
+            <div class="col-md-2">
+              <h3 style="font-size: 10em">
+                <p class="member-address details"><a href="tel:{{prospect.phoneNumber}}">{{prospect.phoneNumber}}</a>
+              </h3>
+            </div>
           </div>
         </div>
-      </div>
-    </li>
-  </ul>
-  <!--End narrow member overview-->
+      </li>
+    </ul>
+    <!--End narrow member overview-->
   </div>
 </div>
