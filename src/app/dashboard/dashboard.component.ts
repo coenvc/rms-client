@@ -22,18 +22,18 @@ export class DashboardComponent implements OnInit {
   showMyActions(event) {
     this.reloadMethod = 'user';
     this.reloadActions(this.reloadMethod)
-    var myButton = document.getElementById('allAppointmentsTab');
+    const myButton = document.getElementById('allAppointmentsTab');
     myButton.className += ' selected';
-    var otherButton = document.getElementById('myAppointmentsTab');
+    const otherButton = document.getElementById('myAppointmentsTab');
     otherButton.className = 'tabs';
   }
 
   showAllActions(event) {
     this.reloadMethod = 'all';
     this.reloadActions(this.reloadMethod)
-    var myButton = document.getElementById('myAppointmentsTab');
+    const myButton = document.getElementById('myAppointmentsTab');
     myButton.className += ' selected';
-    var otherButton = document.getElementById('allAppointmentsTab');
+    const otherButton = document.getElementById('allAppointmentsTab');
     otherButton.className = 'tabs';
   }
 
