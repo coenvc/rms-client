@@ -1,8 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Prospect} from '../../classes/Prospect';
 import {NgClass} from '@angular/common';
-import {ProspectDataService} from '../../../src/app/prospect-data.service';
-import {Test} from '../../../src/classes/TestProspect';
+import {ProspectDataService} from '../prospect-data.service';
+import {Test} from '../../classes/TestProspect';
 import {SearchPipePipe} from '../../pipes/search-pipe.pipe';
 import {FilterPipe} from '../../pipes/filter.pipe';
 import {User} from 'classes/user';
@@ -32,6 +32,27 @@ export class MemberCardComponent implements OnInit {
     prospectDataService.getAll().subscribe(request => this.initialProspects = request);
     prospectDataService.getAll().subscribe(request => this.prospects = request);
     statusService.getAll().subscribe(request => this.statusses = request);
+  }
+
+  invertOverviewType() {
+    switch (this.narrowOverview) {
+      case null: {
+        this.narrowOverview = false;
+        break;
+      }
+      case true: {
+        this.narrowOverview = false;
+        break;
+      }
+      case false: {
+        this.narrowOverview = true;
+        break;
+      }
+      default: {
+        this.narrowOverview = false;
+        break;
+      }
+    }
   }
 
   reloadMembers() {
