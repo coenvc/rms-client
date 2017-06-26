@@ -11,12 +11,11 @@
   <!--End search bar-->
   <!--Member filter-->
   <div class="row">
-    <div class="col-md-10">
+    <div class="col-md-7">
       <div class="member-filter">
         <select class="form-field minimal" style="width: 100%" (change)="onChange($event.target.value)">
-          <option *ngFor="let status of statusses" [ngValue]="status" [selected]="status?.id == statusId"
-                  [value]="status.id">
-            {{ status.content }}
+          <option *ngFor="let s of statusses" [ngValue]="status" [selected]="s?.id == status.id" [value]="s.id">
+            {{ s.content }}
           </option>
           <option>
             Alle
@@ -31,8 +30,21 @@
         </div>
       </a>
     </div>
-    <div class="col-md-1">
-      <input type="checkbox" [(ngModel)]="narrowOverview"/>
+    <div class="col-md-4 btn-link">
+      <!--<input type="checkbox" [(ngModel)]="narrowOverview"/>-->
+      <div *ngIf="narrowOverview == false">
+        <!--Wide-->
+        <div class="material-button-switch link" (click)="invertOverviewType()">
+          Wisselen naar Smal overzicht
+        </div>
+      </div>
+      <div *ngIf="narrowOverview == true">
+        <!--Narrow-->
+        <div class="material-button-switch link" (click)="invertOverviewType()">
+          Wisselen naar Breed overzicht
+        </div>
+      </div>
+
     </div>
   </div>
   <!--End member filter-->
@@ -97,16 +109,16 @@
             </div>
             <div class="col-md-3">
               <h3>
-                <div *ngIf="prospect.address != null">
+                <span *ngIf="prospect.address != null">
                   {{prospect.address.street}} {{prospect.address.houseNumber}}
                   <br>
                   {{prospect.address.city}} {{prospect.address.zipcode}}
-                </div>
-                <div *ngIf="prospect.address == null">
+                </span>
+                <span *ngIf="prospect.address == null">
                   <h5>
                     <a [routerLink]="['/prospect/edit', prospect.id]">Gegegevens aanvullen</a>
                   </h5>
-                </div>
+                </span>
               </h3>
             </div>
             <div class="col-md-3">
@@ -116,7 +128,7 @@
             </div>
             <div class="col-md-2">
               <h3 style="font-size: 10em">
-                <p class="member-address details"><a href="tel:{{prospect.phoneNumber}}">{{prospect.phoneNumber}}</a>
+                <a class="member-address details" href="tel:{{prospect.phoneNumber}}">{{prospect.phoneNumber}}</a>
               </h3>
             </div>
           </div>
