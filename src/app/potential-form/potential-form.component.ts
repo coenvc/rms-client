@@ -59,7 +59,6 @@ export class PotentialFormComponent implements OnInit {
     this.prospectDataService.register(this.prospect)
       .subscribe(
       (response) => {
-        console.log(response)
         this.router.navigate(['prospect']);
     },
       (error) => {console.log(error); alert(error)}

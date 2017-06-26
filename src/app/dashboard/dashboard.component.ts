@@ -56,7 +56,6 @@ export class DashboardComponent implements OnInit {
 
   hideCompleteActionModal() {
     this.completeAppointmentModalVisible = false;
-    console.log(this.reloadMethod)
     this.reloadActions(this.reloadMethod)
   }
 

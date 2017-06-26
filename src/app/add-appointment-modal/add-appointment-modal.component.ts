@@ -29,8 +29,7 @@ export class AddAppointmentModalComponent implements OnInit {
     this.Appointment.actionType = new ActionType();
     ActionService.getActionTypes().subscribe(request => {
         this.ActionTypes = request;
-        this.fistId = request[0].id;
-        console.log(this.fistId);}
+        this.fistId = request[0].id; }
     );
   }
 
@@ -43,7 +42,6 @@ export class AddAppointmentModalComponent implements OnInit {
 
     this.ActionService.register(this.Appointment)
       .subscribe((response) => {
-          console.log(response);
           this.onButtonClicked.emit()
         },
         (error) => alert(error._body));

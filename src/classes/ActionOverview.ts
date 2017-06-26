@@ -24,19 +24,14 @@ export class ActionOverview {
         this.isLoaded = true;
     }
 
-    public isEmpty() : boolean{
-        console.log('jo')
+    public isEmpty(): boolean{
+        if (!this.isLoaded) {
+            return false;
+        }
 
-        if(!this.isLoaded) return false;
-
-        console.log(this.today,this.thisWeek, this.thisMonth, this.remainder);
-        
-        console.log('ja')
-
-        return (this.today.length == 0 
-        && this.thisWeek.length == 0 
-        && this.thisMonth.length == 0 
-        && this.remainder.length == 0);
+        return (this.today.length === 0
+        && this.thisWeek.length === 0
+        && this.thisMonth.length === 0
+        && this.remainder.length === 0);
     }
-    
 }

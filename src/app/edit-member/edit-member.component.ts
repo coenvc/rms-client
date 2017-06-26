@@ -66,9 +66,7 @@ export class EditMemberComponent implements OnInit {
       this.prospect.address = this.address;
       this.prospect.status = res;
       this.prospect.profession = this.profession;
-
-      console.log(this.prospect)
-
+      
       this.prospectDataService.update(this.prospect).subscribe(request => {
         alert("Aanpassing voltooid!")
         this.router.navigate(['prospect/:id', {id: this.prospect.id}]);

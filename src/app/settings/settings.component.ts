@@ -73,12 +73,12 @@ export class SettingsComponent implements OnInit {
 
   postStatus() {
     this.statusDataService.postStatus(this.Status)
-      .subscribe(request => console.log(request))
+      .subscribe()
   }
 
   postActionType() {
     this.actiontypedataService.register(this.ActionType)
-      .subscribe(request => console.log(request))
+      .subscribe()
   }
 
   deleteAction(id) {
@@ -101,9 +101,8 @@ export class SettingsComponent implements OnInit {
     }
   }
   postProfession() {
-    console.log(this.Profession)
     this.professionDataService.register(this.Profession)
-      .subscribe(request => console.log(request));
+      .subscribe();
   }
 
 

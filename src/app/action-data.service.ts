@@ -17,25 +17,22 @@ export class ActionDataService {
 
     getAll():Observable<Action[]>{
       const prospects = Observable.from(this.http.get(this.apiUrl+'action/all').map((res:Response)=>res.json()))
-      console.log(prospects);
-      return prospects
+
+      return prospects;
   }
 
   getByProspectId(id:number):Observable<Action[]>{
       const Actions = Observable.from(this.http.get(this.apiUrl +"action/all/prospect/" +id).map((res:Response)=>res.json()))
-      console.log(Actions);
       return Actions
   }
 
   getByUserId(id:number):Observable<Action[]>{
       const Actions = Observable.from(this.http.get(this.apiUrl + "action/all/user/" +id).map((res:Response)=>res.json()))
-      console.log(Actions);
       return Actions
   }
 
   getActionById(id:number):Observable<Action>{
       const Action = Observable.from(this.http.get(this.apiUrl + "action/" +id).map((res:Response)=>res.json()))
-      console.log(Action);
       return Action;
   }
 

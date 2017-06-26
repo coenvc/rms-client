@@ -66,8 +66,6 @@ export class ProspectDetailsComponent implements OnInit {
     this.address = prospect.address;
     this.status = prospect.status;
     this.profession = prospect.profession;
-    console.log(prospect);
-    
   }
 
   showAppointmentModal() {

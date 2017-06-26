@@ -71,13 +71,12 @@ export class EditActionComponent implements OnInit {
     // Merge the objects back to Prospect
     this.action.user = this.user;
     this.action.prospect = this.prospect;
-    console.log(this.actiontype);
-    
+
     this.action.actionType = this.actiontype;
     this.action.date = new Date(date);
 
     this.actionDataService.updateAction(this.action)
-      .subscribe(request => console.log(request),
+      .subscribe(request => null,
       error => console.log(error));
   }
 }
