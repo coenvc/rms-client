@@ -1,7 +1,7 @@
-import {Component, OnInit} from "@angular/core";
-import {ActionDataService} from "../action-data.service";
-import {ActionOverview} from "classes/ActionOverview";
-import {User} from "classes/user";
+import { Component, OnInit } from "@angular/core";
+import { ActionDataService } from "../action-data.service";
+import { ActionOverview } from "classes/ActionOverview";
+import { User } from "classes/user";
 import { Action } from "classes/Action";
 
 @Component({
@@ -18,9 +18,7 @@ export class DashboardComponent implements OnInit {
   reloadMethod: string;
 
   constructor(public ActionService: ActionDataService) {
-    this.CurrentUser = JSON.parse(localStorage.getItem('currentUser'));
-    this.reloadMethod = "user"
-    this.reloadActions(this.reloadMethod)
+
   }
 
   showMyActions(event) {
@@ -42,13 +40,17 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
-    
+    this.ActionService.getAll().subscribe(r => {
+      this.CurrentUser = JSON.parse(localStorage.getItem('currentUser'));
+      this.reloadMethod = 'user';
+      this.reloadActions(this.reloadMethod)
+    });
   }
 
   completeAction(event, prospectId, action: Action) {
-    if(action.completed)
+    if (action.completed)
       return;
-      
+
     localStorage.setItem("currentAction", JSON.stringify(action));
     this.prospectId = prospectId;
     this.completeAppointmentModalVisible = true;

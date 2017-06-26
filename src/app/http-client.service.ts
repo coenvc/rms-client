@@ -1,23 +1,26 @@
 import { Injectable } from '@angular/core';
 import { Http, Headers } from '@angular/http';
 import { User } from "classes/user";
+import { Router } from "@angular/router";
 
 @Injectable()
 export class HttpClientService {
 
   private apiKey = 'D4KIaFxISAl4SM16HBDyttE0k';
   private user: User;
-  constructor(private http: Http) { }
+  constructor(private http: Http, private router: Router) { }
 
   authorize(headers: Headers) {
     headers.append('API_KEY', this.apiKey);
+    headers.append('Content-Type', 'application/json');
 
     this.user = JSON.parse(localStorage.getItem('currentUser'));
+
     if (this.user != null) {
-      console.log(this.user);
-      headers.append('Authorization', 'Basic ' + this.user.test);
+      headers.append('Authorization', 'Basic ' + btoa(this.user.username + ':' + this.user.password));
+    } else {
+      this.router.navigate(['']);
     }
-    headers.append('Content-Type', 'application/json');
   }
 
   get(url) {
