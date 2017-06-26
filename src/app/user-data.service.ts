@@ -6,6 +6,7 @@ import {User} from "../classes/User";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/catch";
 import { folder, host } from "classes/global";
+import { HttpClientService } from "app/http-client.service";
 
 @Injectable()
 export class UserDataService {
@@ -14,7 +15,7 @@ export class UserDataService {
   private Url = host + folder + 'user/';
 
 
-  constructor(private http: Http) {
+  constructor(private http: HttpClientService) {
   }
 
   getAll(): Observable<User[]> {

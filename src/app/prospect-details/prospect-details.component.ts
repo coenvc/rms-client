@@ -23,7 +23,7 @@ export class ProspectDetailsComponent implements OnInit {
   socialLinks: SocialLinks;
   address: Address;
   status: Status;
-  profession: Profession;
+  profession: string;
 
   prospectId: number;
 
@@ -45,10 +45,10 @@ export class ProspectDetailsComponent implements OnInit {
   // method called by FetchData that gets data by the ID from the url
   private getObject(id: number) {
     this.Prospect = new Prospect();
-    this.socialLinks = new SocialLinks("", "", "");
+    this.socialLinks = new SocialLinks('', '', '');
     this.address = new Address();
     this.status = new Status();
-    this.profession = new Profession();
+    this.profession = '';
 
     this.ProspectDataService.getProspectById(id)
       .subscribe(request => this.splitObject(request),

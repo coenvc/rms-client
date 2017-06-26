@@ -21,7 +21,7 @@ export class EditMemberComponent implements OnInit {
   socialLinks: SocialLinks;
   address: Address;
   status: Status;
-  profession: Profession;
+  profession: string;
   description: String;
   statusId: number;
 
@@ -42,7 +42,7 @@ export class EditMemberComponent implements OnInit {
     this.socialLinks = new SocialLinks("", "", "");
     this.address = new Address();
     this.status = new Status();
-    this.profession = new Profession();
+    this.profession = '';
 
     this.prospectDataService.getProspectById(id)
       .subscribe(request => this.splitObject(request),
@@ -66,6 +66,9 @@ export class EditMemberComponent implements OnInit {
       this.prospect.address = this.address;
       this.prospect.status = res;
       this.prospect.profession = this.profession;
+
+      console.log(this.prospect)
+
       this.prospectDataService.update(this.prospect).subscribe(request => {
         alert("Aanpassing voltooid!")
         this.router.navigate(['prospect/:id', {id: this.prospect.id}]);

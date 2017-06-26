@@ -4,10 +4,9 @@ import {SocialLinks} from "classes/SocialLinks";
 import {Status} from "classes/Status";
 export class Prospect {
   public id: number;
-  public name: string;
   public phoneNumber: string;
   public address: Address;
-  public profession: Profession;
+  public profession: string;
   public socialLinks: SocialLinks;
   public status: Status;
   public emailAddress: String;
@@ -18,7 +17,7 @@ export class Prospect {
   public infix: string;
   public fullName: string;
 
-  constructor(firstName?: string, surname?: string, infix?: string, phoneNumber?: string, address?: Address, profession?: Profession, socialLinks?: SocialLinks, status?: Status, emailAddress?: string, description?: string, imageUrl?: string, id?: number, fullName?: string) {
+  constructor(firstName?: string, surname?: string, infix?: string, phoneNumber?: string, address?: Address, profession?: string, socialLinks?: SocialLinks, status?: Status, emailAddress?: string, description?: string, imageUrl?: string, id?: number, fullName?: string) {
     this.firstName = firstName;
     this.infix = infix;
     this.phoneNumber = phoneNumber;

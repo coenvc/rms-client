@@ -43,13 +43,13 @@ export class PotentialFormComponent implements OnInit {
   }
 
   onSubmit() {
-    let formValues = this.potentialForm.value;
+    const formValues = this.potentialForm.value;
+
     this.prospect = new Prospect();
     this.prospect.firstName = formValues.voornaam;
     this.prospect.surname = formValues.achternaam;
     this.prospect.infix = formValues.tussenvoegsel;
-    this.prospect.profession = new Profession();
-    this.prospect.profession.name = formValues.beroep;
+    this.prospect.profession = formValues.beroep;
     this.prospect.status = new Status();
     this.prospect.status.id = formValues.status.id;
     this.prospect.status.content = formValues.status.content;
@@ -66,7 +66,7 @@ export class PotentialFormComponent implements OnInit {
       );
   }
 
-  //TODO: used for form debugging, remove when app goes into production
+  // TODO: used for form debugging, remove when app goes into production
   get diagnostic() {
     return JSON.stringify(this.prospect)
   }
