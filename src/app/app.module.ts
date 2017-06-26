@@ -31,6 +31,7 @@ import { EditActionModalComponent } from './edit-action-modal/edit-action-modal.
 import { EditStatusModalComponent } from './edit-status-modal/edit-status-modal.component';
 import { HttpClientService } from "app/http-client.service";
 import { DashboardNarrowComponent } from "app/prospect-narrow/prospect-narrow.component";
+import { TranslateModule } from 'ng2-translate';
 
 
 @NgModule({
@@ -62,7 +63,8 @@ import { DashboardNarrowComponent } from "app/prospect-narrow/prospect-narrow.co
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    routing
+    routing,
+    TranslateModule.forRoot()
   ],
   providers: [
     LoginService,

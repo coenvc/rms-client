@@ -6,7 +6,7 @@
       </a>
     </div>
     <div class="center">
-      <a class="link" [routerLink]="['/dashboard']">Dashboard</a>
+      <a class="link" [routerLink]="['/dashboard']">{{ "header-dashboard" | translate }}</a>
       <a class="link" [routerLink]="['/prospect']">Leden overzicht</a>
       <a class="pull-right link" [routerLink]="['/']">Uitloggen</a>
       <a class="pull-right link" onclick="this.removeLoggedinUser()" [routerLink]="['/settings']">Instellingen</a>
