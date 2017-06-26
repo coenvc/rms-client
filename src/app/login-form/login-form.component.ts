@@ -21,10 +21,8 @@ export class LoginFormComponent implements OnInit {
   }
 
   onSubmit(input) {
-
-    
     this.loginService.login(input.username, input.password)
-      .subscribe(result => {        
+      .subscribe(result => {
         if (this.login(result)) {
           this.router.navigate(['dashboard']);
         } else {
@@ -34,9 +32,9 @@ export class LoginFormComponent implements OnInit {
   }
 
   private login(res) {
-    this.user = res;    
-    if (!this.user.IsActive) {      
-      localStorage.setItem('currentUser',JSON.stringify(this.user))
+    this.user = res;
+    if (!this.user.IsActive) {
+      localStorage.setItem('currentUser', JSON.stringify(this.user));
       return true;
     } else {
       return false;
