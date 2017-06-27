@@ -15,5 +15,4 @@ export class HeaderComponent implements OnInit {
   removeLoggedinUser(){
     localStorage.setItem('currentUser', null);
   }
-
 }

@@ -9,6 +9,8 @@
   <div class="container">
     <div class="col-md-4">
       <h2>Gegegevens</h2>
+      <!--Deze knop moet eronder komen, niet erboven-->
+      <a (click)="generateProposal()" class="btn-primary btn-block clickable">GENEREER PDF</a>
       <div class="prospect-data">
         <div class="col-md-12" style="padding:0px !important">
           <div class="col-md-8" style="padding:0px !important">
@@ -37,7 +39,9 @@
             {{Prospect.description}}
           </p>
         </div>
-        <a [routerLink]="['/prospect/edit/', Prospect.id]" class="btn-link pull-down">BEWERKEN</a>
+        <div class="btn-group pull-down" role="group" aria-label="Basic example">
+          <a [routerLink]="['/prospect/edit/', Prospect.id]" class="btn-link">BEWERKEN</a>
+        </div>
       </div>
     </div>
     <div class="col-md-8">

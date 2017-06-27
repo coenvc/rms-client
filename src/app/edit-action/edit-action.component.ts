@@ -49,24 +49,14 @@ export class EditActionComponent implements OnInit {
     this.actionDataService.getActionById(id)
       .subscribe(request => {
         this.splitObject(request);
-
-        console.log(this.dateString);
-        
         this.dateString = this.toLocaleDateString(request.date);
-        console.log(this.dateString);
-        
-
-
-
       },
       error => console.log(error));
-
-
   }
 
   private toLocaleDateString(date: Date): string {
 
-    return (date.getFullYear() + "-" + (date.getMonth() > 9 ? date.getMonth() : "0" + date.getMonth()) + "-" + date.getDate() + "T" + date.toLocaleTimeString()).toString();
+    return (date.getFullYear() + '-' + (date.getMonth() > 9 ? date.getMonth() : '0' + date.getMonth()) + '-' + date.getDate() + 'T' + date.toLocaleTimeString()).toString();
   }
 
   private splitObject(action: Action) {
@@ -81,14 +71,12 @@ export class EditActionComponent implements OnInit {
     // Merge the objects back to Prospect
     this.action.user = this.user;
     this.action.prospect = this.prospect;
+
     this.action.actionType = this.actiontype;
     this.action.date = new Date(date);
 
-    console.log(JSON.stringify(this.action));
-
-
     this.actionDataService.updateAction(this.action)
-      .subscribe(request => console.log(request),
+      .subscribe(request => null,
       error => console.log(error));
   }
 }

@@ -44,7 +44,7 @@ export class MemberCardComponent implements OnInit {
   }
 
   searchmember() {
-    console.log(this.name)
+    
   }
 
   onChange(t) {

@@ -34,7 +34,6 @@ export class ActiontypeDataService {
   }
 
   update(actionType: ActionType): Observable<any> {
-    console.log(actionType.id)
     return this.http.put(this.Url, actionType);
   }
 }

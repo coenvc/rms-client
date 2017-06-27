@@ -1,8 +1,8 @@
-import {Component, OnInit} from "@angular/core";
-import {ActionDataService} from "../action-data.service";
-import {ActionOverview} from "classes/ActionOverview";
-import {User} from "classes/user";
-import { Action } from "classes/Action";
+import { Component, OnInit } from '@angular/core';
+import { ActionDataService } from '../action-data.service';
+import { ActionOverview } from 'classes/ActionOverview';
+import { User } from 'classes/user';
+import { Action } from 'classes/Action';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,61 +17,61 @@ export class DashboardComponent implements OnInit {
   prospectId: number;
   reloadMethod: string;
 
-  constructor(public ActionService: ActionDataService) {
-    this.CurrentUser = JSON.parse(localStorage.getItem('currentUser'));
-    this.reloadMethod = "user"
-    this.reloadActions(this.reloadMethod)
-  }
+  constructor(public ActionService: ActionDataService) { }
 
   showMyActions(event) {
-    this.reloadMethod = "user"
+    this.reloadMethod = 'user';
     this.reloadActions(this.reloadMethod)
-    var myButton = document.getElementById("allAppointmentsTab");
-    myButton.className += " selected"
-    var otherButton = document.getElementById("myAppointmentsTab");
-    otherButton.className = "tabs";
+    const myButton = document.getElementById('allAppointmentsTab');
+    myButton.className += ' selected';
+    const otherButton = document.getElementById('myAppointmentsTab');
+    otherButton.className = 'tabs';
   }
 
   showAllActions(event) {
-    this.reloadMethod = "all"
+    this.reloadMethod = 'all';
     this.reloadActions(this.reloadMethod)
-    var myButton = document.getElementById("myAppointmentsTab");
-    myButton.className += " selected"
-    var otherButton = document.getElementById("allAppointmentsTab");
-    otherButton.className = "tabs";
+    const myButton = document.getElementById('myAppointmentsTab');
+    myButton.className += ' selected';
+    const otherButton = document.getElementById('allAppointmentsTab');
+    otherButton.className = 'tabs';
   }
 
   ngOnInit() {
-    
+    this.ActionService.getAll().subscribe(r => {
+      this.CurrentUser = JSON.parse(localStorage.getItem('currentUser'));
+      this.reloadMethod = 'user';
+      this.reloadActions(this.reloadMethod);
+    });
   }
 
   completeAction(event, prospectId, action: Action) {
-    if(action.completed)
+    if (action.completed) {
       return;
-      
-    localStorage.setItem("currentAction", JSON.stringify(action));
+    }
+
+    localStorage.setItem('currentAction', JSON.stringify(action));
     this.prospectId = prospectId;
     this.completeAppointmentModalVisible = true;
   }
 
   hideCompleteActionModal() {
     this.completeAppointmentModalVisible = false;
-    console.log(this.reloadMethod)
     this.reloadActions(this.reloadMethod)
   }
 
   private reloadActions(method: string) {
     switch (method) {
-      case "user":
+      case 'user':
         this.ActionService.getUserActionOverview(this.CurrentUser.id).subscribe(request => {
           this.ActionOverview = new ActionOverview(request.today, request.thisWeek, request.thisMonth, request.remainder)
         })
-        break
-      case "all":
+        break;
+      case 'all':
         this.ActionService.getAllActionsOverview().subscribe(request => {
           this.ActionOverview = new ActionOverview(request.today, request.thisWeek, request.thisMonth, request.remainder)
         })
-        break
+        break;
     }
   }
 }

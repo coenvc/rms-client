@@ -31,6 +31,8 @@ import { EditActionModalComponent } from './edit-action-modal/edit-action-modal.
 import { EditStatusModalComponent } from './edit-status-modal/edit-status-modal.component';
 import { HttpClientService } from "app/http-client.service";
 import { DashboardNarrowComponent } from "app/prospect-narrow/prospect-narrow.component";
+import { TranslateModule } from 'ng2-translate';
+import { PdfGenerateService } from "app/pdf-generate.service";
 
 
 @NgModule({
@@ -62,7 +64,8 @@ import { DashboardNarrowComponent } from "app/prospect-narrow/prospect-narrow.co
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
-    routing
+    routing,
+    TranslateModule.forRoot()
   ],
   providers: [
     LoginService,
@@ -71,7 +74,8 @@ import { DashboardNarrowComponent } from "app/prospect-narrow/prospect-narrow.co
     ProfessionDataService,
     UserDataService,
     ActiontypeDataService,
-    HttpClientService
+    HttpClientService,
+    PdfGenerateService
   ],
   bootstrap: [AppComponent]
 })
