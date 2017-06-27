@@ -10,7 +10,8 @@ import { UserDataService } from 'app/user-data.service';
 export class EditUserModalComponent implements OnInit {
   @Output() onButtonClicked: EventEmitter<any> = new EventEmitter<any>();
   @Input('currentId') currentId: number;
-  User: User = new User();
+
+  User: User = new User(null, null, null, null);
   constructor(private userDataService: UserDataService) { }
 
 
@@ -19,13 +20,13 @@ export class EditUserModalComponent implements OnInit {
       .subscribe(response => this.User = response);
   }
 
-  editUser(){
+  editUser() {
     this.User.id = this.currentId;
     this.userDataService.update(this.User)
       .subscribe(response => this.onButtonClicked.emit())
   }
 
-  close(){
+  close() {
     this.onButtonClicked.emit();
   }
 

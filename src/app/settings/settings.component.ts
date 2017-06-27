@@ -49,8 +49,8 @@ export class SettingsComponent implements OnInit {
 
   Status: Status = new Status();
   Profession: Profession = new Profession();
-  ActionType: ActionType = new ActionType(); 
-  User: User = new User();
+  ActionType: ActionType = new ActionType();
+  User: User = new User(null, null, null, null);
 
   Math: any;
 
@@ -58,7 +58,7 @@ export class SettingsComponent implements OnInit {
     private professionDataService: ProfessionDataService,
     private userDataService: UserDataService,
     private actiontypedataService: ActiontypeDataService) {
-      this.Math = Math
+      this.Math = Math;
   }
 
   ngOnInit() {
@@ -90,11 +90,6 @@ export class SettingsComponent implements OnInit {
   postStatus() {
     this.statusDataService.postStatus(this.Status)
       .subscribe()
-  }
-
-  postUser() {
-    this.userDataService.register(this.User)
-      .subscribe(request => console.log(request));
   }
 
   postUser() {

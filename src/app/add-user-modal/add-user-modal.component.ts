@@ -10,10 +10,11 @@ import { User } from 'classes/user';
 })
 export class AddUserModalComponent implements OnInit {
   @Output() onButtonClicked: EventEmitter<any> = new EventEmitter<any>();
-  User: User = new User();
+  User: User = new User(null, null, null, null);
+
   constructor(private userDataService: UserDataService) {
-      this.User.active = true;
-   }
+    this.User.IsActive = true;
+  }
 
   addUser() {
     this.userDataService.register(this.User)
@@ -21,7 +22,7 @@ export class AddUserModalComponent implements OnInit {
   }
 
   close() {
-  this.onButtonClicked.emit();
+    this.onButtonClicked.emit();
   }
 
   ngOnInit() {

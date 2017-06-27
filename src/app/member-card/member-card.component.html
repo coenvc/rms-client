@@ -108,18 +108,16 @@
               <h4>{{prospect.profession.name}}</h4>
             </div>
             <div class="col-md-3">
-              <h3>
+              <p>
                 <span *ngIf="prospect.address != null">
-                  {{prospect.address.street}} {{prospect.address.houseNumber}}
-                  <br>
-                  {{prospect.address.city}} {{prospect.address.zipcode}}
+                  {{prospect.address.street}} {{prospect.address.houseNumber}}, {{prospect.address.zipcode}} {{prospect.address.city}} 
                 </span>
                 <span *ngIf="prospect.address == null">
                   <h5>
                     <a [routerLink]="['/prospect/edit', prospect.id]">Gegegevens aanvullen</a>
                   </h5>
                 </span>
-              </h3>
+              <p>
             </div>
             <div class="col-md-3">
               <h3>
@@ -127,9 +125,9 @@
               </h3>
             </div>
             <div class="col-md-2">
-              <h3 style="font-size: 10em">
+              <p>
                 <a class="member-address details" href="tel:{{prospect.phoneNumber}}">{{prospect.phoneNumber}}</a>
-              </h3>
+              </p>
             </div>
           </div>
         </div>

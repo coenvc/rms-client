@@ -30,9 +30,11 @@ import { AddActionModalComponent } from './add-action-modal/add-action-modal.com
 import { EditActionModalComponent } from './edit-action-modal/edit-action-modal.component';
 import { EditStatusModalComponent } from './edit-status-modal/edit-status-modal.component';
 import { HttpClientService } from "app/http-client.service";
-import { DashboardNarrowComponent } from "app/prospect-narrow/prospect-narrow.component";
 import { TranslateModule } from 'ng2-translate';
 import { PdfGenerateService } from "app/pdf-generate.service";
+import { EditUserModalComponent } from "app/edit-user-modal/edit-user-modal.component";
+import { AddUserModalComponent } from "app/add-user-modal/add-user-modal.component";
+import { SettingsMemberFilterPipe } from "app/settings-member-filter.pipe";
 
 
 
@@ -46,7 +48,6 @@ import { PdfGenerateService } from "app/pdf-generate.service";
     LoginFormComponent,
     HeaderComponent,
     DashboardComponent,
-    DashboardNarrowComponent,
     ProspectDetailsComponent,
     SettingsComponent,
     EditMemberComponent,
@@ -58,7 +59,10 @@ import { PdfGenerateService } from "app/pdf-generate.service";
     AddStatusModalComponent,
     AddActionModalComponent,
     EditActionModalComponent,
-    EditStatusModalComponent
+    EditStatusModalComponent,
+    EditUserModalComponent,
+    AddUserModalComponent,
+    SettingsMemberFilterPipe
   ],
   imports: [
     BrowserModule,
@@ -66,7 +70,7 @@ import { PdfGenerateService } from "app/pdf-generate.service";
     ReactiveFormsModule,
     HttpModule,
     routing,
-    TranslateModule.forRoot()
+    TranslateModule.forRoot(),
   ],
   providers: [
     LoginService,
