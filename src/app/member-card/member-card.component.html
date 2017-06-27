@@ -11,12 +11,11 @@
   <!--End search bar-->
   <!--Member filter-->
   <div class="row">
-    <div class="col-md-10">
+    <div class="col-md-7">
       <div class="member-filter">
         <select class="form-field minimal" style="width: 100%" (change)="onChange($event.target.value)">
-          <option *ngFor="let status of statusses" [ngValue]="status" [selected]="status?.id == statusId"
-                  [value]="status.id">
-            {{ status.content }}
+          <option *ngFor="let s of statusses" [ngValue]="status" [selected]="s?.id == status.id" [value]="s.id">
+            {{ s.content }}
           </option>
           <option>
             Alle
@@ -24,55 +23,118 @@
         </select>
       </div>
     </div>
-    <div class="col-md-2">
+    <div class="col-md-1">
       <a routerLink="add">
         <div class="material-button">
           <a class="add-link" routerLink="add">+</a>
         </div>
       </a>
     </div>
+    <div class="col-md-4 btn-link">
+      <!--<input type="checkbox" [(ngModel)]="narrowOverview"/>-->
+      <div *ngIf="narrowOverview == false">
+        <!--Wide-->
+        <div class="material-button-switch link" (click)="invertOverviewType()">
+          Wisselen naar Smal overzicht
+        </div>
+      </div>
+      <div *ngIf="narrowOverview == true">
+        <!--Narrow-->
+        <div class="material-button-switch link" (click)="invertOverviewType()">
+          Wisselen naar Breed overzicht
+        </div>
+      </div>
+
+    </div>
   </div>
   <!--End member filter-->
-  <!--Member overview-->
-  <ul id="member-list">
-    <li *ngFor="let prospect of prospects|search:name" class="member-wrapper">
-      <div class="member-card"><a [routerLink]="['/prospect/', prospect.id]">
-        <div class="col-md-6">
-          <div class="crop img-container pull-left">
-            <img src="{{prospect.imageUrl || 'http://www.spoorenpartners.nl/images/team/NoPersonPicture.jpg'}}"
-                 alt="..."/>
+
+
+  <div *ngIf="narrowOverview == false">
+    <!--Wide Member overview-->
+    <ul id="member-list">
+      <li *ngFor="let prospect of prospects|search:name" class="member-wrapper">
+        <div class="member-card"><a [routerLink]="['/prospect/', prospect.id]">
+          <div class="col-md-6">
+            <div class="crop img-container pull-left">
+              <img src="{{prospect.imageUrl || 'http://www.spoorenpartners.nl/images/team/NoPersonPicture.jpg'}}"
+                   alt="..."/>
+            </div>
+            <div class="member-short">
+              <h1 class="member-name">
+                {{prospect.fullName}}
+              </h1>
+              <h3 class="member-function">{{prospect.profession.name}}</h3>
+            </div>
           </div>
-          <div class="member-short">
-            <h1 class="member-name">
-              {{prospect.fullName}}
-            </h1>
-            <h3 class="member-function">{{prospect.profession.name}}</h3>
-          </div>
-        </div>
-      </a>
-        <div class="col-md-6">
-          <div class="verticalLine">
-            <div class="member-details">
-              <div class="vertical-center">
-                <div *ngIf="prospect.address != null">
-                  <p class="member-address">{{prospect.address.street}} {{prospect.address.houseNumber}}</p>
-                  <p class="member-address details">{{prospect.address.city}} {{prospect.address.zipcode}} </p>
-                  <p class="member-address"><a href="mailto:{{prospect.emailAddress}}">{{prospect.emailAddress}}</a></p>
-                  <p class="member-address details"><a href="tel:{{prospect.phoneNumber}}">{{prospect.phoneNumber}}</a>
-                  </p>
-                </div>
-                <div *ngIf="prospect.address == null">
-                  <p class="member-address btn-link btn-center"><a [routerLink]="['/prospect/edit', prospect.id]">Gegegevens
-                    aanvullen</a></p>
+        </a>
+          <div class="col-md-6">
+            <div class="verticalLine">
+              <div class="member-details">
+                <div class="vertical-center">
+                  <div *ngIf="prospect.address != null">
+                    <p class="member-address">{{prospect.address.street}} {{prospect.address.houseNumber}}</p>
+                    <p class="member-address details">{{prospect.address.city}} {{prospect.address.zipcode}} </p>
+                    <p class="member-address"><a href="mailto:{{prospect.emailAddress}}">{{prospect.emailAddress}}</a>
+                    </p>
+                    <p class="member-address details"><a
+                      href="tel:{{prospect.phoneNumber}}">{{prospect.phoneNumber}}</a>
+                    </p>
+                  </div>
+                  <div *ngIf="prospect.address == null">
+                    <p class="member-address btn-link btn-center"><a [routerLink]="['/prospect/edit', prospect.id]">Gegegevens
+                      aanvullen</a></p>
+                  </div>
                 </div>
               </div>
             </div>
+            <!--Niet alle statussen hebben een kleur, vandaar weggecomment-->
+            <!--<div [ngClass]="prospect.status.content" class="member-status">
+            </div>-->
           </div>
-          <!--Niet alle statussen hebben een kleur, vandaar weggecomment-->
-          <!--<div [ngClass]="prospect.status.content" class="member-status">
-          </div>-->
         </div>
-      </div>
-    </li>
-  </ul>
+      </li>
+    </ul>
+    <!--End wide member overview-->
+  </div>
+  <div *ngIf="narrowOverview == true">
+    <!--Narrow member overview-->
+    <ul id="member-list-narrow" style="list-style: none">
+      <li *ngFor="let prospect of prospects|search:name" class="member-wrapper">
+        <div class="member-card-narrow ">
+          <div class="col-md-12">
+            <div class="col-md-4">
+              <h3>{{prospect.fullName}}</h3>
+              <h4>{{prospect.profession.name}}</h4>
+            </div>
+            <div class="col-md-3">
+              <h3>
+                <span *ngIf="prospect.address != null">
+                  {{prospect.address.street}} {{prospect.address.houseNumber}}
+                  <br>
+                  {{prospect.address.city}} {{prospect.address.zipcode}}
+                </span>
+                <span *ngIf="prospect.address == null">
+                  <h5>
+                    <a [routerLink]="['/prospect/edit', prospect.id]">Gegegevens aanvullen</a>
+                  </h5>
+                </span>
+              </h3>
+            </div>
+            <div class="col-md-3">
+              <h3>
+                <a href="mailto:{{prospect.emailAddress}}">{{prospect.emailAddress}}</a>
+              </h3>
+            </div>
+            <div class="col-md-2">
+              <h3 style="font-size: 10em">
+                <a class="member-address details" href="tel:{{prospect.phoneNumber}}">{{prospect.phoneNumber}}</a>
+              </h3>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+    <!--End narrow member overview-->
+  </div>
 </div>

@@ -1,10 +1,10 @@
-import {Component, EventEmitter, OnInit, Output} from "@angular/core";
-import {Action} from "classes/Action";
-import {User} from "classes/user";
-import {Prospect} from "classes/Prospect";
-import {ActionDataService} from "../action-data.service";
-import {ActionType} from "classes/ActionType";
-import {Router} from "@angular/router";
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Action} from 'classes/Action';
+import {User} from 'classes/user';
+import {Prospect} from 'classes/Prospect';
+import {ActionDataService} from '../action-data.service';
+import {ActionType} from 'classes/ActionType';
+import {Router} from '@angular/router';
 
 
 @Component({
@@ -17,19 +17,19 @@ export class AddAppointmentModalComponent implements OnInit {
 
   @Output() onButtonClicked: EventEmitter<any> = new EventEmitter<any>();
   test: number;
-  fistId: number;
+  firstId: number;
   currentUser: User;
   currentProspect: Prospect;
   Appointment: Action = new Action;
   ActionTypes: ActionType[];
 
-  dateString: String = "";
+  dateString: String = '';
 
   constructor(public ActionService: ActionDataService, public router: Router) {
     this.Appointment.actionType = new ActionType();
     ActionService.getActionTypes().subscribe(request => {
         this.ActionTypes = request;
-        this.fistId = request[0].id; }
+        this.firstId = request[0].id; }
     );
   }
 
@@ -53,14 +53,14 @@ export class AddAppointmentModalComponent implements OnInit {
   }
 
   public getActionTypeById(id: number) {
-    for (let action of this.ActionTypes) {
-      if (action.id == id) {
-        this.Appointment.actionType = action
+    for (const action of this.ActionTypes) {
+      if (action.id === id) {
+        this.Appointment.actionType = action;
       }
     }
   }
 
   close() {
-    this.onButtonClicked.emit()
+    this.onButtonClicked.emit();
   }
 }

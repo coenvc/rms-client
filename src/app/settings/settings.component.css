@@ -20,12 +20,15 @@
 .add-setting{ 
     width:15%; 
     display: inline-block; 
-    margin-left: 23px;
 } 
 
 .settings-items{ 
     list-style: none; 
 } 
+
+.memver-search-bar{ 
+    margin-right: 17px;
+}
 
 .item{   
     margin-top: 10px;
