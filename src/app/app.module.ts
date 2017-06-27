@@ -35,6 +35,7 @@ import { TranslateModule } from 'ng2-translate';
 import { PdfGenerateService } from "app/pdf-generate.service";
 
 
+
 @NgModule({
   declarations: [
     AppComponent,

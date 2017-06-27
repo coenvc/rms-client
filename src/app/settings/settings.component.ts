@@ -97,12 +97,14 @@ export class SettingsComponent implements OnInit {
       .subscribe(request => console.log(request));
   }
 
+  postUser() {
+    this.userDataService.register(this.User)
+      .subscribe(request => console.log(request));
+  }
+
   postActionType() {
     this.actiontypedataService.register(this.ActionType)
-<<<<<<< HEAD
       .subscribe()
-=======
-      .subscribe(request => console.log(request));
   }
 
   deleteUser(id){ 
@@ -113,7 +115,6 @@ export class SettingsComponent implements OnInit {
         error => { window.alert('Activiteit kan niet verwijderd worden omdat deze in gebruik is'); }
         );
     }
->>>>>>> c68174b42b866c1642f77ab9cfe2604763c230ff
   }
 
   deleteAction(id) {
@@ -136,10 +137,6 @@ export class SettingsComponent implements OnInit {
     }
   }
   postProfession() {
-<<<<<<< HEAD
-=======
-    console.log(this.Profession);
->>>>>>> c68174b42b866c1642f77ab9cfe2604763c230ff
     this.professionDataService.register(this.Profession)
       .subscribe();
   }

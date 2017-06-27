@@ -66,11 +66,7 @@ export class MemberCardComponent implements OnInit {
   }
 
   searchmember() {
-<<<<<<< HEAD
-    
-=======
-    console.log(this.name);
->>>>>>> c68174b42b866c1642f77ab9cfe2604763c230ff
+
   }
 
   onChange(t) {
