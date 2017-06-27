@@ -33,5 +33,9 @@ export class Prospect {
     this.surname = surname;
     this.id = id;
   }
+
+  getAddressString(): string {
+    return this.address.street + ' ' + this.address.houseNumber + ', ' + this.address.zipcode + ' ' + this.address.city;
+  }
 }
 

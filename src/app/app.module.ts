@@ -32,6 +32,7 @@ import { EditStatusModalComponent } from './edit-status-modal/edit-status-modal.
 import { HttpClientService } from "app/http-client.service";
 import { DashboardNarrowComponent } from "app/prospect-narrow/prospect-narrow.component";
 import { TranslateModule } from 'ng2-translate';
+import { PdfGenerateService } from "app/pdf-generate.service";
 
 
 @NgModule({
@@ -73,7 +74,8 @@ import { TranslateModule } from 'ng2-translate';
     ProfessionDataService,
     UserDataService,
     ActiontypeDataService,
-    HttpClientService
+    HttpClientService,
+    PdfGenerateService
   ],
   bootstrap: [AppComponent]
 })

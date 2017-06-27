@@ -9,6 +9,8 @@ import { Profession } from "classes/Profession";
 import { Address } from "../../classes/Address";
 import { SocialLinks } from "classes/SocialLinks";
 import { StatusDataService } from "app/status-data.service";
+import { PdfGenerateService } from "app/pdf-generate.service";
+import { saveAs } from 'file-saver';
 
 @Component({
   selector: 'app-prospect-details',
@@ -32,7 +34,8 @@ export class ProspectDetailsComponent implements OnInit {
   parentTitle: string;
   providers: [ProspectDataService, ActionDataService, StatusDataService]
 
-  constructor(public ProspectDataService: ProspectDataService, public ActionsDataService: ActionDataService, StatusDataService: StatusDataService, private route: ActivatedRoute) {
+  // tslint:disable-next-line:max-line-length
+  constructor(public ProspectDataService: ProspectDataService, public ActionsDataService: ActionDataService, StatusDataService: StatusDataService, private route: ActivatedRoute, private pdfGenerateService: PdfGenerateService) {
     this.FetchIDFromUrl();
   }
 
@@ -83,7 +86,7 @@ export class ProspectDetailsComponent implements OnInit {
 
   showCompleteActionModal(event) {
     let id = event.target.attributes.id.value
-    
+
     let selectedAction = this.Actions.find(a => a.id == id && !a.completed)
     if (selectedAction != undefined) {
       localStorage.setItem('currentAction', JSON.stringify(selectedAction))
@@ -110,6 +113,21 @@ export class ProspectDetailsComponent implements OnInit {
         }
       }
     }
+  }
+
+  generateProposal() {
+    this.pdfGenerateService.generate(this.Prospect)
+      .subscribe(res => {
+        const blob = new Blob([res], { type: 'application/pdf' });
+        const name = 'Proposal-Formulier_' +
+          this.Prospect.firstName +
+          '-' +
+          this.Prospect.infix +
+          '-' +
+          this.Prospect.surname;
+
+        saveAs(blob, name, false);
+      });
   }
 
   ngOnInit() {
