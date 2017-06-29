@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'login-form',
   templateUrl: './login-form.component.html',
-  styleUrls: ['./login-form.component.css']
+  styleUrls: ['./login-form.component.css', '../../styles/buttons.css']
 })
 export class LoginFormComponent implements OnInit {
 

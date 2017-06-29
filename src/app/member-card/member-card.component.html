@@ -25,13 +25,9 @@
       </div>
     </div>
     <div class="col-md-3 btn-link">
-      <a class="material-button-switch link">
-        <a [routerLink]="['/prospect/add']">
-          <div class="material-button-switch link">
-            Lid toevoegen
-          </div>
-        </a>
-      </a>
+      <div class="material-button-switch link">
+        Lid toevoegen
+      </div>
     </div>
     <div class="col-md-3 btn-link">
       <div *ngIf="narrowOverview == false">
@@ -96,6 +92,9 @@
                 </div>
               </div>
             </div>
+            <!--Niet alle statussen hebben een kleur, vandaar weggecomment-->
+            <!--<div [ngClass]="prospect.status.content" class="member-status">
+            </div>-->
           </div>
         </div>
       </li>
@@ -109,7 +108,7 @@
       <div class="col-md-5 narrow-small">
         <h4>Naam &amp; Beroep</h4>
       </div>
-      <div class="col-md-4 narrow-small">
+      <div class="col-md-3 narrow-small">
         <h4>Adres</h4>
       </div>
       <div class="col-md-3 narrow-small">

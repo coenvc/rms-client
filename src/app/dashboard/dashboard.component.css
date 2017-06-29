@@ -1,28 +1,31 @@
-#tab-group {
-  margin-top: 50px !important;
-  margin: 0 auto;
-  width: 500px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+* {
+  /*border: 1px solid black;*/
+}
+
+.switch {
+  margin-top: 40px !important;
+  /*width: 500px;*/
   font-weight: bold;
   text-transform: uppercase;
 }
 
-.tabs:hover,
+.switch-item:hover,
 .btn-login:hover {
   cursor: pointer;
 }
 
-#tab-group .tabs {
+.switch-item {
   line-height: 50px;
   height: 50px;
   display: inline-block;
+  font-weight: bold;
+  text-transform: uppercase;
   background-color: #0c3c7c;
-  width: 50%;
   box-sizing: border-box;
   padding: 0;
   float: left;
   text-align: center;
-  margin-bottom: 20px;
+  margin: 0 auto 20px;
   color: #fff;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }

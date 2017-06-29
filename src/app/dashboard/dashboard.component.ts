@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import { ActionDataService } from '../action-data.service';
-import { ActionOverview } from 'classes/ActionOverview';
-import { User } from 'classes/user';
-import { Action } from 'classes/Action';
+import {Component, OnInit} from '@angular/core';
+import {ActionDataService} from '../action-data.service';
+import {ActionOverview} from 'classes/ActionOverview';
+import {User} from 'classes/user';
+import {Action} from 'classes/Action';
 
 @Component({
   selector: 'app-dashboard',
@@ -18,7 +18,8 @@ export class DashboardComponent implements OnInit {
   prospectId: number;
   reloadMethod: string;
 
-  constructor(public ActionService: ActionDataService) { }
+  constructor(public ActionService: ActionDataService) {
+  }
 
   ngOnInit() {
     this.ActionService.getAll().subscribe(r => {
@@ -34,7 +35,7 @@ export class DashboardComponent implements OnInit {
 
   showMyActions(event) {
     this.reloadMethod = 'user';
-    this.reloadActions(this.reloadMethod)
+    this.reloadActions(this.reloadMethod);
     const myButton = document.getElementById('allAppointmentsTab');
     myButton.className += ' selected';
     const otherButton = document.getElementById('myAppointmentsTab');
@@ -43,7 +44,7 @@ export class DashboardComponent implements OnInit {
 
   showAllActions(event) {
     this.reloadMethod = 'all';
-    this.reloadActions(this.reloadMethod)
+    this.reloadActions(this.reloadMethod);
     const myButton = document.getElementById('myAppointmentsTab');
     myButton.className += ' selected';
     const otherButton = document.getElementById('allAppointmentsTab');
@@ -62,19 +63,27 @@ export class DashboardComponent implements OnInit {
 
   hideCompleteActionModal() {
     this.completeAppointmentModalVisible = false;
-    this.reloadActions(this.reloadMethod)
+    this.reloadActions(this.reloadMethod);
+  }
+
+  getFirstName(name): string {
+    return name.substr(0, name.indexOf(' '));
+  }
+
+  showAppointmentModal() {
+    console.log('Show the appointment modal');
   }
 
   private reloadActions(method: string) {
     switch (method) {
       case 'user':
         this.ActionService.getUserActionOverview(this.CurrentUser.id).subscribe(request => {
-          this.ActionOverview = new ActionOverview(request.today, request.thisWeek, request.thisMonth, request.remainder)
+          this.ActionOverview = new ActionOverview(request.today, request.thisWeek, request.thisMonth, request.remainder);
         });
         break;
       case 'all':
-        this.ActionService.getAllActionsOverview().subscribe(request => {          
-          this.ActionOverview = new ActionOverview(request.today, request.thisWeek, request.thisMonth, request.remainder)
+        this.ActionService.getAllActionsOverview().subscribe(request => {
+          this.ActionOverview = new ActionOverview(request.today, request.thisWeek, request.thisMonth, request.remainder);
         });
         break;
     }

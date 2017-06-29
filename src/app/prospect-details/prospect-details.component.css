@@ -75,13 +75,13 @@
   margin-top: 0px;
 }
 
-.activity-status { 
+.activity-status {
   padding-bottom: 5px;
   border-bottom: 1px solid black;
-  height: 30px; 
+  height: 30px;
   overflow: hidden;
 }
 
-.advanced-buttons > button{ 
+.advanced-buttons > button{
   display: inline;
 }
