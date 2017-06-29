@@ -27,6 +27,9 @@ export class DashboardComponent implements OnInit {
       this.reloadMethod = 'user';
       this.reloadActions(this.reloadMethod);
     });
+    // var audio = new Audio();
+    // audio.load();
+    // audio.play();
   }
 
   showMyActions(event) {
