@@ -17,15 +17,19 @@ import { ActionType } from 'classes/ActionType';
 export class EditActionComponent implements OnInit {
   id: number;
 
-  prospect: Prospect = null;
+  prospect: Prospect = new Prospect();
   action: Action = new Action();
   actiontype: ActionType = new ActionType();
-  user: User = null;
+  user: User = new User(null, null, null, null);
+
+  userId: number;
+  prospectId: number;
+  actionId: number;
 
   users: User[] = new Array<User>();
   prospects: Prospect[] = new Array<Prospect>();
   actiontypes: ActionType[] = new Array<ActionType>();
-  dateString = "06-07-2018";
+  dateString = '06-07-2018';
 
   constructor(private actionDataService: ActionDataService,
     private prospectDataService: ProspectDataService,
@@ -39,8 +43,10 @@ export class EditActionComponent implements OnInit {
       this.actionDataService.getActionById(+params['id'])
         .subscribe(request => {
           this.action = request;
-          this.dateString = this.toLocaleDateString(this.action.date);
-          this.prospect = this.action.prospect;
+          this.prospectId = this.action.prospect.id;
+          this.userId = this.action.user.id;
+          this.actionId = this.action.actionType.id;
+          console.log(this.prospectId, this.userId, this.actionId);
         });
     });
 
@@ -54,12 +60,22 @@ export class EditActionComponent implements OnInit {
     return (date.getFullYear() + '-' + (date.getMonth() > 9 ? date.getMonth() : '0' + date.getMonth()) + '-' + date.getDate() + 'T' + date.toLocaleTimeString()).toString();
   }
 
-  onSubmit(date) {
-    console.log(this.prospect, this.actiontype, this.prospect)
+  userChanged(userId) {
+    this.userId = userId;
+  }
 
-    this.action.actionType = this.actiontype;
-    this.action.user = this.user;
-    this.action.prospect = this.prospect;
+  actionChanged(actionId) {
+    this.actionId = actionId;
+  }
+
+  prospectChanged(prospectId) {
+    this.prospectId = prospectId;
+  }
+
+  onSubmit(form) {
+    this.action.actionType = this.actiontypes.find(a => a.id == this.actionId);
+    this.action.user = this.users.find(u => u.id == this.userId);
+    this.action.prospect = this.prospects.find(p => p.id == this.prospectId);
 
     this.actionDataService.updateAction(this.action)
       .subscribe(request => null,

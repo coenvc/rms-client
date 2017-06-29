@@ -3,12 +3,13 @@
 <div class="container">
   <div class="details-container" id="details-container personal">
     <h1>Afspraak aanpassen</h1>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
     <div class="form-background">
       <div class="form-group">
         <div class="col-md-12">
           <h4>Door <span class="required-field">*</span></h4>
-          <select class="form-field col-md-6 minimal" [(ngModel)]="user" name="user" required>
-              <option *ngFor="let u of users" [selected]="user?.id == u.id">
+          <select class="form-field col-md-6 minimal"  (change)="userChanged($event.target.value)" required>
+              <option *ngFor="let u of users" [selected]="user?.id == u.id" [value]="u.id">
                 {{ u.name }}
               </option>
             </select>
@@ -16,8 +17,8 @@
 
         <div class="col-md-12">
           <h4>Met <span class="required-field">*</span></h4>
-          <select class="form-field col-md-6 minimal" [(ngModel)]="prospect" name="prospect" required>
-              <option *ngFor="let p of prospects" [selected]="prospect?.id == p.id">
+          <select class="form-field col-md-6 minimal" (change)="prospectChanged($event.target.value)"  required>
+              <option *ngFor="let p of prospects" [selected]="prospect?.id == p.id" [value]="p.id">
                 {{ p.fullName }}
               </option>
             </select>
@@ -25,8 +26,8 @@
 
         <div class="col-md-12">
           <h4>Activiteit <span class="required-field">*</span></h4>
-          <select class="form-field col-md-6 minimal" [(ngModel)]="actiontype" name="actiontype" required>
-              <option *ngFor="let a of actiontypes" [selected]="actiontype?.id == a.id">
+          <select class="form-field col-md-6 minimal" (change)="actionChanged($event.target.value)"  required>
+              <option *ngFor="let a of actiontypes" [selected]="actiontype?.id == a.id" [value]="a.id">
                 {{ a.content }}
               </option>
             </select>
@@ -40,7 +41,7 @@
 
         <div class="col-md-12">
           <h4>Locatie <span class="required-field">*</span></h4>
-          <input [(ngModel)]="action.location" type="text" class="form-field col-md-6 minimal" id="location" name="description" autocomplete="off"
+          <input [(ngModel)]="action.location" type="text" class="form-field col-md-6 minimal" id="location" name="location" autocomplete="off"
             ngModel required>
         </div>
 
@@ -52,7 +53,7 @@
 
 
         <div class="col-md-3">
-          <button (click)="onSubmit()" style="width: 100%; height: 50px" class="btn-primary btn-block">
+          <button style="width: 100%; height: 50px" class="btn-primary btn-block">
               Opslaan
             </button>
         </div>
@@ -66,5 +67,6 @@
         <span style="color: white">|</span>
       </div>
     </div>
+    </form>
     <br><br><br>
   </div>
