@@ -29,10 +29,16 @@
   height: 7vh;
 }
 
-.pull-down {
+.pull-down-left {
   position: absolute;
   bottom: 2%;
   left: 2%;
+}
+
+.pull-down-right {
+  position: absolute;
+  bottom: 2%;
+  right: 2%;
 }
 
 .test {
