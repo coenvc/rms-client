@@ -68,10 +68,8 @@ export class EditActionComponent implements OnInit {
   }
 
   onSubmit(date) {
-    // Merge the objects back to Prospect
     this.action.user = this.user;
     this.action.prospect = this.prospect;
-
     this.action.actionType = this.actiontype;
     this.action.date = new Date(date);
 
