@@ -72,13 +72,14 @@ export class EditActionComponent implements OnInit {
     this.prospectId = prospectId;
   }
 
-  onSubmit(form) {
+  onSubmit(form, date) {
     this.action.actionType = this.actiontypes.find(a => a.id == this.actionId);
     this.action.user = this.users.find(u => u.id == this.userId);
     this.action.prospect = this.prospects.find(p => p.id == this.prospectId);
-    
-    // this.actionDataService.updateAction(this.action)
-    //   .subscribe(request => null,
-    //   error => console.log(error));
+    this.action.date = new Date(date);
+
+    this.actionDataService.updateAction(this.action)
+      .subscribe(request => null,
+      error => console.log(error));
   }
 }
