@@ -8,7 +8,7 @@
       <div class="form-group">
         <div class="col-md-12">
           <h4>Door <span class="required-field">*</span></h4>
-          <select class="form-field col-md-6 minimal"  (change)="userChanged($event.target.value)" required>
+          <select class="form-field col-md-4 minimal"  (change)="userChanged($event.target.value)" required>
               <option *ngFor="let u of users" [selected]="user?.id == u.id" [value]="u.id">
                 {{ u.name }}
               </option>
@@ -17,7 +17,7 @@
 
         <div class="col-md-12">
           <h4>Met <span class="required-field">*</span></h4>
-          <select class="form-field col-md-6 minimal" (change)="prospectChanged($event.target.value)"  required>
+          <select class="form-field col-md-4 minimal" (change)="prospectChanged($event.target.value)"  required>
               <option *ngFor="let p of prospects" [selected]="prospect?.id == p.id" [value]="p.id">
                 {{ p.fullName }}
               </option>
@@ -26,7 +26,7 @@
 
         <div class="col-md-12">
           <h4>Activiteit <span class="required-field">*</span></h4>
-          <select class="form-field col-md-6 minimal" (change)="actionChanged($event.target.value)"  required>
+          <select class="form-field col-md-4 minimal" (change)="actionChanged($event.target.value)"  required>
               <option *ngFor="let a of actiontypes" [selected]="actiontype?.id == a.id" [value]="a.id">
                 {{ a.content }}
               </option>
@@ -35,30 +35,30 @@
 
         <div class="col-md-12">
           <h4>Datum en tijd <span class="required-field">*</span></h4>
-          <input #date [value]='dateString' type="datetime-local" class="form-field col-md-6 minimal" id="date" name="date" autocomplete="off"
+          <input #date [value]='dateString' type="datetime-local" class="form-field col-md-12 minimal" id="date" name="date" autocomplete="off"
             required>
         </div>
 
         <div class="col-md-12">
           <h4>Locatie <span class="required-field">*</span></h4>
-          <input [(ngModel)]="action.location" type="text" class="form-field col-md-6 minimal" id="location" name="location" autocomplete="off"
+          <input [(ngModel)]="action.location" type="text" class="form-field col-md-12 minimal" id="location" name="location" autocomplete="off"
             ngModel required>
         </div>
 
         <div class="col-md-12">
           <h4>Beschrijving <span class="required-field">*</span></h4>
-          <input [(ngModel)]="action.description" type="text" class="form-field col-md-6 minimal" id="description" name="description"
+          <input [(ngModel)]="action.description" type="text" class="form-field col-md-12 minimal" id="description" name="description"
             autocomplete="off" ngModel required>
         </div>
 
 
-        <div class="col-md-3">
+        <div class="col-md-6">
           <button style="width: 100%; height: 50px" class="btn-primary btn-block">
               Opslaan
             </button>
         </div>
 
-        <div class="col-md-3" style="padding-right: 0px;">
+        <div class="col-md-6" style="padding-right: 0px;">
           <a [routerLink]="['/prospect']" class=" clickable" aria-hidden="true">
             <button class="btn-primary btn-block" style="width: 100%; height: 50px;">Terug naar overzicht</button>
           </a>
