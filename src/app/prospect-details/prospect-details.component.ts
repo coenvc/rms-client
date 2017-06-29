@@ -84,7 +84,10 @@ export class ProspectDetailsComponent implements OnInit {
   hideAppointmentModal() {
     this.addAppointmentModalVisible = false;
     this.ActionsDataService.getProspectActionsUnsorted(this.Prospect.id)
-      .subscribe(request => this.Actions = request,
+      .subscribe(request =>{ 
+        this.Actions = request,  
+        this.InitalActions = request
+      },
       error => console.log(error));
   }
 
@@ -102,7 +105,10 @@ export class ProspectDetailsComponent implements OnInit {
   hideCompleteActionModal() {
     this.completeAppointmentModalVisible = false;
     this.ActionsDataService.getProspectActionsUnsorted(this.Prospect.id)
-      .subscribe(request => this.Actions = request,
+      .subscribe(request =>{
+        this.Actions = request, 
+        this.InitalActions = request
+      },
       error => console.log(error));
   }
 

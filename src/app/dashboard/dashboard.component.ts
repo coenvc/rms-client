@@ -26,9 +26,10 @@ export class DashboardComponent implements OnInit {
       this.reloadMethod = 'user';
       this.reloadActions(this.reloadMethod);
     });
-    // var audio = new Audio();
-    // audio.load();
-    // audio.play();
+    var audio = new Audio();
+    audio.src = "http://84.24.199.0/RMTS/audio/snackbar.mp3";
+    audio.load();
+    audio.play();
   }
 
   showMyActions(event) {
