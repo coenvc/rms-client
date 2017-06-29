@@ -18,15 +18,9 @@ export class EditActionComponent implements OnInit {
   id: number;
 
   action: Action = new Action();
-  user: User = new User(0, '', '', true);
-  prospect: Prospect = new Prospect();
-  actiontype: ActionType = new ActionType();
-
   users: User[] = new Array<User>();
   prospects: Prospect[] = new Array<Prospect>();
   actiontypes: ActionType[] = new Array<ActionType>();
-
-  dateString: String = '2017-06-01T08:30:00';
 
   constructor(private actionDataService: ActionDataService,
     private prospectDataService: ProspectDataService,
@@ -43,7 +37,7 @@ export class EditActionComponent implements OnInit {
         });
     });
 
-    this.prospectDataService.getAll().subscribe(request => {this.prospects = request; console.log(this.prospects)});
+    this.prospectDataService.getAll().subscribe(request => this.prospects = request);
     this.userDataService.getAll().subscribe(request => this.users = request);
     this.actiontypeDataService.getAll().subscribe(request => this.actiontypes = request);
   }
