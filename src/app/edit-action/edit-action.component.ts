@@ -46,7 +46,7 @@ export class EditActionComponent implements OnInit {
           this.prospectId = this.action.prospect.id;
           this.userId = this.action.user.id;
           this.actionId = this.action.actionType.id;
-          console.log(this.prospectId, this.userId, this.actionId);
+          this.dateString = this.toLocaleDateString(new Date(request.date));
         });
     });
 
@@ -76,9 +76,9 @@ export class EditActionComponent implements OnInit {
     this.action.actionType = this.actiontypes.find(a => a.id == this.actionId);
     this.action.user = this.users.find(u => u.id == this.userId);
     this.action.prospect = this.prospects.find(p => p.id == this.prospectId);
-
-    this.actionDataService.updateAction(this.action)
-      .subscribe(request => null,
-      error => console.log(error));
+    
+    // this.actionDataService.updateAction(this.action)
+    //   .subscribe(request => null,
+    //   error => console.log(error));
   }
 }
