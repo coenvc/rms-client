@@ -1,6 +1,96 @@
 {
     "header-dashboard": "Dashboard",
     "header-overview": "Leden Overzicht",
-    "header=settings": "Instellingen",
-    "header-logout": "Uitloggen"
+    "header-settings": "Instellingen",
+    "header-logout": "Uitloggen",
+
+    "prospect-search": "Zoeken",
+    "prospect-all": "Alle",
+    "prospect-wide": "Breed",
+    "prospect-small": "Smal",
+
+    "prospect-details": "Gegevens",
+    "prospect-path": "Traject",
+    "prospect-new-appointment": "Nieuwe afspraak",
+    "prospect-edit": "Bewerken",
+
+    "prospect-new-appointment-modal-title": "Titel",
+    "prospect-new-appointment-modal-description": "Beschrijving",
+    "prospect-new-appointment-modal-activity": "Activiteit",
+    "prospect-new-appointment-modal-location": "Locatie",
+    "prospect-new-appointment-modal-date": "Datum",
+
+    "prospect-edit-details": "Persoonlijke details",
+    "prospect-edit-name": "Voornaam",
+    "prospect-edit-infix": "Tussenvoegsel",
+    "prospect-edit-surname": "Achternaam",
+    "prospect-edit-status": "Status",
+    "prospect-edit-profession": "Beroep",
+    "prospect-edit-motivation": "Motivatie",
+    "prospect-edit-address": "Adres gegevens",
+    "prospect-edit-street": "Straatnaam",
+    "prospect-edit-house-number": "Huisnummer",
+    "prospect-edit-zipcode": "Postcode",
+    "prospect-edit-city": "Woonplaats",
+    "prospect-edit-contact": "Contactgegevens",
+    "prospect-edit-emailaddress": "Email-adres",
+    "prospect-edit-phonenumber": "Telefoonummer",
+    "prospect-edit-save": "Opslaan",
+
+    "prospect-add-title": "Titel",
+    "prospect-add-name": "Voornaam",
+    "prospect-add-infix": "Tussenvoegsel",
+    "prospect-add-surname": "Achternaam",
+    "prospect-add-emailaddress": "Email-adres",
+    "prospect-add-phonenumber": "Telefoonnummer",
+    "prospect-add-profession": "Beroep",
+    "prospect-add-status": "Status",
+    "prospect-add-motivation": "Motivatie",
+    "prospect-add-add": "Toevoegen",
+
+    "settings-status": "Statussen",
+    "settings-activities": "Activiteiten",
+
+    "settings-add-status-modal-title": "Titel",
+    "settings-add-status-modal-description": "Hier komt een uitleg over hoe je een status toe kan voegen",
+    "settings-add-status-modal-description-title": "Omschrijving",
+    "settings-add-status-modal-add": "Toevoegen",
+    "settings-add-status-modal-cancel": "Annuleren",
+
+   "settings-edit-status-modal-title": "Titel",
+   "settings-edit-status-modal-description:": "Pas de omschrijving van status 'Actief' aan.",
+   "settings-edit-status-modal-description-title": "Omschrijving",
+   "settings-edit-status-modal-content": "Inhoud",
+   "settings-edit-status-modal-edit": "Aanpassen",
+   "settings-edit-status-modal-cancel": "Annuleren",
+
+
+    "settings-add-action-modal-title": "Titel",
+    "settings-add-action-modal-description:": "Hier komt een uitleg over hoe je een activiteit toe kan voegen.",
+    "settings-add-action-modal-description-title": "Omschrijving",
+    "settings-add-action-modal-content": "Inhoud",
+    "settings-add-action-modal-add": "Toevoegen",
+    "settings-add-action-modal-cancel": "Annuleren",
+
+    "settings-edit-action-modal-title": "Titel",
+    "settings-edit-action-modal-description": "Pas de omschrijving van het Activiteit '' aan.",
+    "settings-edit-action-modal-description-title": "Omschrijving",
+    "settings-edit-action-modal-content": "Inhoud",
+    "settings-edit-action-modal-edit": "Aanpassen",
+    "settings-edit-action-modal-cancel": "Annuleren",
+
+    "action-edit-title": "Titel",
+    "action-edit-by": "Door",
+    "action-edit-with": "Met",
+    "action-edit-activity": "Activiteit",
+    "action-edit-datetime": "Datum en tijd",
+    "action-edit-location": "Locatie",
+    "action-edit-description": "Beschrijving",
+    "action-edit-save": "Opslaan",
+    "action-edit-overview": "Overzicht",
+
+    "dashboard-my-appointments": "Mijn afspraken",
+    "dashboard-all-appointments": "Alle afspraken"
+
+
 }
