@@ -9,8 +9,6 @@
   <div class="container">
     <div class="col-md-4">
       <h2>Gegegevens</h2>
-      <!--Deze knop moet eronder komen, niet erboven-->
-      <a (click)="generateProposal()" class="btn-primary btn-block clickable">GENEREER PDF</a>
       <div class="prospect-data">
         <div class="col-md-12" style="padding:0px !important">
           <div class="col-md-8" style="padding:0px !important">
@@ -39,15 +37,16 @@
             {{Prospect.description}}
           </p>
         </div>
-        <div class="btn-group pull-down" role="group" aria-label="Basic example">
-          <a [routerLink]="['/prospect/edit/', Prospect.id]" class="btn-link">BEWERKEN</a>
+        <div role="group" aria-label="Basic example">
+          <a [routerLink]="['/prospect/edit/', Prospect.id]" class="button-navigation pull-down-left">Bewerken</a>
+          <a (click)="generateProposal()" class="button-navigation pull-down-right">PDF Genereren</a>
         </div>
       </div>
     </div>
     <div class="col-md-8">
       <h2>Traject</h2>
       <button style="width: 100%" type="submit" (click)="showAppointmentModal()" class="btn-primary btn-block">NIEUWE AFSPRAAK</button>
-      <br>  
+      <br>
       <div class="advanced-buttons">
       <button style="width: 33%" type="submit" (click)="showMyAppointments()" class="btn-primary btn-block">Mijn Afspraken</button>
       <button style="width: 33%" type="submit" (click)="showAllAppointments()" class="btn-primary btn-block">Alle Afspraken</button>

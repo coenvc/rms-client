@@ -1,3 +1,95 @@
 {
-    "header-dashboard": "Dashboard"
+  "header-dashboard": "Dashboard",
+  "header-overview": "Prospect Overview",
+  "header-settings": "Settings",
+  "header-logout": "Logout",
+
+  "prospect-search": "Search",
+  "prospect-all": "All",
+  "prospect-wide": "Wide",
+  "prospect-small": "Small",
+
+  "prospect-details": "Details",
+  "prospect-path": "Path",
+  "prospect-new-appointment": "New appointment",
+  "prospect-edit": "Edit",
+
+  "prospect-new-appointment-modal-title": "Title",
+  "prospect-new-appointment-modal-description": "Description",
+  "prospect-new-appointment-modal-activity": "Activity",
+  "prospect-new-appointment-modal-location": "Location",
+  "prospect-new-appointment-modal-date": "Date",
+
+  "prospect-edit-details": "Personal Details",
+  "prospect-edit-name": "Name",
+  "prospect-edit-infix": "Infix",
+  "prospect-edit-surname": "Surname",
+  "prospect-edit-status": "Status",
+  "prospect-edit-profession": "Profession",
+  "prospect-edit-motivation": "Motivation",
+  "prospect-edit-address": "Address",
+  "prospect-edit-street": "Strees",
+  "prospect-edit-house-number": "Housenumber",
+  "prospect-edit-zipcode": "Zipcode",
+  "prospect-edit-city": "City",
+  "prospect-edit-contact": "Contact",
+  "prospect-edit-emailaddress": "Emailaddress",
+  "prospect-edit-phonenumber": "Phonenumber",
+  "prospect-edit-save": "Save",
+
+  "prospect-add-title": "Title",
+  "prospect-add-name": "Name",
+  "prospect-add-infix": "Infix",
+  "prospect-add-surname": "Surname",
+  "prospect-add-emailaddress": "Emailaddress",
+  "prospect-add-phonenumber": "Phonenumber",
+  "prospect-add-profession": "Profession",
+  "prospect-add-status": "Status",
+  "prospect-add-motivation": "Motivation",
+  "prospect-add-add": "Add",
+
+  "settings-status": "Status",
+  "settings-activities": "Activities",
+
+  "settings-add-status-modal-title": "Title",
+  "settings-add-status-modal-description": "Here's an explanation of how to add a status",
+  "settings-add-status-modal-description-title": "Description",
+  "settings-add-status-modal-add": "Add",
+  "settings-add-status-modal-cancel": "Cancel",
+
+  "settings-edit-status-modal-title": "Title",
+  "settings-edit-status-modal-description:": "Adjust the status",
+  "settings-edit-status-modal-description-title": "Description",
+  "settings-edit-status-modal-content": "Content",
+  "settings-edit-status-modal-edit": "Edit",
+  "settings-edit-status-modal-cancel": "Cancel",
+
+
+  "settings-add-action-modal-title": "Title",
+  "settings-add-action-modal-description:": "Here's an explanation of how to add a action",
+  "settings-add-action-modal-description-title": "Description",
+  "settings-add-action-modal-content": "Content",
+  "settings-add-action-modal-add": "Add",
+  "settings-add-action-modal-cancel": "Cancel",
+
+  "settings-edit-action-modal-title": "Title",
+  "settings-edit-action-modal-description": "You can edit you action here.",
+  "settings-edit-action-modal-description-title": "Description",
+  "settings-edit-action-modal-content": "Content",
+  "settings-edit-action-modal-edit": "Edit",
+  "settings-edit-action-modal-cancel": "Cancel",
+
+  "action-edit-title": "Title",
+  "action-edit-by": "By",
+  "action-edit-with": "With",
+  "action-edit-activity": "Activity",
+  "action-edit-datetime": "Date and time",
+  "action-edit-location": "Location",
+  "action-edit-description": "Beschrijving",
+  "action-edit-save": "Save",
+  "action-edit-overview": "Overview",
+
+  "dashboard-my-appointments": "My Appointments",
+  "dashboard-all-appointments": "All Appointments"
+
 }

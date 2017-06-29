@@ -19,9 +19,12 @@
     <h3 *ngIf="list.list.length > 0">{{list.name}}</h3>
     <div *ngFor="let action of list?.list">
       <div class="container action">
-        <div (click)="completeAction($event, action.prospect.id, action)" class="check col-md-2"
-             [ngClass]="action?.completed ? 'checked forbidden' : 'clickable'"></div>
-        <div class="col-md-10 action-background">
+        <div class="col-md-11 col-md-offset-1 action-background">
+          <div class="col-md-1 maxheight">
+            <div (click)="completeAction($event, action.prospect.id, action)" class="check"
+                 [ngClass]="action?.completed ? 'checked forbidden' : 'clickable'">
+          </div>
+          </div>
           <div class="col-md-2 maxheight">
             <div class="text">
               <h4 class="header">{{action?.date | date:"dd-MM-yyyy"}}</h4>
@@ -29,7 +32,7 @@
             </div>
             <div class="vertical-line"></div>
           </div>
-          <div class="col-md-3 maxheight">
+          <div class="col-md-2 maxheight">
             <div class="text">
               <h4 class="header">{{action.actionType.content}}</h4>
               <h4>{{action.location}}</h4>
