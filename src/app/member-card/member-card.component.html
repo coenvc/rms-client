@@ -64,7 +64,7 @@
               <h1 class="member-name">
                 {{prospect.fullName}}
               </h1>
-              <h3 class="member-function">{{prospect.profession.name}}</h3>
+              <h3 class="member-function">{{prospect.profession}}</h3>
             </div>
           </div>
         </a>
@@ -74,17 +74,23 @@
                 <div class="vertical-center">
                   <div *ngIf="prospect.address != null">
                     <p class="member-address">{{prospect.address.street}} {{prospect.address.houseNumber}}</p>
-                    <p class="member-address details">{{prospect.address.city}} {{prospect.address.zipcode}} </p>
-                    <p class="member-address"><a href="mailto:{{prospect.emailAddress}}">{{prospect.emailAddress}}</a>
-                    </p>
-                    <p class="member-address details"><a
-                      href="tel:{{prospect.phoneNumber}}">{{prospect.phoneNumber}}</a>
-                    </p>
+                    <p class="member-address details">{{prospect.address.city}} {{prospect.address.zipcode}}</p>
                   </div>
+
                   <div *ngIf="prospect.address == null">
-                    <p class="member-address btn-link btn-center"><a [routerLink]="['/prospect/edit', prospect.id]">Gegegevens
-                      aanvullen</a></p>
+                    <p class="member-address">
+                      <a [routerLink]="['/prospect/edit', prospect.id]">
+                        Adresegegevens aanvullen
+                      </a>
+                    </p>
                   </div>
+
+
+                  <p class="member-address">
+                    <a href="mailto:{{prospect.emailAddress}}">{{prospect.emailAddress}}</a>
+                    <a href="tel:{{prospect.phoneNumber}}">{{prospect.phoneNumber}}</a>
+                  </p>
+
                 </div>
               </div>
             </div>
@@ -98,36 +104,46 @@
     <!--End wide member overview-->
   </div>
   <div *ngIf="narrowOverview == true">
+
+    <!--Start labels on top-->
+    <div class="col-md-12">
+      <div class="col-md-6 narrow-small">
+        Naam & Beroep
+      </div>
+      <div class="col-md-3 narrow-small">
+        Adres
+      </div>
+      <div class="col-md-3 narrow-small">
+        Contact
+      </div>
+    </div>
+    <!--End labels on top-->
+
     <!--Narrow member overview-->
     <ul id="member-list-narrow" style="list-style: none">
       <li *ngFor="let prospect of prospects|search:name" class="member-wrapper">
-        <div class="member-card-narrow ">
+        <div class="member-card-narrow">
           <div class="col-md-12">
-            <div class="col-md-4">
-              <h3>{{prospect.fullName}}</h3>
-              <h4>{{prospect.profession.name}}</h4>
-            </div>
-            <div class="col-md-3">
+            <a [routerLink]="['/prospect/', prospect.id]">
+              <div class="col-md-6 narrow-big">
+                {{prospect.fullName}}, {{prospect.profession}}
+              </div>
+            </a>
+            <div class="col-md-3 narrow-small">
               <p>
                 <span *ngIf="prospect.address != null">
-                  {{prospect.address.street}} {{prospect.address.houseNumber}}, {{prospect.address.zipcode}} {{prospect.address.city}} 
+                  {{prospect.address.street}} {{prospect.address.houseNumber}}, <br>
+                  {{prospect.address.zipcode}} {{prospect.address.city}}
                 </span>
                 <span *ngIf="prospect.address == null">
-                  <h5>
-                    <a [routerLink]="['/prospect/edit', prospect.id]">Gegegevens aanvullen</a>
-                  </h5>
+                  <a [routerLink]="['/prospect/edit', prospect.id]">Gegegevens aanvullen</a>
                 </span>
               <p>
             </div>
-            <div class="col-md-3">
-              <h3>
-                <a href="mailto:{{prospect.emailAddress}}">{{prospect.emailAddress}}</a>
-              </h3>
-            </div>
-            <div class="col-md-2">
-              <p>
-                <a class="member-address details" href="tel:{{prospect.phoneNumber}}">{{prospect.phoneNumber}}</a>
-              </p>
+            <div class="col-md-3 narrow-small">
+              <a href="mailto:{{prospect.emailAddress}}">{{prospect.emailAddress}}</a>
+              <br>
+              <a href="tel:{{prospect.phoneNumber}}">{{prospect.phoneNumber}}</a>
             </div>
           </div>
         </div>
