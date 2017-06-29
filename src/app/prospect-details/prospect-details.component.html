@@ -47,6 +47,12 @@
     <div class="col-md-8">
       <h2>Traject</h2>
       <button style="width: 100%" type="submit" (click)="showAppointmentModal()" class="btn-primary btn-block">NIEUWE AFSPRAAK</button>
+      <br>  
+      <div class="advanced-buttons">
+      <button style="width: 33%" type="submit" (click)="showAppointmentModal()" class="btn-primary btn-block">Mijn Afspraken</button>
+      <button style="width: 33%" type="submit" (click)="showAppointmentModal()" class="btn-primary btn-block">Alle Afspraken</button>
+      <button style="width: 33%" type="submit" (click)="showAppointmentModal()" class="btn-primary btn-block">Afgerond</button>
+      </div>
       <ul id="appointments-overview">
         <li *ngFor="let Action of Actions" class="appointment">
           <div class="appointment-title">
