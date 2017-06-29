@@ -4,10 +4,43 @@
 </div>
 <rmts-header></rmts-header>
 <div class="container">
-  <ul id="tab-group">
-    <li (click)="showMyActions($event)" id="myAppointmentsTab" class="tabs">Mijn Afspraken</li>
-    <li (click)="showAllActions($event)" id="allAppointmentsTab" class="tabs selected">Alle Afspraken</li>
-  </ul>
+  <div class container action>
+    <div class="col-md-12 switch">
+      <div class="col-md-3">
+        <!--Filler-->
+      </div>
+
+      <div class="col-md-3 switch-item">
+        <div (click)="showMyActions($event)" id="myAppointmentsTab" class="tabs">
+          Mijn Afspraken
+        </div>
+      </div>
+
+      <div class="col-md-3 switch-item">
+        <div (click)="showAllActions($event)" id="allAppointmentsTab" class="tabs selected">
+          Alle Afspraken
+        </div>
+      </div>
+
+      <div class="col-md-1">
+        <!--Filler-->
+      </div>
+
+      <div class="col-md-2">
+
+        <!--Code below has been commented out because the modal to support this does not exist-->
+        <!--If the modal exists please change the col-md order back to 2/3/3/2/2-->
+
+        <!--
+        <button type="submit" (click)="showAppointmentModal()" class="button-action">
+          NIEUWE AFSPRAAK
+        </button>
+        -->
+      </div>
+    </div>
+
+  </div>
+
   <br><br>
 
   <div *ngIf="ActionOverview?.isEmpty()">
@@ -23,7 +56,7 @@
           <div class="col-md-1 maxheight">
             <div (click)="completeAction($event, action.prospect.id, action)" class="check"
                  [ngClass]="action?.completed ? 'checked forbidden' : 'clickable'">
-          </div>
+            </div>
           </div>
           <div class="col-md-2 maxheight">
             <div class="text">
@@ -32,7 +65,7 @@
             </div>
             <div class="vertical-line"></div>
           </div>
-          <div class="col-md-2 maxheight">
+          <div class="col-md-4 maxheight">
             <div class="text">
               <h4 class="header">{{action.actionType.content}}</h4>
               <h4>{{action.location}}</h4>
@@ -48,10 +81,10 @@
             </div>
             <div class="vertical-line"></div>
           </div>
-          <div class="col-md-3 maxheight">
+          <div class="col-md-1 maxheight">
             <div class="text">
               <h4 class="header">Door</h4>
-              <h4>{{action?.user.name}}</h4>
+              <h4>{{getFirstName(action?.user.name)}}</h4>
             </div>
           </div>
           <div class="col-md-1 maxheight">
