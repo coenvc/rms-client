@@ -1,5 +1,6 @@
 <div *ngIf="completeAppointmentModalVisible == true">
-  <complete-action-modal [prospectId]="prospectId" (onButtonClicked)="hideCompleteActionModal()"></complete-action-modal>
+  <complete-action-modal [prospectId]="prospectId"
+                         (onButtonClicked)="hideCompleteActionModal()"></complete-action-modal>
 </div>
 <rmts-header></rmts-header>
 <div class="container">
@@ -7,7 +8,7 @@
     <li (click)="showMyActions($event)" id="myAppointmentsTab" class="tabs">Mijn Afspraken</li>
     <li (click)="showAllActions($event)" id="allAppointmentsTab" class="tabs selected">Alle Afspraken</li>
   </ul>
-  <br>
+  <br><br>
 
   <div *ngIf="ActionOverview?.isEmpty()">
     <br>
@@ -18,23 +19,24 @@
     <h3 *ngIf="list.list.length > 0">{{list.name}}</h3>
     <div *ngFor="let action of list?.list">
       <div class="container action">
-        <div (click)="completeAction($event, action.prospect.id, action)" class="check col-md-2" [ngClass]="action?.completed ? 'checked forbidden' : 'clickable'"></div>
+        <div (click)="completeAction($event, action.prospect.id, action)" class="check col-md-2"
+             [ngClass]="action?.completed ? 'checked forbidden' : 'clickable'"></div>
         <div class="col-md-10 action-background">
-          <div class="col-md-2 nogwat">
+          <div class="col-md-2 maxheight">
             <div class="text">
               <h4 class="header">{{action?.date | date:"dd-MM-yyyy"}}</h4>
               <h4>{{action?.date | date:"HH:mm"}}</h4>
             </div>
             <div class="vertical-line"></div>
           </div>
-          <div class="col-md-3 nogwat">
+          <div class="col-md-3 maxheight">
             <div class="text">
               <h4 class="header">{{action.actionType.content}}</h4>
               <h4>{{action.location}}</h4>
             </div>
             <div class="vertical-line"></div>
           </div>
-          <div class="col-md-4 nogwat">
+          <div class="col-md-3 maxheight">
             <div class="text">
               <h4 class="header">Afspraak met</h4>
               <h4>
@@ -43,15 +45,18 @@
             </div>
             <div class="vertical-line"></div>
           </div>
-          <div class="col-md-2 nogwat">
+          <div class="col-md-3 maxheight">
             <div class="text">
               <h4 class="header">Door</h4>
               <h4>{{action?.user.name}}</h4>
             </div>
           </div>
-          <div class="col-md-1 nogwat">
-            <h4><a [routerLink]="['/action/edit', action.id]" class="fa fa-pencil item-icons clickable" aria-hidden="true" [id]="action.id"
-                style="float: right"></a></h4>
+          <div class="col-md-1 maxheight">
+            <a [routerLink]="['/action/edit', action.id]" class="btn-link">
+              <div style="text-align: center; padding-top: 25px;">
+                Bewerken
+              </div>
+            </a>
           </div>
         </div>
       </div>
