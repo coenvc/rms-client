@@ -10,6 +10,9 @@
       <a class="link" [routerLink]="['/prospect']">{{ "header-overview" | translate }}</a>
       <a class="pull-right link" [routerLink]="['/']">{{ "header-logout" | translate }}</a>
       <a class="pull-right link" onclick="this.removeLoggedinUser()" [routerLink]="['/settings']">{{ "header-settings" | translate }}</a>
+      <a class="pull-right link clickable" (click)="setLangague('nl')">NL</a>
+      <a class="pull-right link clickable" (click)="setLangague('en')">EN</a>
+      <a class="pull-right link clickable" (click)="setLangague('ti')">TI</a>
     </div>
   </div>
 </nav>
