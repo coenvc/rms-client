@@ -1,85 +1,72 @@
 <rmts-header></rmts-header>
 <br>
 <div class="container">
-  <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
-    <div class="details-container" id="details-container personal">
+  <div class="details-container" id="details-container personal">
+    <h1>Afspraak aanpassen</h1>
+    <div class="form-background">
+      <div class="form-group">
 
-      <h1>Afspraak aanpassen</h1>
-
-      <div class="form-background">
-        <div class="form-group">
-
-          <div class="col-md-12">
-            <h4>Door <span class="required-field">*</span></h4>
-            <select class="form-field col-md-6 minimal" [(ngModel)]="user" name="user" required>
+        <div class="col-md-12">
+          <h4>Door <span class="required-field">*</span></h4>
+          <select class="form-field col-md-6 minimal" [(ngModel)]="user" name="user" required>
               <option *ngFor="let u of users" [selected]="user?.id == u.id">
                 {{ u.name }}
               </option>
             </select>
-          </div>
+        </div>
 
-          <div class="col-md-12">
-            <h4>Met <span class="required-field">*</span></h4>
-            <select class="form-field col-md-6 minimal" [(ngModel)]="prospect" name="prospect"
-                    required>
+        <div class="col-md-12">
+          <h4>Met <span class="required-field">*</span></h4>
+          <select class="form-field col-md-6 minimal" [(ngModel)]="prospect" name="prospect" required>
               <option *ngFor="let p of prospects" [selected]="prospect?.id == p.id">
                 {{ p.fullName }}
               </option>
             </select>
-          </div>
+        </div>
 
-          <div class="col-md-12">
-            <h4>Activiteit <span class="required-field">*</span></h4>
-            <select class="form-field col-md-6 minimal" [(ngModel)]="actiontype" name="actiontype"
-                    required>
+        <div class="col-md-12">
+          <h4>Activiteit <span class="required-field">*</span></h4>
+          <select class="form-field col-md-6 minimal" [(ngModel)]="actiontype" name="actiontype" required>
               <option *ngFor="let a of actiontypes" [selected]="actiontype?.id == a.id">
                 {{ a.content }}
               </option>
             </select>
-          </div>
+        </div>
 
-          <div class="col-md-12">
-            <h4>Datum en tijd <span class="required-field">*</span></h4>
-            <input #date [value]='dateString' type="datetime-local"
-                   class="form-field col-md-6 minimal" id="date" name="date" autocomplete="off"
-                   required>
-          </div>
+        <div class="col-md-12">
+          <h4>Datum en tijd <span class="required-field">*</span></h4>
+          <input #date [value]='dateString' type="datetime-local" class="form-field col-md-6 minimal" id="date" name="date" autocomplete="off"
+            required>
+        </div>
 
-          <div class="col-md-12">
-            <h4>Locatie <span class="required-field">*</span></h4>
-            <input [(ngModel)]="action.location" type="text" class="form-field col-md-6 minimal" id="location"
-                   name="description" autocomplete="off" ngModel required>
-          </div>
+        <div class="col-md-12">
+          <h4>Locatie <span class="required-field">*</span></h4>
+          <input [(ngModel)]="action.location" type="text" class="form-field col-md-6 minimal" id="location" name="description" autocomplete="off"
+            ngModel required>
+        </div>
 
-          <div class="col-md-12">
-            <h4>Beschrijving <span class="required-field">*</span></h4>
-            <input [(ngModel)]="action.description" type="text" class="form-field col-md-6 minimal" id="description"
-                   name="description" autocomplete="off" ngModel required>
-          </div>
+        <div class="col-md-12">
+          <h4>Beschrijving <span class="required-field">*</span></h4>
+          <input [(ngModel)]="action.description" type="text" class="form-field col-md-6 minimal" id="description" name="description"
+            autocomplete="off" ngModel required>
+        </div>
 
 
-          <div class="col-md-3">
-            <button type="submit" style="width: 100%; height: 50px" class="btn-primary btn-block"
-                    (click)="onSubmit(date.value)">
+        <div class="col-md-3">
+          <button (click)="onSubmit()" style="width: 100%; height: 50px" class="btn-primary btn-block">
               Opslaan
             </button>
-          </div>
-          <div class="col-md-3" style="padding-right: 0px;">
-            <a [routerLink]="['/prospect', prospect.id]"
-               class=" clickable" aria-hidden="true" [id]="prospect.id">
+        </div>
+        <div class="col-md-3" style="padding-right: 0px;">
+          <a [routerLink]="['/prospect', prospect.id]" class=" clickable" aria-hidden="true" [id]="prospect.id">
               <button class="btn-primary btn-block" style="width: 100%; height: 50px;">
                 Terug naar overzicht
               </button>
             </a>
-          </div>
-
-          <!--Dit is een beetje dom maar nu nodig om de wrapper naar beneden te laten lopen
-          omdat de knop nu in een div zit-->
-          <span style="color: white">|</span>
-
         </div>
+
+        <span style="color: white">|</span>
       </div>
     </div>
-  </form>
-  <br><br><br>
-</div>
+    <br><br><br>
+  </div>

@@ -73,7 +73,9 @@ export class MemberCardComponent implements OnInit {
     if (t.toLowerCase() === 'alle') {
       this.prospects = this.initialProspects;
     } else {
-      this.prospects = this.initialProspects.filter(p => p.status.id === t);
+      // == is nodig hier, anders werkt het niet.
+      // dus let niet op de waarschuwing van tslint.
+      this.prospects = this.initialProspects.filter(p => p.status.id == t);
     }
   }
 

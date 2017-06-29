@@ -12,12 +12,21 @@ import { Action } from 'classes/Action';
 })
 export class DashboardComponent implements OnInit {
   ActionOverview: ActionOverview;
+  Actions: Action[];
   CurrentUser: User;
   completeAppointmentModalVisible: boolean;
   prospectId: number;
   reloadMethod: string;
 
   constructor(public ActionService: ActionDataService) { }
+
+  ngOnInit() {
+    this.ActionService.getAll().subscribe(r => {
+      this.CurrentUser = JSON.parse(localStorage.getItem('currentUser'));
+      this.reloadMethod = 'user';
+      this.reloadActions(this.reloadMethod);
+    });
+  }
 
   showMyActions(event) {
     this.reloadMethod = 'user';
@@ -35,14 +44,6 @@ export class DashboardComponent implements OnInit {
     myButton.className += ' selected';
     const otherButton = document.getElementById('allAppointmentsTab');
     otherButton.className = 'tabs';
-  }
-
-  ngOnInit() {
-    this.ActionService.getAll().subscribe(r => {
-      this.CurrentUser = JSON.parse(localStorage.getItem('currentUser'));
-      this.reloadMethod = 'user';
-      this.reloadActions(this.reloadMethod);
-    });
   }
 
   completeAction(event, prospectId, action: Action) {
@@ -65,12 +66,12 @@ export class DashboardComponent implements OnInit {
       case 'user':
         this.ActionService.getUserActionOverview(this.CurrentUser.id).subscribe(request => {
           this.ActionOverview = new ActionOverview(request.today, request.thisWeek, request.thisMonth, request.remainder)
-        })
+        });
         break;
       case 'all':
-        this.ActionService.getAllActionsOverview().subscribe(request => {
+        this.ActionService.getAllActionsOverview().subscribe(request => {          
           this.ActionOverview = new ActionOverview(request.today, request.thisWeek, request.thisMonth, request.remainder)
-        })
+        });
         break;
     }
   }

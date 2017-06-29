@@ -192,14 +192,14 @@ export class SettingsComponent implements OnInit {
     this.actiontypedataService.getAll().subscribe(request => this.actiontypes = request);
   }
 
- completeAddUserModal(){ 
-   this.addUserModalVisible = false; 
-   this.userDataService.getAll().subscribe(request => this.users)
- } 
+ completeAddUserModal(){
+   this.addUserModalVisible = false;
+   this.userDataService.getAll().subscribe(request => this.users = request);
+ }
 
- completeEditUserModal(){ 
-   this.editUserModalVisible = false; 
-    this.userDataService.getAll().subscribe(request => this.users)
+ completeEditUserModal(){
+   this.editUserModalVisible = false;
+    this.userDataService.getAll().subscribe(request => this.users = request);
 
  }
 

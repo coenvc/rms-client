@@ -7,7 +7,7 @@
         <br>
         <H4>Activiteit<span class="required-field"> *</span></H4>
 
-        <select class="form-field minimal" style="width:100%;" [(ngModel)]="test">
+        <select class="form-field minimal" style="width:100%;" [(ngModel)]="selectedId">
           <option *ngFor="let action of ActionTypes" [selected]="action.id == firstId" [value]="action.id">{{action.content}}</option>
         </select>
 

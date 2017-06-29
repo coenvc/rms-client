@@ -3,7 +3,7 @@
 <add-action-modal (onButtonClicked)="completeAddActionModal()" *ngIf="addActionModalVisible == true"></add-action-modal>
 <edit-action-modal [currentId]="currentActionId" (onButtonClicked)="completeEditActionModal()" *ngIf="editActionModalVisible == true"></edit-action-modal>
 <edit-status-modal [currentId]="currentStatusId" (onButtonClicked)="showModal()" *ngIf="editStatusModalVisible == true"></edit-status-modal>
-<edit-user-modal [currentId]="currentUserId" (onButtonClicked)="completeEditUserModal()" *ngIf="editUserModalVisible == true" ></edit-user-modal>
+<edit-user-modal [currentId]="currentUserId" (onButtonClicked)="completeEditUserModal()" *ngIf="editUserModalVisible == true"></edit-user-modal>
 <add-user-modal (onButtonClicked)="completeAddUserModal()" *ngIf="addUserModalVisible == true"></add-user-modal>
 <div class="settings-wrapper">
   <!---->
@@ -39,7 +39,7 @@
         </li>
       </ul>
     </div>
-        <div class="col-md-4 ">
+    <div class="col-md-4 ">
       <h1>Gebruikers</h1>
       <!--Search + Add-->
       <input type="text" class="memver-search-bar material-search settings-search" [(ngModel)]="userSearchText" placeholder="Zoek...">
@@ -53,10 +53,6 @@
           </h4>
         </li>
       </ul>
-      <div class="material-button settings-overview">
-        <a class="fa fa-angle-left clickable" aria-hidden="true"></a> 1 van {{ this.Math.ceil(users?.length / 6) }}
-        <a class="fa fa-angle-right clickable" aria-hidden="true"></a>
-      </div>
     </div>
   </div>
   <br>

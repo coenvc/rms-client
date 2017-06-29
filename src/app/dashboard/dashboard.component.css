@@ -68,10 +68,10 @@ th,
 td {
   clear: both;
   padding: 0px 20px 0px 20px;
-} 
+}
 
 th:not(:first-child),
-td:not(:first-child){ 
+td:not(:first-child){
       border-left: 1px solid #0c3c7c;
 }
 
@@ -89,12 +89,12 @@ th {
 }
 
 .table-container {
-  height: 100%; 
-  padding-top: 10px; 
+  height: 100%;
+  padding-top: 10px;
   background-color: #fff;
 }
 
-.items-this-week, .items-this-month{ 
+.items-this-week, .items-this-month{
   margin-top:50px;
 }
 
@@ -127,7 +127,7 @@ h3 {
   bottom: 10%;
 }
 
-.nogwat {
+.maxheight {
     height: 100%;
 }
 
@@ -161,7 +161,7 @@ h3 {
 }
 
 .text {
-     position: absolute;              
-   top: 50%;                        
-   transform: translate(0, -50%)    
+     position: absolute;
+   top: 50%;
+   transform: translate(0, -50%)
 }
