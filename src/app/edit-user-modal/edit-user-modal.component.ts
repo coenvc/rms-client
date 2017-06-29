@@ -5,7 +5,7 @@ import { UserDataService } from 'app/user-data.service';
 @Component({
   selector: 'edit-user-modal',
   templateUrl: './edit-user-modal.component.html',
-  styleUrls: ['./edit-user-modal.component.css']
+  styleUrls: ['./edit-user-modal.component.css',  '../../styles/buttons.css', '../../styles/forms.css', '../../styles/modal.css']
 })
 export class EditUserModalComponent implements OnInit {
   @Output() onButtonClicked: EventEmitter<any> = new EventEmitter<any>();
