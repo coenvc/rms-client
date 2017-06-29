@@ -6,7 +6,7 @@ import { User } from 'classes/user';
   // tslint:disable-next-line:component-selector
   selector: 'add-user-modal',
   templateUrl: './add-user-modal.component.html',
-  styleUrls: ['./add-user-modal.component.css']
+  styleUrls: ['./add-user-modal.component.css', '../../styles/buttons.css', '../../styles/forms.css', '../../styles/modal.css']
 })
 export class AddUserModalComponent implements OnInit {
   @Output() onButtonClicked: EventEmitter<any> = new EventEmitter<any>();
