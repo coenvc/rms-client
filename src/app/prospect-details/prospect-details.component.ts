@@ -21,13 +21,15 @@ export class ProspectDetailsComponent implements OnInit {
   Status: Status[];
   id: number;
   Actions: Action[];
+  InitalActions: Action[];
   Prospect: Prospect;
   socialLinks: SocialLinks;
   address: Address;
   status: Status;
   profession: string;
-
+  ActionsLoaded: boolean;
   prospectId: number;
+  onlyMyActions = false;
 
   addAppointmentModalVisible: boolean = false;
   completeAppointmentModalVisible: boolean = false;
@@ -42,7 +44,12 @@ export class ProspectDetailsComponent implements OnInit {
 
   // method called by OnInit that gets our ID and once it has it activates GetObject
   FetchIDFromUrl() {
-    this.route.params.subscribe(params => this.getObject(+params['id']));
+    this.route.params.subscribe(params => {
+      this.id = params['id'] 
+      this.getObject(this.id);
+    }); 
+
+
   }
 
   // method called by FetchData that gets data by the ID from the url
@@ -57,9 +64,7 @@ export class ProspectDetailsComponent implements OnInit {
       .subscribe(request => this.splitObject(request),
       error => console.log(error));
 
-    this.ActionsDataService.getProspectActionsUnsorted(id)
-      .subscribe(request => this.Actions = request,
-      error => console.log(error));
+
 
   }
 
@@ -115,6 +120,23 @@ export class ProspectDetailsComponent implements OnInit {
     }
   }
 
+  showMyAppointments(){  
+    this.onlyMyActions = true
+    let currentUser = JSON.parse(localStorage.getItem('currentUser'));  
+    this.Actions = this.InitalActions.filter(a => a.user.id == currentUser.id)
+  } 
+
+  showAllAppointments(){ 
+    this.onlyMyActions = false
+    this.Actions = this.InitalActions;
+  }
+
+
+  showCompletedAppointments(){ 
+    let currentUser = JSON.parse(localStorage.getItem('currentUser'));  
+    this.Actions = this.onlyMyActions ? this.InitalActions.filter(a => a.completed && a.user.id == currentUser.id) : this.InitalActions.filter(a => a.completed);
+  }
+
     generateProposal() {
     this.pdfGenerateService.generate(this.Prospect)
       .subscribe(res => {
@@ -128,10 +150,19 @@ export class ProspectDetailsComponent implements OnInit {
 
         saveAs(blob, name, false);
       });
-  }
+  } 
+
 
   ngOnInit() {
-    localStorage.setItem('currentProspect', JSON.stringify(this.Prospect));
-  }
+    localStorage.setItem('currentProspect', JSON.stringify(this.Prospect));  
+        this.ActionsDataService.getProspectActionsUnsorted(this.id)
+      .subscribe(request =>{ 
+        this.Actions = request, 
+        this.InitalActions = request, 
+        this.ActionsLoaded = true;
+    },
+      error => console.log(error));
+  } 
+
 }
 
