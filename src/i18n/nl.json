@@ -1,3 +1,6 @@
 {
-    "header-dashboard": "Dashboard"
+    "header-dashboard": "Dashboard",
+    "header-overview": "Leden Overzicht",
+    "header=settings": "Instellingen",
+    "header-logout": "Uitloggen"
 }

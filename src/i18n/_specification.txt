@@ -1,0 +1,102 @@
+~Header
+	- Dashboard knop
+	- Leden Overzicht knop
+	- Intellingen knop
+	- Uitloggen knop
+~/prospect
+	- Zoek...
+	- Alle
+	- Breed / Smal overzicht knop
+
+~/prospect/prospect/:id
+	- Gegevens titel
+	- Traject titel
+	- Nieuwe Afspraak knop
+	- Bewerken knop
+~/prospect/:id:new-appointment-modal
+	- Titel
+	- Beschrijving
+	- Activiteit label
+	- Locatie label
+	- Datum label
+
+~/prospect/edit/:id
+	- Persoonlijke details titel
+	- Voornaam label
+	- Tussenvoegsel label
+	- Achternaam label
+	- Status label
+	- Beroep label
+	- Motivatie label
+	- Adresgegevens titel
+	- Straatnaam label
+	- Huisnummer label
+	- Postcode label
+	- Plaats label
+	- Contactgegevens titel
+	- Emailadres label
+	- Telefoonnummer label
+	- Opslaan knop
+
+~/prospect/add
+	- Titel
+	- Voornaam label
+	- Tussenvoegsel label
+	- Achternaam label
+	- Emailadres label
+	- Telefoonnummer label
+	- Beroep label
+	- Status label
+	- Status label
+	- Motivatie label
+	- Toevoegen knop
+
+~/settings
+	- Statussen titel
+	- Activiteiten titel
+
+~/settings:add-status-modal
+	- Titel
+	- Beschrijving
+	- Omshrijving titel
+	- Toevoegen knop
+	- Annuleren knop
+
+~/settings:edit=status-modal
+	- Titel
+	- Beschrijving
+	- Omschrijving titel
+	- Inhoud
+	- Aanpassen knop
+	- Annuleren knop
+
+~/settings:add-action-modal
+	- Titel
+	- Beschrijving
+	- Omschrijving titel
+	- Inhoud
+	- Aanpassen knop
+	- Anulleren knop
+
+~/settings:edit-action-modal
+	- Titel
+	- Beschrijving
+	- Omschrijving titel
+	- Inhoud
+	- Aanpassen knop
+	- Anulleren knop
+
+~/action/edit/:id
+	- Titel
+	- Door label
+	- Met label
+	- Activiteit label
+	- Datum en tijd label
+	- Locatie label
+	- Beschrijving label
+	- Opslaan knop
+	- Overzicht knop
+
+~/dashboard
+	- Mijn Afspraken knop
+	- Alle Afspraken knop
