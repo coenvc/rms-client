@@ -23,7 +23,7 @@ export class EditUserModalComponent implements OnInit {
   editUser() {
     this.User.id = this.currentId;
     this.userDataService.update(this.User)
-      .subscribe(response => this.onButtonClicked.emit())
+      .subscribe(response => this.onButtonClicked.emit());
   }
 
   close() {
