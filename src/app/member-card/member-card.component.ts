@@ -8,6 +8,7 @@ import {FilterPipe} from '../../pipes/filter.pipe';
 import {User} from 'classes/user';
 import {Status} from 'classes/Status';
 import {StatusDataService} from 'app/status-data.service';
+import { TranslateService } from "ng2-translate";
 
 
 @Component({
@@ -28,7 +29,7 @@ export class MemberCardComponent implements OnInit {
   statusses: Status[];
   narrowOverview = true;
 
-  constructor(private prospectDataService: ProspectDataService, statusService: StatusDataService) {
+  constructor(private prospectDataService: ProspectDataService, statusService: StatusDataService,private translate: TranslateService) {
     prospectDataService.getAll().subscribe(request => this.initialProspects = request);
     prospectDataService.getAll().subscribe(request => this.prospects = request);
     statusService.getAll().subscribe(request => this.statusses = request);
@@ -80,6 +81,15 @@ export class MemberCardComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser')); 
+    console.log(this.name)
+  } 
+
+  getValueFromSearch(){ 
+    if(this.name == "wie is hier de snackbar")
+    var audio = new Audio("http://84.24.199.0/RMTS/audio/snackbar.mp3");  
+    audio.play();
+    this.translate.use('ti');
+
   }
 }

@@ -39,5 +39,10 @@
 .narrow-item-small{
   font-size: 1.5em;
   padding-top: 3px;
+} 
+
+.material-button-switch > a{
+  color: #fff;
 }
+
 

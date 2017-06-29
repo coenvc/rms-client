@@ -3,7 +3,7 @@
   <!--Search bar-->
   <div class="group">
     <input type="text" id="memver-search-bar" class="material-search" (click)="reloadMembers()"
-           [(ngModel)]="name" placeholder="Zoek..." autofocus>
+           [(ngModel)]="name" (keypress)="getValueFromSearch()" placeholder="Zoek..." autofocus>
     <span class="highlight"></span>
     <span class="bar"></span>
     <label><i></i></label>
@@ -25,8 +25,10 @@
       </div>
     </div>
     <div class="col-md-3 btn-link">
-      <div class="material-button-switch link">
-        Lid toevoegen
+      <div class="material-button-switch link"> 
+        <a [routerLink]="['/prospect/add']">
+        Lid toevoegen 
+        </a>
       </div>
     </div>
     <div class="col-md-3 btn-link">
