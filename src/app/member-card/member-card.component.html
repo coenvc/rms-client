@@ -11,7 +11,7 @@
   <!--End search bar-->
   <!--Member filter-->
   <div class="row">
-    <div class="col-md-7">
+    <div class="col-md-6">
       <div class="member-filter">
         <select class="form-field minimal" style="width: 100%" (change)="onChange($event.target.value)">
           <option *ngFor="let s of statusses" [ngValue]="status" [selected]="s?.id == status.id" [value]="s.id">
@@ -23,25 +23,26 @@
         </select>
       </div>
     </div>
-    <div class="col-md-1">
-      <a routerLink="add">
-        <div class="material-button">
-          <a class="add-link" routerLink="add">+</a>
-        </div>
+    <div class="col-md-3 btn-link">
+      <a class="material-button-switch link">
+        <a [routerLink]="['/prospect/add']">
+          <div class="material-button-switch link">
+            Lid toevoegen
+          </div>
+        </a>
       </a>
     </div>
-    <div class="col-md-4 btn-link">
-      <!--<input type="checkbox" [(ngModel)]="narrowOverview"/>-->
+    <div class="col-md-3 btn-link">
       <div *ngIf="narrowOverview == false">
         <!--Wide-->
         <div class="material-button-switch link" (click)="invertOverviewType()">
-          Wisselen naar Smal overzicht
+          Toon smal overzicht
         </div>
       </div>
       <div *ngIf="narrowOverview == true">
         <!--Narrow-->
         <div class="material-button-switch link" (click)="invertOverviewType()">
-          Wisselen naar Breed overzicht
+          Toon breed overzicht
         </div>
       </div>
 
@@ -94,9 +95,6 @@
                 </div>
               </div>
             </div>
-            <!--Niet alle statussen hebben een kleur, vandaar weggecomment-->
-            <!--<div [ngClass]="prospect.status.content" class="member-status">
-            </div>-->
           </div>
         </div>
       </li>
@@ -107,14 +105,14 @@
 
     <!--Start labels on top-->
     <div class="col-md-12">
-      <div class="col-md-6 narrow-small">
-        Naam &amp; Beroep
+      <div class="col-md-5 narrow-small">
+        <h4>Naam &amp; Beroep</h4>
+      </div>
+      <div class="col-md-4 narrow-small">
+        <h4>Adres</h4>
       </div>
       <div class="col-md-3 narrow-small">
-        Adres
-      </div>
-      <div class="col-md-3 narrow-small">
-        Contact
+        <h4>Contact</h4>
       </div>
     </div>
     <!--End labels on top-->
@@ -125,11 +123,11 @@
         <div class="member-card-narrow">
           <div class="col-md-12">
             <a [routerLink]="['/prospect/', prospect.id]">
-              <div class="col-md-6 narrow-item-big">
+              <div class="col-md-5 narrow-item-big">
                 {{prospect.fullName}}, {{prospect.profession}}
               </div>
             </a>
-            <div class="col-md-3 narrow-item-small">
+            <div class="col-md-4 narrow-item-small">
               <p>
                 <span *ngIf="prospect.address != null">
                   {{prospect.address.street}} {{prospect.address.houseNumber}}<br>
