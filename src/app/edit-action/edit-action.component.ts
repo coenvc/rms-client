@@ -17,10 +17,15 @@ import { ActionType } from 'classes/ActionType';
 export class EditActionComponent implements OnInit {
   id: number;
 
+  prospect: Prospect = null;
   action: Action = new Action();
+  actiontype: ActionType = new ActionType();
+  user: User = null;
+
   users: User[] = new Array<User>();
   prospects: Prospect[] = new Array<Prospect>();
   actiontypes: ActionType[] = new Array<ActionType>();
+  dateString = "06-07-2018";
 
   constructor(private actionDataService: ActionDataService,
     private prospectDataService: ProspectDataService,
@@ -33,7 +38,9 @@ export class EditActionComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.actionDataService.getActionById(+params['id'])
         .subscribe(request => {
-            this.action = request;
+          this.action = request;
+          this.dateString = this.toLocaleDateString(this.action.date);
+          this.prospect = this.action.prospect;
         });
     });
 
@@ -42,13 +49,18 @@ export class EditActionComponent implements OnInit {
     this.actiontypeDataService.getAll().subscribe(request => this.actiontypes = request);
   }
 
-
   private toLocaleDateString(date: Date): string {
 
     return (date.getFullYear() + '-' + (date.getMonth() > 9 ? date.getMonth() : '0' + date.getMonth()) + '-' + date.getDate() + 'T' + date.toLocaleTimeString()).toString();
   }
 
   onSubmit(date) {
+    console.log(this.prospect, this.actiontype, this.prospect)
+
+    this.action.actionType = this.actiontype;
+    this.action.user = this.user;
+    this.action.prospect = this.prospect;
+
     this.actionDataService.updateAction(this.action)
       .subscribe(request => null,
       error => console.log(error));
